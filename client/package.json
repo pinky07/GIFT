@@ -1,0 +1,43 @@
+{
+  "name": "GiFT",
+  "version": "1.0.0",
+  "description": "GiFT app",
+  "main": "webpack.config.dev.js",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "scripts": {
+    "start": "npm-run-all --parallel dev lint:watch",
+    "dev": "webpack-dev-server --config webpack.config.dev.babel.js",
+    "lint": "esw src",
+    "lint:watch": "npm run lint -- --watch"
+  },
+  "keywords": [],
+  "author": "GFT",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-plugin-react-display-name": "2.0.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babel-register": "^6.24.1",
+    "css-loader": "0.28.4",
+    "enzyme": "^2.9.1",
+    "eslint": "^4.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-watch": "^3.1.2",
+    "html-webpack-plugin": "^2.29.0",
+    "jest": "^20.0.4",
+    "npm-run-all": "^4.0.2",
+    "react-hot-loader": "^1.3.1",
+    "react-test-renderer": "^15.6.1",
+    "style-loader": "0.18.1",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
