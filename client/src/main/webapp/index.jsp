@@ -9,7 +9,7 @@
 <html>
   <head>
     <title>$Title$</title>
-	<h1>David merge test with oscar</h1>
+	<h1>David merge test with oscar (modified!)</h1>
   </head>
   <body>
   $END$
