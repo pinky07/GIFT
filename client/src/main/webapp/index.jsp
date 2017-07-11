@@ -9,6 +9,7 @@
 <html>
   <head>
     <title>$Title$</title>
+	<h1>David merge test</h1>
   </head>
   <body>
   $END$
