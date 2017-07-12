@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id "org.flywaydb.flyway" version "4.2.0"
+}
+
+flyway {
+    url = "jdbc:mysql://localhost:3306/gift?useSSL=false"
+    user = "root"
+    password = "root"
+    locations = ["filesystem:db"]
+    sqlMigrationPrefix = "v"
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Database
+    compile("mysql:mysql-connector-java")
+}
