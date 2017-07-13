@@ -15,7 +15,7 @@ import org.springframework.core.ParameterizedTypeReference
 @DirtiesContext
 class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
-    def "Should get projects byt portfolio" () {
+    def "Should get projects by portfolio" () {
         given:
         def oneProject = new Project()
         oneProject.id = 1
@@ -28,7 +28,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         def otherProject = new Project()
         otherProject.id = 2
         otherProject.name = "Big Ball"
-        otherProject.portfolioId = 2
+        otherProject.portfolioId = 1
         otherProject.releasePatternId = 1
         otherProject.cycleTypeId = 2
         otherProject.projectStatus = 1
@@ -38,11 +38,11 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         expected.add(otherProject)
 
         when:
-        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects",
+        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects/portfolio/1",
                 new ParameterizedTypeReference<List<Project>>() {})
         then:
         projects.statusCode == HttpStatus.OK
-        List<Project> response = projects.body
+        def response = projects.body
         response != null
         expected == response
     }
@@ -51,7 +51,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         given:
         def firstProject = new Project(
                 name: "My First Project",
-                portfolioId: 1,
+                portfolioId: 2,
                 releasePatternId: 2,
                 cycleTypeId: 3,
                 projectStatus:  4
@@ -66,7 +66,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         response != null
         response.id != 0
         response.name == "My First Project"
-        response.portfolioId == 1
+        response.portfolioId == 2
         response.releasePatternId == 2
         response.cycleTypeId ==  3
         response.projectStatus == 4
