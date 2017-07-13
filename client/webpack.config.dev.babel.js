@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   devtool: "#source-map",
+  bail: true,
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/dev-server',
@@ -30,10 +31,6 @@ export default {
   ],
   module: {
     rules: [
-      {
-        use: 'json',
-        test: /\.json$/
-      },
       {
         use: ['react-hot-loader', 'babel-loader'],
         test: /\.(jsx|js)$/,
