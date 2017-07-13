@@ -16,9 +16,11 @@ public class ProjectController {
     @Autowired
     private ProjectRepository repository;
 
-    @GetMapping
-    public ResponseEntity<List<Project>> findAllProjects() {
-        return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+    @GetMapping("/portfolio/{id}")
+    public ResponseEntity<List<Project>> findAllProjectsByPortfolio(@PathVariable("id") final int id) {
+        return new ResponseEntity<>(
+                repository.findByPortfolioId(id),
+                HttpStatus.OK);
     }
 
     @PostMapping()

@@ -3,8 +3,10 @@ package com.gft.GiFT
 import com.gft.GiFT.entities.Project
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ActiveProfiles
+import org.springframework.core.ParameterizedTypeReference
 
 @SpringBootTest( classes = GiFtApplication.class,
         webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT,
@@ -12,6 +14,38 @@ import org.springframework.test.context.ActiveProfiles
 @ActiveProfiles(["dev"])
 @DirtiesContext
 class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
+
+    def "Should get projects byt portfolio" () {
+        given:
+        def oneProject = new Project()
+        oneProject.id = 1
+        oneProject.name = "GiFT"
+        oneProject.portfolioId = 1
+        oneProject.releasePatternId = 2
+        oneProject.cycleTypeId = 1
+        oneProject.projectStatus = 2
+
+        def otherProject = new Project()
+        otherProject.id = 2
+        otherProject.name = "Big Ball"
+        otherProject.portfolioId = 2
+        otherProject.releasePatternId = 1
+        otherProject.cycleTypeId = 2
+        otherProject.projectStatus = 1
+
+        List<Project> expected = new ArrayList<Project>()
+        expected.add(oneProject)
+        expected.add(otherProject)
+
+        when:
+        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects",
+                new ParameterizedTypeReference<List<Project>>() {})
+        then:
+        projects.statusCode == HttpStatus.OK
+        List<Project> response = projects.body
+        response != null
+        expected == response
+    }
 
     def "Should add a new project" () {
         given:
