@@ -5,9 +5,7 @@ import com.gft.GiFT.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,10 +14,16 @@ import java.util.List;
 public class ProjectController {
 
     @Autowired
-    ProjectRepository projectRepository;
+    private ProjectRepository repository;
 
     @GetMapping
     public ResponseEntity<List<Project>> findAllProjects() {
-        return new ResponseEntity<>(projectRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping()
+    public Project persist(@RequestBody final Project project){
+        repository.save(project);
+        return project;
     }
 }
