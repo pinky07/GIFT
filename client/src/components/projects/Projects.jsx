@@ -8,9 +8,10 @@ export default class Projects extends React.Component {
 
   loadProjects() {
     fetch('http://localhost:8080/api/v1/projects/portfolio/1')
+      .then((resp) => resp.json())
       .then((data) => {
         this.listItems = data.map((project) => {
-          <li>`${project.name}, status: ${project.status}`  </li>
+          return <li>`${project.name}, status: ${project.projectStatus}`  </li>
         });
       })
       .catch(() => {
