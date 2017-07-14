@@ -11,7 +11,7 @@ export default class Projects extends React.Component {
       .then((resp) => resp.json())
       .then((data) => {
         this.listItems = data.map((project) => {
-          return <li>`${project.name}, status: ${project.projectStatus}`  </li>
+          return <li>{project.name}</li>
         });
       })
       .catch(() => {
@@ -23,9 +23,15 @@ export default class Projects extends React.Component {
   }
 
   render() {
+    const list = [{"id":1,"name":"GiFT","portfolioId":1,"releasePatternId":2,"cycleTypeId":1,"projectStatus":2},{"id":2,"name":"Big Ball","portfolioId":1,"releasePatternId":1,"cycleTypeId":2,"projectStatus":1}];
+    debugger;
     return (
       <div>
-        <ul>{this.listItems}</ul>
+        <ul>
+          {list.map(function(item, index){
+            return <li key={ index }>{item.name}</li>;
+          })}
+        </ul>
       </div>
     );
   }
