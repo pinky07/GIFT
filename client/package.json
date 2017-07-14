@@ -2,15 +2,15 @@
   "name": "GiFT",
   "version": "1.0.0",
   "description": "GiFT app",
-  "main": "webpack.config.dev.js",
+  "main": "webpack.config.dev.babel.js",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
   "scripts": {
-    "start": "npm-run-all test lint:watch dev",
-    "dev": "webpack-dev-server --config webpack.config.dev.babel.js",
-    "lint": "esw src",
+    "start": "npm-run-all test lint dev",
+    "dev": "webpack --config webpack.config.dev.babel.js",
+    "lint": "esw --ext .jsx,.js src",
     "lint:watch": "npm run lint -- --watch",
     "prod": "webpack --config webpack.config.dist.babel.js",
     "test": "jest"
