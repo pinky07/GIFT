@@ -35,17 +35,28 @@ dependencies {
     compile("org.hibernate:hibernate-entitymanager:${hibernateVersion}")
     compile("mysql:mysql-connector-java")
 
-    // Run database migrations
-    // compile('org.flywaydb:flyway-core:4.2.0')
-
     // Reduce boilerplate code
     compileOnly('org.projectlombok:lombok')
 
     // Mandatory dependencies for using Spock
-    compile ("org.codehaus.groovy:groovy-all:2.4.10")
+    compile("org.codehaus.groovy:groovy-all:2.4.10")
     testCompile("org.spockframework:spock-core:1.1-groovy-2.4-rc-2")
 
     // Test
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile("org.spockframework:spock-spring:1.1-groovy-2.4-rc-2")
+}
+
+test {
+    dependsOn 'cleanTest'
+
+    //Default to unit
+    exclude '**/*IntegrationTests.*'
+}
+
+// Usage: gradlew integrationTest
+task integrationTest(type: Test, description: 'Runs the integration tests', group: 'Verification') {
+    dependsOn 'cleanIntegrationTest'
+
+    include '**/*IntegrationTests*'
 }
