@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Welcome from './components/welcome/Welcome.jsx';
+import Projects from './components/projects/Projects.jsx';
 
-ReactDOM.render(<Welcome />, document.getElementById('app'));
+
+ReactDOM.render(<Projects />, document.getElementById('app'));

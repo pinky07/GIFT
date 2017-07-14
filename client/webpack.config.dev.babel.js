@@ -6,13 +6,12 @@ export default {
   devtool: "#source-map",
   bail: true,
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server',
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '../server/src/main/resources/static'),
+    publicPath: '',
     filename: 'bundle.js'
   },
   devServer: {
