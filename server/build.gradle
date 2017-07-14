@@ -13,6 +13,7 @@ buildscript {
 
 plugins {
     id 'io.franzbecker.gradle-lombok' version '1.8'
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
 }
 
 apply plugin: 'java'
@@ -59,4 +60,8 @@ task integrationTest(type: Test, description: 'Runs the integration tests', grou
     dependsOn 'cleanIntegrationTest'
 
     include '**/*IntegrationTests*'
+}
+
+bootRepackage {
+    mainClass = 'com.gft.GiFT.GiFtApplication'
 }
