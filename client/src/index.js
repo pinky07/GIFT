@@ -1,6 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Projects from './components/projects/Projects.jsx';
+import { Provider } from 'react-redux';
+import configStore from './store/configStore';
+import ProjectList from './components/projects/ProjectList';
 
+const store = configStore();
 
-ReactDOM.render(<Projects />, document.getElementById('app'));
+ReactDOM.render(
+  <Provider store={store}>
+    <ProjectList />
+  </Provider>,
+  document.getElementById('app')
+);
