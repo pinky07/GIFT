@@ -6,7 +6,6 @@ export default class Projects extends React.Component {
     this.listItems = [];
   }
 
-
   componentDidMount() {
         fetch('http://localhost:8080/api/v1/projects/portfolio/1')
           .then((resp) => resp.json())
