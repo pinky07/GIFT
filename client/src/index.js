@@ -1,6 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Projects from './components/projects/Projects.jsx';
+import React from 'react'
+import { render } from 'react-dom';
+import Main from './components/main';
+import { Router, Route, hashHistory } from 'react-router'
+require('../node_modules/grommet/grommet.min.css');
 
-
-ReactDOM.render(<Projects />, document.getElementById('app'));
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={Main}/>
+  </Router>
+), document.getElementById('app'))
