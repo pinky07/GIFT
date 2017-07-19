@@ -21,7 +21,7 @@ public class CORSConfig {
                             HttpMethod.POST.name(),
                             HttpMethod.DELETE.name(),
                             HttpMethod.OPTIONS.name())
-                    .allowedOrigins("http://localhost")
+                    .allowedOrigins("http://localhost:8080", "http://localhost:4090")
                     .allowedHeaders("Content-Type");
             }
         };
