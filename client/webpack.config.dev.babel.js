@@ -25,7 +25,6 @@ export default {
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/index.html')
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
