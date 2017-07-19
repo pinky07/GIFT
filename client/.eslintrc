@@ -18,7 +18,8 @@
     "semi": [2, "always"],
     "quotes": [2, "single"],
     "new-cap": 0,
-    "space-infix-ops": ["error", {"int32Hint": false}]
+    "space-infix-ops": ["error", {"int32Hint": false}],
+    "no-console": { "allow": ["log"] }
   },
   "extends": [
     "eslint:recommended",

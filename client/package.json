@@ -4,22 +4,25 @@
   "description": "GiFT app",
   "main": "webpack.config.dev.babel.js",
   "dependencies": {
+    "axios": "^0.16.2",
     "grommet": "^1.5.0",
     "history": "^4.6.3",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router": "^3.0.5",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "schema-utils": "^0.3.0"
   },
   "scripts": {
-    "start": "npm-run-all test lint dev",
-    "dev": "webpack --config webpack.config.dev.babel.js",
-    "lint": "esw --ext .jsx,.js src",
+    "start": "npm-run-all test lint:watch dev",
+    "dev": "webpack-dev-server --port 4090 --hot --inline --config webpack.config.dev.babel.js",
+    "lint": "esw src",
     "lint:watch": "npm run lint -- --watch",
     "prod": "webpack --config webpack.config.dist.babel.js",
     "test": "jest"

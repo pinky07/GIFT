@@ -10,7 +10,7 @@ import Anchor  from 'grommet/components/Anchor';
 import Actions  from 'grommet/components/icons/base/Actions';
 import Paragraph  from 'grommet/components/Paragraph';
 
-import Projects from './projects/Projects';
+import ProjectList from './projectList/ProjectList';
 
 export default class Main extends Component {
   constructor() {
@@ -49,7 +49,7 @@ export default class Main extends Component {
           </Box>
         </Header>
         <Box align="stretch" appCentered={true} colorIndex="light-2" pad="small" flex="grow" full="vertical">
-          <Projects />
+          <ProjectList />
         </Box>
         <Footer justify='between' float={true} fixed={true} pad="small">
           <Title>
