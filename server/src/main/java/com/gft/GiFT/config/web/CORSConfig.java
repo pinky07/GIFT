@@ -15,15 +15,14 @@ public class CORSConfig {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // TODO define appropriate origin servers
                 registry.addMapping("/**")
-                        .allowedMethods(HttpMethod.GET.name(),
-                                HttpMethod.PUT.name(),
-                                HttpMethod.POST.name(),
-                                HttpMethod.DELETE.name(),
-                                HttpMethod.OPTIONS.name())
-                        .allowedOrigins("*")
-                        .allowedHeaders("Content-Type");
+                    .allowedMethods(HttpMethod.GET.name(),
+                            HttpMethod.PUT.name(),
+                            HttpMethod.POST.name(),
+                            HttpMethod.DELETE.name(),
+                            HttpMethod.OPTIONS.name())
+                    .allowedOrigins("http://localhost")
+                    .allowedHeaders("Content-Type");
             }
         };
     }
