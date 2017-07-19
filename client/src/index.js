@@ -1,14 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router, Route, hashHistory } from 'react-router'
+import Main from './components/main';
 import configStore from './store/configStore';
-import ProjectList from './components/projects/ProjectList';
+require('../node_modules/grommet/grommet.min.css');
+require('./css/app.css');
 
 const store = configStore();
 
-ReactDOM.render(
+render((
   <Provider store={store}>
-    <ProjectList />
-  </Provider>,
-  document.getElementById('app')
-);
+    <Router history={hashHistory}>
+      <Route path="/" component={Main}/>
+    </Router>
+  </Provider>
+), document.getElementById('app'))

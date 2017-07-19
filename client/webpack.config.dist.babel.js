@@ -9,7 +9,7 @@ export default {
   ],
   target: 'web',
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '../server/src/main/resources/static'),
     filename: 'bundle.js'
   },
   devServer: {

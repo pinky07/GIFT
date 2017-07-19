@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-class ProjectList extends React.Component {
+export class ProjectList extends React.Component {
 
   componentDidMount() {
-    this.props.loadProjects();
+    let portfolioId = 1;
+    this.props.loadProjects(portfolioId);
   }
 
   render() {
@@ -21,6 +22,10 @@ class ProjectList extends React.Component {
   }
 }
 
+ProjectList.propTypes = {
+  loadProjects: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => {
   return {
     projects: state.projects
@@ -29,8 +34,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadProjects: () => dispatch(actions.loadProjects())
-    //actions: bindActionCreators( projectActions, dispatch)
+    loadProjects: bindActionCreators(actions.loadProjects, dispatch)
   }
 };
 

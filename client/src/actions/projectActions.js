@@ -1,18 +1,16 @@
 import * as types from './types';
+import projectService from '../services/projectService';
 
-const URL = 'http://localhost:8080/api/v1/projects/portfolio/1';
-
-export const loadProjects = () => {
+export const loadProjects = (portfolioId) => {
   return (dispatch) => {
-    fetch(URL)
-    .then((resp) => resp.json())
-    .then((projects) => {
-      if (projects) {
-        dispatch({ type: types.LOAD_PROJECTS_SUCCESS, projects });
-      }
-    })
-    .catch((error) => {
-      dispatch({ type: types.LOAD_PROJECTS_FAIL, error });
-    });
+    projectService.loadProjects(portfolioId)
+      .then((response) => {
+        if (response.data) {
+          dispatch({ type: types.LOAD_PROJECTS_SUCCESS, projects: response.data });
+        }
+      })
+      .catch((error) => {
+        dispatch({ type: types.LOAD_PROJECTS_FAIL, error });
+      });
   };
 };
