@@ -4,8 +4,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router'
 import Main from './components/main';
 import configStore from './store/configStore';
-require('../node_modules/grommet/grommet.min.css');
-require('./css/app.css');
+import './css/main.scss';
 
 const store = configStore();
 
