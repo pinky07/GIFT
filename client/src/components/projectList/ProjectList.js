@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 export class ProjectList extends React.Component {
 
   componentDidMount() {
-    let portfolioId = 1;
+    let portfolioId = 1;//TODO: the portfolio id should be passed as a prop
     this.props.loadProjects(portfolioId);
   }
 
@@ -16,9 +16,7 @@ export class ProjectList extends React.Component {
       <div>
         <h1>Projects list</h1>
         <ul>
-          {this.props.projects.map((project) =>
-             <li key ={project.id}>{project.name}</li>
-          )}
+          {this.props.projects.map( project => <li key ={project.id}>{project.name}</li>)}
         </ul>
       </div>
     );
