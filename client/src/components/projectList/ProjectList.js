@@ -13,11 +13,14 @@ export class ProjectList extends React.Component {
 
   render() {
     return (
+      <div>
+        <h1>Projects list</h1>
         <ul>
-          {this.props.projects.map((project) => {
-            return <li key ={project.id}>{project.name}</li>;
-          })}
+          {this.props.projects.map((project) =>
+             <li key ={project.id}>{project.name}</li>
+          )}
         </ul>
+      </div>
     );
   }
 }
