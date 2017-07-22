@@ -13,11 +13,13 @@ export default class Main extends Component {
   render() {
     return (
       <App centered={false}>
+        <Box>
         <AppHeader/>
         <Box align="stretch" appCentered={true} colorIndex="light-2" pad="small" flex="grow" full="vertical">
           {this.props.children}
         </Box>
         <AppFooter/>
+        </Box>
       </App>
     );
   }

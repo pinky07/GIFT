@@ -7,6 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'com.h2database:h2:1.4.191'
     }
 }
 
@@ -36,3 +37,17 @@ dependencies {
     // Database
     compile("mysql:mysql-connector-java")
 }
+
+// This task applies all the migrations to an in-memory database
+// This way we can check migrations in the CI Server
+// as part of the CI build.
+task validateDatabaseMigrationsInMemory(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    extension = new org.flywaydb.gradle.FlywayExtension()
+    extension.driver = "org.h2.Driver"
+    extension.schemas = ['gift']
+    extension.locations = ['filesystem:database/db']
+    extension.sqlMigrationPrefix = "v"
+    extension.url = 'jdbc:h2:mem:gift'
+    extension.user = 'sa'
+}
+

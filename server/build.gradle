@@ -65,7 +65,3 @@ task integrationTest(type: Test, description: 'Runs the integration tests', grou
 bootRepackage {
     mainClass = 'com.gft.GiFT.GiFtApplication'
 }
-
-springBoot {
-    executable = true
-}

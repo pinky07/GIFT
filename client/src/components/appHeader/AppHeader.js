@@ -7,22 +7,23 @@ import Anchor  from 'grommet/components/Anchor';
 
 const AppHeader = () =>
   (
-    <Header>
+    <Header colorIndex='neutral-1' pad='small'>
       <Title>
-        GIFT
+        GiFT
       </Title>
+      <Box pad="medium" separator='left' />
       <Box flex={true}
            direction='row'
            responsive={false}>
 
-        <Menu direction='row'>
+        <Menu direction='row' colorIndex='neutral-1' >
           <Anchor path={"/"}>
             Home
           </Anchor>
           <Anchor href='#'>
             Configuration
           </Anchor>
-          <Anchor  path={"/projects"}>
+          <Anchor  path={"/projects/1"}>
             Projects
           </Anchor>
         </Menu>

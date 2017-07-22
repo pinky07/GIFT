@@ -16,7 +16,7 @@ render((
     <Router history={hashHistory}>
       <Route path={"/"} component={Main}>
         <IndexRoute component={Home}></IndexRoute>
-        <Route path={"projects"} component={ProjectList}></Route>
+        <Route path={"projects/:id"} component={ProjectList}></Route>
         <Route path={"home"} component={Home}></Route>
       </Route>
 
