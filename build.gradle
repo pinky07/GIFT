@@ -12,6 +12,6 @@ task cibuild (dependsOn: [
         doDatabaseValidation,
         doServerBuild
 ]) {
-    doServerBuild.dependsOn(doClientBuild)
+//    doServerBuild.dependsOn(doClientBuild)
 //    doClientBuild.dependsOn(doDatabaseValidation)
 }
