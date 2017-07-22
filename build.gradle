@@ -10,9 +10,8 @@ task doDatabaseValidation (dependsOn: ':database:validateDatabaseMigrationsInMem
 
 task cibuild (dependsOn: [
         doDatabaseValidation,
-        doClientBuild,
         doServerBuild
 ]) {
     doServerBuild.dependsOn(doClientBuild)
-    doClientBuild.dependsOn(doDatabaseValidation)
+//    doClientBuild.dependsOn(doDatabaseValidation)
 }
