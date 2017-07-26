@@ -16,9 +16,6 @@ then
 	echo 'Trying to stop previously running containers...'
 	CONTAINERS_STOPPED=`docker stop $CONTAINERS_RUNNING`
 
-    echo 'REVIEW: Stopping my sql containers'
-	docker stop "gift-mysql"
-
 	if test -n "$CONTAINERS_STOPPED";
 	then
 		echo "Successfully stopped containers"
