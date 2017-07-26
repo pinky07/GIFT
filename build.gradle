@@ -34,7 +34,7 @@ task buildDocker(type: Docker, dependsOn: build) {
     applicationName = 'gift'
     baseImage = 'java:8'
     push = false // Would push to a Docker Hub account
-    applicationName = jar.baseName
+    // applicationName = jar.baseName
     addFile {
         from jar
         rename {'app.jar'}
