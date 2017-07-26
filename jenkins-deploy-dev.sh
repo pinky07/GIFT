@@ -1,7 +1,10 @@
 #!/bin/sh
 #
 
-IMAGE_NAME='com.gft/gift:0.0.1-SNAPSHOT'
+IMAGE_NAME='gift-app'
+
+docker rm 'gift-app'
+docker rm 'gift-mysql'
 
 echo 'Creating MySQL image named gift-mysql'
 docker run -d \
@@ -14,11 +17,11 @@ docker run -d \
 
 
 echo 'Linking containers...'
-CONTAINER_ID = `docker run -t  \
+CONTAINER_ID = docker run -t  \
     --name $IMAGE_NAME \
     --link gift-mysql:mysql \
     -p 11010:8080 \
-    $IMAGE_NAME`
+    $IMAGE_NAME
 
 echo 'Waiting 30s'
 sleep 30s

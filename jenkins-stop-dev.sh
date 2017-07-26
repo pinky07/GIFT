@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 
-IMAGE_NAME='com.gft/gift:0.0.1-SNAPSHOT'
+IMAGE_NAME='gift-app'
 echo 'Stopping containers based on' $IMAGE_NAME
 
 echo 'Searching for previously running containers...'
