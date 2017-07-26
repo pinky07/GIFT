@@ -14,15 +14,15 @@ docker run -d \
 
 
 echo 'Linking containers...'
-CONTAINER_ID = docker run -t  \
+CONTAINER_ID = `docker run -t  \
     --name $IMAGE_NAME \
     --link gift-mysql:mysql \
     -p 11010:8080 \
-    $IMAGE_NAME
+    $IMAGE_NAME`
 
 echo 'Waiting 30s'
 sleep 30s
 
-docker logs CONTAINER_ID
+docker logs $CONTAINER_ID
 
 echo 'Success'
