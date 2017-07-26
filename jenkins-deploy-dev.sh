@@ -3,7 +3,9 @@
 
 IMAGE_NAME='gift-app'
 
+echo 'Stopping container gift-app...'
 docker rm 'gift-app'
+echo 'Stopping container gift-mysql...'
 docker rm 'gift-mysql'
 
 echo 'Creating MySQL image named gift-mysql'
@@ -17,7 +19,7 @@ docker run -d \
 
 
 echo 'Linking containers...'
-CONTAINER_ID = docker run -t  \
+docker run -t  \
     --name $IMAGE_NAME \
     --link gift-mysql:mysql \
     -p 11010:8080 \
@@ -26,6 +28,9 @@ CONTAINER_ID = docker run -t  \
 echo 'Waiting 30s'
 sleep 30s
 
-docker logs $CONTAINER_ID
+echo 'Logs...'
+
+docker logs gift-app
+docker logs gift-mysql
 
 echo 'Success'
