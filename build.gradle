@@ -1,22 +1,8 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath('se.transmode.gradle:gradle-docker:1.2')
-    }
-}
-
 task wrapper(type: Wrapper) {
     gradleVersion = "4.0.1"
 }
 
 apply plugin: "java"
-apply plugin: 'docker'
-
-group = 'com.gft'
-version = '0.0.1-SNAPSHOT'
-description = 'gift'
 
 task doServerBuild (dependsOn: ':server:build'){}
 task doClientBuild (dependsOn: ':client:build'){}
@@ -30,14 +16,4 @@ task cibuild (dependsOn: [
     doClientBuild.dependsOn(doDatabaseValidation)
 }
 
-task buildDocker(type: Docker, dependsOn: build) {
-    applicationName = 'gift'
-    baseImage = 'java:8'
-    push = false // Would push to a Docker Hub account
-    // applicationName = jar.baseName
-    addFile {
-        from jar
-        rename {'app.jar'}
-    }
-    entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
-}
+task doDocker (dependsOn: ':server:buildDocker'){}

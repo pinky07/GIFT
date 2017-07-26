@@ -8,6 +8,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
     }
 }
 
@@ -16,15 +17,23 @@ plugins {
     id 'org.springframework.boot' version '1.5.4.RELEASE'
 }
 
+apply plugin: 'docker'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'groovy'
-apply plugin: 'application'
-mainClassName = 'com.gft.GiFT.GiFtApplication'
 
+group = 'com.gft'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'GiFtApplication',
+                'Implementation-Version': version,
+                'Main-Class': 'com.gft.GiFT.GiFtApplication'
+    }
+}
 
 repositories {
     mavenCentral()
@@ -64,6 +73,14 @@ task integrationTest(type: Test, description: 'Runs the integration tests', grou
     include '**/*IntegrationTests*'
 }
 
-bootRepackage {
-    mainClass = 'com.gft.GiFT.GiFtApplication'
+task buildDocker(type: Docker, dependsOn: build) {
+    applicationName = 'gift'
+    baseImage = 'java:8'
+    push = false // Would push to a Docker Hub account
+    // applicationName = jar.baseName
+    addFile {
+        from jar
+        rename {'app.jar'}
+    }
+    entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
 }
