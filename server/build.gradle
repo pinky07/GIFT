@@ -75,7 +75,7 @@ task integrationTest(type: Test, description: 'Runs the integration tests', grou
 
 task buildDocker(type: Docker, dependsOn: build) {
     applicationName = 'gift'
-    baseImage = 'mysql'
+    baseImage = 'java:8'
     push = false // Would push to a Docker Hub account
     // applicationName = jar.baseName
     addFile {
@@ -83,16 +83,4 @@ task buildDocker(type: Docker, dependsOn: build) {
         rename {'app.jar'}
     }
     entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
-
-    // Installs Java.
-    // Reference: https://dzone.com/articles/creating-a-docker-image-with-ubuntu-and-java
-    runCommand "apt-get update && \\\n" +
-            "    apt-get upgrade -y && \\\n" +
-            "    apt-get install -y  software-properties-common && \\\n" +
-            "    add-apt-repository ppa:webupd8team/java -y && \\\n" +
-            "    apt-get update && \\\n" +
-            "    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \\\n" +
-            "    apt-get install -y oracle-java8-installer && \\\n" +
-            "    apt-get clean"
-
 }
