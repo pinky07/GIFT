@@ -1,6 +1,6 @@
 .gradle
 /build/
-/out/
+server/out/
 !gradle/wrapper/gradle-wrapper.jar
 client/node_modules
 server/src/main/resources/static

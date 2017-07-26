@@ -71,4 +71,8 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         response.cycleTypeId ==  3
         response.projectStatus == 4
     }
+
+    def "Should get dashboard by project Id" () {
+
+    }
 }
