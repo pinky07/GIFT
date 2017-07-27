@@ -1,16 +1,20 @@
 #!/bin/sh
 #
 
+echo 'Removing container gift-mysql...'
+docker stop 'gift-mysql'
+docker rm 'gift-mysql'
+
+echo 'Removing container gift-app...'
+docker stop 'gift-app'
+docker rm 'gift-app'
+
 IMAGE_NAME='com.gft/gift:0.0.1-SNAPSHOT'
 
 echo 'Running container... ' $IMAGE_NAME
 CONTAINER_ID=`docker run -e 'SPRING_PROFILES_ACTIVE=default,container' -d $IMAGE_NAME`
 
 echo 'Container ID:' $CONTAINER_ID
-
-echo 'Stopping container gift-mysql...'
-docker stop 'gift-mysql'
-docker rm 'gift-mysql'
 
 echo 'Creating MySQL image named gift-mysql'
 docker run -d \
