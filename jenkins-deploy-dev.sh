@@ -31,7 +31,7 @@ sleep 30s
 echo ''
 echo 'Logs for GiFT WebApp'
 
-docker logs "com.gft/gift:0.0.1-SNAPSHOT"
+docker logs $IMAGE_NAME
 
 
 echo ''
