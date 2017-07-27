@@ -18,6 +18,7 @@ docker run -d \
     -e MYSQL_DATABASE=gift \
     -e MYSQL_USER=user \
     -e MYSQL_PASSWORD=user \
+    --expose 3306
     mysql:latest
 
 echo 'Waiting 30s'
