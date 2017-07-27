@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://gift-mysql:3306/gift?useSSL=false
     username: root
-    password: root
+    password:
   jpa:
     hibernate:
       ddl-auto: validate
