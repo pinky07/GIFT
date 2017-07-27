@@ -64,4 +64,6 @@ echo 'Container ID:' $CONTAINER_ID
 echo ''
 echo 'Logs for GiFT App'
 docker logs gift-app
+docker logs $CONTAINER_ID
 
+echo 'Success'
