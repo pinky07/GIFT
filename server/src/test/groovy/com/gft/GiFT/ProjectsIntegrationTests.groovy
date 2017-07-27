@@ -106,7 +106,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
         def expectedProject = new ProjectDTO(
                 name: 'A-Team',
-                cycleSnapDTOSet: newCycleSnapDTOSet
+                setCycleSnaps: newCycleSnapDTOSet
         )
 
         when:

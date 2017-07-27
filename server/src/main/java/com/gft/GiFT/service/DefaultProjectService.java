@@ -32,11 +32,11 @@ public class DefaultProjectService implements ProjectService {
         projectDTO.setName(project.getName());
 
         if(project.getCycleSnapSet().isEmpty()){
-            projectDTO.setCycleSnapDTOSet(new HashSet<>());
+            projectDTO.setCycleSnaps(new HashSet<>());
         } else {
-            projectDTO.setCycleSnapDTOSet(new HashSet<>());
+            projectDTO.setCycleSnaps(new HashSet<>());
             for (CycleSnap cycleSnap : project.getCycleSnapSet()) {
-                projectDTO.getCycleSnapDTOSet().add(createCycleSnapDTO(cycleSnap));
+                projectDTO.getCycleSnaps().add(createCycleSnapDTO(cycleSnap));
             }
         }
         return projectDTO;
