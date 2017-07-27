@@ -21,8 +21,8 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
     @Shared  def cycleSnapDTO1 = new CycleSnapDTO(
             cycleSnapName: "Sprint 84",
-            startDate: Date.parse( 'yyyy-MM-dd', '2017-05-22' ),
-            endDate: Date.parse( 'yyyy-MM-dd', '2017-06-18'),
+            startDate: '2017-05-22',
+            endDate: '2017-06-18',
             targetedPoints: 136,
             achievedPoints: 70,
             tac: "51%"

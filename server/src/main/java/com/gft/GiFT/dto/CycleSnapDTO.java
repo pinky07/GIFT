@@ -8,8 +8,8 @@ import java.util.Date;
 public class CycleSnapDTO {
 
     private String cycleSnapName;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
     private int targetedPoints;
     private int achievedPoints;
     private String tac;

@@ -5,6 +5,7 @@ import com.gft.GiFT.dto.ProjectDTO;
 import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
 import com.gft.GiFT.repository.ProjectRepository;
+import com.gft.GiFT.utils.DateUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -41,8 +42,8 @@ public class DefaultProjectService implements ProjectService {
     private CycleSnapDTO createCycleSnapDTO(CycleSnap cycleSnap) {
         CycleSnapDTO cycleSnapDTO = new CycleSnapDTO();
         cycleSnapDTO.setCycleSnapName(cycleSnap.getCycleSnapName());
-        cycleSnapDTO.setStartDate(cycleSnap.getStartDate());
-        cycleSnapDTO.setEndDate(cycleSnap.getEndDate());
+        cycleSnapDTO.setStartDate(DateUtils.getDateFormatterToString(cycleSnap.getStartDate()));
+        cycleSnapDTO.setEndDate(DateUtils.getDateFormatterToString(cycleSnap.getEndDate()));
         cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
         cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
 
