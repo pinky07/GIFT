@@ -33,6 +33,10 @@ sleep 30s
 echo ''
 docker images
 
+echo 'Listing container names'
+docker inspect --format='{{.Name}}' $(sudo docker ps -aq --no-trunc)
+
+
 echo ''
 echo 'Logs for GiFT WebApp'
 
