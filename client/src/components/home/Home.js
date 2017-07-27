@@ -20,7 +20,7 @@ const Home = () =>
               Portfolio #11
             </td>
             <td>
-              <Anchor path={"/projects/1"}>View projects</Anchor>
+              <Anchor className="no-link-color" path={"/projects/1"}>View projects</Anchor>
             </td>
           </TableRow>
           <TableRow>
@@ -28,7 +28,7 @@ const Home = () =>
               Portfolio #2
             </td>
             <td>
-              <Anchor path={"/projects/2"}>View projects</Anchor>
+              <Anchor className="no-link-color" path={"/projects/2"}>View projects</Anchor>
             </td>
           </TableRow>
           <TableRow>
@@ -36,7 +36,7 @@ const Home = () =>
               Portfolio #3
             </td>
             <td>
-              <Anchor path={"/projects/3"}>View projects</Anchor>
+              <Anchor className="no-link-color" path={"/projects/3"}>View projects</Anchor>
             </td>
           </TableRow>
         </tbody>

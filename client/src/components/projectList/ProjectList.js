@@ -8,7 +8,6 @@ export class ProjectList extends React.Component {
 
   componentDidMount() {
     let portfolioId = this.props.params.id;
-    console.log(portfolioId);
     this.props.loadProjects(portfolioId);
   }
 
