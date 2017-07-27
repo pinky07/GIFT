@@ -59,7 +59,7 @@ apt-get install -y curl
 curl -OL https://bintray.com/artifact/download/business/maven/flyway-commandline-4.2.0-linux-x64.tar.gz
 tar -xzf flyway-commandline-4.2.0-linux-x64.tar.gz
 rm flyway-commandline-4.2.0-linux-x64.tar.gz
-chmod +x flyway-3.2.1/flyway
+chmod +x flyway-4.2.0/flyway
 
 echo 'Link to migrations'
 docker run -v /var/lib/jenkins/workspace/GiFT-App/database/db/:/migrations $IMAGE_NAME
