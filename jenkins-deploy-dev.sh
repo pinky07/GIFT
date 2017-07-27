@@ -1,11 +1,13 @@
 #!/bin/sh
 #
 
-IMAGE_NAME='gift-app'
+IMAGE_NAME='com.gft/gift:0.0.1-SNAPSHOT'
 
-echo 'Stopping container gift-app...'
-docker stop 'gift-app'
-docker rm 'gift-app'
+echo 'Running container... $IMAGE_NAME'
+CONTAINER_ID=`docker run -e 'SPRING_PROFILES_ACTIVE=default,container' -d $IMAGE_NAME`
+
+echo 'Container ID:' $CONTAINER_ID
+
 echo 'Stopping container gift-mysql...'
 docker stop 'gift-mysql'
 docker rm 'gift-mysql'
@@ -19,10 +21,9 @@ docker run -d \
     -e MYSQL_PASSWORD=user \
     mysql:latest
 
-
 echo 'Linking containers...'
 docker run -t  \
-    --name $IMAGE_NAME \
+    --name gift-app \
     --link gift-mysql:mysql \
     -p 11010:8080 \
     $IMAGE_NAME
@@ -38,9 +39,9 @@ docker inspect --format='{{.Name}}' $(sudo docker ps -aq --no-trunc)
 
 
 echo ''
-echo 'Logs for GiFT WebApp'
+echo 'Logs for GiFT WebApp: ' $CONTAINER_ID
 
-docker logs $IMAGE_NAME
+docker logs $CONTAINER_ID
 
 
 echo ''

@@ -78,11 +78,9 @@ task integrationTest(type: Test, description: 'Runs the integration tests', grou
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
-    tag = 'gift-app'
     applicationName = 'gift'
     baseImage = 'java:8'
     push = false // Would push to a Docker Hub account
-    // applicationName = jar.baseName
     addFile {
         from jar
         rename {'app.jar'}
