@@ -1,6 +1,5 @@
 package com.gft.GiFT.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -31,8 +30,7 @@ public class Project {
     @Column(name = "project_status", nullable = false)
     private int projectStatus;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
-    @JsonIgnore
-    private Set<CycleSnap> cycleSnapSet = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
+    private Set<CycleSnap> cycleSnapSet = new HashSet<CycleSnap>();
 
 }

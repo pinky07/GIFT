@@ -1,7 +1,6 @@
 package com.gft.GiFT.entities;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -30,8 +29,6 @@ public class CycleSnap {
     @Column(name = "achieved_points", nullable = true)
     private int achievedPoints;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id", nullable = false)
-    private Project project;
+    private int projectId;
 
 }
