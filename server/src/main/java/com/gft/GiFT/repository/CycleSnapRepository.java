@@ -1,6 +1,6 @@
 package com.gft.GiFT.repository;
 
-import com.gft.GiFT.entities.CycleSnapDTO;
+import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,9 +12,9 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface CycleSnapRepository extends JpaRepository<CycleSnapDTO, Integer>  {
+public interface CycleSnapRepository extends JpaRepository<CycleSnap, Integer>  {
 
-    @Query("SELECT cs FROM CycleSnapDTO cs WHERE cs.project = :project")
-    List<CycleSnapDTO> findByProjectId(@Param("project") Project project);
+    @Query("SELECT cs FROM CycleSnap cs WHERE cs.project = :project")
+    List<CycleSnap> findByProjectId(@Param("project") Project project);
 
 }

@@ -1,7 +1,7 @@
 package com.gft.GiFT.service;
 
 import com.gft.GiFT.dto.ProjectDTO;
-import com.gft.GiFT.entities.CycleSnapDTO;
+import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
 import com.gft.GiFT.repository.CycleSnapRepository;
 import com.gft.GiFT.repository.ProjectRepository;
@@ -25,7 +25,7 @@ public class DefaultProjectService implements ProjectService {
     public ProjectDTO findDashboardByProjectId(int projectId) {
 
         Project project = projectRepository.findOne(projectId);
-        List<CycleSnapDTO> cycleSnap = cycleSnapRepository.findByProjectId(project);
+        List<CycleSnap> cycleSnap = cycleSnapRepository.findByProjectId(project);
 
         return null;
     }

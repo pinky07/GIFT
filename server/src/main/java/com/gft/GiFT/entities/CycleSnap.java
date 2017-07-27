@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "t_cycle_snap")
-public class CycleSnapDTO {
+public class CycleSnap {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
