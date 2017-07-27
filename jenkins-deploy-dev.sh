@@ -61,7 +61,7 @@ CONTAINER_ID=`docker run \
 
 echo 'Container ID:' $CONTAINER_ID
 
-echo 'Waiting 15s'
+echo 'Waiting 30s'
 sleep 30s
 
 echo ''
