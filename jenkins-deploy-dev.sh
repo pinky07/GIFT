@@ -18,7 +18,7 @@ docker run -d \
     -e MYSQL_DATABASE=gift \
     -e MYSQL_USER=user \
     -e MYSQL_PASSWORD=user \
-    --expose 3306 \
+    -p 3306:3306 \
     mysql:latest
 
 echo 'Waiting 30s'
@@ -33,15 +33,6 @@ docker inspect --format='{{.Name}}' $(docker ps -aq --no-trunc)
 echo ''
 echo 'Logs for GiFT MySql'
 docker logs gift-mysql
-
-
-echo ''
-echo 'Logs for GiFT App'
-docker logs gift-app
-
-echo ''
-echo 'HOSTS'
-cat /etc/hosts
 
 echo 'Installing Curl...'
 yum install -y curl
@@ -69,3 +60,8 @@ CONTAINER_ID=`docker run \
     -d $IMAGE_NAME`
 
 echo 'Container ID:' $CONTAINER_ID
+
+echo ''
+echo 'Logs for GiFT App'
+docker logs gift-app
+
