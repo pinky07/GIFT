@@ -20,6 +20,9 @@ docker run -d \
     -e MYSQL_PASSWORD=user \
     mysql:latest
 
+echo 'Waiting 30s'
+sleep 30s
+
 echo 'Linking containers...'
 
 CONTAINER_ID=`docker run \
