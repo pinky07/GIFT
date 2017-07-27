@@ -117,4 +117,12 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         def project = response.body
         expectedProject == project
     }
+
+    def "Should get a 404 when the projectId does not exist" () {
+        when:
+        def response = getForEntity("${BASE_URL}/projects/999/dashboard", ProjectDTO.class)
+
+        then:
+        response.statusCode == HttpStatus.NOT_FOUND
+    }
 }

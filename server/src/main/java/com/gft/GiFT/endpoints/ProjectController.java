@@ -1,6 +1,7 @@
 package com.gft.GiFT.endpoints;
 
 import com.gft.GiFT.dto.ProjectDTO;
+import com.gft.GiFT.entities.ErrorMessage;
 import com.gft.GiFT.entities.Project;
 import com.gft.GiFT.repository.ProjectRepository;
 import com.gft.GiFT.service.DefaultProjectService;
@@ -48,8 +49,13 @@ public class ProjectController {
     }
 
     @GetMapping("/{projectId}/dashboard")
-    public ResponseEntity<ProjectDTO> findDashboardByProjectId(@PathVariable("projectId") final int projectId) {
-        //TODO VALIDATIONS
-        return new ResponseEntity<>(projectService.findDashboardByProjectId(projectId), HttpStatus.OK);
+    public ResponseEntity<Object> findDashboardByProjectId(@PathVariable("projectId") final int projectId) {
+
+        ProjectDTO projectDTO = projectService.findDashboardByProjectId(projectId);
+
+        if (projectDTO == null)
+            return new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found."), HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity<>(projectDTO, HttpStatus.OK);
     }
 }

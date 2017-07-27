@@ -25,6 +25,9 @@ public class DefaultProjectService implements ProjectService {
 
         Project project = projectRepository.findOne(projectId);
 
+        if (project == null)
+            return null;
+
         ProjectDTO projectDTO = new ProjectDTO();
         projectDTO.setName(project.getName());
 
