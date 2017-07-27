@@ -48,7 +48,7 @@ if [ "$FLYWAY_URL" = "" ]; then
 fi
 
 echo 'Calling flyway'
-flyway-4.2.0/flyway migrate -sqlMigrationPrefix=V -url=$FLYWAY_URL -user=root -password=root -locations=filesystem:/var/lib/jenkins/workspace/GiFT-App/database/db/
+flyway-4.2.0/flyway migrate -sqlMigrationPrefix=v -url=$FLYWAY_URL -user=root -password=root -locations=filesystem:/var/lib/jenkins/workspace/GiFT-App/database/db/
 
 echo 'Linking containers...'
 
