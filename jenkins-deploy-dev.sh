@@ -25,7 +25,7 @@ echo 'Linking containers...'
 CONTAINER_ID=`docker run -t \
     --name gift-app \
     -e 'SPRING_PROFILES_ACTIVE=default,container' \
-    --link gift-mysql \
+    --link gift-mysql:mysql \
     -p 11010:8080 \
     $IMAGE_NAME`
 
@@ -34,17 +34,11 @@ echo 'Container ID:' $CONTAINER_ID
 echo 'Waiting 30s'
 sleep 30s
 
-echo ''
+echo 'Docker images'
 docker images
 
 echo 'Listing container names'
 docker inspect --format='{{.Name}}' $(docker ps -aq --no-trunc)
-
-
-echo ''
-echo 'Logs for GiFT WebApp: ' $CONTAINER_ID
-
-docker logs $CONTAINER_ID
 
 echo ''
 echo 'Logs for GiFT MySql'
@@ -54,19 +48,18 @@ echo 'Success'
 
 cat /etc/hosts
 
-echo 'Flyway...'
-apt-get install -y curl
-curl -OL https://bintray.com/artifact/download/business/maven/flyway-commandline-4.2.0-linux-x64.tar.gz
+echo 'Installing Curl...'
+yum install -y curl
+echo 'Downloading Flyway...'
+curl -OL https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/4.2.0/flyway-commandline-4.2.0-linux-x64.tar.gz
+
 tar -xzf flyway-commandline-4.2.0-linux-x64.tar.gz
 rm flyway-commandline-4.2.0-linux-x64.tar.gz
 chmod +x flyway-4.2.0/flyway
-
-echo 'Link to migrations'
-docker run -v /var/lib/jenkins/workspace/GiFT-App/database/db/:/migrations $IMAGE_NAME
 
 if [ "$FLYWAY_URL" = "" ]; then
 	FLYWAY_URL="jdbc:mysql://gift-mysql:3306/gift?useSSL=false"
 fi
 
 echo 'Calling flyway'
-flyway-4.2.0/flyway migrate -url=$FLYWAY_URL -user=root -password=root -locations=filesystem:/migrations
+flyway-4.2.0/flyway migrate -url=$FLYWAY_URL -user=root -password=root -locations=filesystem:/var/lib/jenkins/workspace/GiFT-App/database/db/
