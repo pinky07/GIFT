@@ -12,7 +12,7 @@ docker rm 'gift-app'
 IMAGE_NAME='com.gft/gift:0.0.1-SNAPSHOT'
 
 echo 'Creating MySQL image named gift-mysql'
-docker run -t \
+    docker run -d \
     --name gift-mysql \
     -e MYSQL_ROOT_PASSWORD=root \
     -e MYSQL_DATABASE=gift \
@@ -21,8 +21,8 @@ docker run -t \
     -p 3306:3306 \
     mysql:latest
 
-echo 'Waiting 30s'
-sleep 30s
+echo 'Waiting 15s'
+sleep 15s
 
 echo 'Docker images'
 docker images
@@ -57,7 +57,7 @@ CONTAINER_ID=`docker run \
     --name gift-app \
     --link gift-mysql:mysql \
     -e 'SPRING_PROFILES_ACTIVE=default,container' \
-    -t $IMAGE_NAME`
+    -d $IMAGE_NAME`
 
 echo 'Container ID:' $CONTAINER_ID
 
