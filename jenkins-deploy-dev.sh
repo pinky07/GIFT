@@ -1,4 +1,4 @@
-        #!/bin/sh
+#!/bin/sh
 #
 
 echo 'Removing container gift-mysql...'
@@ -21,10 +21,11 @@ docker run -d \
     mysql:latest
 
 echo 'Linking containers...'
-CONTAINER_ID = `docker run -t  \
+
+CONTAINER_ID= `docker run -t \
     --name gift-app \
     -e 'SPRING_PROFILES_ACTIVE=default,container' \
-    --link gift-mysql:gift-mysql \
+    --link gift-mysql \
     -p 11010:8080 \
     $IMAGE_NAME`
 
@@ -45,7 +46,6 @@ echo 'Logs for GiFT WebApp: ' $CONTAINER_ID
 
 docker logs $CONTAINER_ID
 
-
 echo ''
 echo 'Logs for GiFT MySql'
 docker logs gift-mysql
@@ -53,7 +53,6 @@ docker logs gift-mysql
 echo 'Success'
 
 cat /etc/hosts
-
 
 echo 'Flyway...'
 apt-get install -y curl
