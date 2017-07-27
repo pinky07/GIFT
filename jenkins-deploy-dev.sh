@@ -4,8 +4,10 @@
 IMAGE_NAME='gift-app'
 
 echo 'Stopping container gift-app...'
+docker stop 'gift-app'
 docker rm 'gift-app'
 echo 'Stopping container gift-mysql...'
+docker stop 'gift-mysql'
 docker rm 'gift-mysql'
 
 echo 'Creating MySQL image named gift-mysql'
@@ -27,6 +29,9 @@ docker run -t  \
 
 echo 'Waiting 30s'
 sleep 30s
+
+echo ''
+docker images
 
 echo ''
 echo 'Logs for GiFT WebApp'
