@@ -18,12 +18,11 @@ import org.springframework.core.ParameterizedTypeReference
 @DirtiesContext
 class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
-    @Ignore
     def "Should get projects by portfolio" () {
         given:
         def oneProject = new Project()
         oneProject.id = 1
-        oneProject.name = "GiFT"
+        oneProject.name = "Phoenix"
         oneProject.portfolioId = 1
         oneProject.releasePatternId = 2
         oneProject.cycleTypeId = 1
@@ -31,7 +30,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
         def otherProject = new Project()
         otherProject.id = 2
-        otherProject.name = "Big Ball"
+        otherProject.name = "BAAM"
         otherProject.portfolioId = 1
         otherProject.releasePatternId = 1
         otherProject.cycleTypeId = 2
@@ -51,7 +50,6 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         expected == response
     }
 
-    @Ignore
     def "Should add a new project" () {
         given:
         def firstProject = new Project(
@@ -77,6 +75,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         response.projectStatus == 4
     }
 
+    @Ignore
     def "Should get dashboard by project Id" () {
         given:
 
