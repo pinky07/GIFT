@@ -10,12 +10,12 @@ CREATE TABLE t_project (
 
 CREATE TABLE t_cycle_snap (
   cycle_snap_id INT NOT NULL AUTO_INCREMENT,
-  cycle_snap_name VARCHAR(200),
-  start_date DATETIME NULL,
-  end_date DATETIME NULL,
-  targeted_points INT NULL,
-  points_achieved INT NULL,
-  project_id INT NULL,
+  cycle_snap_name VARCHAR(200) NOT NULL,
+  start_date DATETIME NOT NULL,
+  end_date DATETIME NOT NULL,
+  targeted_points INT NOT NULL,
+  achieved_points INT NULL,
+  project_id INT NOT NULL,
   CONSTRAINT pk_cycle_snap_id PRIMARY KEY (cycle_snap_id),
   CONSTRAINT fk_project_id_cycle FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );

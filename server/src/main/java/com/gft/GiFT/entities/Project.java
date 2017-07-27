@@ -2,6 +2,8 @@ package com.gft.GiFT.entities;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -27,5 +29,8 @@ public class Project {
 
     @Column(name = "project_status", nullable = false)
     private int projectStatus;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
+    private Set<CycleSnapDTO> cycleSnapSet = new HashSet<>(0);
 
 }

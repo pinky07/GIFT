@@ -10,6 +10,6 @@ import java.util.List;
 @Transactional
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
-    List<Project> findByPortfolioId(int id);
+    List<Project> findByPortfolioId(int projectId);
 
 }

@@ -1,6 +1,8 @@
 package com.gft.GiFT.service;
 
+import com.gft.GiFT.dto.ProjectDTO;
 
-public class ProjectService {
+public interface ProjectService {
 
+    ProjectDTO findDashboardByProjectId(int id);
 }
