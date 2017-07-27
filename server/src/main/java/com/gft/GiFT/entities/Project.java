@@ -31,6 +31,6 @@ public class Project {
     private int projectStatus;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
-    private Set<CycleSnap> cycleSnapSet = new HashSet<CycleSnap>();
+    private Set<CycleSnap> cycleSnapSet = new HashSet<>();
 
 }

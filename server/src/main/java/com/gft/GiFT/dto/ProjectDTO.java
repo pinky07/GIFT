@@ -8,6 +8,6 @@ import java.util.Set;
 public class ProjectDTO {
 
     private String name;
-    private Set<CycleSnapDTO> cycleSnapList;
+    private Set<CycleSnapDTO> cycleSnapDTOSet;
 
 }

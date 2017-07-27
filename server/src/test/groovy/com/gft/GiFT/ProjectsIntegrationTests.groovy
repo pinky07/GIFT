@@ -2,14 +2,15 @@ package com.gft.GiFT
 
 import com.gft.GiFT.dto.CycleSnapDTO
 import com.gft.GiFT.dto.ProjectDTO
+import com.gft.GiFT.entities.CycleSnap
 import com.gft.GiFT.entities.Project
-import org.junit.Ignore
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.core.ParameterizedTypeReference
+import spock.lang.Shared
 
 @SpringBootTest( classes = GiFtApplication.class,
         webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT,
@@ -18,20 +19,43 @@ import org.springframework.core.ParameterizedTypeReference
 @DirtiesContext
 class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
+    @Shared  def cycleSnapDTO1 = new CycleSnapDTO(
+            cycleSnapName: "Sprint 84",
+            startDate: Date.parse( 'yyyy-MM-dd', '2017-05-22' ),
+            endDate: Date.parse( 'yyyy-MM-dd', '2017-06-18'),
+            targetedPoints: 136,
+            achievedPoints: 70,
+            tac: "51%"
+    )
+
+    @Shared  def cycleSnap1 = new CycleSnap(
+            cycleSnapId: 11,
+            cycleSnapName: "Sprint 84",
+            startDate: Date.parse( 'yyyy-MM-dd', '2017-05-22' ),
+            endDate: Date.parse( 'yyyy-MM-dd', '2017-06-18'),
+            targetedPoints: 136,
+            achievedPoints: 70,
+            projectId: 3
+    )
+
     def "Should get projects by portfolio" () {
         given:
+        Set<CycleSnap> newCycleSnapSet = new HashSet<CycleSnap>()
+        newCycleSnapSet.add(cycleSnap1)
+
         def oneProject = new Project()
-        oneProject.id = 1
-        oneProject.name = "Phoenix"
-        oneProject.portfolioId = 1
-        oneProject.releasePatternId = 2
-        oneProject.cycleTypeId = 1
-        oneProject.projectStatus = 2
+        oneProject.id = 3
+        oneProject.name = "A-Team"
+        oneProject.portfolioId = 2
+        oneProject.releasePatternId = 1
+        oneProject.cycleTypeId = 2
+        oneProject.projectStatus = 1
+        oneProject.cycleSnapSet = newCycleSnapSet
 
         def otherProject = new Project()
-        otherProject.id = 2
-        otherProject.name = "BAAM"
-        otherProject.portfolioId = 1
+        otherProject.id = 4
+        otherProject.name = "Bootcamp"
+        otherProject.portfolioId = 2
         otherProject.releasePatternId = 1
         otherProject.cycleTypeId = 2
         otherProject.projectStatus = 1
@@ -41,7 +65,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         expected.add(otherProject)
 
         when:
-        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects/portfolio/1",
+        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects/portfolio/2",
                 new ParameterizedTypeReference<List<Project>>() {})
         then:
         projects.statusCode == HttpStatus.OK
@@ -75,29 +99,18 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         response.projectStatus == 4
     }
 
-    @Ignore
     def "Should get dashboard by project Id" () {
         given:
-
-        def cycleSnap = new CycleSnapDTO(
-                cycleSnapName: "Sprint 84",
-                startDate: new Date(2017-05-22),
-                endDate: new Date(2017-06-18),
-                targetedPoints: 136,
-                achievedPoints: 70,
-                tac: "51"
-        )
-
-        Set<CycleSnapDTO> cycleSnapDTOList = new HashSet<CycleSnapDTO>()
-        cycleSnapDTOList.add(cycleSnap)
+        Set<CycleSnapDTO> newCycleSnapDTOSet = new HashSet<CycleSnapDTO>()
+        newCycleSnapDTOSet.add(cycleSnapDTO1)
 
         def expectedProject = new ProjectDTO(
-                name: 'Phoenix',
-                cycleSnapList: cycleSnapDTOList
+                name: 'A-Team',
+                cycleSnapDTOSet: newCycleSnapDTOSet
         )
 
         when:
-        def response = getForEntity("${BASE_URL}/projects/1/dashboard", ProjectDTO.class)
+        def response = getForEntity("${BASE_URL}/projects/3/dashboard", ProjectDTO.class)
 
         then:
         response.statusCode == HttpStatus.OK

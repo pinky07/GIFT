@@ -1,32 +1,58 @@
 package com.gft.GiFT.service;
 
+import com.gft.GiFT.dto.CycleSnapDTO;
 import com.gft.GiFT.dto.ProjectDTO;
 import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
-import com.gft.GiFT.repository.CycleSnapRepository;
 import com.gft.GiFT.repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.HashSet;
 
 @Service
 public class DefaultProjectService implements ProjectService {
 
     private final ProjectRepository projectRepository;
-    private final CycleSnapRepository cycleSnapRepository;
 
-    public DefaultProjectService(ProjectRepository projectRepository, CycleSnapRepository cycleSnapRepository) {
+    public DefaultProjectService(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
-        this.cycleSnapRepository = cycleSnapRepository;
     }
 
 
     @Override
     public ProjectDTO findDashboardByProjectId(int projectId) {
 
-//        Project project = projectRepository.findOne(projectId);
-//        List<CycleSnap> cycleSnap = cycleSnapRepository.findByProjectId(project);
+        Project project = projectRepository.findOne(projectId);
 
-        return null;
+        ProjectDTO projectDTO = new ProjectDTO();
+        projectDTO.setName(project.getName());
+
+        if(project.getCycleSnapSet().isEmpty()){
+            projectDTO.setCycleSnapDTOSet(new HashSet<>());
+        } else {
+            projectDTO.setCycleSnapDTOSet(new HashSet<>());
+            for (CycleSnap cycleSnap : project.getCycleSnapSet()) {
+                projectDTO.getCycleSnapDTOSet().add(createCycleSnapDTO(cycleSnap));
+            }
+        }
+        return projectDTO;
     }
+
+    private CycleSnapDTO createCycleSnapDTO(CycleSnap cycleSnap) {
+        CycleSnapDTO cycleSnapDTO = new CycleSnapDTO();
+        cycleSnapDTO.setCycleSnapName(cycleSnap.getCycleSnapName());
+        cycleSnapDTO.setStartDate(cycleSnap.getStartDate());
+        cycleSnapDTO.setEndDate(cycleSnap.getEndDate());
+        cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
+        cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
+
+        if (cycleSnap.getTargetedPoints() == 0) {
+            cycleSnapDTO.setTac("No Data");
+        } else {
+            int tac = (cycleSnap.getAchievedPoints() * 100 / cycleSnap.getTargetedPoints());
+            cycleSnapDTO.setTac(tac + "%");
+        }
+        return cycleSnapDTO;
+    }
+
 }
