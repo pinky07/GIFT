@@ -61,6 +61,9 @@ CONTAINER_ID=`docker run \
 
 echo 'Container ID:' $CONTAINER_ID
 
+echo 'Waiting 15s'
+sleep 30s
+
 echo ''
 echo 'Logs for GiFT App'
 docker logs gift-app
