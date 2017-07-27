@@ -44,8 +44,13 @@ echo ''
 echo 'Logs for GiFT MySql'
 docker logs gift-mysql
 
-echo 'Success'
 
+echo ''
+echo 'Logs for GiFT App'
+docker logs gift-app
+
+echo ''
+echo 'HOSTS'
 cat /etc/hosts
 
 echo 'Installing Curl...'
@@ -58,8 +63,8 @@ rm flyway-commandline-4.2.0-linux-x64.tar.gz
 chmod +x flyway-4.2.0/flyway
 
 if [ "$FLYWAY_URL" = "" ]; then
-	FLYWAY_URL="jdbc:mysql://gift-mysql:3306/gift?useSSL=false"
+	FLYWAY_URL="jdbc:mysql://mysql:3306/gift?useSSL=false"
 fi
 
 echo 'Calling flyway'
-flyway-4.2.0/flyway migrate -url=$FLYWAY_URL -user=root -password=root -locations=filesystem:/var/lib/jenkins/workspace/GiFT-App/database/db/
+flyway-4.2.0/flyway migrate -sqlMigrationPrefix=V -url=$FLYWAY_URL -user=root -password=root -locations=filesystem:/var/lib/jenkins/workspace/GiFT-App/database/db/
