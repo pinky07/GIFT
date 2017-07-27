@@ -18,22 +18,8 @@ docker run -d \
     -e MYSQL_DATABASE=gift \
     -e MYSQL_USER=user \
     -e MYSQL_PASSWORD=user \
-    --expose 3306
+    --expose 3306 \
     mysql:latest
-
-echo 'Waiting 30s'
-sleep 30s
-
-echo 'Linking containers...'
-
-CONTAINER_ID=`docker run \
-    -p 11010:8080 \
-    --name gift-app \
-    --link gift-mysql:mysql \
-    -e 'SPRING_PROFILES_ACTIVE=default,container' \
-    -d $IMAGE_NAME`
-
-echo 'Container ID:' $CONTAINER_ID
 
 echo 'Waiting 30s'
 sleep 30s
@@ -72,3 +58,14 @@ fi
 
 echo 'Calling flyway'
 flyway-4.2.0/flyway migrate -sqlMigrationPrefix=V -url=$FLYWAY_URL -user=root -password=root -locations=filesystem:/var/lib/jenkins/workspace/GiFT-App/database/db/
+
+echo 'Linking containers...'
+
+CONTAINER_ID=`docker run \
+    -p 11010:8080 \
+    --name gift-app \
+    --link gift-mysql:mysql \
+    -e 'SPRING_PROFILES_ACTIVE=default,container' \
+    -d $IMAGE_NAME`
+
+echo 'Container ID:' $CONTAINER_ID
