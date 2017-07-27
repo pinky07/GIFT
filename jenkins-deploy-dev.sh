@@ -23,7 +23,7 @@ docker run -d \
 echo 'Linking containers...'
 CONTAINER_ID=`docker run -t  \
     --name gift-app \
-    -e 'SPRING_PROFILES_ACTIVE=default,container'
+    -e 'SPRING_PROFILES_ACTIVE=default,container' \
     --link gift-mysql:mysql \
     -p 11010:8080 \
     $IMAGE_NAME`
