@@ -3,7 +3,7 @@
 
 IMAGE_NAME='com.gft/gift:0.0.1-SNAPSHOT'
 
-echo 'Running container... $IMAGE_NAME'
+echo 'Running container... ' $IMAGE_NAME
 CONTAINER_ID=`docker run -e 'SPRING_PROFILES_ACTIVE=default,container' -d $IMAGE_NAME`
 
 echo 'Container ID:' $CONTAINER_ID
@@ -35,7 +35,7 @@ echo ''
 docker images
 
 echo 'Listing container names'
-docker inspect --format='{{.Name}}' $(sudo docker ps -aq --no-trunc)
+docker inspect --format='{{.Name}}' $(docker ps -aq --no-trunc)
 
 
 echo ''
@@ -49,3 +49,5 @@ echo 'Logs for GiFT MySql'
 docker logs gift-mysql
 
 echo 'Success'
+
+cat /etc/hosts
