@@ -44,7 +44,7 @@ rm flyway-commandline-4.2.0-linux-x64.tar.gz
 chmod +x flyway-4.2.0/flyway
 
 if [ "$FLYWAY_URL" = "" ]; then
-	FLYWAY_URL="jdbc:mysql://gift-mysql:3306/gift?useSSL=false"
+	FLYWAY_URL="jdbc:mysql://localhost:3306/gift?useSSL=false"
 fi
 
 echo 'Calling flyway'
