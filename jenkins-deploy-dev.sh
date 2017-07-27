@@ -13,8 +13,8 @@ docker run -d \
     --name gift-mysql \
     -e MYSQL_ROOT_PASSWORD=root \
     -e MYSQL_DATABASE=gift \
-    -e MYSQL_USER=root \
-    -e MYSQL_PASSWORD=root \
+    -e MYSQL_USER=user \
+    -e MYSQL_PASSWORD=user \
     mysql:latest
 
 
@@ -28,9 +28,14 @@ docker run -t  \
 echo 'Waiting 30s'
 sleep 30s
 
-echo 'Logs...'
+echo ''
+echo 'Logs for GiFT WebApp'
 
-docker logs gift-app
+docker logs "com.gft/gift:0.0.1-SNAPSHOT"
+
+
+echo ''
+echo 'Logs for GiFT MySql'
 docker logs gift-mysql
 
 echo 'Success'
