@@ -1,7 +1,7 @@
 package com.gft.GiFT
 
+import com.gft.GiFT.dto.CycleSnapDTO
 import com.gft.GiFT.dto.ProjectDTO
-import com.gft.GiFT.entities.CycleSnapDTO
 import com.gft.GiFT.entities.Project
 import org.junit.Ignore
 import org.springframework.boot.test.context.SpringBootTest

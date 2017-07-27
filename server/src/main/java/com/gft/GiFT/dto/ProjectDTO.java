@@ -1,6 +1,5 @@
 package com.gft.GiFT.dto;
 
-import com.gft.GiFT.entities.CycleSnapDTO;
 import lombok.Data;
 
 import java.util.Set;
