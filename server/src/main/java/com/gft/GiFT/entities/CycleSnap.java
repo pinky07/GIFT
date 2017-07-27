@@ -30,8 +30,8 @@ public class CycleSnap {
     @Column(name = "achieved_points", nullable = true)
     private int achievedPoints;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id", nullable = false)
-    private Project project;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "project_id", nullable = false)
+//    private Project project;
 
 }

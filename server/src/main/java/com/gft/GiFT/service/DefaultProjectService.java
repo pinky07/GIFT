@@ -24,8 +24,8 @@ public class DefaultProjectService implements ProjectService {
     @Override
     public ProjectDTO findDashboardByProjectId(int projectId) {
 
-        Project project = projectRepository.findOne(projectId);
-        List<CycleSnap> cycleSnap = cycleSnapRepository.findByProjectId(project);
+//        Project project = projectRepository.findOne(projectId);
+//        List<CycleSnap> cycleSnap = cycleSnapRepository.findByProjectId(project);
 
         return null;
     }

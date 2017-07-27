@@ -14,7 +14,7 @@ import java.util.List;
 @Transactional
 public interface CycleSnapRepository extends JpaRepository<CycleSnap, Integer>  {
 
-    @Query("SELECT cs FROM CycleSnap cs WHERE cs.project = :project")
-    List<CycleSnap> findByProjectId(@Param("project") Project project);
+//    @Query("SELECT cs FROM CycleSnap cs WHERE cs.project = :project")
+//    List<CycleSnap> findByProjectId(@Param("project") Project project);
 
 }

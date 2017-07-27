@@ -30,7 +30,7 @@ public class Project {
     @Column(name = "project_status", nullable = false)
     private int projectStatus;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
-    private Set<CycleSnap> cycleSnapSet = new HashSet<>(0);
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
+//    private Set<CycleSnap> cycleSnapSet = new HashSet<>(0);
 
 }
