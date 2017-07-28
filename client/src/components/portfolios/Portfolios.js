@@ -7,10 +7,10 @@ import TableHeader from 'grommet/components/TableHeader';
 import TableRow from 'grommet/components/TableRow';
 
 
-const Home = () =>
+const Portfolios = () =>
   (
     <Box>
-      <h1>Home</h1>
+      <h1>Portfolios</h1>
 
       <Table>
         <TableHeader labels={['Name', 'Actions']} sortIndex={0} />
@@ -44,4 +44,4 @@ const Home = () =>
     </Box>
   );
 
-export default Home;
+export default Portfolios;

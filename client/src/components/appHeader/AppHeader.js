@@ -19,11 +19,8 @@ const AppHeader = () =>
            direction='row'
            responsive={false}>
         <Menu direction='row' colorIndex='neutral-1' >
-          <Anchor  path={"/projects/1"}>
-            Projects
-          </Anchor>
-          <Anchor href='#'>
-            Configuration
+          <Anchor path={"/portfolios"}>
+            Portfolios
           </Anchor>
         </Menu>
       </Box>
