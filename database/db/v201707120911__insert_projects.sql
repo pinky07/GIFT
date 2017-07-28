@@ -17,6 +17,9 @@ VALUES ('PW', 3, 1, 2, 1);
 INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
 VALUES ('Operation metrics', 3, 1, 2, 1);
 
+INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
+VALUES ('Exceptional Project', 4, 1, 2, 1);
+
 
 -- Test Data for t_cycle_snap
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
@@ -63,3 +66,9 @@ VALUES ('Sprint #22', '2017-05-31', '2017-06-13', 44, 40, 6);
 
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
 VALUES ('Sprint #23', '2017-06-14', '2017-06-29', 26, 26, 6);
+
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
+VALUES ('Sprint #1', '2017-06-29', '2017-07-29', 0, 0, 7);
+
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
+VALUES ('Sprint #2', '2017-06-29', '2017-07-29', 70, 68, 7);

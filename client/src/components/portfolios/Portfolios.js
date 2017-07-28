@@ -39,6 +39,14 @@ const Portfolios = () =>
               <Anchor className="no-link-color" path={"/projects/3"}>View projects</Anchor>
             </td>
           </TableRow>
+          <TableRow>
+            <td>
+              Portfolio #4
+            </td>
+            <td>
+              <Anchor className="no-link-color" path={"/projects/4"}>View projects</Anchor>
+            </td>
+          </TableRow>
         </tbody>
       </Table>
     </Box>
