@@ -12,6 +12,7 @@ import Box from 'grommet/components/Box';
 import Table from 'grommet/components/Table';
 import TableHeader from 'grommet/components/TableHeader';
 import TableRow from 'grommet/components/TableRow';
+import Status from 'grommet/components/icons/Status';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -61,8 +62,8 @@ export default class Dashboard extends React.Component {
 
     if (errorMessage) {
       return <div id="layout-content" className="layout-content-wrapper">
-        <h1>Dashboard: {projectName}</h1>
-        <h3>{errorMessage}</h3>
+        <h1>Dashboard</h1>
+        <h3><Status value='critical' /> <span>{errorMessage}</span></h3>
       </div>
     }
     else {
@@ -82,7 +83,8 @@ export default class Dashboard extends React.Component {
       else {
         return <div id="layout-content" className="layout-content-wrapper">
           <h1>Dashboard: {projectName}</h1>
-          <div className="panel-list">This project has no cycle snaps.</div>
+          <h3><Status value='unknown' /> <span>This project has no cycle snaps.</span></h3>
+          
         </div>
       }
     }
