@@ -73,7 +73,7 @@ export default class Dashboard extends React.Component {
           <h1>Dashboard: {projectName}</h1>
 
           <Table>
-            <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted points', 'TAC']} sortIndex={0} sortAscending={false} />
+            <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted points', 'TAC']} sortIndex={2} sortAscending={false} />
             <tbody>
               {cycleSnaps}
             </tbody>
