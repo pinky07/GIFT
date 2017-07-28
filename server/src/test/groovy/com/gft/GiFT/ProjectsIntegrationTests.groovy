@@ -40,7 +40,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
     def "Should get projects by portfolio" () {
         given:
-        Set<CycleSnap> newCycleSnapSet = new HashSet<CycleSnap>()
+        Set<CycleSnap> newCycleSnapSet = new LinkedHashSet<CycleSnap>()
         newCycleSnapSet.add(cycleSnap1)
 
         def oneProject = new Project()
@@ -101,12 +101,12 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
     def "Should get dashboard by project Id" () {
         given:
-        Set<CycleSnapDTO> newCycleSnapDTOSet = new HashSet<CycleSnapDTO>()
+        Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
         newCycleSnapDTOSet.add(cycleSnapDTO1)
 
         def expectedProject = new ProjectDTO(
                 name: 'A-Team',
-                setCycleSnaps: newCycleSnapDTOSet
+                cycleSnaps: newCycleSnapDTOSet
         )
 
         when:

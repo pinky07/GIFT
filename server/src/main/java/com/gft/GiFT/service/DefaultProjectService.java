@@ -7,8 +7,7 @@ import com.gft.GiFT.entities.Project;
 import com.gft.GiFT.repository.ProjectRepository;
 import com.gft.GiFT.utils.DateUtils;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 @Service
 public class DefaultProjectService implements ProjectService {
@@ -32,9 +31,9 @@ public class DefaultProjectService implements ProjectService {
         projectDTO.setName(project.getName());
 
         if(project.getCycleSnapSet().isEmpty()){
-            projectDTO.setCycleSnaps(new HashSet<>());
+            projectDTO.setCycleSnaps(new LinkedHashSet<>());
         } else {
-            projectDTO.setCycleSnaps(new HashSet<>());
+            projectDTO.setCycleSnaps(new LinkedHashSet<>());
             for (CycleSnap cycleSnap : project.getCycleSnapSet()) {
                 projectDTO.getCycleSnaps().add(createCycleSnapDTO(cycleSnap));
             }

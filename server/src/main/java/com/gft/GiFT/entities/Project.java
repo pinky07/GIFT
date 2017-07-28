@@ -2,7 +2,7 @@ package com.gft.GiFT.entities;
 
 import lombok.Data;
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Data
@@ -30,7 +30,8 @@ public class Project {
     @Column(name = "project_status", nullable = false)
     private int projectStatus;
 
+    @OrderBy("endDate DESC")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
-    private Set<CycleSnap> cycleSnapSet = new HashSet<>();
+    private Set<CycleSnap> cycleSnapSet = new LinkedHashSet<>();
 
 }
