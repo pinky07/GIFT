@@ -7,7 +7,9 @@ import configStore from './store/configStore';
 import './css/main.scss';
 
 import ProjectList from './components/projectList/ProjectList';
-import Home from './components/home/Home';
+import Portfolios from './components/portfolios/Portfolios';
+import Dashboard from './components/dashboard/Dashboard';
+import NotFound from './components/notFound/NotFound';
 
 const store = configStore();
 
@@ -15,9 +17,11 @@ render((
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path={"/"} component={Main}>
-        <IndexRoute component={Home}></IndexRoute>
+        <IndexRoute component={Portfolios}></IndexRoute>
         <Route path={"projects/:id"} component={ProjectList}></Route>
-        <Route path={"home"} component={Home}></Route>
+        <Route path={"projects/:id/dashboard"} component={Dashboard}></Route>
+        <Route path={"portfolios"} component={Portfolios}></Route>
+        <Route path="*" component={NotFound} />
       </Route>
 
     </Router>
