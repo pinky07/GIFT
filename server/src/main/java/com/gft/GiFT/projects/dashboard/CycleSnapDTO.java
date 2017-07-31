@@ -1,8 +1,6 @@
-package com.gft.GiFT.dto;
+package com.gft.GiFT.projects.dashboard;
 
 import lombok.Data;
-
-import java.util.Date;
 
 @Data
 public class CycleSnapDTO {

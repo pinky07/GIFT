@@ -1,6 +1,4 @@
-package com.gft.GiFT.service;
-
-import com.gft.GiFT.dto.ProjectDTO;
+package com.gft.GiFT.projects.dashboard;
 
 public interface ProjectService {
 
