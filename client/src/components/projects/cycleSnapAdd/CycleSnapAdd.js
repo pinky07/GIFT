@@ -41,22 +41,19 @@ export default class CycleSnapAdd extends React.Component {
   }
 
   LoadProjectInformation(projectId) {
-    /*     if (isNaN(projectId)) {
-          this.setState({ errorMessage: "Invalid project id" });
+    if (isNaN(projectId)) {
+      this.setState({ errorMessage: "Invalid project id" });
+    }
+    else {
+      axios.get(`${constants.API}/projects/${projectId}/name`).then((response) => {
+        if (response.data) {
+          this.setState({ projectName: response.data });
+          // this.setState({ projectName: 'MyProject' });
         }
-        else {
-          axios.get(`${constants.API}/projects/${projectId}/name`).then((response) => {
-            if (response.data) {
-     */
-    //          this.setState({ name: response.data.name});
-    this.setState({ projectName: 'MyProject' });
-
-    /*         }
-          }).catch((error) => {
-            this.setState({ errorMessage: error.response.data.message });
-          });
-    
-        } */
+      }).catch((error) => {
+        this.setState({ errorMessage: error.response.data.message });
+      });
+    }
   }
 
   _changeCycleName(index) {
@@ -95,31 +92,48 @@ export default class CycleSnapAdd extends React.Component {
   }
 
   _onSubmit(event) {
-    console.log('_onSubmit');
+    console.log('submitting');
     event.preventDefault();
 
+    axios.post('/projects/cyclesnaps', {
+      projectId: this.state.projectId,
+      cycleSnapName: this.state.cycleSnapName,
+      cycleSnapStartDate: this.state.cycleSnapStartDate,
+      cycleSnapEndDate: this.state.cycleSnapEndDate,
+      targetedPoints: this.state.targetedPoints,
+      achievedPoints: this.state.achievedPoints
+    })
+      .then(function (response) {
+        console.log('response: ' + response);
+      })
+      .catch(function (error) {
+        console.log('error:' + error);
+      });
+    console.log(' after submitting');
+
+
     // TODO Validations
-/*     const { cycleSnapName } = this.state;
-    const { cycleSnapStartDate } = this.state;
-    let errors = {};
-    let noErrors = true;
-
-    if (!cycleSnapName) {
-      errors.cycleSnapName = 'required';
-      noErrors = false;
-    }
-
-    if (!cycleSnapStartDate) {
-      errors.cycleSnapStartDate = 'required';
-      noErrors = false;
-    }
-
-    if (noErrors) {
-      // post: https://github.com/grommet/grommet-ferret/blob/master/src/js/components/settings/AccountEdit.js
-      alert('submit!');
-    } else {
-      this.setState({ errors: errors });
-    } */
+    /*     const { cycleSnapName } = this.state;
+        const { cycleSnapStartDate } = this.state;
+        let errors = {};
+        let noErrors = true;
+    
+        if (!cycleSnapName) {
+          errors.cycleSnapName = 'required';
+          noErrors = false;
+        }
+    
+        if (!cycleSnapStartDate) {
+          errors.cycleSnapStartDate = 'required';
+          noErrors = false;
+        }
+    
+        if (noErrors) {
+          // post: https://github.com/grommet/grommet-ferret/blob/master/src/js/components/settings/AccountEdit.js
+          alert('submit!');
+        } else {
+          this.setState({ errors: errors });
+        } */
   }
 
 
