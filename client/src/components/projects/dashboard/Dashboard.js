@@ -73,9 +73,9 @@ export default class Dashboard extends React.Component {
           <h1>Dashboard: {projectName}</h1>
 
           <p><Anchor path={`/projects/${this.state.projectId}/cyclesnaps/add`}>
-                  Add cycle snap
+            Add cycle snap
               </Anchor></p>
-                        <Table>
+          <Table>
             <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted points', 'TAC']} sortIndex={2} sortAscending={false} />
             <tbody>
               {cycleSnaps}
@@ -87,7 +87,10 @@ export default class Dashboard extends React.Component {
         return <div id="layout-content" className="layout-content-wrapper">
           <h1>Dashboard: {projectName}</h1>
           <h3><Status value='unknown' /> <span>This project has no cycle snaps.</span></h3>
-          
+          <p><Anchor path={`/projects/${this.state.projectId}/cyclesnaps/add`}>
+            Add cycle snap
+              </Anchor></p>
+
         </div>
       }
     }
