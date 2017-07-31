@@ -17,6 +17,9 @@ public class DefaultCycleSnapService implements CycleSnapService {
 
         Project project = projectRepository.findOne(projectId);
 
+        if (project == null)
+            return null;
+
         return project.getName();
     }
 }
