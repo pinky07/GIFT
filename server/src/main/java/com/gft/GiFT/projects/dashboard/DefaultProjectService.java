@@ -1,4 +1,4 @@
-package com.gft.GiFT.dashboard;
+package com.gft.GiFT.projects.dashboard;
 
 import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;

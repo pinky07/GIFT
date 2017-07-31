@@ -1,4 +1,4 @@
-package com.gft.GiFT.dashboard;
+package com.gft.GiFT.projects.dashboard;
 
 public interface ProjectService {
 
