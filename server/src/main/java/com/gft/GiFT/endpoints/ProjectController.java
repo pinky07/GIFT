@@ -1,11 +1,7 @@
 package com.gft.GiFT.endpoints;
 
-import com.gft.GiFT.dto.ProjectDTO;
-import com.gft.GiFT.entities.ErrorMessage;
 import com.gft.GiFT.entities.Project;
 import com.gft.GiFT.repository.ProjectRepository;
-import com.gft.GiFT.service.DefaultProjectService;
-import com.gft.GiFT.service.ProjectService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +17,8 @@ public class ProjectController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final ProjectService projectService;
-
     @Autowired
     private ProjectRepository repository;
-
-    public ProjectController(ProjectService projectService) {
-        this.projectService = projectService;
-    }
 
     @GetMapping("/portfolio/{id}")
     public ResponseEntity<List<Project>> findAllProjectsByPortfolio(@PathVariable("id") final int id) {
@@ -48,14 +38,4 @@ public class ProjectController {
         return project;
     }
 
-    @GetMapping("/{projectId}/dashboard")
-    public ResponseEntity<Object> findDashboardByProjectId(@PathVariable("projectId") final int projectId) {
-
-        ProjectDTO projectDTO = projectService.findDashboardByProjectId(projectId);
-
-        if (projectDTO == null)
-            return new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found."), HttpStatus.NOT_FOUND);
-
-        return new ResponseEntity<>(projectDTO, HttpStatus.OK);
-    }
 }

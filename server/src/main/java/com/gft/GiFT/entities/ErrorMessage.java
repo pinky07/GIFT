@@ -1,6 +1,6 @@
 package com.gft.GiFT.entities;
 
-import com.gft.GiFT.utils.DateUtils;
+import com.gft.GiFT.formatters.DateFormatter;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
@@ -15,7 +15,7 @@ public class ErrorMessage {
     private String message;
 
     public ErrorMessage(HttpStatus status, String message) {
-        this.timestamp = DateUtils.getDateTimeFormatterToString(new Date());
+        this.timestamp = DateFormatter.convertDateTimeToString(new Date());
         this.status = status.value();
         this.error = status.name();
         this.message = message;

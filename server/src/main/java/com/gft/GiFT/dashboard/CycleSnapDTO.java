@@ -1,4 +1,4 @@
-package com.gft.GiFT.dto;
+package com.gft.GiFT.dashboard;
 
 import lombok.Data;
 
