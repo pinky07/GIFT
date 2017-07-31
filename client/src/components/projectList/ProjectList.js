@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import Anchor  from 'grommet/components/Anchor';
+import Anchor from 'grommet/components/Anchor';
+import Table from 'grommet/components/Table';
+import TableHeader from 'grommet/components/TableHeader';
+import TableRow from 'grommet/components/TableRow';
 
 import constants from '../../services/constants';
 
@@ -19,14 +22,22 @@ export class ProjectList extends React.Component {
     return (
       <div>
         <h1>Portfolio #{this.props.params.id}: Projects list</h1>
-        <ul>
-          {this.props.projects.map( project =>
-            <li key ={project.id}>
-              <Anchor path={`/projects/${project.id}/dashboard`}>
-                {project.name} dashboard
-              </Anchor>
-            </li>)}
-        </ul>
+
+        <Table>
+          <TableHeader labels={['Name', 'Dashboard', 'Add Cycle Snap']} />
+          <tbody>
+            {this.props.projects.map(project =>
+              <TableRow key={project.id}>
+                <td>{project.name}</td>
+                <td><Anchor path={`/projects/${project.id}/dashboard`}>
+                  Dashboard
+              </Anchor></td>
+                <td><Anchor path={`/projects/${project.id}/cyclesnaps/add`}>
+                  Add cycle snap
+              </Anchor></td>
+              </TableRow>)}
+          </tbody>
+        </Table>
       </div>
     );
   }
@@ -38,7 +49,7 @@ ProjectList.propTypes = {
 
 const mapStateToProps = state => {
   return {
-      projects: state.projects
+    projects: state.projects
   };
 };
 

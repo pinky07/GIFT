@@ -1,13 +1,13 @@
 import React from 'react';
-import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import axios from 'axios';
 
-import constants from '../../services/constants';
+import constants from '../../../services/constants';
 
+import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Table from 'grommet/components/Table';
 import TableHeader from 'grommet/components/TableHeader';
@@ -72,7 +72,10 @@ export default class Dashboard extends React.Component {
         return <div id="layout-content" className="layout-content-wrapper">
           <h1>Dashboard: {projectName}</h1>
 
-          <Table>
+          <p><Anchor path={`/projects/${this.state.projectId}/cyclesnaps/add`}>
+                  Add cycle snap
+              </Anchor></p>
+                        <Table>
             <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted points', 'TAC']} sortIndex={2} sortAscending={false} />
             <tbody>
               {cycleSnaps}

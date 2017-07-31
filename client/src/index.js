@@ -8,8 +8,10 @@ import './css/main.scss';
 
 import ProjectList from './components/projectList/ProjectList';
 import Portfolios from './components/portfolios/Portfolios';
-import Dashboard from './components/dashboard/Dashboard';
 import NotFound from './components/notFound/NotFound';
+
+import CycleSnapAdd from './components/projects/cycleSnapAdd/CycleSnapAdd';
+import Dashboard        from './components/projects/dashboard/Dashboard';
 
 const store = configStore();
 
@@ -20,6 +22,7 @@ render((
         <IndexRoute component={Portfolios}></IndexRoute>
         <Route path={"projects/:id"} component={ProjectList}></Route>
         <Route path={"projects/:id/dashboard"} component={Dashboard}></Route>
+        <Route path={"projects/:id/cycleSnaps/add"} component={CycleSnapAdd}></Route>
         <Route path={"portfolios"} component={Portfolios}></Route>
         <Route path="*" component={NotFound} />
       </Route>
