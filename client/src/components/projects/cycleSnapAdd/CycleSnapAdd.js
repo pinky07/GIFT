@@ -95,11 +95,11 @@ export default class CycleSnapAdd extends React.Component {
     console.log('submitting');
     event.preventDefault();
 
-    axios.post('/projects/cyclesnaps', {
+    axios.post(`${constants.API}/projects/cyclesnaps`, {
       projectId: this.state.projectId,
       cycleSnapName: this.state.cycleSnapName,
-      cycleSnapStartDate: this.state.cycleSnapStartDate,
-      cycleSnapEndDate: this.state.cycleSnapEndDate,
+      startDate: this.state.cycleSnapStartDate,
+      endDate: this.state.cycleSnapEndDate,
       targetedPoints: this.state.targetedPoints,
       achievedPoints: this.state.achievedPoints
     })
@@ -166,10 +166,10 @@ export default class CycleSnapAdd extends React.Component {
               <TextInput id='cycleNameInput' onDOMChange={this._changeCycleName()} />
             </FormField>
             <FormField label='Start Date' htmlFor="cycleStartDate" error={errors.cycleSnapStartDate}>
-              <DateTime id='cycleStartDate' format='M/D/YYYY' value={cycleSnapStartDate} onChange={this._changeStartDate()} />
+              <DateTime id='cycleStartDate' format='yyyy-MM-dd' value={cycleSnapStartDate} onChange={this._changeStartDate()} />
             </FormField>
             <FormField label='End Date' htmlFor="cycleEndDate">
-              <DateTime id='cycleEndDate' format='M/D/YYYY' value={cycleSnapEndDate} onChange={this._changeEndDate()} />
+              <DateTime id='cycleEndDate' format='yyyy-MM-dd' value={cycleSnapEndDate} onChange={this._changeEndDate()} />
             </FormField>
             <FormField label='Targeted points' htmlFor='targetedPointsId'>
               <NumberInput id='targetedPointsId' step={1} value={targetedPoints} min={0} onChange={this._changeTargetedPoints()} />
