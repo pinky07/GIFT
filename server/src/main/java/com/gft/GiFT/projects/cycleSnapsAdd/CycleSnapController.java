@@ -6,8 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.ParseException;
 
 @RestController
 @RequestMapping(value = "/api/v1/projects")
@@ -36,15 +37,17 @@ public class CycleSnapController {
     }
 
     @PostMapping("/cyclesnaps")
-    public ResponseEntity<CycleSnap> createCycleSnap(@RequestBody final CycleSnap cycleSnap) {
-        Assert.notNull(cycleSnap, "No cycle snap object found in request body");
-
+    public ResponseEntity<Object> createCycleSnap(@RequestBody final CycleSnap cycleSnap) throws ParseException {
         logger.info("createCycleSnap: " + cycleSnap);
 
-        CycleSnap cycleSnapCreated = cycleSnapService.createCycleSnap(cycleSnap);
+        try {
+            CycleSnap cycleSnapCreated = cycleSnapService.createCycleSnap(cycleSnap);
 
+            return new ResponseEntity<>(cycleSnapCreated, HttpStatus.CREATED);
 
-        return new ResponseEntity<>(cycleSnapCreated, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(new ErrorMessage(HttpStatus.BAD_REQUEST, e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

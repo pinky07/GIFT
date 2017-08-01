@@ -1,6 +1,7 @@
 package com.gft.GiFT.formatters;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,5 +28,10 @@ public class DateFormatter {
     public static final String convertDateTimeToString(Date date) {
         DateFormat dateFormat  = new SimpleDateFormat(DATE_TIME_FORMAT);
         return dateFormat.format(date);
+    }
+
+    public static final Date convertDateStringToDate(String date) throws ParseException {
+        Date newDate = new SimpleDateFormat(DATE_FORMAT).parse(date);
+        return newDate;
     }
 }
