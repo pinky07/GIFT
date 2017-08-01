@@ -1,5 +1,6 @@
 package com.gft.GiFT.projects.cycleSnapsAdd;
 
+import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
 import org.springframework.stereotype.Service;
 
@@ -7,9 +8,11 @@ import org.springframework.stereotype.Service;
 public class DefaultCycleSnapService implements CycleSnapService {
 
     private final CycleProjectRepository projectRepository;
+    private final CycleSnapRepository cycleSnapRepository;
 
-    public DefaultCycleSnapService(CycleProjectRepository projectRepository) {
+    public DefaultCycleSnapService(CycleProjectRepository projectRepository, CycleSnapRepository cycleSnapRepository) {
         this.projectRepository = projectRepository;
+        this.cycleSnapRepository = cycleSnapRepository;
     }
 
     @Override
@@ -21,5 +24,13 @@ public class DefaultCycleSnapService implements CycleSnapService {
             return null;
 
         return project.getName();
+    }
+
+    @Override
+    public CycleSnap createCycleSnap(CycleSnap cycleSnap) {
+
+        cycleSnapRepository.save(cycleSnap);
+
+        return cycleSnap;
     }
 }
