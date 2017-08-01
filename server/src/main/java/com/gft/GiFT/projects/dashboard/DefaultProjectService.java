@@ -41,8 +41,8 @@ public class DefaultProjectService implements ProjectService {
     private CycleSnapDTO createCycleSnapDTO(CycleSnap cycleSnap) {
         CycleSnapDTO cycleSnapDTO = new CycleSnapDTO();
         cycleSnapDTO.setCycleSnapName(cycleSnap.getCycleSnapName());
-        cycleSnapDTO.setStartDate(DateFormatter.convertDateToString(cycleSnap.getStartDate()));
-        cycleSnapDTO.setEndDate(DateFormatter.convertDateToString(cycleSnap.getEndDate()));
+        cycleSnapDTO.setStartDate(cycleSnap.getStartDate());
+        cycleSnapDTO.setEndDate(cycleSnap.getEndDate());
         cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
         cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
 

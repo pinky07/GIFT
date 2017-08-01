@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping(value = "/api/v1/projects")
 public class CycleSnapController {
@@ -36,7 +38,7 @@ public class CycleSnapController {
     }
 
     @PostMapping("/cyclesnaps")
-    public ResponseEntity<Object> createCycleSnap(@RequestBody final CycleSnap cycleSnap) {
+    public ResponseEntity<CycleSnap> createCycleSnap(@RequestBody final CycleSnap cycleSnap) {
         Assert.notNull(cycleSnap, "No cycle snap object found in request body");
 
         logger.info("createCycleSnap: " + cycleSnap);

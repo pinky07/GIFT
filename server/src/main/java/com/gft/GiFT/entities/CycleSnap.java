@@ -1,5 +1,6 @@
 package com.gft.GiFT.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
@@ -17,16 +18,16 @@ public class CycleSnap {
     @Column(name = "cycle_snap_name", nullable = false, length = 200)
     private String cycleSnapName;
 
-    @Column(name = "start_date", columnDefinition = "DATETIME", nullable = false)
-    private Date startDate;
+    @Column(name = "start_date", columnDefinition = "DATE", nullable = false)
+    private String startDate;
 
-    @Column(name = "end_date", columnDefinition = "DATETIME", nullable = true)
-    private Date endDate;
+    @Column(name = "end_date", columnDefinition = "DATE", nullable = false)
+    private String endDate;
 
     @Column(name = "targeted_points", nullable = false)
     private int targetedPoints;
 
-    @Column(name = "achieved_points", nullable = true)
+    @Column(name = "achieved_points", nullable = false)
     private int achievedPoints;
 
     private int projectId;

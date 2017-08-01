@@ -31,8 +31,8 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
     @Shared  def cycleSnap1 = new CycleSnap(
             cycleSnapId: 11,
             cycleSnapName: "Sprint 84",
-            startDate: Date.parse( 'yyyy-MM-dd', '2017-05-22' ),
-            endDate: Date.parse( 'yyyy-MM-dd', '2017-06-18'),
+            startDate: '2017-05-22',
+            endDate: '2017-06-18',
             targetedPoints: 136,
             achievedPoints: 70,
             projectId: 3
