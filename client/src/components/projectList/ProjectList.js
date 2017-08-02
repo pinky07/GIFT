@@ -24,16 +24,13 @@ export class ProjectList extends React.Component {
         <h1>Portfolio #{this.props.params.id}: Projects list</h1>
 
         <Table>
-          <TableHeader labels={['Name', 'Dashboard', 'Add Cycle Snap']} />
+          <TableHeader labels={['Name', 'Dashboard']} />
           <tbody>
             {this.props.projects.map(project =>
               <TableRow key={project.id}>
                 <td>{project.name}</td>
                 <td><Anchor path={`/projects/${project.id}/dashboard`}>
                   Dashboard
-              </Anchor></td>
-                <td><Anchor path={`/projects/${project.id}/cyclesnaps/add`}>
-                  Add cycle snap
               </Anchor></td>
               </TableRow>)}
           </tbody>
