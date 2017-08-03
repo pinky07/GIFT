@@ -13,38 +13,87 @@ import Table from 'grommet/components/Table';
 import TableHeader from 'grommet/components/TableHeader';
 import TableRow from 'grommet/components/TableRow';
 import Status from 'grommet/components/icons/Status';
+import Footer from 'grommet/components/Footer';
+import Button from 'grommet/components/Button';
+import Toast from 'grommet/components/Toast';
+import Spinning from 'grommet/components/icons/Spinning';
+
+import CycleSnapAdd from '../cycleSnapAdd/CycleSnapAdd';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+
+    this._onRequestAddCycleSnap = this._onRequestAddCycleSnap.bind(this);
+    this._onAddCycleSnapCancel = this._onAddCycleSnapCancel.bind(this);
+    this._onAddCycleSnapSubmit = this._onAddCycleSnapSubmit.bind(this);
+    this._loadDashboard = this._loadDashboard.bind(this);
+
     this.state = {
       projectId: props.params.id,
       name: '',
       cycleSnaps: [],
-      errorMessage: ''
+      errorMessage: '',
+      addCycleSnap: false,
+      successNotificationOnAdd: undefined,
+      failureNotificationOnAdd: undefined
     };
   }
 
   componentDidMount() {
-    this.LoadDashboard(this.state.projectId);
+    this._loadDashboard(this.state.projectId);
   }
 
-  LoadDashboard(projectId) {
+  _loadDashboard(projectId) {
     if (isNaN(projectId)) {
       this.setState({ errorMessage: "Invalid project id" });
     }
     else {
-
-      debugger;
       axios.get(`${constants.API}/projects/${projectId}/dashboard`).then((response) => {
         if (response.data) {
-          this.setState({ name: response.data.name, cycleSnaps: response.data.cycleSnaps });
+          this.setState({
+            name: response.data.name,
+            cycleSnaps: response.data.cycleSnaps,
+            addCycleSnap: false
+          });
         }
       }).catch((error) => {
-        this.setState({ errorMessage: error.response.data.message });
+        this.setState({
+          errorMessage: error.message,
+          addCycleSnap: false
+        });
       });
-
     }
+  }
+
+  _onRequestAddCycleSnap() {
+    this.setState({
+      addCycleSnap: true,
+      successNotificationOnAdd: undefined,
+      failureNotificationOnAdd: undefined
+    });
+  }
+
+  _onAddCycleSnapCancel() {
+    this.setState({ addCycleSnap: false });
+  }
+
+  _onAddCycleSnapSubmit(newCycleSnap) {
+    axios.post(`${constants.API}/projects/cyclesnaps`, {
+      projectId: this.state.projectId,
+      cycleSnapName: newCycleSnap.name,
+      startDate: newCycleSnap.startDate,
+      endDate: newCycleSnap.endDate,
+      targetedPoints: newCycleSnap.targetedPoints,
+      achievedPoints: newCycleSnap.achievedPoints
+    })
+      .then((response) => {
+        this._loadDashboard(this.state.projectId)
+        this.setState({ successNotificationOnAdd: 'Success! You just added the snap for cycle ' + newCycleSnap.name + '.' })
+      })
+      .catch((error) => {
+        this.setState({ failureNotificationOnAdd: 'Oops! We got a bit of an issue: ' + error.message + '.' })
+      });
   }
 
   render() {
@@ -60,38 +109,65 @@ export default class Dashboard extends React.Component {
     </TableRow>
     );
 
+    let successNotification;
+    if (this.state.successNotificationOnAdd) {
+      successNotification = (<Toast status='ok' onClose={this._onCloseSuccessNotification}>{this.state.successNotificationOnAdd}</Toast>);
+    }
+
+    let failureNotification;
+    if (this.state.failureNotificationOnAdd) {
+      failureNotification = (<Toast status='critical'>{this.state.failureNotificationOnAdd}</Toast>);
+    }
+
+    let addCycleSnapLayer;
+    if (this.state.addCycleSnap) {
+      addCycleSnapLayer = (<CycleSnapAdd projectId={this.state.projectId} onClose={this._onAddCycleSnapCancel} onSubmit={this._onAddCycleSnapSubmit} />);
+    }
+
     if (errorMessage) {
-      return <div id="layout-content" className="layout-content-wrapper">
+      return <Box>
         <h1>Dashboard</h1>
         <h3><Status value='critical' /> <span>{errorMessage}</span></h3>
-      </div>
+      </Box>
     }
     else {
 
-      if (cycleSnaps.length > 0) {
-        return <div id="layout-content" className="layout-content-wrapper">
-          <h1>Dashboard: {projectName}</h1>
+      if (projectName) {
 
-          <p><Anchor path={`/projects/${this.state.projectId}/cyclesnaps/add`}>
-            Add cycle snap
-              </Anchor></p>
-          <Table>
-            <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted points', 'TAC']} sortIndex={2} sortAscending={false} />
-            <tbody>
-              {cycleSnaps}
-            </tbody>
-          </Table>
-        </div>
+        if (cycleSnaps.length > 0) {
+          return <Box>
+            <h1>Dashboard: {projectName}</h1>
+
+            <Footer>
+              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit} primary={true} />
+            </Footer>
+
+            <Table>
+              <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted points', 'TAC']} sortIndex={2} sortAscending={false} />
+              <tbody>
+                {cycleSnaps}
+              </tbody>
+            </Table>
+            {addCycleSnapLayer}
+            {successNotification}
+            {failureNotification}
+          </Box>
+        }
+        else {
+          return <Box>
+            <h1>Dashboard: {projectName}</h1>
+            <h3><Status value='unknown' /> <span>This project has no cycle snaps.</span></h3>
+            <Footer>
+              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit} primary={true} />
+            </Footer>
+          </Box>
+        }
       }
       else {
-        return <div id="layout-content" className="layout-content-wrapper">
-          <h1>Dashboard: {projectName}</h1>
-          <h3><Status value='unknown' /> <span>This project has no cycle snaps.</span></h3>
-          <p><Anchor path={`/projects/${this.state.projectId}/cyclesnaps/add`}>
-            Add cycle snap
-              </Anchor></p>
-
-        </div>
+        return <Box>
+          <h1>Dashboard</h1>
+          <h3><Spinning /> Loading... </h3>
+        </Box>
       }
     }
   }

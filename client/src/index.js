@@ -22,7 +22,6 @@ render((
         <IndexRoute component={Portfolios}></IndexRoute>
         <Route path={"projects/:id"} component={ProjectList}></Route>
         <Route path={"projects/:id/dashboard"} component={Dashboard}></Route>
-        <Route path={"projects/:id/cycleSnaps/add"} component={CycleSnapAdd}></Route>
         <Route path={"portfolios"} component={Portfolios}></Route>
         <Route path="*" component={NotFound} />
       </Route>

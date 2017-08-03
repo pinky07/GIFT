@@ -11,7 +11,7 @@ const AppHeader = () =>
     <Header colorIndex='neutral-1' pad='small'>
       <Title>
         <Anchor path={"/"}>
-          GIFT
+          GiFT
         </Anchor>
       </Title>
       <Box pad="small" separator='left' />

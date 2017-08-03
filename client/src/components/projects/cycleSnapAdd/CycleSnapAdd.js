@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import axios from 'axios';
-
 import constants from '../../../services/constants';
 
+import axios from 'axios';
+
 import Form from 'grommet/components/Form';
+import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
 import TextInput from 'grommet/components/TextInput';
 import Box from 'grommet/components/Box';
@@ -16,6 +17,9 @@ import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
 import NumberInput from 'grommet/components/NumberInput';
 import DateTime from 'grommet/components/DateTime';
+import Layer from 'grommet/components/Layer';
+import Toast from 'grommet/components/Toast';
+import Spinning from 'grommet/components/icons/Spinning';
 
 export default class CycleSnapAdd extends React.Component {
   constructor(props) {
@@ -25,7 +29,7 @@ export default class CycleSnapAdd extends React.Component {
     this._validateFields = this._validateFields.bind(this);
 
     this.state = {
-      projectId: props.params.id,
+      projectId: props.projectId,
       projectName: '',
       name: '',
       startDate: '',
@@ -50,14 +54,11 @@ export default class CycleSnapAdd extends React.Component {
     else {
       axios.get(`${constants.API}/projects/${projectId}/name`).then((response) => {
         if (response.data) {
-          this.setState({
-            projectName: response.data,
-          });
-          // this.setState({ projectName: 'MyProject' });
+          this.setState({ projectName: response.data });
         }
       }).catch((error) => {
         this.setState({
-          errorMessage: error.response.data.message,
+          errorMessage: error.message,
         });
       });
     }
@@ -309,21 +310,13 @@ export default class CycleSnapAdd extends React.Component {
     let noErrors = !this._haveErrors(errors);
 
     if (noErrors) {
-      axios.post(`${constants.API}/projects/cyclesnaps`, {
-        projectId: this.state.projectId,
-        cycleSnapName: this.state.name,
+      this.props.onSubmit({
+        name: this.state.name,
         startDate: this.state.startDate,
         endDate: this.state.endDate,
         targetedPoints: this.state.targetedPoints,
         achievedPoints: this.state.achievedPoints
-      })
-        .then(function (response) {
-          alert('Success! You added a cycle snap.');
-        })
-        .catch(function (error) {
-          console.log('error:' + error.message);
-          alert('We got a bit of an issue here... ' + error.message);
-        });
+      });
     }
     else {
       this.setState({
@@ -337,25 +330,12 @@ export default class CycleSnapAdd extends React.Component {
   render() {
     const { errorMessage } = this.state;
     if (errorMessage) {
-      return <div>
-        <h1>Add Cycle Snap</h1>
-        <h3><Status value='critical' /> <span>{errorMessage}</span></h3>
-      </div>
+      return <Toast status='critical'>Oops! We got some issues: {errorMessage}</Toast>
     }
     else {
       const { projectName } = this.state;
 
       if (projectName) {
-
-        // if (successMessage) {
-        //   let notificationOnSubmitBox = <Notification message='Success! You just added a new cycle snap.' status='ok' size='small' />
-        // }
-        // else {
-        //   if (errorMessageOnSubmit) {
-        //     let notificationOnSubmitBox = <Notification message={`Oops! ' + ${error}`} status='critical' size='small' />
-        //   }
-        // }
-
         const { errors } = this.state;
 
         const { name } = this.state;
@@ -364,42 +344,59 @@ export default class CycleSnapAdd extends React.Component {
         const { targetedPoints } = this.state;
         const { achievedPoints } = this.state;
 
-        return <div id="layout-content" className="layout-content-wrapper">
-          <h1>Cycle Snap</h1>
-          <h2>Project: {projectName}</h2>
+        return <Layer align='center' closer={true} onClose={this.props.onClose}>
+          <Box pad={{ vertical: 'large', horizontal: 'small' }}>
 
-          <Form compact={false}>
-            <FormField label='Cycle name or id' htmlFor="cycleNameInput" error={errors.name}>
-              <TextInput id='cycleNameInput' onDOMChange={this._changeName()} value={name} />
-            </FormField>
-            <FormField label='Start Date' htmlFor="cycleStartDate" error={errors.startDate}>
-              <DateTime id='cycleStartDate' format='YYYY-MM-DD' value={startDate} onChange={this._changeStartDate()} />
-            </FormField>
-            <FormField label='End Date' htmlFor="cycleEndDate" error={errors.endDate}>
-              <DateTime id='cycleEndDate' format='YYYY-MM-DD' value={endDate} onChange={this._changeEndDate()} />
-            </FormField>
-            <FormField label='Targeted points' htmlFor='targetedPointsId' error={errors.targetedPoints}>
-              <NumberInput id='targetedPointsId' step={1} value={targetedPoints} min={0} onChange={this._changeTargetedPoints()} />
-            </FormField>
-            <FormField label='Achieved points' htmlFor='achievedPointsId' error={errors.achievedPoints}>
-              <NumberInput id='achievedPoints' step={1} value={achievedPoints} min={0} onChange={this._changeAchievedPoints()} />
-            </FormField>
+            <header>
+              <h1>Add cycle snap</h1>
+              <h2>Project: {projectName}</h2>
+            </header>
 
+            <Form compact={false}>
+              <FormFields>
+                <fieldset>
+                  <FormField label='Cycle name or id' htmlFor="cycleNameInput" error={errors.name}>
+                    <TextInput id='cycleNameInput' onDOMChange={this._changeName()} value={name} />
+                  </FormField>
+                  <FormField label='Start Date' htmlFor="cycleStartDate" error={errors.startDate}>
+                    <DateTime id='cycleStartDate' format='YYYY-MM-DD' value={startDate} onChange={this._changeStartDate()} />
+                  </FormField>
+                  <FormField label='End Date' htmlFor="cycleEndDate" error={errors.endDate}>
+                    <DateTime id='cycleEndDate' format='YYYY-MM-DD' value={endDate} onChange={this._changeEndDate()} />
+                  </FormField>
+                  <FormField label='Targeted points' htmlFor='targetedPointsId' error={errors.targetedPoints}>
+                    <NumberInput id='targetedPointsId' step={1} value={targetedPoints} min={0} onChange={this._changeTargetedPoints()} />
+                  </FormField>
+                  <FormField label='Achieved points' htmlFor='achievedPointsId' error={errors.achievedPoints}>
+                    <NumberInput id='achievedPoints' step={1} value={achievedPoints} min={0} onChange={this._changeAchievedPoints()} />
+                  </FormField>
+                </fieldset>
+              </FormFields>
 
-            <Footer pad={{ "vertical": "medium" }}>
-              <Button label='Add' type='submit' primary={true} onClick={this._onSubmit} />
-            </Footer>
+              <Footer pad={{ "vertical": "medium" }}>
+                <Box>
+                  <Button label='Add' type='submit' primary={true} onClick={this._onSubmit} />
+                </Box>
+                <Box pad={{ horizontal: 'small' }}>
+                  <Button label='Cancel' onClick={this.props.onClose} />
+                </Box>
 
-            {/* {notificationOnSubmitBox} */}
-          </Form>
-        </div>
+              </Footer>
+            </Form>
+          </Box>
+        </Layer>
       }
       else {
-        return <div id="layout-content" className="layout-content-wrapper">
-          <h1>Add Cycle Snap for project Id #{projectName}</h1>
-          <h3><Status value='unknown' /> <span>We are sorry, but this project does not exist.</span></h3>
-        </div>
+        return <Box>
+          <h3><Spinning /> Loading... </h3>
+        </Box>
       }
     }
   }
+}
+
+CycleSnapAdd.PropTypes = {
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  projectId: PropTypes.number
 }
