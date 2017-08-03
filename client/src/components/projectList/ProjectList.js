@@ -26,10 +26,10 @@ export class ProjectList extends React.Component {
         <Table>
           <TableHeader labels={['Name', 'Dashboard']} />
           <tbody>
-            {this.props.projects.map(project =>
+            {this.props.projects.map((project, i) =>
               <TableRow key={project.id}>
                 <td>{project.name}</td>
-                <td><Anchor id={`${project.id}`} path={`/projects/${project.id}/dashboard`}>
+                <td><Anchor id={`dashboard-link-${i}`} path={`/projects/${project.id}/dashboard`}>
                   Dashboard
               </Anchor></td>
               </TableRow>)}

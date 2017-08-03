@@ -387,9 +387,11 @@ export default class CycleSnapAdd extends React.Component {
         </Layer>
       }
       else {
-        return <Box>
-          <h3><Spinning /> Loading... </h3>
-        </Box>
+        return <Layer align='center'
+        ><Box>
+            <h3><Spinning /> Loading... </h3>
+          </Box>
+        </Layer>
       }
     }
   }
