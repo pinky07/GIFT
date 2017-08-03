@@ -54,6 +54,9 @@ dependencies {
     // Reduce boilerplate code
     compileOnly('org.projectlombok:lombok')
 
+    // https://mvnrepository.com/artifact/joda-time/joda-time
+    compile group: 'joda-time', name: 'joda-time', version: '2.3'
+
     // Mandatory dependencies for using Spock
     compile("org.codehaus.groovy:groovy-all:2.4.10")
     testCompile("org.spockframework:spock-core:1.1-groovy-2.4-rc-2")
