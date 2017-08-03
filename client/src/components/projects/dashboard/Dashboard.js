@@ -75,7 +75,11 @@ export default class Dashboard extends React.Component {
   }
 
   _onAddCycleSnapCancel() {
-    this.setState({ addCycleSnap: false });
+    this.setState({
+      addCycleSnap: false,
+      successNotificationOnAdd: undefined,
+      failureNotificationOnAdd: undefined
+    });
   }
 
   _onAddCycleSnapSubmit(newCycleSnap) {
@@ -92,7 +96,20 @@ export default class Dashboard extends React.Component {
         this.setState({ successNotificationOnAdd: 'Success! You just added the snap for cycle ' + newCycleSnap.name + '.' })
       })
       .catch((error) => {
-        this.setState({ failureNotificationOnAdd: 'Oops! We got a bit of an issue: ' + error.message + '.' })
+        if (error.response) {
+          // There was a validation error.
+          this.setState({
+            failureNotificationOnAdd: 'Please check: ' + error.response.data.message + '.',
+            addCycleSnap: false
+          })
+        }
+        else {
+          // There was a critical error.
+          this.setState({
+            failureNotificationOnAdd: 'Oops! We got a bit of an issue: ' + error.message + '.',
+            addCycleSnap: false
+          })
+        }
       });
   }
 
