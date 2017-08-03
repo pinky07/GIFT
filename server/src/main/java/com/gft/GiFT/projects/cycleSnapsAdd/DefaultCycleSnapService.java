@@ -42,12 +42,18 @@ public class DefaultCycleSnapService implements CycleSnapService {
     private void validateCycleSnap(CycleSnap cycleSnap) throws ParseException {
         if (cycleSnap.getCycleSnapName().isEmpty()) {
             throw new IllegalArgumentException("No Cycle Snap Name found in request body.");
-        } else if (cycleSnap.getStartDate().isEmpty()) {
+        } else if (cycleSnap.getCycleSnapName().length() > 200){
+            throw new IllegalArgumentException("Cycle Snap Name can not be greater than 200 characters.");
+        }else if (cycleSnap.getStartDate().isEmpty()) {
             throw new IllegalArgumentException("No Start Date found in request body.");
         } else if (cycleSnap.getEndDate().isEmpty()) {
             throw new IllegalArgumentException("No End Date found in request body.");
         } else if (DateFormatter.convertDateStringToDate(cycleSnap.getEndDate()).before(DateFormatter.convertDateStringToDate(cycleSnap.getStartDate()))) {
             throw new IllegalArgumentException("End Date can not be before Start Date.");
+        } else if (cycleSnap.getTargetedPoints() > 10000) {
+            throw new IllegalArgumentException("The Targeted Points can not be greater than 10,000.");
+        } else if (cycleSnap.getAchievedPoints() > 10000) {
+            throw new IllegalArgumentException("The Achieved Points can not be greater than 10,000.");
         }
     }
 }
