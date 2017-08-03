@@ -29,7 +29,7 @@ export class ProjectList extends React.Component {
             {this.props.projects.map(project =>
               <TableRow key={project.id}>
                 <td>{project.name}</td>
-                <td><Anchor path={`/projects/${project.id}/dashboard`}>
+                <td><Anchor id={`${project.id}`} path={`/projects/${project.id}/dashboard`}>
                   Dashboard
               </Anchor></td>
               </TableRow>)}
