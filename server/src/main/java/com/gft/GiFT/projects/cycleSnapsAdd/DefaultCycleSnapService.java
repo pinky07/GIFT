@@ -80,7 +80,7 @@ public class DefaultCycleSnapService implements CycleSnapService {
             Interval comingDatesFromDB = new Interval(cycleStartDate, cycleEndDate);
 
             if (comingDatesFromUser.overlaps(comingDatesFromDB)) {
-                throw new IllegalArgumentException("Coming Dates overlaps an existing cycle.");
+                throw new IllegalArgumentException("The new cycle dates overlap an existing one.");
             }
         }
     }
