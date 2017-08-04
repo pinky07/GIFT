@@ -2,15 +2,10 @@ package com.gft.GiFT.projects.cycleSnapsAdd;
 
 import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
-import com.gft.GiFT.formatters.DateFormatter;
-import org.joda.time.DateTime;
-import org.joda.time.Interval;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import java.text.ParseException;
-import java.util.Date;
 import java.util.Set;
 
 @Service
