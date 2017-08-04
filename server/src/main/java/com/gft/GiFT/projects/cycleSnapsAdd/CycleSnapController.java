@@ -25,29 +25,36 @@ public class CycleSnapController {
 
     @GetMapping("/{projectId}/name")
     public ResponseEntity<Object> findProjectNameById(@PathVariable("projectId") final int projectId) {
-
-        logger.info("findProjectNameById: " + projectId);
+        logger.info("findProjectNameById received: " + projectId);
 
         String projectName = cycleSnapService.findProjectNameById(projectId);
 
-        if (projectName == null)
-            return new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found."), HttpStatus.NOT_FOUND);
+        ResponseEntity<Object> response;
+        if (projectName == null){
+            response = new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found."), HttpStatus.NOT_FOUND);
+        }
+        else{
+            response = new ResponseEntity<>(projectName, HttpStatus.OK);
+        }
 
-        return new ResponseEntity<>(projectName, HttpStatus.OK);
+        logger.info("findProjectNameById returned: {}",  response);
+        return response;
     }
 
     @PostMapping("/cyclesnaps")
-    public ResponseEntity<Object> createCycleSnap(@RequestBody final CycleSnap cycleSnap) throws ParseException {
-        logger.info("createCycleSnap: " + cycleSnap);
+    public ResponseEntity<Object> createCycleSnap(@RequestBody final CycleSnap newCycleSnap) throws ParseException {
+        logger.info("createCycleSnap received: " + newCycleSnap);
 
+        ResponseEntity<Object> response;
         try {
-            CycleSnap cycleSnapCreated = cycleSnapService.createCycleSnap(cycleSnap);
-
-            return new ResponseEntity<>(cycleSnapCreated, HttpStatus.CREATED);
-
+            CycleSnap cycleSnapCreated = cycleSnapService.createCycleSnap(newCycleSnap);
+            response = new ResponseEntity<>(cycleSnapCreated, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(new ErrorMessage(HttpStatus.BAD_REQUEST, e.getMessage()), HttpStatus.BAD_REQUEST);
+            response = new ResponseEntity<>(new ErrorMessage(HttpStatus.BAD_REQUEST, e.getMessage()), HttpStatus.BAD_REQUEST);
         }
+
+        logger.info("createCycleSnap returned: {}", response);
+        return response;
     }
 
 }

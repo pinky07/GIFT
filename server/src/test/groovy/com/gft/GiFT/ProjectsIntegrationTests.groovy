@@ -1,7 +1,5 @@
 package com.gft.GiFT
 
-import com.gft.GiFT.projects.dashboard.CycleSnapDTO
-import com.gft.GiFT.projects.dashboard.ProjectDTO
 import com.gft.GiFT.entities.CycleSnap
 import com.gft.GiFT.entities.Project
 import org.springframework.boot.test.context.SpringBootTest
@@ -10,7 +8,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.core.ParameterizedTypeReference
-import spock.lang.Shared
 
 @SpringBootTest( classes = GiFtApplication.class,
         webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT,
@@ -19,16 +16,7 @@ import spock.lang.Shared
 @DirtiesContext
 class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
 
-    @Shared  def cycleSnapDTO1 = new CycleSnapDTO(
-            cycleSnapName: "Sprint 84",
-            startDate: '2017-05-22',
-            endDate: '2017-06-18',
-            targetedPoints: 136,
-            achievedPoints: 70,
-            tac: "51%"
-    )
-
-    @Shared  def cycleSnap1 = new CycleSnap(
+    def cycleSnap1 = new CycleSnap(
             cycleSnapId: 11,
             cycleSnapName: "Sprint 84",
             startDate: '2017-05-22',
@@ -99,30 +87,4 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         response.projectStatus == 4
     }
 
-    def "Should get dashboard by project Id" () {
-        given:
-        Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
-        newCycleSnapDTOSet.add(cycleSnapDTO1)
-
-        def expectedProject = new ProjectDTO(
-                name: 'A-Team',
-                cycleSnaps: newCycleSnapDTOSet
-        )
-
-        when:
-        def response = getForEntity("${BASE_URL}/projects/3/dashboard", ProjectDTO.class)
-
-        then:
-        response.statusCode == HttpStatus.OK
-        def project = response.body
-        expectedProject == project
-    }
-
-    def "Should get a 404 when the projectId does not exist" () {
-        when:
-        def response = getForEntity("${BASE_URL}/projects/999/dashboard", ProjectDTO.class)
-
-        then:
-        response.statusCode == HttpStatus.NOT_FOUND
-    }
 }
