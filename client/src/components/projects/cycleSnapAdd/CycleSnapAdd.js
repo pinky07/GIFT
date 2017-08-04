@@ -34,8 +34,8 @@ export default class CycleSnapAdd extends React.Component {
       name: '',
       startDate: '',
       endDate: '',
-      targetedPoints: 0,
-      achievedPoints: 0,
+      targetedPoints: '0',
+      achievedPoints: '0',
       errorMessage: undefined,
       errors: {}
     };
@@ -157,19 +157,17 @@ export default class CycleSnapAdd extends React.Component {
     return (event) => {
       // Get state
       let newValue = event.target.value;
+      let { errors } = this.state;
 
-      if (!isNaN(newValue)) {
-        let { errors } = this.state;
+      newValue = parseInt(newValue);
+      // Validate
+      errors.targetedPoints = this._validateTargetedPoints(newValue);
 
-        // Validate
-        errors.targetedPoints = this._validateTargetedPoints(newValue);
-
-        // Set new state
-        this.setState({
-          errors: errors,
-          targetedPoints: newValue
-        });
-      }
+      // Set new state
+      this.setState({
+        errors: errors,
+        targetedPoints: newValue
+      });
     };
   }
 
@@ -179,6 +177,7 @@ export default class CycleSnapAdd extends React.Component {
       let newValue = event.target.value;
       let { errors } = this.state;
 
+      newValue = parseInt(newValue);
       // Validate
       errors.achievedPoints = this._validateAchievedPoints(newValue);
 
@@ -248,16 +247,16 @@ export default class CycleSnapAdd extends React.Component {
   _validateTargetedPoints(points) {
     let error = undefined;
 
-    if (points == '') {
-      error = 'Targeted points should be a number';
+    if (isNaN(points)) {
+      error = 'Targeted points are required';
     }
     else {
-      if (points < 0) {
-        error = 'Targeted points min is 0';
-      }
-      if (points > 10000) {
-        error = 'Targeted points max is 10,000';
-      }
+        if (points < 0) {
+          error = 'Targeted points min is 0';
+        }
+        if (points > 10000) {
+          error = 'Targeted points max is 10,000';
+        }
     }
 
     return error;
@@ -266,8 +265,8 @@ export default class CycleSnapAdd extends React.Component {
   _validateAchievedPoints(points) {
     let error = undefined;
 
-    if (points == '') {
-      error = 'Achieved points is required';
+    if (isNaN(points)) {
+      error = 'Achieved points are required';
     }
     else {
       if (points < 0) {
