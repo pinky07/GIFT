@@ -251,12 +251,12 @@ export default class CycleSnapAdd extends React.Component {
       error = 'Targeted points are required';
     }
     else {
-        if (points < 0) {
-          error = 'Targeted points min is 0';
-        }
-        if (points > 10000) {
-          error = 'Targeted points max is 10,000';
-        }
+      if (points < 0) {
+        error = 'Targeted points min is 0';
+      }
+      if (points > 10000) {
+        error = 'Targeted points max is 10,000';
+      }
     }
 
     return error;
@@ -377,7 +377,7 @@ export default class CycleSnapAdd extends React.Component {
                   <Button label='Add' type='submit' primary={true} onClick={this._onSubmit} />
                 </Box>
                 <Box pad={{ horizontal: 'small' }}>
-                  <Button label='Cancel' onClick={this.props.onClose} />
+                  <Button label='Cancel' secondary='true' onClick={this.props.onClose} />
                 </Box>
 
               </Footer>
