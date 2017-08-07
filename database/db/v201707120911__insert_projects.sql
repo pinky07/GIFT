@@ -72,3 +72,52 @@ VALUES ('Sprint #1', '2017-06-29', '2017-07-29', 0, 0, 7);
 
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
 VALUES ('Sprint #2', '2017-06-29', '2017-07-29', 70, 68, 7);
+
+-- Test Data for t_release_snap
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-03-10', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-03-27', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-03-31', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-04-24', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-04-03', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-04-10', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-05-1', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-03-27', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-05-31', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-06-01', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-06-01', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-06-08', 1);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-05-30', 6);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-06-13', 6);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-06-29', 6);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2016-05-25', 3);

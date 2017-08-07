@@ -19,3 +19,13 @@ CREATE TABLE t_cycle_snap (
   CONSTRAINT pk_cycle_snap_id PRIMARY KEY (cycle_snap_id),
   CONSTRAINT fk_project_id_cycle FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );
+
+CREATE TABLE t_release_snap (
+  release_id INT  AUTO_INCREMENT  NOT NULL,
+  release_date DATE NOT NULL,
+  project_id INT NOT NULL,
+    CONSTRAINT pk_release_id PRIMARY KEY (release_id),
+   CONSTRAINT project_id
+   FOREIGN KEY (project_id)
+   REFERENCES t_project (project_id)
+);
