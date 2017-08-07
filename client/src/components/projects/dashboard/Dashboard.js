@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import constants from '../../../services/constants';
 
+import Heading from 'grommet/components/Heading';
 import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Table from 'grommet/components/Table';
@@ -58,11 +59,21 @@ export default class Dashboard extends React.Component {
           });
         }
       }).catch((error) => {
-        this.setState({
-          errorMessage: error.message,
-          addCycleSnap: false
-        });
-      });
+if (error.response) {
+          // There was a validation error.
+          this.setState({
+            errorMessage: 'Please check: ' + error.response.data.message + '.',
+            addCycleSnap: false
+          })
+        }
+        else {
+          // There was a critical error.
+          this.setState({
+            errorMessage: 'Oops! We got a bit of an issue: ' + error.message + '.',
+            addCycleSnap: false
+          })
+      }}
+      );
     }
   }
 
@@ -123,6 +134,7 @@ export default class Dashboard extends React.Component {
       <td>{cycle.endDate}</td>
       <td>{cycle.achievedPoints} / {cycle.targetedPoints}</td>
       <td>{cycle.tac}</td>
+      <td>{cycle.daysSinceLastRelease}</td>
     </TableRow>
     );
 
@@ -142,25 +154,25 @@ export default class Dashboard extends React.Component {
     }
 
     if (errorMessage) {
-      return <Box>
+      return (<Box>
         <h1>Dashboard</h1>
         <h3><Status value='critical' /> <span>{errorMessage}</span></h3>
-      </Box>
+      </Box>);
     }
     else {
 
       if (projectName) {
 
         if (cycleSnaps.length > 0) {
-          return <Box>
-            <h1>Dashboard: {projectName}</h1>
+          return (<Box>
+            <Heading>Dashboard: {projectName}</Heading>
 
             <Footer>
               <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit} primary={true} />
             </Footer>
 
             <Table>
-              <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted points', 'TAC']} sortIndex={2} sortAscending={false} />
+              <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Days since last release']} sortIndex={2} sortAscending={false} />
               <tbody>
                 {cycleSnaps}
               </tbody>
@@ -168,23 +180,27 @@ export default class Dashboard extends React.Component {
             {addCycleSnapLayer}
             {successNotification}
             {failureNotification}
-          </Box>
+          </Box>);
         }
         else {
-          return <Box>
+          return (<Box>
             <h1>Dashboard: {projectName}</h1>
             <h3><Status value='unknown' /> <span>This project has no cycle snaps.</span></h3>
             <Footer>
               <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit} primary={true} />
             </Footer>
-          </Box>
+                        {addCycleSnapLayer}
+            {successNotification}
+            {failureNotification}
+
+          </Box>);
         }
       }
       else {
-        return <Box>
+        return (<Box>
           <h1>Dashboard</h1>
           <h3><Spinning /> Loading... </h3>
-        </Box>
+        </Box>);
       }
     }
   }
