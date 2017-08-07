@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_3b918570b207066?useSSL=false
+    username: b0cf08670721fb
+    password: 77902b2a
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: false
+    show-sql: true
