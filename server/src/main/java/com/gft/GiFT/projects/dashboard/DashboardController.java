@@ -30,7 +30,7 @@ public class DashboardController {
         ProjectDTO projectDTO = projectService.findDashboardByProjectId(projectId);
 
         if (projectDTO == null)
-            return new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found."), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found"), HttpStatus.NOT_FOUND);
 
         logger.info("{}", projectDTO);
 

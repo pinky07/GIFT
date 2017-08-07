@@ -31,7 +31,7 @@ public class CycleSnapController {
 
         ResponseEntity<Object> response;
         if (projectName == null){
-            response = new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found."), HttpStatus.NOT_FOUND);
+            response = new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found"), HttpStatus.NOT_FOUND);
         }
         else{
             response = new ResponseEntity<>(projectName, HttpStatus.OK);
