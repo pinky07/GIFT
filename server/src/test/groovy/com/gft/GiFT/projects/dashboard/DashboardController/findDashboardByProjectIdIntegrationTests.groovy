@@ -6,19 +6,26 @@ import com.gft.GiFT.projects.dashboard.CycleSnapDTO
 import com.gft.GiFT.projects.dashboard.ProjectDTO
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
-import org.springframework.test.annotation.DirtiesContext
+import org.springframework.test.annotation.Rollback
 import org.springframework.test.context.ActiveProfiles
-import spock.lang.Shared
+import org.springframework.test.context.jdbc.Sql
+import org.springframework.test.context.jdbc.SqlGroup
+import org.springframework.transaction.annotation.Transactional
 
 @SpringBootTest( classes = GiFtApplication.class,
         webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT,
         properties = "server.port:8080")
 @ActiveProfiles(["dev"])
-@DirtiesContext
+@Transactional
+@Rollback
+@SqlGroup([
+        @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/before.sql"),
+        @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/after.sql")
+])
 class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecification {
 
     def cycleSnapDTO1 = new CycleSnapDTO(
-            cycleSnapName: "Sprint 84",
+            cycleSnapName: "Sprint Test",
             startDate: '2017-05-22',
             endDate: '2017-06-18',
             targetedPoints: 136,
@@ -31,13 +38,13 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
         Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
         newCycleSnapDTOSet.add(cycleSnapDTO1)
 
-        def expectedProject = new ProjectDTO(
-                name: 'A-Team',
+        def expectedProject = new ProjectDTO (
+                name: 'Project Test',
                 cycleSnaps: newCycleSnapDTOSet
         )
 
         when:
-        def response = getForEntity("${BASE_URL}/projects/3/dashboard", ProjectDTO.class)
+        def response = getForEntity("${BASE_URL}/projects/99999/dashboard", ProjectDTO.class)
 
         then:
         response.statusCode == HttpStatus.OK
