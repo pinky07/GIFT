@@ -41,7 +41,7 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
         response.statusCode == HttpStatus.CREATED
     }
 
-    def "Should get a 400 when the projectId does not exist" () {
+    def "Should get a 400 when the startDate is empty" () {
         given:
         def cycleSnap = new CycleSnap(
                 projectId: 99999,
