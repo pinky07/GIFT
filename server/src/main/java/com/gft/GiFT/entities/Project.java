@@ -1,5 +1,6 @@
 package com.gft.GiFT.entities;
 
+import com.gft.GiFT.projects.dashboard.IncidentsReport;
 import com.gft.GiFT.projects.dashboard.ReleaseSnap;
 import lombok.Data;
 import javax.persistence.*;
@@ -39,5 +40,8 @@ public class Project {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
     private List<ReleaseSnap> releaseSnaps = new LinkedList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
+    private List<IncidentsReport> incidentsReport = new LinkedList<>();
 
 }

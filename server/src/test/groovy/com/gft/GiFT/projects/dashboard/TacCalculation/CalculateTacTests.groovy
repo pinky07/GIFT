@@ -1,6 +1,5 @@
 package com.gft.GiFT.projects.dashboard.TacCalculation
 
-import com.gft.GiFT.projects.cycleSnapsAdd.CycleSnapValidation
 import com.gft.GiFT.projects.dashboard.TacCalculation
 import spock.lang.Specification
 

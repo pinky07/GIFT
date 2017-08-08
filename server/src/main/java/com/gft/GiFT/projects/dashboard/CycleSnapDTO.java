@@ -12,5 +12,6 @@ public class CycleSnapDTO {
     private int achievedPoints;
     private String daysSinceLastRelease;
     private String tac;
+    private String relatedIncidents;
 
 }
