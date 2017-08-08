@@ -68,10 +68,16 @@ INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points,
 VALUES ('Sprint #23', '2017-06-14', '2017-06-29', 26, 26, 6);
 
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
-VALUES ('Sprint #1', '2017-06-29', '2017-07-29', 0, 0, 7);
+VALUES ('Sprint #1', '2017-01-25', '2017-01-30', 0, 0, 7);
 
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
-VALUES ('Sprint #2', '2017-06-29', '2017-07-29', 70, 68, 7);
+VALUES ('Sprint #2', '2017-02-01', '2017-02-14', 60, 55, 7);
+
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
+VALUES ('Sprint #3', '2017-02-18', '2017-02-28', 70, 68, 7);
+
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
+VALUES ('Sprint #4', '2017-03-01', '2017-03-15', 100, 100, 7);
 
 -- Test Data for t_release_snap
 INSERT INTO t_release_snap(release_date, project_id )
@@ -121,3 +127,34 @@ VALUES ('2016-06-29', 6);
 
 INSERT INTO t_release_snap(release_date, project_id )
 VALUES ('2016-05-25', 3);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2017-02-07', 7);
+
+INSERT INTO t_release_snap(release_date, project_id )
+VALUES ('2017-03-02', 7);
+
+--Test Data for t_incidents_report
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-06-13', 1, 6);
+
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-02-07', 2, 7);
+
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-02-09', 3, 7);
+
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-02-21', 1, 7);
+
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-03-02', 4, 7);
+
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-03-02', 1, 7);
+
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-03-14', 1, 7);
+
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
+VALUES ('2017-03-16', 1, 7);

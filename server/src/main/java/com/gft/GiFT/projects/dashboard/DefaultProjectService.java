@@ -55,7 +55,7 @@ public class DefaultProjectService implements ProjectService {
         cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
         cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
         cycleSnapDTO.setDaysSinceLastRelease(DaysSinceLastReleaseCalculation.determineDaysSinceLastRelease(cycleSnap.getEndDate(), releaseDates));
-        cycleSnapDTO.setTac(TacCalculation.calculateTac(cycleSnap.getTargetedPoints(),cycleSnap.getAchievedPoints()));
+        cycleSnapDTO.setTac(TacCalculation.calculateTac(cycleSnap.getTargetedPoints(), cycleSnap.getAchievedPoints()));
         return cycleSnapDTO;
     }
 
