@@ -1,7 +1,6 @@
 package com.gft.GiFT.projects.dashboard.RelatedIncidentsCalculation
 
-import com.gft.GiFT.projects.dashboard.IncidentsReport
-import com.gft.GiFT.projects.dashboard.RelatedIncidentsCalculation
+import com.gft.GiFT.projects.dashboard.businessLogic.RelatedIncidentsCalculation
 import spock.lang.Specification
 
 class determineRelatedIncidentsTests extends Specification {

@@ -1,7 +1,7 @@
 package com.gft.GiFT.entities;
 
-import com.gft.GiFT.projects.dashboard.IncidentsReport;
-import com.gft.GiFT.projects.dashboard.ReleaseSnap;
+import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport;
+import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.LinkedHashSet;

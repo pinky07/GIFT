@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.dashboard.TacCalculation
 
-import com.gft.GiFT.projects.dashboard.TacCalculation
+import com.gft.GiFT.projects.dashboard.businessLogic.TacCalculation
 import spock.lang.Specification
 
 class CalculateTacTests extends Specification {

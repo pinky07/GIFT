@@ -1,6 +1,8 @@
 package com.gft.GiFT.projects.dashboard;
 
 import com.gft.GiFT.entities.ErrorMessage;
+import com.gft.GiFT.projects.dashboard.businessLogic.ProjectDTO;
+import com.gft.GiFT.projects.dashboard.businessLogic.ProjectService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

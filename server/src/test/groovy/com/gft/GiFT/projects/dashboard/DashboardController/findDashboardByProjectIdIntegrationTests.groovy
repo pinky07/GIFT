@@ -2,8 +2,8 @@ package com.gft.GiFT.projects.dashboard.DashboardController
 
 import com.gft.GiFT.AbstractIntegrationSpecification
 import com.gft.GiFT.GiFtApplication
-import com.gft.GiFT.projects.dashboard.CycleSnapDTO
-import com.gft.GiFT.projects.dashboard.ProjectDTO
+import com.gft.GiFT.projects.dashboard.businessLogic.CycleSnapDTO
+import com.gft.GiFT.projects.dashboard.businessLogic.ProjectDTO
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
 import org.springframework.test.annotation.Rollback

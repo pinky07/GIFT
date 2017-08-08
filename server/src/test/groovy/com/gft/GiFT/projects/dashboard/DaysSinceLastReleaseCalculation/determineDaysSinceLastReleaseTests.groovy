@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.dashboard.DaysSinceLastReleaseCalculation
 
-import com.gft.GiFT.projects.dashboard.DaysSinceLastReleaseCalculation
+import com.gft.GiFT.projects.dashboard.businessLogic.DaysSinceLastReleaseCalculation
 import spock.lang.Specification
 
 class determineDaysSinceLastReleaseTests extends Specification {

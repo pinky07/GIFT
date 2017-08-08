@@ -1,7 +1,9 @@
-package com.gft.GiFT.projects.dashboard;
+package com.gft.GiFT.projects.dashboard.businessLogic;
 
 import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
+import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
+import com.gft.GiFT.projects.dashboard.dataAccess.DashboardProjectRepository;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -54,8 +56,14 @@ public class DefaultProjectService implements ProjectService {
         cycleSnapDTO.setEndDate(cycleSnap.getEndDate());
         cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
         cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
-        cycleSnapDTO.setDaysSinceLastRelease(DaysSinceLastReleaseCalculation.determineDaysSinceLastRelease(cycleSnap.getEndDate(), releaseDates));
         cycleSnapDTO.setTac(TacCalculation.calculateTac(cycleSnap.getTargetedPoints(),cycleSnap.getAchievedPoints()));
+
+        String daysSinceLastRelease = DaysSinceLastReleaseCalculation.determineDays(cycleSnap.getEndDate(), releaseDates);
+        cycleSnapDTO.setDaysSinceLastRelease(daysSinceLastRelease);
+
+        String relatedIncidents = RelatedIncidentsCalculation.determineRelatedIncidents(null, cycleSnap.getStartDate(),releaseDates);
+        cycleSnapDTO.setRelatedIncidents(relatedIncidents);
+
         return cycleSnapDTO;
     }
 

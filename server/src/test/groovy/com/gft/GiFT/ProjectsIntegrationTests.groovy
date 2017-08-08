@@ -2,7 +2,7 @@ package com.gft.GiFT
 
 import com.gft.GiFT.entities.CycleSnap
 import com.gft.GiFT.entities.Project
-import com.gft.GiFT.projects.dashboard.ReleaseSnap
+import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

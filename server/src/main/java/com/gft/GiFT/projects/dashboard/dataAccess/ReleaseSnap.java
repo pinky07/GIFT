@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.dashboard;
+package com.gft.GiFT.projects.dashboard.dataAccess;
 
 import lombok.Data;
 
