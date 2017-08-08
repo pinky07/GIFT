@@ -30,6 +30,27 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             endDate: '2017-06-18',
             targetedPoints: 136,
             achievedPoints: 70,
+            daysSinceLastRelease: 'No releases yet',
+            tac: "51%"
+    )
+
+    def cycleSnapDTO2 = new CycleSnapDTO(
+            cycleSnapName: "New Sprint Test",
+            startDate: '2017-02-01',
+            endDate: '2017-02-14',
+            targetedPoints: 76,
+            achievedPoints: 58,
+            daysSinceLastRelease: '7',
+            tac: "76%"
+    )
+
+    def cycleSnapDTO3 = new CycleSnapDTO(
+            cycleSnapName: "Sprint Test 2",
+            startDate: '2017-03-02',
+            endDate: '2017-03-15',
+            targetedPoints: 87,
+            achievedPoints: 45,
+            daysSinceLastRelease: '13',
             tac: "51%"
     )
 
@@ -58,5 +79,25 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
 
         then:
         response.statusCode == HttpStatus.NOT_FOUND
+    }
+
+    def "Should get dashboard by project Id with Days since last release" () {
+        given:
+        Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
+        newCycleSnapDTOSet.add(cycleSnapDTO3)
+        newCycleSnapDTOSet.add(cycleSnapDTO2)
+
+        def expectedProject = new ProjectDTO (
+                name: 'New Project Test',
+                cycleSnaps: newCycleSnapDTOSet,
+        )
+
+        when:
+        def response = getForEntity("${BASE_URL}/projects/12345/dashboard", ProjectDTO.class)
+
+        then:
+        response.statusCode == HttpStatus.OK
+        def project = response.body
+        expectedProject == project
     }
 }
