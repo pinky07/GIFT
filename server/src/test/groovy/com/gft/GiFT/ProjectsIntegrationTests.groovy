@@ -2,6 +2,7 @@ package com.gft.GiFT
 
 import com.gft.GiFT.entities.CycleSnap
 import com.gft.GiFT.entities.Project
+import com.gft.GiFT.projects.dashboard.ReleaseSnap
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -26,10 +27,19 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
             projectId: 3
     )
 
+    def releaseSnap1 = new ReleaseSnap(
+            id: 16,
+            releaseDate: '2016-05-25',
+            projectId: 3
+    )
+
     def "Should get projects by portfolio" () {
         given:
         Set<CycleSnap> newCycleSnapSet = new LinkedHashSet<CycleSnap>()
         newCycleSnapSet.add(cycleSnap1)
+
+        List<ReleaseSnap> newReleaseSnapSet = new LinkedList<ReleaseSnap>()
+        newReleaseSnapSet.add(releaseSnap1)
 
         def oneProject = new Project()
         oneProject.id = 3
@@ -39,6 +49,7 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
         oneProject.cycleTypeId = 2
         oneProject.projectStatus = 1
         oneProject.cycleSnapSet = newCycleSnapSet
+        oneProject.releaseSnaps = newReleaseSnapSet
 
         def otherProject = new Project()
         otherProject.id = 4
