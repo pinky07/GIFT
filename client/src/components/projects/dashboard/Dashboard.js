@@ -135,6 +135,7 @@ if (error.response) {
       <td>{cycle.achievedPoints} / {cycle.targetedPoints}</td>
       <td>{cycle.tac}</td>
       <td>{cycle.daysSinceLastRelease}</td>
+      <td>{cycle.relatedIncidents}</td>
     </TableRow>
     );
 
@@ -172,7 +173,7 @@ if (error.response) {
             </Footer>
 
             <Table>
-              <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Days since last release']} sortIndex={2} sortAscending={false} />
+              <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Days since last release', 'Related incidents']} sortIndex={2} sortAscending={false} />
               <tbody>
                 {cycleSnaps}
               </tbody>
