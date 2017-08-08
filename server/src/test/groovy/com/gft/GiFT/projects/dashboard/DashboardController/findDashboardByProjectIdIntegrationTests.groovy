@@ -31,7 +31,8 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             targetedPoints: 136,
             achievedPoints: 70,
             daysSinceLastRelease: 'No releases yet',
-            tac: "51%"
+            tac: "51%",
+            relatedIncidents: 'No releases yet'
     )
 
     def cycleSnapDTO2 = new CycleSnapDTO(
@@ -41,7 +42,8 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             targetedPoints: 76,
             achievedPoints: 58,
             daysSinceLastRelease: '7',
-            tac: "76%"
+            tac: "76%",
+            relatedIncidents: 'No reports available'
     )
 
     def cycleSnapDTO3 = new CycleSnapDTO(
@@ -51,7 +53,8 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             targetedPoints: 87,
             achievedPoints: 45,
             daysSinceLastRelease: '13',
-            tac: "51%"
+            tac: "51%",
+            relatedIncidents: 'No reports available'
     )
 
     def "Should get dashboard by project Id" () {

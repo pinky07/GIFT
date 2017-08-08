@@ -42,6 +42,6 @@ public class Project {
     private List<ReleaseSnap> releaseSnaps = new LinkedList<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
-    private List<IncidentsReport> incidentsReport = new LinkedList<>();
+    private List<IncidentsReport> incidentsReports = new LinkedList<>();
 
 }

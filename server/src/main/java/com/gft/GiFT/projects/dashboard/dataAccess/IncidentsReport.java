@@ -19,7 +19,6 @@ public class IncidentsReport {
     @Column(name = "total_incidents", columnDefinition = "INT", nullable = false)
     private int totalIncidents;
 
-    @Column(name = "projectId", columnDefinition = "INT", nullable = false)
     private int projectId;
 
 }

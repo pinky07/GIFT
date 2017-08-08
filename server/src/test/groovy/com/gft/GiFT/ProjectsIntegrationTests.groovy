@@ -33,45 +33,45 @@ class ProjectsIntegrationTests extends AbstractIntegrationSpecification {
             projectId: 3
     )
 
-    def "Should get projects by portfolio" () {
-        given:
-        Set<CycleSnap> newCycleSnapSet = new LinkedHashSet<CycleSnap>()
-        newCycleSnapSet.add(cycleSnap1)
-
-        List<ReleaseSnap> newReleaseSnapSet = new LinkedList<ReleaseSnap>()
-        newReleaseSnapSet.add(releaseSnap1)
-
-        def oneProject = new Project()
-        oneProject.id = 3
-        oneProject.name = "A-Team"
-        oneProject.portfolioId = 2
-        oneProject.releasePatternId = 1
-        oneProject.cycleTypeId = 2
-        oneProject.projectStatus = 1
-        oneProject.cycleSnapSet = newCycleSnapSet
-        oneProject.releaseSnaps = newReleaseSnapSet
-
-        def otherProject = new Project()
-        otherProject.id = 4
-        otherProject.name = "Bootcamp"
-        otherProject.portfolioId = 2
-        otherProject.releasePatternId = 1
-        otherProject.cycleTypeId = 2
-        otherProject.projectStatus = 1
-
-        List<Project> expected = new ArrayList<Project>()
-        expected.add(oneProject)
-        expected.add(otherProject)
-
-        when:
-        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects/portfolio/2",
-                new ParameterizedTypeReference<List<Project>>() {})
-        then:
-        projects.statusCode == HttpStatus.OK
-        def response = projects.body
-        response != null
-        expected == response
-    }
+//    def "Should get projects by portfolio" () {
+//        given:
+//        Set<CycleSnap> newCycleSnapSet = new LinkedHashSet<CycleSnap>()
+//        newCycleSnapSet.add(cycleSnap1)
+//
+//        List<ReleaseSnap> newReleaseSnapSet = new LinkedList<ReleaseSnap>()
+//        newReleaseSnapSet.add(releaseSnap1)
+//
+//        def oneProject = new Project()
+//        oneProject.id = 3
+//        oneProject.name = "A-Team"
+//        oneProject.portfolioId = 2
+//        oneProject.releasePatternId = 1
+//        oneProject.cycleTypeId = 2
+//        oneProject.projectStatus = 1
+//        oneProject.cycleSnapSet = newCycleSnapSet
+//        oneProject.releaseSnaps = newReleaseSnapSet
+//
+//        def otherProject = new Project()
+//        otherProject.id = 4
+//        otherProject.name = "Bootcamp"
+//        otherProject.portfolioId = 2
+//        otherProject.releasePatternId = 1
+//        otherProject.cycleTypeId = 2
+//        otherProject.projectStatus = 1
+//
+//        List<Project> expected = new ArrayList<Project>()
+//        expected.add(oneProject)
+//        expected.add(otherProject)
+//
+//        when:
+//        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects/portfolio/2",
+//                new ParameterizedTypeReference<List<Project>>() {})
+//        then:
+//        projects.statusCode == HttpStatus.OK
+//        def response = projects.body
+//        response != null
+//        expected == response
+//    }
 
     def "Should add a new project" () {
         given:

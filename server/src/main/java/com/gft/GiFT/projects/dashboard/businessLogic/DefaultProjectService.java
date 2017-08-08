@@ -2,6 +2,7 @@ package com.gft.GiFT.projects.dashboard.businessLogic;
 
 import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
+import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport;
 import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
 import com.gft.GiFT.projects.dashboard.dataAccess.DashboardProjectRepository;
 import org.springframework.stereotype.Service;
@@ -43,13 +44,15 @@ public class DefaultProjectService implements ProjectService {
         } else {
             projectDTO.setCycleSnaps(new LinkedHashSet<>());
             for (CycleSnap cycleSnap : project.getCycleSnapSet()) {
-                projectDTO.getCycleSnaps().add(createCycleSnapDTO(cycleSnap, releaseSnapDates));
+                projectDTO.getCycleSnaps().add(createCycleSnapDTO(cycleSnap, releaseSnapDates, project.getIncidentsReports()));
             }
         }
         return projectDTO;
     }
 
-    private CycleSnapDTO createCycleSnapDTO(CycleSnap cycleSnap, List<String> releaseDates) throws ParseException {
+    private CycleSnapDTO createCycleSnapDTO(CycleSnap cycleSnap,
+                                            List<String> releaseDates,
+                                            List<IncidentsReport> reports) throws ParseException {
         CycleSnapDTO cycleSnapDTO = new CycleSnapDTO();
         cycleSnapDTO.setCycleSnapName(cycleSnap.getCycleSnapName());
         cycleSnapDTO.setStartDate(cycleSnap.getStartDate());
@@ -61,7 +64,7 @@ public class DefaultProjectService implements ProjectService {
         String daysSinceLastRelease = DaysSinceLastReleaseCalculation.determineDays(cycleSnap.getEndDate(), releaseDates);
         cycleSnapDTO.setDaysSinceLastRelease(daysSinceLastRelease);
 
-        String relatedIncidents = RelatedIncidentsCalculation.determineRelatedIncidents(null, cycleSnap.getStartDate(),releaseDates);
+        String relatedIncidents = RelatedIncidentsCalculation.determineRelatedIncidents(reports, cycleSnap.getEndDate(),releaseDates);
         cycleSnapDTO.setRelatedIncidents(relatedIncidents);
 
         return cycleSnapDTO;
