@@ -14,10 +14,10 @@ public class CycleSnapValidation {
     public static void validate(CycleSnap newCycleSnap, Set<CycleSnap> existingCycleSnaps) throws ParseException {
 
         if (newCycleSnap.getStartDate().isEmpty()) {
-            throw new IllegalArgumentException("Start Date is required.");
+            throw new IllegalArgumentException("Start Date is required");
         }
         if (newCycleSnap.getEndDate().isEmpty()) {
-            throw new IllegalArgumentException("End Date is required.");
+            throw new IllegalArgumentException("End Date is required");
         }
 
         DateTime startDateTime = new DateTime(DateFormatter.convertDateStringToDate(newCycleSnap.getStartDate()));
@@ -26,31 +26,31 @@ public class CycleSnapValidation {
         Date endDate = DateFormatter.convertDateStringToDate(newCycleSnap.getEndDate());
 
         if (newCycleSnap.getCycleSnapName().isEmpty()) {
-            throw new IllegalArgumentException("Cycle name is required.");
+            throw new IllegalArgumentException("Cycle name is required");
         }
         if (newCycleSnap.getCycleSnapName().length() > 200) {
-            throw new IllegalArgumentException("Cycle Snap Name can not be greater than 200 characters.");
+            throw new IllegalArgumentException("Cycle Snap Name can not be greater than 200 characters");
         }
         if (newCycleSnap.getStartDate().isEmpty()) {
-            throw new IllegalArgumentException("Start Date is required.");
+            throw new IllegalArgumentException("Start Date is required");
         }
         if (newCycleSnap.getEndDate().isEmpty()) {
-            throw new IllegalArgumentException("End Date is required.");
+            throw new IllegalArgumentException("End Date is required");
         }
         if (!startDate.before(endDate)) {
-            throw new IllegalArgumentException("Start Date should precede End Date.");
+            throw new IllegalArgumentException("Start Date should precede End Date");
         }
         if (newCycleSnap.getTargetedPoints() < 0) {
-            throw new IllegalArgumentException("Min number for Targeted Points is 0.");
+            throw new IllegalArgumentException("Min number for Targeted Points is 0");
         }
         if (newCycleSnap.getTargetedPoints() > 10000) {
-            throw new IllegalArgumentException("Max number for Targeted Points is 10,000.");
+            throw new IllegalArgumentException("Max number for Targeted Points is 10,000");
         }
         if (newCycleSnap.getAchievedPoints() < 0) {
-            throw new IllegalArgumentException("Min number for Achieved Points is 0.");
+            throw new IllegalArgumentException("Min number for Achieved Points is 0");
         }
         if (newCycleSnap.getAchievedPoints() > 10000) {
-            throw new IllegalArgumentException("Max number for Achieved Points is 10,000.");
+            throw new IllegalArgumentException("Max number for Achieved Points is 10,000");
         }
 
         //Cycle dates shouldn't overlap
@@ -63,7 +63,7 @@ public class CycleSnapValidation {
             Interval existingInterval = new Interval(cycleStartDate, cycleEndDate);
 
             if (newInterval.overlaps(existingInterval)) {
-                throw new IllegalArgumentException("The new cycle dates overlap with an existing cycle.");
+                throw new IllegalArgumentException("The new cycle dates overlap with an existing cycle");
             }
         }
     }
