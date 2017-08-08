@@ -2,7 +2,6 @@ package com.gft.GiFT.projects.dashboard;
 
 import com.gft.GiFT.entities.CycleSnap;
 import com.gft.GiFT.entities.Project;
-import com.gft.GiFT.formatters.DateFormatter;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -56,13 +55,7 @@ public class DefaultProjectService implements ProjectService {
         cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
         cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
         cycleSnapDTO.setDaysSinceLastRelease(DaysSinceLastReleaseCalculation.determineDaysSinceLastRelease(cycleSnap.getEndDate(), releaseDates));
-
-        if (cycleSnap.getTargetedPoints() == 0) {
-            cycleSnapDTO.setTac("No Data");
-        } else {
-            int tac = (cycleSnap.getAchievedPoints() * 100 / cycleSnap.getTargetedPoints());
-            cycleSnapDTO.setTac(tac + "%");
-        }
+        cycleSnapDTO.setTac(TacCalculation.calculateTac(cycleSnap.getTargetedPoints(),cycleSnap.getAchievedPoints()));
         return cycleSnapDTO;
     }
 
