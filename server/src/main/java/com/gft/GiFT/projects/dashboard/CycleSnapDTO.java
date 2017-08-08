@@ -10,6 +10,7 @@ public class CycleSnapDTO {
     private String endDate;
     private int targetedPoints;
     private int achievedPoints;
+    private String daysSinceLastRelease;
     private String tac;
 
 }

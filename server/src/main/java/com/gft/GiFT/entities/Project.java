@@ -1,8 +1,11 @@
 package com.gft.GiFT.entities;
 
+import com.gft.GiFT.projects.dashboard.ReleaseSnap;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -33,5 +36,8 @@ public class Project {
     @OrderBy("endDate DESC")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
     private Set<CycleSnap> cycleSnapSet = new LinkedHashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
+    private List<ReleaseSnap> releaseSnaps = new LinkedList<>();
 
 }

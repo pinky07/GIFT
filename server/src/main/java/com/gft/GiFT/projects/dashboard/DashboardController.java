@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+
 @RestController
 @RequestMapping(value = "/api/v1/projects")
 public class DashboardController {
@@ -23,7 +25,7 @@ public class DashboardController {
     }
 
     @GetMapping("/{projectId}/dashboard")
-    public ResponseEntity<Object> findDashboardByProjectId(@PathVariable("projectId") final int projectId) {
+    public ResponseEntity<Object> findDashboardByProjectId(@PathVariable("projectId") final int projectId) throws ParseException {
 
         logger.info("findDashboardByProjectId: " + projectId);
 
