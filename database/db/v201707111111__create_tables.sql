@@ -21,11 +21,18 @@ CREATE TABLE t_cycle_snap (
 );
 
 CREATE TABLE t_release_snap (
-  release_id   INT AUTO_INCREMENT NOT NULL,
-  release_date DATE               NOT NULL,
-  project_id   INT                NOT NULL,
+  release_id   INT  NOT NULL AUTO_INCREMENT,
+  release_date DATE NOT NULL,
+  project_id   INT  NOT NULL,
   CONSTRAINT pk_release_id PRIMARY KEY (release_id),
-  CONSTRAINT project_id
-  FOREIGN KEY (project_id)
-  REFERENCES t_project (project_id)
+  CONSTRAINT fk_project_id_release FOREIGN KEY (project_id) REFERENCES t_project (project_id)
+);
+
+CREATE TABLE t_incidents_report (
+  report_id       INT  NOT NULL AUTO_INCREMENT,
+  report_date     DATE NOT NULL,
+  total_incidents INT  NOT NULL,
+  project_id      INT  NOT NULL,
+  CONSTRAINT pk_report_id PRIMARY KEY (report_id),
+  CONSTRAINT fk_project_id_report FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );

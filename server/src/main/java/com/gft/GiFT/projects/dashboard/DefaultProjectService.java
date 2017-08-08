@@ -13,7 +13,6 @@ import java.util.List;
 public class DefaultProjectService implements ProjectService {
 
     private final DashboardProjectRepository projectRepository;
-    List<String> incidentsDate = new LinkedList<>();
 
     public DefaultProjectService(DashboardProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
@@ -33,12 +32,8 @@ public class DefaultProjectService implements ProjectService {
 
         List<String> releaseSnapDates = new LinkedList<>();
 
-
         for (ReleaseSnap releaseSnap : project.getReleaseSnaps()) {
             releaseSnapDates.add(releaseSnap.getReleaseDate());
-        }
-        for (IncidentsReport incidentsReport : project.getIncidentsReport()) {
-            incidentsDate.add(incidentsReport.getIncidentsDate());
         }
 
         if (project.getCycleSnapSet().isEmpty()) {
@@ -60,7 +55,6 @@ public class DefaultProjectService implements ProjectService {
         cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
         cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
         cycleSnapDTO.setDaysSinceLastRelease(DaysSinceLastReleaseCalculation.determineDaysSinceLastRelease(cycleSnap.getEndDate(), releaseDates));
-        cycleSnapDTO.setRelatedIncidents(RelatedIncidentsCalculation.determineRelatedIncidents(incidentsDate,cycleSnap.getEndDate(), releaseDates));
         cycleSnapDTO.setTac(TacCalculation.calculateTac(cycleSnap.getTargetedPoints(),cycleSnap.getAchievedPoints()));
         return cycleSnapDTO;
     }
