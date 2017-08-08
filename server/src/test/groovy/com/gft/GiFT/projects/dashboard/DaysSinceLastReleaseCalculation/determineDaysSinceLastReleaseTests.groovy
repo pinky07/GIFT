@@ -19,7 +19,7 @@ class determineDaysSinceLastReleaseTests extends Specification {
         def cycleSnapEndDate = "2017-01-30"
 
         when:
-        def days = DaysSinceLastReleaseCalculation.determineDaysSinceLastRelease(cycleSnapEndDate, releaseDates)
+        def days = DaysSinceLastReleaseCalculation.determineDays(cycleSnapEndDate, releaseDates)
 
         then:
         days == 'No releases yet'
@@ -30,7 +30,7 @@ class determineDaysSinceLastReleaseTests extends Specification {
         def cycleSnapEndDate = "2017-02-14"
 
         when:
-        def days = DaysSinceLastReleaseCalculation.determineDaysSinceLastRelease(cycleSnapEndDate, releaseDates)
+        def days = DaysSinceLastReleaseCalculation.determineDays(cycleSnapEndDate, releaseDates)
 
         then:
         days == '7'
@@ -41,7 +41,7 @@ class determineDaysSinceLastReleaseTests extends Specification {
         def cycleSnapEndDate = "2017-03-15"
 
         when:
-        def days = DaysSinceLastReleaseCalculation.determineDaysSinceLastRelease(cycleSnapEndDate, releaseDates)
+        def days = DaysSinceLastReleaseCalculation.determineDays(cycleSnapEndDate, releaseDates)
 
         then:
         days == '13'
