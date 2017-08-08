@@ -3,7 +3,7 @@ package com.gft.GiFT.projects.dashboard.DaysSinceLastReleaseCalculation
 import com.gft.GiFT.projects.dashboard.DaysSinceLastReleaseCalculation
 import spock.lang.Specification
 
-class determineDaysSinceLastRelease extends Specification {
+class determineDaysSinceLastReleaseTests extends Specification {
 
     def releaseDates
 
