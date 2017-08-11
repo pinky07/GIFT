@@ -15,10 +15,10 @@ VALUES ('New Sprint Test', '2017-02-01', '2017-02-14', 76, 58, 12345);
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id)
 VALUES ('Sprint Test 2', '2017-03-02', '2017-03-15', 87, 45, 12345);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2017-02-07', 12345);
+INSERT INTO t_release_snap(release_date, name, project_id )
+VALUES ('2017-02-07', 'First version', 12345);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2017-03-02', 12345);
+INSERT INTO t_release_snap(release_date, name, project_id )
+VALUES ('2017-03-02', 'Second update', 12345);
 
 COMMIT;

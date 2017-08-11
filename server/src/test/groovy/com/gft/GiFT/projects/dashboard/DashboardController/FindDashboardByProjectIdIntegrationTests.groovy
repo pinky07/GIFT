@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional
         @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/before.sql"),
         @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/after.sql")
 ])
-class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecification {
+class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecification {
 
     def cycleSnapDTO1 = new CycleSnapDTO(
             cycleSnapName: "Sprint Test",
@@ -32,7 +32,9 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             achievedPoints: 70,
             daysSinceLastRelease: 'No releases yet',
             tac: "51%",
-            relatedIncidents: 'No releases yet'
+            relatedIncidents: 'No releases yet',
+            lastReleaseName: 'No releases yet',
+            lastReleaseDate: 'No releases yet'
     )
 
     def cycleSnapDTO2 = new CycleSnapDTO(
@@ -43,7 +45,9 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             achievedPoints: 58,
             daysSinceLastRelease: '7',
             tac: "76%",
-            relatedIncidents: 'No reports available'
+            relatedIncidents: 'No reports available',
+            lastReleaseName: 'First version',
+            lastReleaseDate: '2017-02-07'
     )
 
     def cycleSnapDTO3 = new CycleSnapDTO(
@@ -54,7 +58,9 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             achievedPoints: 45,
             daysSinceLastRelease: '13',
             tac: "51%",
-            relatedIncidents: 'No reports available'
+            relatedIncidents: 'No reports available',
+            lastReleaseName: 'Second update',
+            lastReleaseDate: '2017-03-02'
     )
 
     def "Should get dashboard by project Id" () {
@@ -87,8 +93,8 @@ class findDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
     def "Should get dashboard by project Id with Days since last release" () {
         given:
         Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
-        newCycleSnapDTOSet.add(cycleSnapDTO3)
         newCycleSnapDTOSet.add(cycleSnapDTO2)
+        newCycleSnapDTOSet.add(cycleSnapDTO3)
 
         def expectedProject = new ProjectDTO (
                 name: 'New Project Test',
