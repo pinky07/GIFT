@@ -13,5 +13,6 @@ public class CycleSnapDTO {
     private String daysSinceLastRelease;
     private String tac;
     private String relatedIncidents;
-
+    private String lastReleaseName;
+    private String lastReleaseDate;
 }

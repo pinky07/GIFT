@@ -23,6 +23,7 @@ CREATE TABLE t_cycle_snap (
 CREATE TABLE t_release_snap (
   release_id   INT  NOT NULL AUTO_INCREMENT,
   release_date DATE NOT NULL,
+  name VARCHAR(200) NOT NULL,
   project_id   INT  NOT NULL,
   CONSTRAINT pk_release_id PRIMARY KEY (release_id),
   CONSTRAINT fk_project_id_release FOREIGN KEY (project_id) REFERENCES t_project (project_id)

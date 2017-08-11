@@ -80,59 +80,56 @@ INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points,
 VALUES ('Sprint #4', '2017-03-01', '2017-03-15', 100, 100, 7);
 
 -- Test Data for t_release_snap
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-03-10', 1);
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2016-03-10','2017.03.00', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-03-27', 1);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-03-27','2017.03.01', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-03-31', 1);
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2016-03-31','2017.03.02', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-04-24', 1);
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2016-04-24','No releases yet', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-04-03', 1);
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2016-04-03','2017.03.03', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-04-10', 1);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-04-10','2017.03.04', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-05-1', 1);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-05-1','2017.03.05', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-03-27', 1);
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2016-03-27','2017.05.00',1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-05-31', 1);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-05-31','2017.05.01',1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-06-01', 1);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-06-01','2017.05.02', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-06-01', 1);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-06-08','2017.05.03', 1);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-06-08', 1);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-05-30','5', 6);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-05-30', 6);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-06-13','2', 6);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-06-13', 6);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2016-06-29','3', 6);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-06-29', 6);
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2016-05-25','81', 3);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2016-05-25', 3);
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2017-02-07','First Version', 7);
 
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2017-02-07', 7);
-
-INSERT INTO t_release_snap(release_date, project_id )
-VALUES ('2017-03-02', 7);
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2017-03-02','Second Update', 7);
 
 --Test Data for t_incidents_report
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
