@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 
 import axios from 'axios';
@@ -47,7 +47,7 @@ export default class Dashboard extends React.Component {
 
   _loadDashboard(projectId) {
     if (isNaN(projectId)) {
-      this.setState({ errorMessage: "Invalid project id" });
+      this.setState({errorMessage: "Invalid project id"});
     }
     else {
       axios.get(`${constants.API}/projects/${projectId}/dashboard`).then((response) => {
@@ -59,20 +59,21 @@ export default class Dashboard extends React.Component {
           });
         }
       }).catch((error) => {
-if (error.response) {
-          // There was a validation error.
-          this.setState({
-            errorMessage: 'Please check: ' + error.response.data.message + '.',
-            addCycleSnap: false
-          })
+          if (error.response) {
+            // There was a validation error.
+            this.setState({
+              errorMessage: 'Please check: ' + error.response.data.message + '.',
+              addCycleSnap: false
+            })
+          }
+          else {
+            // There was a critical error.
+            this.setState({
+              errorMessage: 'Oops! We got a bit of an issue: ' + error.message + '.',
+              addCycleSnap: false
+            })
+          }
         }
-        else {
-          // There was a critical error.
-          this.setState({
-            errorMessage: 'Oops! We got a bit of an issue: ' + error.message + '.',
-            addCycleSnap: false
-          })
-      }}
       );
     }
   }
@@ -104,7 +105,7 @@ if (error.response) {
     })
       .then((response) => {
         this._loadDashboard(this.state.projectId)
-        this.setState({ successNotificationOnAdd: 'Success! You just added the snap for cycle ' + newCycleSnap.name + '.' })
+        this.setState({successNotificationOnAdd: 'Success! You just added the snap for cycle ' + newCycleSnap.name + '.'})
       })
       .catch((error) => {
         if (error.response) {
@@ -129,19 +130,22 @@ if (error.response) {
     const projectName = this.state.name;
 
     const cycleSnaps = this.state.cycleSnaps.map((cycle, i) => <TableRow key={i}>
-      <td>{cycle.cycleSnapName}</td>
-      <td>{cycle.startDate}</td>
-      <td>{cycle.endDate}</td>
-      <td>{cycle.achievedPoints} / {cycle.targetedPoints}</td>
-      <td>{cycle.tac}</td>
-      <td>{cycle.daysSinceLastRelease}</td>
-      <td>{cycle.relatedIncidents}</td>
-    </TableRow>
+        <td>{cycle.cycleSnapName}</td>
+        <td>{cycle.startDate}</td>
+        <td>{cycle.endDate}</td>
+        <td>{cycle.achievedPoints} / {cycle.targetedPoints}</td>
+        <td>{cycle.tac}</td>
+        <td>{cycle.lastReleaseName}</td>
+        <td>{cycle.lastReleaseDate}</td>
+        <td>{cycle.relatedIncidents}</td>
+        <td>{cycle.daysSinceLastRelease}</td>
+      </TableRow>
     );
 
     let successNotification;
     if (this.state.successNotificationOnAdd) {
-      successNotification = (<Toast status='ok' onClose={this._onCloseSuccessNotification}>{this.state.successNotificationOnAdd}</Toast>);
+      successNotification = (
+        <Toast status='ok' onClose={this._onCloseSuccessNotification}>{this.state.successNotificationOnAdd}</Toast>);
     }
 
     let failureNotification;
@@ -151,13 +155,14 @@ if (error.response) {
 
     let addCycleSnapLayer;
     if (this.state.addCycleSnap) {
-      addCycleSnapLayer = (<CycleSnapAdd projectId={this.state.projectId} onClose={this._onAddCycleSnapCancel} onSubmit={this._onAddCycleSnapSubmit} />);
+      addCycleSnapLayer = (<CycleSnapAdd projectId={this.state.projectId} onClose={this._onAddCycleSnapCancel}
+                                         onSubmit={this._onAddCycleSnapSubmit}/>);
     }
 
     if (errorMessage) {
       return (<Box>
         <h1>Dashboard</h1>
-        <h3><Status value='critical' /> <span>{errorMessage}</span></h3>
+        <h3><Status value='critical'/> <span>{errorMessage}</span></h3>
       </Box>);
     }
     else {
@@ -169,13 +174,16 @@ if (error.response) {
             <Heading>Dashboard: {projectName}</Heading>
 
             <Footer>
-              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit} primary={true} />
+              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit}
+                      primary={true}/>
             </Footer>
 
             <Table>
-              <TableHeader labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Days since last release', 'Related incidents']} sortIndex={2} sortAscending={false} />
+              <TableHeader
+                labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Current Release', 'Release Date', 'Related incidents', 'Days since last release']}
+                sortIndex={2} sortAscending={false}/>
               <tbody>
-                {cycleSnaps}
+              {cycleSnaps}
               </tbody>
             </Table>
             {addCycleSnapLayer}
@@ -186,11 +194,12 @@ if (error.response) {
         else {
           return (<Box>
             <h1>Dashboard: {projectName}</h1>
-            <h3><Status value='unknown' /> <span>This project has no cycle snaps.</span></h3>
+            <h3><Status value='unknown'/> <span>This project has no cycle snaps.</span></h3>
             <Footer>
-              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit} primary={true} />
+              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit}
+                      primary={true}/>
             </Footer>
-                        {addCycleSnapLayer}
+            {addCycleSnapLayer}
             {successNotification}
             {failureNotification}
 
@@ -200,7 +209,7 @@ if (error.response) {
       else {
         return (<Box>
           <h1>Dashboard</h1>
-          <h3><Spinning /> Loading... </h3>
+          <h3><Spinning/> Loading... </h3>
         </Box>);
       }
     }
