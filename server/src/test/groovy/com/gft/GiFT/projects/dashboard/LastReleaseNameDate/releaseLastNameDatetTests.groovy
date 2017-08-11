@@ -24,6 +24,35 @@ class ReleaseLastNameDateTests extends Specification {
         actual == expected
     }
 
+    def "There are no releases before but others after"() {
+        given:
+        def cycleEndDate = "2017-01-30"
+        List<ReleaseSnap> releases = new LinkedList<>()
+        ReleaseSnap releaseAfter = new ReleaseSnap();
+        releaseAfter.setReleaseDate("2017-03-02")
+        releaseAfter.setReleaseName("Second update")
+
+        ReleaseSnap releaseBefore = new ReleaseSnap();
+        releaseBefore.setReleaseDate("2017-02-07")
+        releaseBefore.setReleaseName("First version")
+
+        releases.add(releaseAfter)
+        releases.add(releaseBefore)
+
+        LastReleaseInfo expected = new LastReleaseInfo(
+                lastReleaseName: 'No releases yet',
+                lastReleaseDate: 'No releases yet'
+
+        )
+
+        when:
+        LastReleaseInfo actual = LastReleaseOperations.getLastRelease(cycleEndDate, releases)
+
+        then:
+        actual == expected
+    }
+
+
     def "There is a release before"() {
         given:
         def cycleEndDate = "2017-02-14"

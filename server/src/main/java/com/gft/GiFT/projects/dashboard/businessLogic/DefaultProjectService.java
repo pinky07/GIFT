@@ -26,7 +26,6 @@ public class DefaultProjectService implements ProjectService {
     public ProjectDTO findDashboardByProjectId(int projectId) throws ParseException {
 
         Project project = projectRepository.findOne(projectId);
-
         if (project == null)
             return null;
 
@@ -44,7 +43,12 @@ public class DefaultProjectService implements ProjectService {
         } else {
             projectDTO.setCycleSnaps(new LinkedHashSet<>());
             for (CycleSnap cycleSnap : project.getCycleSnapSet()) {
-                projectDTO.getCycleSnaps().add(createCycleSnapDTO(cycleSnap, releaseSnapDates, project.getIncidentsReports()));
+                CycleSnapDTO cycleSnapDTO = createCycleSnapDTO(
+                        cycleSnap,
+                        releaseSnapDates,
+                        project.getIncidentsReports(),
+                        project.getReleaseSnaps());
+                projectDTO.getCycleSnaps().add(cycleSnapDTO);
             }
         }
         return projectDTO;
@@ -52,13 +56,15 @@ public class DefaultProjectService implements ProjectService {
 
     private CycleSnapDTO createCycleSnapDTO(CycleSnap cycleSnap,
                                             List<String> releaseDates,
-                                            List<IncidentsReport> reports) throws ParseException {
+                                            List<IncidentsReport> reports,
+                                            List<ReleaseSnap> releaseSnaps) throws ParseException {
         CycleSnapDTO cycleSnapDTO = new CycleSnapDTO();
         cycleSnapDTO.setCycleSnapName(cycleSnap.getCycleSnapName());
         cycleSnapDTO.setStartDate(cycleSnap.getStartDate());
         cycleSnapDTO.setEndDate(cycleSnap.getEndDate());
         cycleSnapDTO.setTargetedPoints(cycleSnap.getTargetedPoints());
         cycleSnapDTO.setAchievedPoints(cycleSnap.getAchievedPoints());
+
         cycleSnapDTO.setTac(TacCalculation.calculateTac(cycleSnap.getTargetedPoints(),cycleSnap.getAchievedPoints()));
 
         String daysSinceLastRelease = DaysSinceLastReleaseCalculation.determineDays(cycleSnap.getEndDate(), releaseDates);
@@ -66,6 +72,15 @@ public class DefaultProjectService implements ProjectService {
 
         String relatedIncidents = RelatedIncidentsCalculation.determineRelatedIncidents(reports, cycleSnap.getEndDate(),releaseDates);
         cycleSnapDTO.setRelatedIncidents(relatedIncidents);
+
+        LastReleaseInfo lastRelease = LastReleaseOperations.getLastRelease(cycleSnap.getEndDate(), releaseSnaps);
+
+        String lastReleaseName = lastRelease.getLastReleaseName();
+        cycleSnapDTO.setLastReleaseName(lastReleaseName);
+
+        String lastReleaseDate = lastRelease.getLastReleaseDate();
+        cycleSnapDTO.setLastReleaseDate(lastReleaseDate);
+
 
         return cycleSnapDTO;
     }

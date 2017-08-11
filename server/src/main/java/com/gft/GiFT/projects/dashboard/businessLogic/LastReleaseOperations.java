@@ -35,8 +35,14 @@ public class LastReleaseOperations {
             ReleaseSnap lastReleaseSnap = releaseDateComparison.floor(pointInTime);
 
             // Format the returned info
-            lastRelease.setLastReleaseDate(lastReleaseSnap.getReleaseDate());
-            lastRelease.setLastReleaseName(lastReleaseSnap.getReleaseName());
+            if (lastReleaseSnap == null) {
+                lastRelease.setLastReleaseDate("No releases yet");
+                lastRelease.setLastReleaseName("No releases yet");
+            }
+            else{
+                lastRelease.setLastReleaseDate(lastReleaseSnap.getReleaseDate());
+                lastRelease.setLastReleaseName(lastReleaseSnap.getReleaseName());
+            }
         }
 
         return lastRelease;
