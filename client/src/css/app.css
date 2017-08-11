@@ -10,6 +10,34 @@ a:visited {
   text-decoration: none !important;
 }
 
-.no-link-color {
-  color: #303030 !important;
+a.grommetux-anchor{
+  color: #213e7f; 
+}
+
+a.grommetux-anchor:visited{
+  color: #213e7f; 
+}
+
+a.grommetux-anchor:hover{
+  color: #213e7f; 
+}
+
+.grommetux-button{
+  border: 2px solid #213e7f;
+}
+
+.grommetux-button.grommetux-button--primary{
+      background-color: #213e7f;
+}
+
+.grommetux-button:not(.grommetux-button--disabled):not(.grommetux-button--plain):not(.grommetux-button--fill).grommetux-button--primary:hover, .grommetux-button:not(.grommetux-button--disabled):not(.grommetux-button--plain):not(.grommetux-button--fill):hover{
+  box-shadow: 0 0 0 2px #213e7f
+}
+
+.grommetux-button--primary:not(.grommetux-button--focus) {
+    border-color: #213e7f;
+}
+
+.grommetux-background-color-index-neutral-1, .grommetux-background-color-index-neutral-5 {
+    background-color: #213e7f;
 }

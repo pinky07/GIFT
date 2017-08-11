@@ -7,6 +7,7 @@ import constants from '../../../services/constants';
 
 import axios from 'axios';
 
+import Heading from 'grommet/components/Heading';
 import Form from 'grommet/components/Form';
 import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
@@ -346,10 +347,8 @@ export default class CycleSnapAdd extends React.Component {
         return <Layer align='center' closer={true} onClose={this.props.onClose}>
           <Box pad={{ vertical: 'large', horizontal: 'small' }}>
 
-            <header>
-              <h1>Add cycle snap</h1>
-              <h2>Project: {projectName}</h2>
-            </header>
+            <Heading>Add cycle snap</Heading>
+            <h2>Project: {projectName}</h2>
 
             <Form compact={false}>
               <FormFields>

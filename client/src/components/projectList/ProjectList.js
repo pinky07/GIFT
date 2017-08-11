@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
+import Box from 'grommet/components/Box';
+import Heading from 'grommet/components/Heading';
 import Anchor from 'grommet/components/Anchor';
 import Table from 'grommet/components/Table';
 import TableHeader from 'grommet/components/TableHeader';
@@ -19,9 +21,8 @@ export class ProjectList extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Portfolio #{this.props.params.id}: Projects list</h1>
+    return (<Box>
+        <Heading>Portfolio #{this.props.params.id}: Projects list</Heading>
 
         <Table>
           <TableHeader labels={['Name', 'Dashboard']} />
@@ -35,8 +36,7 @@ export class ProjectList extends React.Component {
               </TableRow>)}
           </tbody>
         </Table>
-      </div>
-    );
+      </Box>);
   }
 }
 

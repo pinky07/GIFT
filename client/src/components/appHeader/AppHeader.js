@@ -1,31 +1,32 @@
 import React from 'react';
-import Header  from 'grommet/components/Header';
-import Title  from 'grommet/components/Title';
-import Box  from 'grommet/components/Box';
-import Menu  from 'grommet/components/Menu';
-import Anchor  from 'grommet/components/Anchor';
-import Link from 'react-router';
+import Anchor from 'grommet/components/Anchor';
+import Box from 'grommet/components/Box';
+import Header from 'grommet/components/Header';
+import Heading from 'grommet/components/Heading';
+import Menu from 'grommet/components/Menu';
+import Title from 'grommet/components/Title';
+import DownIcon from 'grommet/components/icons/base/Down';
+import ConfigureIcon from 'grommet/components/icons/base/Configure';
 
-const AppHeader = () =>
-  (
-    <Header colorIndex='neutral-1' pad='small'>
-      <Title>
+export default function AppHeader (props) {
+  return (
+    <Header colorIndex="neutral-1" >
+      <Box direction="row"
+        responsive={false} justify="start" align="center" 
+        pad={{horizontal: 'medium'}} flex="grow">
+        <Title>
         <Anchor path={"/"}>
           GiFT
         </Anchor>
       </Title>
-      <Box pad="small" separator='left' />
-      <Box flex={true}
-           direction='row'
-           responsive={false}>
-        <Menu direction='row' colorIndex='neutral-1' >
-          <Anchor path={"/portfolios"} id={"portfolios-menu-link"}>
-            Portfolios
-          </Anchor>
+        <Box pad="small" />
+        <Menu label="Menu" icon={<DownIcon />} inline={true} direction="row">
+          <Anchor href="#">Portfolios</Anchor>
         </Menu>
+        <Box flex="grow" align="end">
+          <ConfigureIcon />
+        </Box>
       </Box>
     </Header>
   );
-
-
-export default AppHeader;
+};
