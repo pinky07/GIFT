@@ -1,6 +1,6 @@
-package com.gft.GiFT.projects.dashboard.WasteMeasureCalculation
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.WasteMeasureCalculation
 
-import com.gft.GiFT.projects.cycleSnapsAdd.WasteMeasure
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.WasteMeasure
 import spock.lang.Specification
 
 class WasteCalculationTests extends Specification  {
@@ -17,18 +17,18 @@ class WasteCalculationTests extends Specification  {
         then:
         wastePercentage == "5.0%";
     }
-//    def "Should show only 2 rounded decimals"(){
-//        given:
-//        int teamCapacity=99;
-//        int wasteDays=5.67;
-//        boolean wasteIndicator = true;
-//
-//        when:
-//        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
-//
-//        then:
-//        wastePercentage == "5.73%";
-//    }
+    def "Should show only 2 rounded decimals"(){
+        given:
+        double teamCapacity=99;
+        double wasteDays=5.67;
+        boolean wasteIndicator = true;
+
+        when:
+        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
+
+        then:
+        wastePercentage == "5.73%";
+    }
 
     def "Should allow 0% waste"(){
         given:

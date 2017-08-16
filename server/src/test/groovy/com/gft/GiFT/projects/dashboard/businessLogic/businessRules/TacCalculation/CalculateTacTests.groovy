@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.dashboard.TacCalculation
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.TacCalculation
 
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.TacCalculation
 import spock.lang.Specification

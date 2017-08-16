@@ -1,11 +1,11 @@
-package com.gft.GiFT.projects.dashboard.LastReleaseNameDate
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseOperations
 
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseInfo
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseOperations
 import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap
 import spock.lang.Specification
 
-class ReleaseLastNameDateTests extends Specification {
+class GetLastReleaseTests extends Specification {
 
     def "There are no releases"() {
         given:

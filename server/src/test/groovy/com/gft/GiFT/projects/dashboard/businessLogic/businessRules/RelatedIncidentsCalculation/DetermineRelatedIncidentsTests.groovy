@@ -1,10 +1,10 @@
-package com.gft.GiFT.projects.dashboard.RelatedIncidentsCalculation
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.RelatedIncidentsCalculation
 
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.RelatedIncidentsCalculation
 import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport
 import spock.lang.Specification
 
-class determineRelatedIncidentsTests extends Specification {
+class DetermineRelatedIncidentsTests extends Specification {
 
     def incidentReports
     def releaseDates

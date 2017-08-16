@@ -1,8 +1,8 @@
-package com.gft.GiFT.projects.cycleSnapsAdd;
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 import java.text.DecimalFormat;
 
 public class WasteMeasure {
-  public static String calculateWaste(int teamCapacity, int wasteDays, boolean isWasteAvailable){
+  public static String calculateWaste(double teamCapacity, double wasteDays, boolean isWasteAvailable){
 
       String wastePercentString="";
       if(isWasteAvailable!=false) {

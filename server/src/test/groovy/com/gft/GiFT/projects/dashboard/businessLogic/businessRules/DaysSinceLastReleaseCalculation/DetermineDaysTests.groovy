@@ -1,9 +1,9 @@
-package com.gft.GiFT.projects.dashboard.DaysSinceLastReleaseCalculation
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.DaysSinceLastReleaseCalculation
 
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.DaysSinceLastReleaseCalculation
 import spock.lang.Specification
 
-class determineDaysSinceLastReleaseTests extends Specification {
+class DetermineDaysTests extends Specification {
 
     def releaseDates
 

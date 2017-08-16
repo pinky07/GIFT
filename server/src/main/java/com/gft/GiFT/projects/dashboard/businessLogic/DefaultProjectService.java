@@ -18,7 +18,6 @@ public class DefaultProjectService implements ProjectService {
         this.projectRepository = projectRepository;
     }
 
-
     @Override
     public ProjectDTO findDashboardByProjectId(int projectId) throws ParseException {
 
@@ -77,6 +76,17 @@ public class DefaultProjectService implements ProjectService {
 
         String lastReleaseDate = lastRelease.getLastReleaseDate();
         cycleSnapDTO.setLastReleaseDate(lastReleaseDate);
+
+        double teamCapacity = cycleSnap.getTeamCapacity();
+        cycleSnapDTO.setTeamCapacity(teamCapacity);
+
+        double wasteDays = cycleSnap.getWasteDays();
+        cycleSnapDTO.setWasteDays(wasteDays);
+
+        boolean isWasteAvailable = cycleSnap.isWasteAvailable();
+
+        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity, wasteDays, isWasteAvailable);
+        cycleSnapDTO.setWastePercentage(wastePercentage);
 
         return cycleSnapDTO;
     }

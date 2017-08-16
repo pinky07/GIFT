@@ -21,5 +21,5 @@ public class CycleSnapDTO {
 
     private double teamCapacity;
     private double wasteDays;
-    private double wastePercentage;
+    private String wastePercentage;
 }
