@@ -2,7 +2,7 @@ package com.gft.GiFT.projects.cycleSnapsAdd;
 import java.text.DecimalFormat;
 
 public class WasteMeasure {
-  public static String   wasteCalculation(int teamCapacity,int wasteDays, boolean isWasteAvailable){
+  public static String calculateWaste(int teamCapacity, int wasteDays, boolean isWasteAvailable){
 
       String wastePercentString="";
       if(isWasteAvailable!=false) {

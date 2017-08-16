@@ -1,10 +1,9 @@
-package com.gft.GiFT.projects.dashboard.Wastemeasure
+package com.gft.GiFT.projects.dashboard.WasteMeasureCalculation
 
 import com.gft.GiFT.projects.cycleSnapsAdd.WasteMeasure
-import com.gft.GiFT.projects.dashboard.businessLogic.TacCalculation
 import spock.lang.Specification
 
-class WasteCalculation extends Specification  {
+class WasteCalculationTests extends Specification  {
 
     def "Should show the percentage"(){
         given:
@@ -13,7 +12,7 @@ class WasteCalculation extends Specification  {
         boolean isWasteAvailable = true;
 
         when:
-        String wastePercentage = WasteMeasure.wasteCalculation(teamCapacity,wasteDays,isWasteAvailable)
+        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,isWasteAvailable)
 
         then:
         wastePercentage == "5.0%";
@@ -25,7 +24,7 @@ class WasteCalculation extends Specification  {
         boolean wasteIndicator = true;
 
         when:
-        String wastePercentage = WasteMeasure.wasteCalculation(teamCapacity,wasteDays,wasteIndicator)
+        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
 
         then:
         wastePercentage == "5.05%";
@@ -38,7 +37,7 @@ class WasteCalculation extends Specification  {
         boolean wasteIndicator = true;
 
         when:
-        String wastePercentage = WasteMeasure.wasteCalculation(teamCapacity,wasteDays,wasteIndicator)
+        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
 
         then:
         wastePercentage == "0.0%";
@@ -50,7 +49,7 @@ class WasteCalculation extends Specification  {
         def wasteIndicator = false;
 
         when:
-        String wastePercentage = WasteMeasure.wasteCalculation(teamCapacity,wasteDays,wasteIndicator)
+        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
 
         then:
         wastePercentage == "No data";
