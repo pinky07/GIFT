@@ -11,9 +11,10 @@ const CycleSnapsRow = ({cycle, index}) =>
     <td>{cycle.lastReleaseName}</td>
     <td>{cycle.lastReleaseDate}</td>
     <td>{cycle.relatedIncidents}</td>
-    <td>{cycle.AccumulatedProductionIncidents}</td>
-    <td>{cycle.waste}</td>
     <td>{cycle.daysSinceLastRelease}</td>
+    <td>{cycle.teamCapacity}</td>
+    <td>{cycle.wasteDays}</td>
+    <td>{cycle.wastePercentage}</td>
   </TableRow>
 
 export default CycleSnapsRow;
