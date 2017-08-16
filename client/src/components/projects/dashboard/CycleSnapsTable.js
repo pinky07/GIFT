@@ -9,7 +9,7 @@ const CycleSnapsTable = ({cycleSnaps}) => {
       (cycle, index) => <CycleSnapsRow cycle={cycle} index={index}/>
     );
 
-    const labels = ['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Current Release', 'Release Date', 'Related Incidents', 'Accumulated Production Incidents', 'Waste', 'Days Since Last Release'];
+    const labels = ['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Current Release', 'Release Date', 'Related Incidents', 'Days Since Last Release', 'Team Capacity', 'Waste Days', 'Waste Percentage'];
 
     return (<Table>
               <TableHeader labels={labels} sortIndex={2} sortAscending={false} />
