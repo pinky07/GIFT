@@ -16,6 +16,9 @@ CREATE TABLE t_cycle_snap (
   targeted_points INT          NOT NULL,
   achieved_points INT          NOT NULL,
   project_id      INT          NOT NULL,
+  team_capacity   INT          NOT NUll,
+  waste_days      INT          NOT NULL,
+  is_waste_available BOOLEAN NOT NULL,
   CONSTRAINT pk_cycle_snap_id PRIMARY KEY (cycle_snap_id),
   CONSTRAINT fk_project_id_cycle FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );
