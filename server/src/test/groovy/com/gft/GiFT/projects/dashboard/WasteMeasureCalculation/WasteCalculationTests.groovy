@@ -17,18 +17,18 @@ class WasteCalculationTests extends Specification  {
         then:
         wastePercentage == "5.0%";
     }
-    def "Should show only 2 rounded decimals"(){
-        given:
-        int teamCapacity=99;
-        int wasteDays=5.67;
-        boolean wasteIndicator = true;
-
-        when:
-        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
-
-        then:
-        wastePercentage == "5.73%";
-    }
+//    def "Should show only 2 rounded decimals"(){
+//        given:
+//        int teamCapacity=99;
+//        int wasteDays=5.67;
+//        boolean wasteIndicator = true;
+//
+//        when:
+//        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
+//
+//        then:
+//        wastePercentage == "5.73%";
+//    }
 
     def "Should allow 0% waste"(){
         given:
