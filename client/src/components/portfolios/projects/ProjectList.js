@@ -1,5 +1,5 @@
 import React from 'react';
-import * as actions from '../../actions';
+import * as actions from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -10,8 +10,6 @@ import Anchor from 'grommet/components/Anchor';
 import Table from 'grommet/components/Table';
 import TableHeader from 'grommet/components/TableHeader';
 import TableRow from 'grommet/components/TableRow';
-
-import constants from '../../services/constants';
 
 export class ProjectList extends React.Component {
 
@@ -57,3 +55,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);
+`                                   `

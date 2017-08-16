@@ -1,23 +1,13 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import PropTypes from 'prop-types';
-
-import axios from 'axios';
-
-import constants from '../../../services/constants';
-
-import Heading from 'grommet/components/Heading';
-import Anchor from 'grommet/components/Anchor';
-import Box from 'grommet/components/Box';
-import Table from 'grommet/components/Table';
-import TableHeader from 'grommet/components/TableHeader';
-import TableRow from 'grommet/components/TableRow';
-import Status from 'grommet/components/icons/Status';
-import Footer from 'grommet/components/Footer';
-import Button from 'grommet/components/Button';
 import Toast from 'grommet/components/Toast';
-import Spinning from 'grommet/components/icons/Spinning';
+
+import dashboardService from './dashboardService';
+import cycleSnapService from '../cycleSnapAdd/cycleSnapService';
+
+import DashboardWithCriticalError from './DashboardWithCriticalError';
+import LoadingDashboard from './LoadingDashboard';
+import DashboardWithNoCycleSnaps from './DashboardWithNoCycleSnaps';
+import DashboardWithCycleSnaps from './DashboardWithCycleSnaps';
 
 import CycleSnapAdd from '../cycleSnapAdd/CycleSnapAdd';
 
@@ -32,7 +22,7 @@ export default class Dashboard extends React.Component {
 
     this.state = {
       projectId: props.params.id,
-      name: '',
+      projectName: '',
       cycleSnaps: [],
       errorMessage: '',
       addCycleSnap: false,
@@ -42,40 +32,16 @@ export default class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    this._loadDashboard(this.state.projectId);
+    this._loadDashboard();
   }
 
-  _loadDashboard(projectId) {
-    if (isNaN(projectId)) {
-      this.setState({errorMessage: "Invalid project id"});
-    }
-    else {
-      axios.get(`${constants.API}/projects/${projectId}/dashboard`).then((response) => {
-        if (response.data) {
-          this.setState({
-            name: response.data.name,
-            cycleSnaps: response.data.cycleSnaps,
-            addCycleSnap: false
-          });
-        }
-      }).catch((error) => {
-          if (error.response) {
-            // There was a validation error.
-            this.setState({
-              errorMessage: 'Please check: ' + error.response.data.message + '.',
-              addCycleSnap: false
-            })
-          }
-          else {
-            // There was a critical error.
-            this.setState({
-              errorMessage: 'Oops! We got a bit of an issue: ' + error.message + '.',
-              addCycleSnap: false
-            })
-          }
-        }
-      );
-    }
+  _loadDashboard() {
+    const { projectId } = this.state
+
+    if (isNaN(projectId))
+      this.setState({ errorMessage: "Invalid project id" });
+    else
+      dashboardService.load(projectId).then(newState => this.setState(newState));
   }
 
   _onRequestAddCycleSnap() {
@@ -95,123 +61,60 @@ export default class Dashboard extends React.Component {
   }
 
   _onAddCycleSnapSubmit(newCycleSnap) {
-    axios.post(`${constants.API}/projects/cyclesnaps`, {
-      projectId: this.state.projectId,
-      cycleSnapName: newCycleSnap.name,
-      startDate: newCycleSnap.startDate,
-      endDate: newCycleSnap.endDate,
-      targetedPoints: newCycleSnap.targetedPoints,
-      achievedPoints: newCycleSnap.achievedPoints
-    })
-      .then((response) => {
-        this._loadDashboard(this.state.projectId)
-        this.setState({successNotificationOnAdd: 'Success! You just added the snap for cycle ' + newCycleSnap.name + '.'})
-      })
-      .catch((error) => {
-        if (error.response) {
-          // There was a validation error.
-          this.setState({
-            failureNotificationOnAdd: 'Please check: ' + error.response.data.message + '.',
-            addCycleSnap: false
-          })
-        }
-        else {
-          // There was a critical error.
-          this.setState({
-            failureNotificationOnAdd: 'Oops! We got a bit of an issue: ' + error.message + '.',
-            addCycleSnap: false
-          })
-        }
-      });
+    const { projectId } = this.state
+    cycleSnapService.add(newCycleSnap, this._loadDashboard).then(newState => this.setState(newState));
+  }
+
+  /* Determines the UI elements that will be shown: 
+    - success notification after adding a cycle snap 
+    - failure notification when adding a cycle snap 
+    - the modal dialog for adding a cycle snap 
+  */
+  _determineElements(state, dashboardCallbacks) {
+    let elements = {
+      successNotification: undefined,
+      failureNotification: undefined,
+      addCycleSnapLayer: undefined
+    };
+
+    if (state.successNotificationOnAdd)
+      elements.successNotification = (<Toast status='ok'>{state.successNotificationOnAdd}</Toast>);
+
+    if (state.failureNotificationOnAdd)
+      elements.failureNotification = (<Toast status='critical'>{state.failureNotificationOnAdd}</Toast>);
+
+    if (state.addCycleSnap)
+      elements.addCycleSnapLayer = (<CycleSnapAdd
+                                      projectId={state.projectId}
+                                      projectName={state.projectName}
+                                      onClose={dashboardCallbacks._onAddCycleSnapCancel}
+                                      onSubmit={dashboardCallbacks._onAddCycleSnapSubmit} />);
+
+    return elements;
   }
 
   render() {
-    const errorMessage = this.state.errorMessage;
-    const projectName = this.state.name;
-
-    const cycleSnaps = this.state.cycleSnaps.map((cycle, i) => <TableRow key={i}>
-        <td>{cycle.cycleSnapName}</td>
-        <td>{cycle.startDate}</td>
-        <td>{cycle.endDate}</td>
-        <td>{cycle.achievedPoints} / {cycle.targetedPoints}</td>
-        <td>{cycle.tac}</td>
-        <td>{cycle.lastReleaseName}</td>
-        <td>{cycle.lastReleaseDate}</td>
-        <td>{cycle.relatedIncidents}</td>
-        <td>{cycle.daysSinceLastRelease}</td>
-      </TableRow>
-    );
-
-    let successNotification;
-    if (this.state.successNotificationOnAdd) {
-      successNotification = (
-        <Toast status='ok' onClose={this._onCloseSuccessNotification}>{this.state.successNotificationOnAdd}</Toast>);
+    let dashboardCallbacks = {
+      _onRequestAddCycleSnap: this._onRequestAddCycleSnap,
+      _onAddCycleSnapSubmit: this._onAddCycleSnapSubmit,
+      _onAddCycleSnapCancel: this._onAddCycleSnapCancel
     }
 
-    let failureNotification;
-    if (this.state.failureNotificationOnAdd) {
-      failureNotification = (<Toast status='critical'>{this.state.failureNotificationOnAdd}</Toast>);
-    }
+    const elements = this._determineElements(this.state, dashboardCallbacks);
 
-    let addCycleSnapLayer;
-    if (this.state.addCycleSnap) {
-      addCycleSnapLayer = (<CycleSnapAdd projectId={this.state.projectId} onClose={this._onAddCycleSnapCancel}
-                                         onSubmit={this._onAddCycleSnapSubmit}/>);
-    }
+    const { projectName } = this.state;
+    const { cycleSnaps } = this.state;
+    const { errorMessage } = this.state;
 
-    if (errorMessage) {
-      return (<Box>
-        <h1>Dashboard</h1>
-        <h3><Status value='critical'/> <span>{errorMessage}</span></h3>
-      </Box>);
-    }
-    else {
-
-      if (projectName) {
-
-        if (cycleSnaps.length > 0) {
-          return (<Box>
-            <Heading>Dashboard: {projectName}</Heading>
-
-            <Footer>
-              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit}
-                      primary={true}/>
-            </Footer>
-
-            <Table>
-              <TableHeader
-                labels={['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Current Release', 'Release Date', 'Related incidents', 'Days since last release']}
-                sortIndex={2} sortAscending={false}/>
-              <tbody>
-              {cycleSnaps}
-              </tbody>
-            </Table>
-            {addCycleSnapLayer}
-            {successNotification}
-            {failureNotification}
-          </Box>);
-        }
-        else {
-          return (<Box>
-            <h1>Dashboard: {projectName}</h1>
-            <h3><Status value='unknown'/> <span>This project has no cycle snaps.</span></h3>
-            <Footer>
-              <Button label='Add Cycle Snap' onClick={this._onRequestAddCycleSnap} onSubmit={this._onAddCycleSnapSubmit}
-                      primary={true}/>
-            </Footer>
-            {addCycleSnapLayer}
-            {successNotification}
-            {failureNotification}
-
-          </Box>);
-        }
-      }
-      else {
-        return (<Box>
-          <h1>Dashboard</h1>
-          <h3><Spinning/> Loading... </h3>
-        </Box>);
-      }
-    }
+    if (errorMessage)
+      return (<DashboardWithCriticalError errorMessage={errorMessage} />);
+    else
+      if (projectName)
+        if (cycleSnaps.length > 0)
+          return (<DashboardWithCycleSnaps state={this.state} elements={elements} dashboardCallbacks={dashboardCallbacks} />);
+        else
+          return (<DashboardWithNoCycleSnaps state={this.state} elements={elements} dashboardCallbacks={dashboardCallbacks} />);
+      else
+        return (<LoadingDashboard />);
   }
 }

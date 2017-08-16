@@ -17,6 +17,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      hash: true,
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/index.html')
     }),

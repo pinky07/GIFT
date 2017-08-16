@@ -24,7 +24,8 @@
     "lint": "esw src",
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --config webpack.config.dist.babel.js",
-    "test": "jest"
+    "test": "jest",
+    "testcoverage": "jest --coverage"
   },
   "keywords": [],
   "author": "GFT",
@@ -48,6 +49,8 @@
     "eslint-watch": "^3.1.2",
     "html-webpack-plugin": "^2.29.0",
     "jest": "^20.0.4",
+    "jest-html-reporter": "^0.5.1",
+    "jest-junit": "^2.1.0",
     "node-sass": "^4.5.3",
     "npm": "^5.3.0",
     "npm-run-all": "^4.0.2",
@@ -60,6 +63,20 @@
     "webpack-dev-server": "^2.5.1"
   },
   "jest": {
-    "testRegex": "\\.spec\\.js$"
+    "testRegex": "\\.spec\\.js$",
+    "testResultsProcessor": "./node_modules/jest-junit"
+  },
+  "jest-junit": {
+    "suiteName": "Front end unit tests",
+    "output": "./build/unit-test-results/results.xml",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
+  },
+  "jest-html-reporter": {
+    "pageTitle": "Front end unit tests",
+    "outputPath": "./build/unit-test-results/index.html",
+    "includeFailureMsg": false
   }
 }

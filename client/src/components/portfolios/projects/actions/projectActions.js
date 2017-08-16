@@ -1,4 +1,4 @@
-import * as types from './types';
+import * as types from '../../../masterPage/store/reducers/types';
 import projectService from '../services/projectService';
 
 export const loadProjects = portfolioId => {
