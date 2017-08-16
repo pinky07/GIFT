@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.dashboard.businessLogic;
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
 import com.gft.GiFT.formatters.DateFormatter;
 import org.joda.time.DateTime;

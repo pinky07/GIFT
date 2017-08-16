@@ -1,8 +1,9 @@
-package com.gft.GiFT.projects.dashboard.businessLogic;
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
 import com.gft.GiFT.formatters.DateFormatter;
 
 import java.text.ParseException;
+
 import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
 
 import java.util.Date;

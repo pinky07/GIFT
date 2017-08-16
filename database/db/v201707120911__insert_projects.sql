@@ -64,6 +64,19 @@ VALUES ('Sprint #21', '2017-05-17', '2017-06-01', 33, 28, 6,20,0,False);
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
 VALUES ('Sprint #22', '2017-05-31', '2017-06-13', 44, 40, 6,20,0,False);
 
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
+VALUES ('Sprint #1', '2017-01-25', '2017-01-30', 0, 0, 7, 100, 5, True);
+
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
+VALUES ('Sprint #2', '2017-02-01', '2017-02-14', 60, 55, 7, 99, 5.67, True);
+
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
+VALUES ('Sprint #3', '2017-02-18', '2017-02-28', 70, 68, 7, 99, 0, True);
+
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
+VALUES ('Sprint #4', '2017-03-01', '2017-03-15', 100, 100, 7, 0, 0, False);
+
+
 -- Test Data for t_release_snap
 INSERT INTO t_release_snap(release_date, name,project_id )
 VALUES ('2016-03-10','2017.03.00', 1);
@@ -115,6 +128,18 @@ VALUES ('2017-02-07','First Version', 7);
 
 INSERT INTO t_release_snap(release_date,name, project_id )
 VALUES ('2017-03-02','Second Update', 7);
+
+INSERT INTO t_release_snap(release_date, name,project_id )
+VALUES ('2017-02-07','First Version', 7);
+
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2017-03-02','Second Update', 7);
+
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2017-04-02','Third Update', 7);
+
+INSERT INTO t_release_snap(release_date,name, project_id )
+VALUES ('2017-04-02','Third Update', 7);
 
 --Test Data for t_incidents_report
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id)

@@ -1,7 +1,7 @@
 package com.gft.GiFT.projects.dashboard.LastReleaseNameDate
 
-import com.gft.GiFT.projects.dashboard.businessLogic.LastReleaseInfo
-import com.gft.GiFT.projects.dashboard.businessLogic.LastReleaseOperations
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseInfo
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseOperations
 import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap
 import spock.lang.Specification
 

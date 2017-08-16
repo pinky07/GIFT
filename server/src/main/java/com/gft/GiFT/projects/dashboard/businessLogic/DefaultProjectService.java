@@ -1,10 +1,7 @@
 package com.gft.GiFT.projects.dashboard.businessLogic;
 
-import com.gft.GiFT.entities.CycleSnap;
-import com.gft.GiFT.entities.Project;
-import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport;
-import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
-import com.gft.GiFT.projects.dashboard.dataAccess.DashboardProjectRepository;
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.*;
+import com.gft.GiFT.projects.dashboard.dataAccess.*;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -80,7 +77,6 @@ public class DefaultProjectService implements ProjectService {
 
         String lastReleaseDate = lastRelease.getLastReleaseDate();
         cycleSnapDTO.setLastReleaseDate(lastReleaseDate);
-
 
         return cycleSnapDTO;
     }

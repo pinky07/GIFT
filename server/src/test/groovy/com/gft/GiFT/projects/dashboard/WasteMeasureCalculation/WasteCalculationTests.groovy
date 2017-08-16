@@ -27,7 +27,7 @@ class WasteCalculationTests extends Specification  {
         String wastePercentage = WasteMeasure.calculateWaste(teamCapacity,wasteDays,wasteIndicator)
 
         then:
-        wastePercentage == "5.05%";
+        wastePercentage == "5.73%";
     }
 
     def "Should allow 0% waste"(){

@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.dashboard.businessLogic;
+package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
 
 public class TacCalculation {

@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.dashboard.RelatedIncidentsCalculation
 
-import com.gft.GiFT.projects.dashboard.businessLogic.RelatedIncidentsCalculation
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.RelatedIncidentsCalculation
 import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport
 import spock.lang.Specification
 
