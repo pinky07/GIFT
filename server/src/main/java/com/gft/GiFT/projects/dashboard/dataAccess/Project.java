@@ -21,6 +21,9 @@ public class Project {
     @Column(name = "project_name", nullable = false, length = 45)
     private String name;
 
+    @Column(name = "portfolio_id", nullable = false)
+    private int portfolioId;
+
     @OrderBy("endDate DESC")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
     private Set<CycleSnap> cycleSnapSet = new LinkedHashSet<>();
