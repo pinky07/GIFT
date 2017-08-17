@@ -40,4 +40,12 @@ public class CycleSnap {
     @Column(name = "is_waste_available", nullable = false)
     private boolean isWasteAvailable;
 
+    @Column(name = "mood_average", nullable = false)
+    private double moodAverage;
+
+    @Column(name = "is_mood_available", nullable = false)
+    private boolean isMoodAvailabel;
+
+
+
 }

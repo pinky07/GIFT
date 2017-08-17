@@ -19,6 +19,8 @@ CREATE TABLE t_cycle_snap (
   team_capacity   DOUBLE           NUll default 0,
   waste_days      DOUBLE           NULL default 0,
   is_waste_available BOOLEAN NOT NULL default 0,
+  isMoodAvailabel BOOLEAN NOT NULL default 0,
+   moodAvearge      DOUBLE           NULL default 0,
   CONSTRAINT pk_cycle_snap_id PRIMARY KEY (cycle_snap_id),
   CONSTRAINT fk_project_id_cycle FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );

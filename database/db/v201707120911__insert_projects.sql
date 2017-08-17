@@ -22,59 +22,59 @@ VALUES ('Exceptional Project', 4, 1, 2, 1);
 
 
 -- Test Data for t_cycle_snap
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('50', '2016-04-18', '2016-05-06', 76, 58, 1,162,3,TRUE);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('50', '2016-04-18', '2016-05-06', 76, 58, 1,162,3,TRUE,TRUE,2.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('51', '2016-05-09', '2016-05-30', 87, 45, 1,135,3,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('51', '2016-05-09', '2016-05-30', 87, 45, 1,135,3,True,TRUE,1.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('52', '2016-05-31', '2016-06-20', 76, 70, 1,135,3,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('52', '2016-05-31', '2016-06-20', 76, 70, 1,135,3,True,TRUE,2.50);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('53', '2016-06-20', '2016-07-11', 88, 79, 1,135,4,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('53', '2016-06-20', '2016-07-11', 88, 79, 1,135,4,True,TRUE,2.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('54', '2016-07-11', '2016-08-01', 84, 73, 1,135,2,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('54', '2016-07-11', '2016-08-01', 84, 73, 1,135,2,True,TRUE,2.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('55', '2016-08-01', '2016-08-22', 67, 67, 1,135,1,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('55', '2016-08-01', '2016-08-22', 67, 67, 1,135,1,True,TRUE,3.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('56', '2016-08-22', '2016-09-12', 71, 65, 1,135,5,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('56', '2016-08-22', '2016-09-12', 71, 65, 1,135,5,True,TRUE,2.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('57', '2016-09-12', '2016-10-03', 64, 57, 1,135,4,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('57', '2016-09-12', '2016-10-03', 64, 57, 1,135,4,True,TRUE,2.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('58', '2016-10-3', '2016-10-24', 62, 56, 1,135,3,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('58', '2016-10-3', '2016-10-24', 62, 56, 1,135,3,True,TRUE,2.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('59', '2016-10-24', '2016-11-14', 60, 54, 1,135,3,True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('59', '2016-10-24', '2016-11-14', 60, 54, 1,135,3,True,TRUE,2.50);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint 84', '2017-05-22', '2017-06-18', 136, 70, 3,735,0,False);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint 84', '2017-05-22', '2017-06-18', 136, 70, 3,735,0,False,TRUE,2.50);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint #20', '2017-03-05', '2017-05-17', 29, 24, 6,20,0,False);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint #20', '2017-03-05', '2017-05-17', 29, 24, 6,20,0,False,TRUE,2.50);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint #21', '2017-05-17', '2017-06-01', 33, 28, 6,20,0,False);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint #21', '2017-05-17', '2017-06-01', 33, 28, 6,20,0,False,TRUE,3.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint #22', '2017-05-31', '2017-06-13', 44, 40, 6,20,0,False);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint #22', '2017-05-31', '2017-06-13', 44, 40, 6,20,0,False,TRUE,3.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint #1', '2017-01-25', '2017-01-30', 0, 0, 7, 100, 5, True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint #1', '2017-01-25', '2017-01-30', 0, 0, 7, 100, 5, True,TRUE,3.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint #2', '2017-02-01', '2017-02-14', 60, 55, 7, 99, 5.67, True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint #2', '2017-02-01', '2017-02-14', 60, 55, 7, 99, 5.67, True,TRUE,3.00);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint #3', '2017-02-18', '2017-02-28', 70, 68, 7, 99, 0, True);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint #3', '2017-02-18', '2017-02-28', 70, 68, 7, 99, 0, True,TRUE,2.50);
 
-INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available)
-VALUES ('Sprint #4', '2017-03-01', '2017-03-15', 100, 100, 7, 0, 0, False);
+INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,isMoodAvailabel,moodAvearge)
+VALUES ('Sprint #4', '2017-03-01', '2017-03-15', 100, 100, 7, 0, 0, False,false,0);
 
 
 -- Test Data for t_release_snap
