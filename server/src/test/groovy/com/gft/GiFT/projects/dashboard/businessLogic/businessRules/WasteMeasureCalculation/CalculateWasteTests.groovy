@@ -27,10 +27,10 @@ class CalculateWasteTests extends Specification {
         given:
         teamCapacity = 99
         wasteDays = 5.67
-        wasteIndicator = true
+        isWasteAvailable = true
 
         when:
-        wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, wasteIndicator)
+        wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable)
 
         then:
         wastePercentage == "5.73%"
@@ -40,10 +40,10 @@ class CalculateWasteTests extends Specification {
         given:
         teamCapacity = 99
         wasteDays = 0
-        wasteIndicator = true
+        isWasteAvailable = true
 
         when:
-        wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, wasteIndicator)
+        wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable)
 
         then:
         wastePercentage == "0.0%"
@@ -53,10 +53,10 @@ class CalculateWasteTests extends Specification {
         given:
         teamCapacity = 0
         wasteDays = 0
-        wasteIndicator = false
+        isWasteAvailable = false
 
         when:
-        wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, wasteIndicator)
+        wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable)
 
         then:
         wastePercentage == "No data"
