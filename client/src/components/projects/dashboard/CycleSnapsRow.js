@@ -15,6 +15,7 @@ const CycleSnapsRow = ({cycle, index}) =>
     <td>{cycle.teamCapacity}</td>
     <td>{cycle.wasteDays}</td>
     <td>{cycle.wastePercentage}</td>
+    <td>{cycle.mood}</td>
   </TableRow>
 
 export default CycleSnapsRow;
