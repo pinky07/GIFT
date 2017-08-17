@@ -31,7 +31,7 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             endDate: '2017-06-18',
             targetedPoints: 136,
             achievedPoints: 70,
-            daysSinceLastRelease: 'No releases yet',
+            daysSinceLastRelease: 27,
             tac: "51%",
             relatedIncidents: 'No releases yet',
             lastReleaseName: 'No releases yet',
@@ -56,7 +56,7 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             teamCapacity: 100.0,
             wasteDays: 5.0,
             wastePercentage: '5.0%',
-            mood: '3.0'
+            mood: '3.00'
     )
 
     def cycleSnapDTO3 = new CycleSnapDTO(
@@ -72,8 +72,8 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             lastReleaseDate: '2017-03-02',
             teamCapacity: 99.0,
             wasteDays: 5.67,
-            wastePercentage: '5.73%',
-            mood: '2.5'
+            wastePercentage: '5.7%',
+            mood: '2.50'
     )
 
     def "Should get dashboard by project Id" () {
@@ -106,8 +106,8 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
     def "Should get dashboard by project Id with Days since last release" () {
         given:
         Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
-        newCycleSnapDTOSet.add(cycleSnapDTO2)
         newCycleSnapDTOSet.add(cycleSnapDTO3)
+        newCycleSnapDTOSet.add(cycleSnapDTO2)
 
         def expectedProject = new ProjectDTO (
                 name: 'New Project Test',
