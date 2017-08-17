@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional
         @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/before.sql"),
         @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/after.sql")
 ])
+
 class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecification {
 
     def cycleSnapDTO1 = new CycleSnapDTO(
@@ -34,7 +35,11 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             tac: "51%",
             relatedIncidents: 'No releases yet',
             lastReleaseName: 'No releases yet',
-            lastReleaseDate: 'No releases yet'
+            lastReleaseDate: 'No releases yet',
+            teamCapacity: 0.0,
+            wasteDays: 0.0,
+            wastePercentage: 'No data',
+            mood: 'No data'
     )
 
     def cycleSnapDTO2 = new CycleSnapDTO(
@@ -47,7 +52,11 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             tac: "76%",
             relatedIncidents: 'No reports available',
             lastReleaseName: 'First version',
-            lastReleaseDate: '2017-02-07'
+            lastReleaseDate: '2017-02-07',
+            teamCapacity: 100.0,
+            wasteDays: 5.0,
+            wastePercentage: '5.0%',
+            mood: '3.0'
     )
 
     def cycleSnapDTO3 = new CycleSnapDTO(
@@ -60,7 +69,11 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             tac: "51%",
             relatedIncidents: 'No reports available',
             lastReleaseName: 'Second update',
-            lastReleaseDate: '2017-03-02'
+            lastReleaseDate: '2017-03-02',
+            teamCapacity: 99.0,
+            wasteDays: 5.67,
+            wastePercentage: '5.73%',
+            mood: '2.5'
     )
 
     def "Should get dashboard by project Id" () {
