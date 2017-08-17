@@ -23,7 +23,7 @@ class CalculateWasteTests extends Specification {
         wastePercentage == "5.0%"
     }
 
-    def "Should show only 2 rounded decimals"() {
+    def "Should show only 1 rounded decimal"() {
         given:
         teamCapacity = 99
         wasteDays = 5.67
@@ -33,7 +33,20 @@ class CalculateWasteTests extends Specification {
         wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable)
 
         then:
-        wastePercentage == "5.73%"
+        wastePercentage == "5.7%"
+    }
+
+    def "Should allow two digits for the waste percentage"() {
+        given:
+        teamCapacity = 99
+        wasteDays = 17.67
+        isWasteAvailable = true
+
+        when:
+        wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable)
+
+        then:
+        wastePercentage == "17.8%"
     }
 
     def "Should allow 0% waste"() {

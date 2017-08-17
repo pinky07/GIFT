@@ -1,11 +1,14 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
+import java.text.DecimalFormat;
+
 public class MoodCalculation {
 
-    public static String MoodCalculate(boolean isMoodAvailabel, double moodAverage) {
+    public static String calculateMood(boolean isMoodAvailable, double moodAverage) {
         String howIsMood;
-        if (isMoodAvailabel) {
-            howIsMood = String.valueOf((moodAverage));
+        if (isMoodAvailable) {
+            DecimalFormat formatter = new DecimalFormat("#.00");
+            howIsMood = formatter.format(moodAverage);
             return howIsMood;
         } else {
             howIsMood = "No data";

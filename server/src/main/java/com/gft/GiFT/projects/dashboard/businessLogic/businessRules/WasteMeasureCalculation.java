@@ -1,5 +1,7 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
+import java.text.DecimalFormat;
+
 public class WasteMeasureCalculation {
     public static String calculateWaste(double teamCapacity, double wasteDays, boolean isWasteAvailable) {
 
@@ -7,8 +9,9 @@ public class WasteMeasureCalculation {
         if (isWasteAvailable) {
             double wastePercent = (wasteDays / teamCapacity);
             wastePercent = wastePercent * 100;
-            double roundOff = (double) Math.round(wastePercent * 100) / 100;
-            wastePercentString = Double.toString(roundOff);
+
+            DecimalFormat formatter = new DecimalFormat("0.0");
+            wastePercentString = formatter.format(wastePercent);
             return wastePercentString + "%";
 
         } else {

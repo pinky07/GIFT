@@ -1,13 +1,12 @@
 package com.gft.GiFT.projects.dashboard.businessLogic;
 
+import com.gft.GiFT.formatters.DateFormatter;
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.*;
 import com.gft.GiFT.projects.dashboard.dataAccess.*;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class DefaultProjectService implements ProjectService {
@@ -28,20 +27,24 @@ public class DefaultProjectService implements ProjectService {
         ProjectDTO projectDTO = new ProjectDTO();
         projectDTO.setName(project.getName());
 
-        List<String> releaseSnapDates = new LinkedList<>();
-
-        for (ReleaseSnap releaseSnap : project.getReleaseSnaps()) {
-            releaseSnapDates.add(releaseSnap.getReleaseDate());
-        }
-
         if (project.getCycleSnapSet().isEmpty()) {
             projectDTO.setCycleSnaps(new LinkedHashSet<>());
         } else {
+
+            // Find the first cycle snap date
+            Set<CycleSnap> cycles = project.getCycleSnapSet();
+            TreeSet<Date> tree = new TreeSet<>();
+            for (CycleSnap cycle : cycles) {
+                Date newDate = DateFormatter.convertDateStringToDate(cycle.getStartDate());
+                tree.add(newDate);
+            }
+            Date firstCycleSnapStartDate = tree.first();
+
             projectDTO.setCycleSnaps(new LinkedHashSet<>());
             for (CycleSnap cycleSnap : project.getCycleSnapSet()) {
                 CycleSnapDTO cycleSnapDTO = createCycleSnapDTO(
+                        firstCycleSnapStartDate,
                         cycleSnap,
-                        releaseSnapDates,
                         project.getIncidentsReports(),
                         project.getReleaseSnaps());
                 projectDTO.getCycleSnaps().add(cycleSnapDTO);
@@ -50,8 +53,8 @@ public class DefaultProjectService implements ProjectService {
         return projectDTO;
     }
 
-    private CycleSnapDTO createCycleSnapDTO(CycleSnap cycleSnap,
-                                            List<String> releaseDates,
+    private CycleSnapDTO createCycleSnapDTO(Date firstCycleSnapStartDate,
+                                            CycleSnap cycleSnap,
                                             List<IncidentsReport> reports,
                                             List<ReleaseSnap> releaseSnaps) throws ParseException {
         CycleSnapDTO cycleSnapDTO = new CycleSnapDTO();
@@ -63,13 +66,18 @@ public class DefaultProjectService implements ProjectService {
 
         cycleSnapDTO.setTac(TacCalculation.calculateTac(cycleSnap.getTargetedPoints(),cycleSnap.getAchievedPoints()));
 
-        String daysSinceLastRelease = DaysSinceLastReleaseCalculation.determineDays(cycleSnap.getEndDate(), releaseDates);
-        cycleSnapDTO.setDaysSinceLastRelease(daysSinceLastRelease);
+        List<String> releaseDates = new LinkedList<>();
+        for (ReleaseSnap releaseSnap : releaseSnaps) {
+            releaseDates.add(releaseSnap.getReleaseDate());
+        }
 
         String relatedIncidents = RelatedIncidentsCalculation.determineRelatedIncidents(reports, cycleSnap.getEndDate(),releaseDates);
         cycleSnapDTO.setRelatedIncidents(relatedIncidents);
 
         LastReleaseInfo lastRelease = LastReleaseOperations.getLastRelease(cycleSnap.getEndDate(), releaseSnaps);
+
+        String daysSinceLastRelease = DaysSinceLastReleaseCalculation.determineDays(firstCycleSnapStartDate, cycleSnap.getEndDate(), releaseDates);
+        cycleSnapDTO.setDaysSinceLastRelease(daysSinceLastRelease);
 
         String lastReleaseName = lastRelease.getLastReleaseName();
         cycleSnapDTO.setLastReleaseName(lastReleaseName);
@@ -90,7 +98,7 @@ public class DefaultProjectService implements ProjectService {
         String wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable);
         cycleSnapDTO.setWastePercentage(wastePercentage);
 
-        String mood = MoodCalculation.MoodCalculate(isMoodAvailable, moodAverage);
+        String mood = MoodCalculation.calculateMood(isMoodAvailable, moodAverage);
         cycleSnapDTO.setMood(mood);
 
         return cycleSnapDTO;
