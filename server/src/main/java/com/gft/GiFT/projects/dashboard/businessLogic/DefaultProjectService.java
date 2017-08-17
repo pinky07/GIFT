@@ -85,7 +85,7 @@ public class DefaultProjectService implements ProjectService {
 
         boolean isWasteAvailable = cycleSnap.isWasteAvailable();
 
-        String wastePercentage = WasteMeasure.calculateWaste(teamCapacity, wasteDays, isWasteAvailable);
+        String wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable);
         cycleSnapDTO.setWastePercentage(wastePercentage);
 
         return cycleSnapDTO;
