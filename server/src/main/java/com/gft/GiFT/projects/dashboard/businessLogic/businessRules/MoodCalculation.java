@@ -2,10 +2,10 @@ package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
 public class MoodCalculation {
 
-    public static String MoodCalculate(boolean isMoodAvailabel, float moodAvearge) {
+    public static String MoodCalculate(boolean isMoodAvailabel, double moodAverage) {
         String howIsMood;
         if (isMoodAvailabel) {
-            howIsMood = String.valueOf((moodAvearge));
+            howIsMood = String.valueOf((moodAverage));
             return howIsMood;
         } else {
             howIsMood = "No data";

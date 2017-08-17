@@ -22,4 +22,8 @@ public class CycleSnapDTO {
     private double teamCapacity;
     private double wasteDays;
     private String wastePercentage;
+
+    //private double moodAverage;
+    private String mood;
+
 }

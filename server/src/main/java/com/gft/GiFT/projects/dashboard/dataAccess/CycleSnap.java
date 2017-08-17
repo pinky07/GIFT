@@ -44,7 +44,7 @@ public class CycleSnap {
     private double moodAverage;
 
     @Column(name = "is_mood_available", nullable = false)
-    private boolean isMoodAvailabel;
+    private boolean isMoodAvailable;
 
 
 

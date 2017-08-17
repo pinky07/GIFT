@@ -82,11 +82,16 @@ public class DefaultProjectService implements ProjectService {
 
         double wasteDays = cycleSnap.getWasteDays();
         cycleSnapDTO.setWasteDays(wasteDays);
+        double moodAverage = cycleSnap.getMoodAverage();
 
+        boolean isMoodAvailable = cycleSnap.isMoodAvailable();
         boolean isWasteAvailable = cycleSnap.isWasteAvailable();
 
         String wastePercentage = WasteMeasureCalculation.calculateWaste(teamCapacity, wasteDays, isWasteAvailable);
         cycleSnapDTO.setWastePercentage(wastePercentage);
+
+        String mood = MoodCalculation.MoodCalculate(isMoodAvailable, moodAverage);
+        cycleSnapDTO.setMood(mood);
 
         return cycleSnapDTO;
     }

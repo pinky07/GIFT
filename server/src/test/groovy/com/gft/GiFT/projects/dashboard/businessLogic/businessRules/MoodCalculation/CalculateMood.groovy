@@ -6,7 +6,7 @@ import spock.lang.Specification
 class CalculateMoodTests extends Specification {
 
     boolean isMoodAvailabel
-    float moodAvearge
+    double moodAvearge
     String howIsMood
 
     def "Is there any mood availabele"() {
