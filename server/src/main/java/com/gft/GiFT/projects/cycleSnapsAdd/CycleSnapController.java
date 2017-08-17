@@ -22,25 +22,6 @@ public class CycleSnapController {
         this.cycleSnapService = cycleSnapService;
     }
 
-
-    @GetMapping("/{projectId}/name")
-    public ResponseEntity<Object> findProjectNameById(@PathVariable("projectId") final int projectId) {
-        logger.info("findProjectNameById received: " + projectId);
-
-        String projectName = cycleSnapService.findProjectNameById(projectId);
-
-        ResponseEntity<Object> response;
-        if (projectName == null){
-            response = new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found"), HttpStatus.NOT_FOUND);
-        }
-        else{
-            response = new ResponseEntity<>(projectName, HttpStatus.OK);
-        }
-
-        logger.info("findProjectNameById returned: {}",  response);
-        return response;
-    }
-
     @PostMapping("/cyclesnaps")
     public ResponseEntity<Object> createCycleSnap(@RequestBody final CycleSnap newCycleSnap) throws ParseException {
         logger.info("createCycleSnap received: " + newCycleSnap);
