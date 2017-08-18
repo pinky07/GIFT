@@ -25,75 +25,39 @@ import org.springframework.transaction.annotation.Transactional
 
 class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecification {
 
-    def cycleSnapDTO1 = new CycleSnapDTO(
-            cycleSnapName: "Sprint Test",
-            startDate: '2017-05-22',
-            endDate: '2017-06-18',
-            targetedPoints: 136,
-            achievedPoints: 70,
-            daysSinceLastRelease: 27,
-            tac: "51%",
-            relatedIncidents: 'No releases yet',
-            lastReleaseName: 'No releases yet',
-            lastReleaseDate: 'No releases yet',
+    def cycleSnapDTO2 = new CycleSnapDTO(
+            cycleSnapName: "Sprint #3",
+            startDate: '2017-02-18',
+            endDate: '2017-02-28',
+            targetedPoints: 70,
+            achievedPoints: 68,
+            daysSinceLastRelease: '21',
+            tac: "97%",
+            relatedIncidents: '5',
+            lastReleaseName: 'First Version',
+            lastReleaseDate: '2017-02-07',
+            teamCapacity: 99.0,
+            wasteDays: 0.0,
+            wastePercentage: '0.0%',
+            mood: '2.50'
+    )
+
+    def cycleSnapDTO3 = new CycleSnapDTO(
+            cycleSnapName: "Sprint #4",
+            startDate: '2017-03-01',
+            endDate: '2017-03-15',
+            targetedPoints: 100,
+            achievedPoints: 100,
+            daysSinceLastRelease: '13',
+            tac: "100%",
+            relatedIncidents: 'No reports available',
+            lastReleaseName: 'Second Update',
+            lastReleaseDate: '2017-03-02',
             teamCapacity: 0.0,
             wasteDays: 0.0,
             wastePercentage: 'No data',
             mood: 'No data'
     )
-
-    def cycleSnapDTO2 = new CycleSnapDTO(
-            cycleSnapName: "New Sprint Test",
-            startDate: '2017-02-01',
-            endDate: '2017-02-14',
-            targetedPoints: 76,
-            achievedPoints: 58,
-            daysSinceLastRelease: '7',
-            tac: "76%",
-            relatedIncidents: 'No reports available',
-            lastReleaseName: 'First version',
-            lastReleaseDate: '2017-02-07',
-            teamCapacity: 100.0,
-            wasteDays: 5.0,
-            wastePercentage: '5.0%',
-            mood: '3.00'
-    )
-
-    def cycleSnapDTO3 = new CycleSnapDTO(
-            cycleSnapName: "Sprint Test 2",
-            startDate: '2017-03-02',
-            endDate: '2017-03-15',
-            targetedPoints: 87,
-            achievedPoints: 45,
-            daysSinceLastRelease: '13',
-            tac: "51%",
-            relatedIncidents: 'No reports available',
-            lastReleaseName: 'Second update',
-            lastReleaseDate: '2017-03-02',
-            teamCapacity: 99.0,
-            wasteDays: 5.67,
-            wastePercentage: '5.7%',
-            mood: '2.50'
-    )
-
-    def "Should get dashboard by project Id" () {
-        given:
-        Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
-        newCycleSnapDTOSet.add(cycleSnapDTO1)
-
-        def expectedProject = new ProjectDTO (
-                name: 'Project Test',
-                cycleSnaps: newCycleSnapDTOSet
-        )
-
-        when:
-        def response = getForEntity("${BASE_URL}/projects/99999/dashboard", ProjectDTO.class)
-
-        then:
-        response.statusCode == HttpStatus.OK
-        def project = response.body
-        expectedProject == project
-    }
 
     def "Should get a 404 when the projectId does not exist" () {
         when:
@@ -105,12 +69,12 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
 
     def "Should get dashboard by project Id with Days since last release" () {
         given:
-        Set<CycleSnapDTO> newCycleSnapDTOSet = new LinkedHashSet<CycleSnapDTO>()
+        Set<CycleSnapDTO> newCycleSnapDTOSet = new HashSet<CycleSnapDTO>()
         newCycleSnapDTOSet.add(cycleSnapDTO3)
         newCycleSnapDTOSet.add(cycleSnapDTO2)
 
         def expectedProject = new ProjectDTO (
-                name: 'New Project Test',
+                name: 'Exceptional Project',
                 cycleSnaps: newCycleSnapDTOSet,
         )
 
