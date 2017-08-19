@@ -64,7 +64,7 @@
 //        expected.add(otherProject)
 //
 //        when:
-//        ResponseEntity<List<Project>> projects = getForEntity("${BASE_URL}/projects/portfolio/2",
+//        ResponseEntity<List<Project>> projects = getForEntity("${baseUrl}/projects/portfolio/2",
 //                new ParameterizedTypeReference<List<Project>>() {})
 //        then:
 //        projects.statusCode == HttpStatus.OK
@@ -84,7 +84,7 @@
 //        )
 //
 //        when:
-//        def projectCreated = postForEntity("${BASE_URL}/projects", firstProject, Project.class)
+//        def projectCreated = postForEntity("${baseUrl}/projects", firstProject, Project.class)
 //
 //        then:
 //        projectCreated.statusCode == HttpStatus.OK

@@ -1,28 +1,16 @@
 package com.gft.GiFT.projects.dashboard.DashboardController
 
 import com.gft.GiFT.AbstractIntegrationSpecification
-import com.gft.GiFT.GiFtApplication
 import com.gft.GiFT.projects.dashboard.businessLogic.CycleSnapDTO
 import com.gft.GiFT.projects.dashboard.businessLogic.ProjectDTO
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
-import org.springframework.test.annotation.Rollback
-import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
-import org.springframework.transaction.annotation.Transactional
 
-@SpringBootTest( classes = GiFtApplication.class,
-        webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT,
-        properties = "server.port:8080")
-@ActiveProfiles(["dev"])
-@Transactional
-@Rollback
 @SqlGroup([
         @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/before.sql"),
         @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/dashboard/after.sql")
 ])
-
 class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecification {
 
     def cycleSnapDTO2 = new CycleSnapDTO(
@@ -61,7 +49,7 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
 
     def "Should get a 404 when the projectId does not exist" () {
         when:
-        def response = getForEntity("${BASE_URL}/projects/999/dashboard", ProjectDTO.class)
+        def response = getForEntity("${baseUrl}/projects/999/dashboard", ProjectDTO.class)
 
         then:
         response.statusCode == HttpStatus.NOT_FOUND
@@ -79,7 +67,7 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
         )
 
         when:
-        def response = getForEntity("${BASE_URL}/projects/12345/dashboard", ProjectDTO.class)
+        def response = getForEntity("${baseUrl}/projects/12345/dashboard", ProjectDTO.class)
 
         then:
         response.statusCode == HttpStatus.OK

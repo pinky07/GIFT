@@ -1,28 +1,16 @@
 package com.gft.GiFT.projects.cycleSnapsAdd.CycleSnapController
 
 import com.gft.GiFT.AbstractIntegrationSpecification
-import com.gft.GiFT.GiFtApplication
 import com.gft.GiFT.entities.CycleSnap
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
-import org.springframework.test.annotation.Rollback
-import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
-import org.springframework.transaction.annotation.Transactional
 
-@SpringBootTest(classes = GiFtApplication.class,
-        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
-        properties = "server.port:8080")
-@ActiveProfiles(["dev"])
-@Transactional
-@Rollback
 @SqlGroup([
         @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/cycleSnapsAdd/before.sql"),
         @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/cycleSnapsAdd/after.sql")
 ])
 class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
-
     def "Create Cycle Snap"() {
         given:
         def cycleSnap = new CycleSnap(
@@ -35,7 +23,7 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
         )
 
         when:
-        def response = postForEntity("${BASE_URL}/projects/cyclesnaps", cycleSnap, CycleSnap.class)
+        def response = postForEntity("${baseUrl}/projects/cyclesnaps", cycleSnap, CycleSnap.class)
 
         then:
         response.statusCode == HttpStatus.CREATED
@@ -53,7 +41,7 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
         )
 
         when:
-        def response = postForEntity("${BASE_URL}/projects/cyclesnaps", cycleSnap, CycleSnap.class)
+        def response = postForEntity("${baseUrl}/projects/cyclesnaps", cycleSnap, CycleSnap.class)
 
         then:
         response.statusCode == HttpStatus.BAD_REQUEST

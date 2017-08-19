@@ -76,8 +76,8 @@ test {
 // Usage: gradlew integrationTest
 task integrationTest(type: Test, description: 'Runs the integration tests', group: 'Verification') {
     dependsOn 'cleanIntegrationTest'
-
     include '**/*IntegrationTests*'
+    systemProperties System.properties
 }
 
 task buildDocker(type: Docker, dependsOn: build) {

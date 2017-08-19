@@ -1,15 +1,24 @@
 package com.gft.GiFT
 
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
+import org.springframework.test.annotation.Rollback
+import org.springframework.transaction.annotation.Transactional
 import spock.lang.Shared
+import org.springframework.boot.context.properties.ConfigurationProperties
 import spock.lang.Specification
 
+@SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.NONE)
+@Transactional
+@Rollback
+@ConfigurationProperties("integration-tests")
 class AbstractIntegrationSpecification extends Specification {
 
-    @Shared def BASE_URL = "http://localhost:8080/api/v1"
+    // This field is set according to the application properties files for each environment
+    @Shared def baseUrl
 
     @Shared TestRestTemplate template = new TestRestTemplate()
 
