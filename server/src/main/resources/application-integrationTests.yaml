@@ -10,4 +10,4 @@ spring:
     generate-ddl: false
     show-sql: true
 integration-tests:
-  base-uUrl: http://localhost:11010/api/v1
+  base-url: http://localhost:11010/api/v1
