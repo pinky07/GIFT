@@ -6,7 +6,6 @@ import FormFields from 'grommet/components/FormFields';
 import FormField from 'grommet/components/FormField';
 import TextInput from 'grommet/components/TextInput';
 import Box from 'grommet/components/Box';
-import Status from 'grommet/components/icons/Status';
 import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
 import NumberInput from 'grommet/components/NumberInput';

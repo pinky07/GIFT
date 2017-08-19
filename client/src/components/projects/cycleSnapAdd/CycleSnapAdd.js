@@ -8,11 +8,6 @@ import achievedPointsValidations from './validations/achievedPoints/validations'
 import nameValidations from './validations/name/validations';
 import fieldsValidation from './validations/fields/validation';
 
-import axios from 'axios';
-import constants from '../../constants';
-
-import Toast from 'grommet/components/Toast';
-import LoadingLayer from './LoadingLayer';
 import CycleSnapAddForm from './CycleSnapAddForm';
 
 export default class CycleSnapAdd extends React.Component {
