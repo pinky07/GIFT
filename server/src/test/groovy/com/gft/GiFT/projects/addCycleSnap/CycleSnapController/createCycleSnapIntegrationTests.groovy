@@ -19,7 +19,9 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
                 startDate: "2017-07-31",
                 endDate: "2017-08-04",
                 targetedPoints: 8,
-                achievedPoints: 8
+                achievedPoints: 8,
+                moodAverage:3,
+                isMoodAvailable: true
         )
 
         when:
@@ -37,7 +39,9 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
                 startDate: "",
                 endDate: "2017-08-04",
                 targetedPoints: 8,
-                achievedPoints: 8
+                achievedPoints: 8,
+                moodAverage:3,
+                isMoodAvailable: true
         )
 
         when:

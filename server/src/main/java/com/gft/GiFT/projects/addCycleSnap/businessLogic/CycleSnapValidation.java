@@ -52,7 +52,15 @@ public class CycleSnapValidation {
         if (newCycleSnap.getAchievedPoints() > 10000) {
             throw new IllegalArgumentException("Max number for Achieved Points is 10,000");
         }
+        if( newCycleSnap.getIsMoodAvailable()&& (newCycleSnap.getMoodAverage()< 1))
+        {
+            throw new IllegalArgumentException("Min number for Mood points is 1");
+        }
 
+        if( newCycleSnap.getIsMoodAvailable()&& (newCycleSnap.getMoodAverage()> 3))
+        {
+            throw new IllegalArgumentException("Mood points max is 3");
+        }
         //Cycle dates shouldn't overlap
         Interval newInterval = new Interval(startDateTime, endDateTime);
 

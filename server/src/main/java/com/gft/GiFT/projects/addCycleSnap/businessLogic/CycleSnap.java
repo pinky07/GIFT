@@ -28,6 +28,12 @@ public class CycleSnap {
     @Column(name = "achieved_points", nullable = false)
     private int achievedPoints;
 
+    @Column(name = "is_mood_available", nullable = false)
+    private Boolean isMoodAvailable;
+
+    @Column(name = "mood_average", nullable = false)
+    private double moodAverage;
+
     private int projectId;
 
 }

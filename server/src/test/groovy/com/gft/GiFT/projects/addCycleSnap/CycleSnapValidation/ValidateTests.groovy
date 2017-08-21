@@ -20,6 +20,8 @@ class ValidateTests extends Specification {
         newCycle.endDate = "2016-11-21"
         newCycle.targetedPoints = 8
         newCycle.achievedPoints = 8
+        newCycle.moodAverage = 3
+        newCycle.isMoodAvailable = true
 
         return newCycle
     }
@@ -195,6 +197,55 @@ class ValidateTests extends Specification {
         given:
         newCycle.startDate = "2016-10-02"
         newCycle.endDate = "2016-10-25"
+
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        thrown IllegalArgumentException
+    }
+
+
+    def "Two Decimals for Mood points are allowed for Mood column"() {
+        given:
+        newCycle.moodAverage = 1.56
+        newCycle.isMoodAvailable = true
+
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        notThrown IllegalArgumentException
+    }
+
+    def "Mood points are not required if Mood data is not available for Mood column"() {
+        given:
+        newCycle.isMoodAvailable = false
+        newCycle.moodAverage = 0
+
+
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        notThrown IllegalArgumentException
+    }
+    def "Min number for Mood points is 1  for Mood column"() {
+        given:
+        newCycle.moodAverage = 0.99
+        newCycle.isMoodAvailable = true
+
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        thrown IllegalArgumentException
+    }
+
+    def "Mood points max is 3 for Mood column"() {
+        given:
+        newCycle.moodAverage = 3.01
+        newCycle.isMoodAvailable = true
 
         when:
         CycleSnapValidation.validate(newCycle, existingCycleSnaps)
