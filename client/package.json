@@ -25,7 +25,8 @@
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --config webpack.config.dist.babel.js",
     "test": "jest",
-    "testcoverage": "jest --coverage"
+    "testcoverage": "jest --coverage",
+    "jestUpdateSnapshots": "jest --updateSnapshot"
   },
   "keywords": [],
   "author": "GFT",

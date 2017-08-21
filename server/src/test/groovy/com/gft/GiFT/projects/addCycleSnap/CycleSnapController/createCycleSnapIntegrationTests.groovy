@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.cycleSnapsAdd.CycleSnapController
+package com.gft.GiFT.projects.addCycleSnap.CycleSnapController
 
 import com.gft.GiFT.AbstractIntegrationSpecification
 import com.gft.GiFT.entities.CycleSnap
@@ -7,8 +7,8 @@ import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
 
 @SqlGroup([
-        @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/cycleSnapsAdd/before.sql"),
-        @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/cycleSnapsAdd/after.sql")
+        @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/addCycleSnap/before.sql"),
+        @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/addCycleSnap/after.sql")
 ])
 class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
     def "Create Cycle Snap"() {

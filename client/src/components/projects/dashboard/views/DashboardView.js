@@ -6,7 +6,7 @@ import LoadingView from './viewComponents/LoadingView';
 import DashboardWithNoCycleSnaps from './viewComponents/DashboardWithNoCycleSnaps';
 import DashboardWithCycleSnaps from './viewComponents/DashboardWithCycleSnaps';
 
-import CycleSnapAdd from '../../cycleSnapAdd/CycleSnapAdd';
+import AddCycleSnapController from '../../addCycleSnap/AddCycleSnapController';
 
 const DashboardView = ({ viewModel }) => {
   const { errorMessage } = viewModel;
@@ -52,7 +52,7 @@ const determineElements = (viewModel) => {
   const { dashboardCallbacks } = viewModel;
   const { addCycleSnap } = viewModel;
   if (addCycleSnap)
-    elements.addCycleSnapLayer = <CycleSnapAdd
+    elements.addCycleSnapLayer = <AddCycleSnapController
       projectId={viewModel.projectId}
       projectName={viewModel.project.name}
       onClose={dashboardCallbacks.onAddCycleSnapCancel}

@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.cycleSnapsAdd;
+package com.gft.GiFT.projects.addCycleSnap;
 
 import com.gft.GiFT.entities.Project;
 import org.springframework.data.jpa.repository.JpaRepository;

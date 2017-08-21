@@ -92,8 +92,8 @@ exports[`DashboardView shows notifications should render a failure notification 
                 End Date
               </span>
               <svg
-                aria-label="link-up"
-                className="grommetux-control-icon grommetux-control-icon-link-up grommetux-control-icon--responsive"
+                aria-label="link-down"
+                className="grommetux-control-icon grommetux-control-icon-link-down grommetux-control-icon--responsive"
                 height="24px"
                 role="img"
                 version="1.1"
@@ -105,6 +105,7 @@ exports[`DashboardView shows notifications should render a failure notification 
                   fill="none"
                   stroke="#000"
                   strokeWidth="2"
+                  transform="matrix(1 0 0 -1 0 24)"
                 />
               </svg>
             </div>
@@ -587,8 +588,8 @@ exports[`DashboardView shows notifications should render a successful notificati
                 End Date
               </span>
               <svg
-                aria-label="link-up"
-                className="grommetux-control-icon grommetux-control-icon-link-up grommetux-control-icon--responsive"
+                aria-label="link-down"
+                className="grommetux-control-icon grommetux-control-icon-link-down grommetux-control-icon--responsive"
                 height="24px"
                 role="img"
                 version="1.1"
@@ -600,6 +601,7 @@ exports[`DashboardView shows notifications should render a successful notificati
                   fill="none"
                   stroke="#000"
                   strokeWidth="2"
+                  transform="matrix(1 0 0 -1 0 24)"
                 />
               </svg>
             </div>
@@ -1082,8 +1084,8 @@ exports[`DashboardView shows notifications should render the cycle snap add form
                 End Date
               </span>
               <svg
-                aria-label="link-up"
-                className="grommetux-control-icon grommetux-control-icon-link-up grommetux-control-icon--responsive"
+                aria-label="link-down"
+                className="grommetux-control-icon grommetux-control-icon-link-down grommetux-control-icon--responsive"
                 height="24px"
                 role="img"
                 version="1.1"
@@ -1095,6 +1097,7 @@ exports[`DashboardView shows notifications should render the cycle snap add form
                   fill="none"
                   stroke="#000"
                   strokeWidth="2"
+                  transform="matrix(1 0 0 -1 0 24)"
                 />
               </svg>
             </div>

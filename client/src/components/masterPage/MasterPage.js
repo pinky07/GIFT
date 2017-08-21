@@ -4,7 +4,7 @@ import Box from 'grommet/components/Box';
 
 import AppHeader from './appHeader/AppHeader';
 
-export default class Main extends Component {
+export default class MasterPage extends Component {
   constructor() {
     super();
   }

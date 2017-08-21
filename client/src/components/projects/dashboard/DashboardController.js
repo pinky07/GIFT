@@ -3,7 +3,7 @@ import React from 'react';
 import viewModels from "./viewModels/viewModels";
 import DashboardView from './views/DashboardView';
 import dashboardService from './dashboardService';
-import cycleSnapService from '../cycleSnapAdd/cycleSnapService';
+import cycleSnapService from '../addCycleSnap/cycleSnapService';
 
 export default class Dashboard extends React.Component {
   constructor(props) {

@@ -92,8 +92,8 @@ exports[`DashboardView when project has one or more cycle snaps should render da
                 End Date
               </span>
               <svg
-                aria-label="link-up"
-                className="grommetux-control-icon grommetux-control-icon-link-up grommetux-control-icon--responsive"
+                aria-label="link-down"
+                className="grommetux-control-icon grommetux-control-icon-link-down grommetux-control-icon--responsive"
                 height="24px"
                 role="img"
                 version="1.1"
@@ -105,6 +105,7 @@ exports[`DashboardView when project has one or more cycle snaps should render da
                   fill="none"
                   stroke="#000"
                   strokeWidth="2"
+                  transform="matrix(1 0 0 -1 0 24)"
                 />
               </svg>
             </div>

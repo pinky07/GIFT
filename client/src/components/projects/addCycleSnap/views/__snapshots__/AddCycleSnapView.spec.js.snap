@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCycleSnapView should render the correct data values and validation errors 1`] = `
+<span
+  style={
+    Object {
+      "display": "none",
+    }
+  }
+/>
+`;

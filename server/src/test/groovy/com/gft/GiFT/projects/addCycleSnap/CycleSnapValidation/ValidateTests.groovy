@@ -1,7 +1,7 @@
-package com.gft.GiFT.projects.cycleSnapsAdd.CycleSnapValidation
+package com.gft.GiFT.projects.addCycleSnap.CycleSnapValidation
 
 import com.gft.GiFT.entities.CycleSnap
-import com.gft.GiFT.projects.cycleSnapsAdd.CycleSnapValidation
+import com.gft.GiFT.projects.addCycleSnap.CycleSnapValidation
 import spock.lang.Specification
 
 class ValidateTests extends Specification {

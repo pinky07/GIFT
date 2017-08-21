@@ -8,34 +8,28 @@ import achievedPointsValidations from './validations/achievedPoints/validations'
 import nameValidations from './validations/name/validations';
 import fieldsValidation from './validations/fields/validation';
 
-import CycleSnapAddForm from './CycleSnapAddForm';
+import viewModels from './viewModels/viewModels';
 
-export default class CycleSnapAdd extends React.Component {
+import AddCycleSnapView from './views/AddCycleSnapView';
+import addCycleSnapRequest from './addCycleSnapRequest';
+
+export default class AddCycleSnapController extends React.Component {
   constructor(props) {
     super(props);
 
     this.onSubmit = this.onSubmit.bind(this);
 
-    this.state = {
-      projectId: props.projectId,
-      projectName: props.projectName,
-      cycleSnapName: '',
-      startDate: '',
-      endDate: '',
-      targetedPoints: '0',
-      achievedPoints: '0',
-      errorMessage: undefined,
-      errors: {},
-      formCallbacks: {
-          onNameChange: this.changeName(),
-          onStartDateChange: this.changeStartDate(),
-          onEndDateChange: this.changeEndDate(),
-          onTargetedPointsChange: this.changeTargetedPoints(),
-          onAchievedPointsChange: this.changeAchievedPoints(),
-          onClick: this.onSubmit,
-          onClose: this.props.onClose
-        }
-    };
+    const formCallbacks = {
+      onNameChange: this.changeName(),
+      onStartDateChange: this.changeStartDate(),
+      onEndDateChange: this.changeEndDate(),
+      onTargetedPointsChange: this.changeTargetedPoints(),
+      onAchievedPointsChange: this.changeAchievedPoints(),
+      onClick: this.onSubmit,
+      onClose: this.props.onClose
+    }
+
+    this.state = viewModels.getInitial(props, formCallbacks);
   }
 
   changeName(index) {
@@ -48,7 +42,8 @@ export default class CycleSnapAdd extends React.Component {
       errors.name = nameValidations.validate(newValue);
 
       // Set new state
-      this.setState({errors: errors, cycleSnapName: newValue
+      this.setState({
+        errors: errors, cycleSnapName: newValue
       });
     };
   }
@@ -62,7 +57,8 @@ export default class CycleSnapAdd extends React.Component {
       errors.startDate = startDateValidations.validate(newValue);
 
       // Set new state
-      this.setState({errors: errors, startDate: newValue
+      this.setState({
+        errors: errors, startDate: newValue
       });
     }
   }
@@ -77,7 +73,8 @@ export default class CycleSnapAdd extends React.Component {
       errors.endDate = endDateValidations.validate(startDate, newValue);
 
       // Set new state
-      this.setState({errors: errors, endDate: newValue
+      this.setState({
+        errors: errors, endDate: newValue
       });
     }
   }
@@ -93,7 +90,8 @@ export default class CycleSnapAdd extends React.Component {
       errors.targetedPoints = targetedPointsValidations.validate(newValue);
 
       // Set new state
-      this.setState({errors: errors, targetedPoints: newValue
+      this.setState({
+        errors: errors, targetedPoints: newValue
       });
     };
   }
@@ -109,7 +107,8 @@ export default class CycleSnapAdd extends React.Component {
       errors.achievedPoints = achievedPointsValidations.validate(newValue);
 
       // Set new state
-      this.setState({errors: errors, achievedPoints: newValue
+      this.setState({
+        errors: errors, achievedPoints: newValue
       });
     };
   }
@@ -120,35 +119,20 @@ export default class CycleSnapAdd extends React.Component {
     let errors = fieldsValidation.validate(this.state);
     let hasNoErrors = !fieldsValidation.hasErrors(errors);
 
-    if (hasNoErrors)
-      this.props.onSubmit({
-        projectId: this.state.projectId,
-        cycleSnapName: this.state.cycleSnapName,
-        startDate: this.state.startDate,
-        endDate: this.state.endDate,
-        targetedPoints: this.state.targetedPoints,
-        achievedPoints: this.state.achievedPoints
-      });
+    if (hasNoErrors) {
+      const request = addCycleSnapRequest.get(this.state);
+      this.props.onSubmit(request);
+    }
     else
       this.setState({ errors: errors });
   }
 
   render() {
-    // const { errorMessage } = this.state;
-    // if (errorMessage)
-    //   return (<Toast status='critical'>Oops! We got some issues: {errorMessage}</Toast>)
-    // else {
-      // const { projectName } = this.state;
-
-      // if (projectName)
-        return (<CycleSnapAddForm state={this.state}/>)
-      // else
-        // return (<LoadingLayer />)
-    // }
+    return (<AddCycleSnapView viewModel={this.state} />)
   }
 }
 
-CycleSnapAdd.PropTypes = {
+AddCycleSnapController.PropTypes = {
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   projectId: PropTypes.number,

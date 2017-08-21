@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
-import Main from './components/masterPage/main';
+import MasterPage from './components/masterPage/MasterPage';
 import NotFound from './components/masterPage/notFound/NotFound';
 
 import configStore from './components/masterPage/store/configStore';
@@ -18,7 +18,7 @@ const store = configStore();
 render((
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path={"/"} component={Main}>
+      <Route path={"/"} component={MasterPage}>
         <IndexRoute component={Portfolios}></IndexRoute>
         <Route path={"portfolios"} component={Portfolios}></Route>
         <Route path={"projects/:id"} component={ProjectList}></Route>
