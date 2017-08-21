@@ -1,10 +1,7 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
-import com.gft.GiFT.formatters.DateFormatter;
+import com.gft.GiFT.helpers.DateFormatter;
 import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport;
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.Interval;
 
 import java.text.ParseException;
 import java.util.Date;

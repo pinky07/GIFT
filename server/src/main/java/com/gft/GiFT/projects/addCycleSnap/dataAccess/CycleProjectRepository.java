@@ -1,6 +1,6 @@
-package com.gft.GiFT.projects.addCycleSnap;
+package com.gft.GiFT.projects.addCycleSnap.dataAccess;
 
-import com.gft.GiFT.entities.Project;
+import com.gft.GiFT.projects.addCycleSnap.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

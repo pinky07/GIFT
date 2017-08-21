@@ -1,7 +1,7 @@
 package com.gft.GiFT.projects.addCycleSnap.CycleSnapController
 
 import com.gft.GiFT.AbstractIntegrationSpecification
-import com.gft.GiFT.entities.CycleSnap
+import com.gft.GiFT.projects.addCycleSnap.CycleSnap
 import org.springframework.http.HttpStatus
 import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup

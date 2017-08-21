@@ -1,4 +1,4 @@
-package com.gft.GiFT.formatters;
+package com.gft.GiFT.helpers;
 
 import java.text.DateFormat;
 import java.text.ParseException;

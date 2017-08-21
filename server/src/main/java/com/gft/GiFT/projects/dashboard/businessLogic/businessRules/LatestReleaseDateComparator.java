@@ -1,10 +1,8 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
-import com.gft.GiFT.formatters.DateFormatter;
 import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
 import java.util.Comparator;
 import java.util.Date;
 import java.text.ParseException;
-import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class LatestReleaseDateComparator implements Comparator <ReleaseSnap> {

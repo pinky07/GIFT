@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.dashboard.businessLogic;
 
-import com.gft.GiFT.formatters.DateFormatter;
+import com.gft.GiFT.helpers.DateFormatter;
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.*;
 import com.gft.GiFT.projects.dashboard.dataAccess.*;
 import org.springframework.stereotype.Service;

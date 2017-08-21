@@ -1,4 +1,4 @@
-package com.gft.GiFT.entities;
+package com.gft.GiFT.portfolios.projectsList;
 
 import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport;
 import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;

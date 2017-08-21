@@ -1,7 +1,7 @@
 package com.gft.GiFT.projects.addCycleSnap;
 
-import com.gft.GiFT.entities.CycleSnap;
-import com.gft.GiFT.entities.Project;
+import com.gft.GiFT.projects.addCycleSnap.dataAccess.CycleProjectRepository;
+import com.gft.GiFT.projects.addCycleSnap.dataAccess.CycleSnapRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.addCycleSnap.CycleSnapValidation
 
-import com.gft.GiFT.entities.CycleSnap
+import com.gft.GiFT.projects.addCycleSnap.CycleSnap
 import com.gft.GiFT.projects.addCycleSnap.CycleSnapValidation
 import spock.lang.Specification
 

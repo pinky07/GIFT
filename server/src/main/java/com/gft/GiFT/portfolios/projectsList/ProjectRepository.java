@@ -1,6 +1,6 @@
-package com.gft.GiFT.repository;
+package com.gft.GiFT.portfolios.projectsList;
 
-import com.gft.GiFT.entities.Project;
+import com.gft.GiFT.portfolios.projectsList.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;

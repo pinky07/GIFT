@@ -1,7 +1,6 @@
 package com.gft.GiFT.projects.addCycleSnap;
 
-import com.gft.GiFT.entities.CycleSnap;
-import com.gft.GiFT.formatters.DateFormatter;
+import com.gft.GiFT.helpers.DateFormatter;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 

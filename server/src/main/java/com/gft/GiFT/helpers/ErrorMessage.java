@@ -1,6 +1,5 @@
-package com.gft.GiFT.entities;
+package com.gft.GiFT.helpers;
 
-import com.gft.GiFT.formatters.DateFormatter;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 

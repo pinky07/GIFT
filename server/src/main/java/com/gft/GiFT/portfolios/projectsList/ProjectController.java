@@ -1,7 +1,5 @@
-package com.gft.GiFT.endpoints;
+package com.gft.GiFT.portfolios.projectsList;
 
-import com.gft.GiFT.entities.Project;
-import com.gft.GiFT.repository.ProjectRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
