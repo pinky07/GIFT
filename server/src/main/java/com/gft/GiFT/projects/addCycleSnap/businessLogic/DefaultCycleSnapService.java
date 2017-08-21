@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.addCycleSnap;
+package com.gft.GiFT.projects.addCycleSnap.businessLogic;
 
 import com.gft.GiFT.projects.addCycleSnap.dataAccess.CycleProjectRepository;
 import com.gft.GiFT.projects.addCycleSnap.dataAccess.CycleSnapRepository;

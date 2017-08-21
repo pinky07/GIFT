@@ -1,7 +1,7 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
 import com.gft.GiFT.helpers.DateFormatter;
-import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport;
+import com.gft.GiFT.projects.dashboard.businessLogic.IncidentsReport;
 
 import java.text.ParseException;
 import java.util.Date;

@@ -1,13 +1,7 @@
 package com.gft.GiFT.portfolios.projectsList;
 
-import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport;
-import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
 import lombok.Data;
 import javax.persistence.*;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity

@@ -1,6 +1,8 @@
 package com.gft.GiFT.projects.addCycleSnap;
 
 import com.gft.GiFT.helpers.ErrorMessage;
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.CycleSnap;
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.CycleSnapService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.addCycleSnap;
+package com.gft.GiFT.projects.addCycleSnap.businessLogic;
 
 import lombok.Data;
 

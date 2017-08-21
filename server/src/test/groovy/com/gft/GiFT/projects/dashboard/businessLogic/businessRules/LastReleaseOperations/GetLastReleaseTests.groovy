@@ -2,7 +2,7 @@ package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseO
 
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseInfo
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.LastReleaseOperations
-import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap
+import com.gft.GiFT.projects.dashboard.businessLogic.ReleaseSnap
 import spock.lang.Specification
 
 class GetLastReleaseTests extends Specification {

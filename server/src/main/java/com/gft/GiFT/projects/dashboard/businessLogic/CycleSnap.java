@@ -1,6 +1,7 @@
-package com.gft.GiFT.projects.addCycleSnap;
+package com.gft.GiFT.projects.dashboard.businessLogic;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Data
@@ -29,5 +30,22 @@ public class CycleSnap {
     private int achievedPoints;
 
     private int projectId;
+
+    @Column(name = "team_capacity", nullable = false)
+    private double teamCapacity;
+
+    @Column(name = "waste_days", nullable = false)
+    private double wasteDays;
+
+    @Column(name = "is_waste_available", nullable = false)
+    private boolean isWasteAvailable;
+
+    @Column(name = "mood_average", nullable = false)
+    private double moodAverage;
+
+    @Column(name = "is_mood_available", nullable = false)
+    private boolean isMoodAvailable;
+
+
 
 }

@@ -1,7 +1,7 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.RelatedIncidentsCalculation
 
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.RelatedIncidentsCalculation
-import com.gft.GiFT.projects.dashboard.dataAccess.IncidentsReport
+import com.gft.GiFT.projects.dashboard.businessLogic.IncidentsReport
 import spock.lang.Specification
 
 class DetermineRelatedIncidentsTests extends Specification {

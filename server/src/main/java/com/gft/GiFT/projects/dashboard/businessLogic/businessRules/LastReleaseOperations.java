@@ -4,7 +4,7 @@ import com.gft.GiFT.helpers.DateFormatter;
 
 import java.text.ParseException;
 
-import com.gft.GiFT.projects.dashboard.dataAccess.ReleaseSnap;
+import com.gft.GiFT.projects.dashboard.businessLogic.ReleaseSnap;
 
 import java.util.Date;
 import java.util.List;
