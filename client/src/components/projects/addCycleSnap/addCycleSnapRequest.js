@@ -6,7 +6,9 @@ const addCycleSnapRequest = {
       startDate: viewModel.startDate,
       endDate: viewModel.endDate,
       targetedPoints: viewModel.targetedPoints,
-      achievedPoints: viewModel.achievedPoints
+      achievedPoints: viewModel.achievedPoints,
+      isMoodAvailable: viewModel.isMoodAvailable,
+      moodAverage: viewModel.mood
     }
   }
 }

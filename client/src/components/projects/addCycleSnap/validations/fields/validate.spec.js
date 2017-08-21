@@ -9,13 +9,14 @@ describe('Validation for all fields should validate', () => {
       startDate: '2016-11-15',
       endDate: '2016-11-21',
       targetedPoints: '8',
-      achievedPoints: '8'
+      achievedPoints: '8',
+      mood: 3
     };
   })
 
   it('Valid scenario', () => {
     let actual = validation.validate(state);
-    let expected = {"achievedPoints": undefined, "endDate": undefined, "name": undefined, "startDate": undefined, "targetedPoints": undefined};
+    let expected = {"achievedPoints": undefined, "endDate": undefined, "name": undefined, "startDate": undefined, "targetedPoints": undefined, "mood": undefined};
 
     expect(actual).toEqual(expected);
   });
@@ -59,4 +60,13 @@ describe('Validation for all fields should validate', () => {
 
     expect(actual).toBeTruthy();
   });
+
+  it('Mood Average is not valid', () => {
+    state.mood = 3.01;
+    let errors = validation.validate(state);
+    let actual = errors.mood;
+
+    expect(actual).toBeTruthy();
+  });
+
 });

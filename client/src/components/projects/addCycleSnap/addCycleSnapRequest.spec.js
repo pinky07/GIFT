@@ -10,7 +10,9 @@ describe('Add cycle snap request', () => {
       startDate: '2017-01-01',
       endDate: '2017-12-31',
       targetedPoints: '18',
-      achievedPoints: '19'
+      achievedPoints: '19',
+      isMoodAvailable: true,
+      mood: 3
     };
     request = addCycleSnapRequest.get(viewModel);
   })
@@ -53,6 +55,20 @@ describe('Add cycle snap request', () => {
   it('should contain the achieved points', () => {
     const actual = request.achievedPoints;
     const expected = '19';
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should contain the Mood data is available', () => {
+    const actual = request.isMoodAvailable;
+    const expected = true;
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should contain the Mood Average', () => {
+    const actual = request.moodAverage;
+    const expected = 3;
 
     expect(actual).toEqual(expected);
   });

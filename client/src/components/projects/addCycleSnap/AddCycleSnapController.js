@@ -5,6 +5,7 @@ import startDateValidations from './validations/startDate/validations';
 import endDateValidations from './validations/endDate/validations';
 import targetedPointsValidations from './validations/targetedPoints/validations';
 import achievedPointsValidations from './validations/achievedPoints/validations';
+import moodValidations from './validations/mood/validations';
 import nameValidations from './validations/name/validations';
 import fieldsValidation from './validations/fields/validation';
 
@@ -25,6 +26,8 @@ export default class AddCycleSnapController extends React.Component {
       onEndDateChange: this.changeEndDate(),
       onTargetedPointsChange: this.changeTargetedPoints(),
       onAchievedPointsChange: this.changeAchievedPoints(),
+      onIsMoodAvailableChange: this.changeIsMoodAvailable(),
+      onMoodChange: this.changeMood(),
       onClick: this.onSubmit,
       onClose: this.props.onClose
     }
@@ -109,6 +112,28 @@ export default class AddCycleSnapController extends React.Component {
       // Set new state
       this.setState({
         errors: errors, achievedPoints: newValue
+      });
+    };
+  }
+
+  changeIsMoodAvailable() {
+
+  }
+
+  changeMood() {
+    return (event) => {
+      let newValue = event.target.value;
+      let { errors } = this.state;
+
+      newValue = parseFloat(newValue);
+      newValue = Math.floor(newValue*100)/100;
+
+      //Validate
+      errors.mood = moodValidations.validate(newValue)
+
+      // Set new state
+      this.setState({
+        errors: errors, mood: newValue
       });
     };
   }

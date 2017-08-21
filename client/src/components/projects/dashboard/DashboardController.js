@@ -32,7 +32,7 @@ export default class Dashboard extends React.Component {
     const { projectId } = this.state
 
     if (isNaN(projectId)) {
-      const newState = viewModels.getProjectNotFoundError();
+      const newState = viewModels.getInvalidProjectError();
       this.setState(newState);
     }
     else {

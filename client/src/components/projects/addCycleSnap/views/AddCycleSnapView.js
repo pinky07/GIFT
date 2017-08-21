@@ -11,6 +11,7 @@ import Button from 'grommet/components/Button';
 import NumberInput from 'grommet/components/NumberInput';
 import DateTime from 'grommet/components/DateTime';
 import Layer from 'grommet/components/Layer';
+import CheckBox from 'grommet/components/CheckBox';
 
 const AddCycleSnapView = ({ viewModel }) => {
   const { errors } = viewModel;
@@ -21,6 +22,8 @@ const AddCycleSnapView = ({ viewModel }) => {
   const { endDate } = viewModel;
   const { targetedPoints } = viewModel;
   const { achievedPoints } = viewModel;
+  const { isMoodAvailable} = viewModel;
+  const { mood } = viewModel;
 
   return <Layer align='center' closer={true} onClose={formCallbacks.onClose}>
     <Box pad={{ vertical: 'large', horizontal: 'small' }}>
@@ -45,6 +48,15 @@ const AddCycleSnapView = ({ viewModel }) => {
             </FormField>
             <FormField label='Achieved points' htmlFor='achievedPointsId' error={errors.achievedPoints}>
               <NumberInput id='achievedPoints' step={1} value={achievedPoints} min={0} onChange={formCallbacks.onAchievedPointsChange} />
+            </FormField>
+            <CheckBox label='Is Mood Available?'
+                      reverse={true}
+                      toggle={true}
+                      disabled={false}
+                      value={isMoodAvailable}
+                      onChange={formCallbacks.onIsMoodAvailableChange}/>
+            <FormField label='Mood' htmlFor='moodId' error={errors.mood}>
+              <NumberInput id='mood' step={1} value={mood} onChange={formCallbacks.onMoodChange} />
             </FormField>
           </fieldset>
         </FormFields>

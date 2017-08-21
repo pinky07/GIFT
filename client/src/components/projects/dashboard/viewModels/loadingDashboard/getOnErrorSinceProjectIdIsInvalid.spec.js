@@ -4,7 +4,7 @@ describe('View model when the given project id is invalid', () => {
 
   let viewModel
   beforeEach(() => {
-    viewModel = viewModels.getProjectNotFoundError();
+    viewModel = viewModels.getInvalidProjectError();
   })
 
   it('should show the correct error message', () => {

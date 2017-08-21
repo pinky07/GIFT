@@ -17,7 +17,7 @@ const viewModels = {
         }
     },
 
-    getProjectNotFoundError() {
+    getInvalidProjectError() {
         return {
             errorMessage: "We are sorry, but your asked with an invalid project id.",
             addCycleSnap: false,

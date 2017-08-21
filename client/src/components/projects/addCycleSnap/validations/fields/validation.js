@@ -2,6 +2,7 @@ import startDateValidations from '../startDate/validations';
 import endDateValidations from '../endDate/validations';
 import targetedPointsValidations from '../targetedPoints/validations';
 import achievedPointsValidations from '../achievedPoints/validations';
+import moodValidations from '../mood/validations';
 import nameValidations from '../name/validations';
 
 const validation = {
@@ -23,6 +24,9 @@ const validation = {
     const { achievedPoints } = state;
     errors.achievedPoints = achievedPointsValidations.validate(achievedPoints);
 
+    const { mood } = state;
+    errors.mood = moodValidations.validate(mood);
+
     return errors;
   },
 
@@ -31,7 +35,8 @@ const validation = {
       errors.startDate ||
       errors.endDate ||
       errors.achievedPoints ||
-      errors.targetedPoints) {
+      errors.targetedPoints ||
+      errors.mood) {
       return true;
     }
     else
