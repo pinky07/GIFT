@@ -14,7 +14,7 @@ export default class CycleSnapAdd extends React.Component {
   constructor(props) {
     super(props);
 
-    this._onSubmit = this._onSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       projectId: props.projectId,
@@ -27,18 +27,18 @@ export default class CycleSnapAdd extends React.Component {
       errorMessage: undefined,
       errors: {},
       formCallbacks: {
-          onNameChange: this._changeName(),
-          onStartDateChange: this._changeStartDate(),
-          onEndDateChange: this._changeEndDate(),
-          onTargetedPointsChange: this._changeTargetedPoints(),
-          onAchievedPointsChange: this._changeAchievedPoints(),
-          onClick: this._onSubmit,
+          onNameChange: this.changeName(),
+          onStartDateChange: this.changeStartDate(),
+          onEndDateChange: this.changeEndDate(),
+          onTargetedPointsChange: this.changeTargetedPoints(),
+          onAchievedPointsChange: this.changeAchievedPoints(),
+          onClick: this.onSubmit,
           onClose: this.props.onClose
         }
     };
   }
 
-  _changeName(index) {
+  changeName(index) {
     return (event) => {
       // Get state
       let newValue = event.target.value;
@@ -53,7 +53,7 @@ export default class CycleSnapAdd extends React.Component {
     };
   }
 
-  _changeStartDate(index) {
+  changeStartDate(index) {
     return (newValue) => {
       // Get state
       let { errors } = this.state;
@@ -67,7 +67,7 @@ export default class CycleSnapAdd extends React.Component {
     }
   }
 
-  _changeEndDate(index) {
+  changeEndDate(index) {
     return (newValue) => {
       // Get state
       let { errors } = this.state;
@@ -82,7 +82,7 @@ export default class CycleSnapAdd extends React.Component {
     }
   }
 
-  _changeTargetedPoints(index) {
+  changeTargetedPoints(index) {
     return (event) => {
       // Get state
       let newValue = event.target.value;
@@ -98,7 +98,7 @@ export default class CycleSnapAdd extends React.Component {
     };
   }
 
-  _changeAchievedPoints(index) {
+  changeAchievedPoints(index) {
     return (event) => {
       // Get state
       let newValue = event.target.value;
@@ -114,7 +114,7 @@ export default class CycleSnapAdd extends React.Component {
     };
   }
 
-  _onSubmit(event) {
+  onSubmit(event) {
     event.preventDefault();
 
     let errors = fieldsValidation.validate(this.state);

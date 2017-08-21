@@ -1,15 +1,15 @@
 import React from 'react';
 import Box from 'grommet/components/Box';
-import Heading from 'grommet/components/Heading';
 import Spinning from 'grommet/components/icons/Spinning';
+import DashboardHeading from './DashboardHeading';
 
-const LoadingDashboard = () =>
+const LoadingView = () =>
     (
         <Box>
-            <Heading>Dashboard</Heading>
+            <DashboardHeading/>
             <h3><Spinning /> Loading... </h3>
         </Box>
     );
 
-export default LoadingDashboard;
+export default LoadingView;
 

@@ -11,7 +11,7 @@ import './css/main.scss';
 
 import ProjectList from './components/portfolios/projects/ProjectList';
 import Portfolios from './components/portfolios/Portfolios';
-import Dashboard        from './components/projects/dashboard/Dashboard';
+import DashboardController from './components/projects/dashboard/DashboardController';
 
 const store = configStore();
 
@@ -22,7 +22,7 @@ render((
         <IndexRoute component={Portfolios}></IndexRoute>
         <Route path={"portfolios"} component={Portfolios}></Route>
         <Route path={"projects/:id"} component={ProjectList}></Route>
-        <Route path={"projects/:id/dashboard"} component={Dashboard}></Route>
+        <Route path={"projects/:id/dashboard"} component={DashboardController}></Route>
         <Route path="*" component={NotFound} />
       </Route>
 

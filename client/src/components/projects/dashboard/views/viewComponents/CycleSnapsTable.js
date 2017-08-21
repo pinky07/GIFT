@@ -4,9 +4,11 @@ import TableHeader from 'grommet/components/TableHeader';
 
 import CycleSnapsRow from './CycleSnapsRow';
 
-const CycleSnapsTable = ({cycleSnaps}) => {
+const CycleSnapsTable = ({viewModel}) => {
+    const {cycleSnaps} = viewModel.project;
+  
     const formattedCycleSnaps = cycleSnaps.map(
-      (cycle, index) => <CycleSnapsRow cycle={cycle} index={index}/>
+      (cycle, index) => <CycleSnapsRow key={index} cycle={cycle} index={index}/>
     );
 
     const labels = ['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Current Release', 'Release Date', 'Related Incidents', 'Days Without Release', 'Team Capacity', 'Total Team Member Days Wasted', 'Waste Percentage', 'Mood'];

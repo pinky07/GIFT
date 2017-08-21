@@ -1,0 +1,1486 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardView shows notifications should render a failure notification 1`] = `
+<div
+  className="grommetux-box grommetux-box--direction-column grommetux-box--responsive grommetux-box--pad-none"
+  id={undefined}
+  onClick={undefined}
+  role={undefined}
+  style={Object {}}
+  tabIndex={undefined}
+>
+  <h1
+    className="grommetux-heading"
+  >
+    Dashboard: 
+    Exceptional Project
+  </h1>
+  <footer
+    className="grommetux-box grommetux-box--direction-row grommetux-box--align-center grommetux-box--pad-none grommetux-footer"
+    id={undefined}
+    onClick={undefined}
+    role={undefined}
+    style={Object {}}
+    tabIndex={undefined}
+  >
+    <button
+      aria-label={undefined}
+      className="grommetux-button grommetux-button--primary"
+      disabled={false}
+      href={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onSubmit={[Function]}
+      type="button"
+    >
+      <span
+        className="grommetux-button__label"
+      >
+        Add Cycle Snap
+      </span>
+    </button>
+  </footer>
+  <div
+    className="grommetux-table"
+  >
+    <table
+      className="grommetux-table__table"
+    >
+      <thead>
+        <tr>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Name
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Start Date
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                End Date
+              </span>
+              <svg
+                aria-label="link-up"
+                className="grommetux-control-icon grommetux-control-icon-link-up grommetux-control-icon--responsive"
+                height="24px"
+                role="img"
+                version="1.1"
+                viewBox="0 0 24 24"
+                width="24px"
+              >
+                <path
+                  d="M12,2 L12,22 M3,11 L12,2 L21,11"
+                  fill="none"
+                  stroke="#000"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Achieved / Targeted Points
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                TAC
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Current Release
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Release Date
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Related Incidents
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Days Without Release
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Team Capacity
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Total Team Member Days Wasted
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Waste Percentage
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Mood
+              </span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            5
+          </td>
+          <td>
+            2017-03-16
+          </td>
+          <td>
+            2017-03-17
+          </td>
+          <td>
+            2
+             / 
+            1
+          </td>
+          <td>
+            200%
+          </td>
+          <td>
+            Second Update
+          </td>
+          <td>
+            2017-03-02
+          </td>
+          <td>
+            7
+          </td>
+          <td>
+            15
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            No data
+          </td>
+          <td>
+            No data
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #4
+          </td>
+          <td>
+            2017-03-01
+          </td>
+          <td>
+            2017-03-15
+          </td>
+          <td>
+            100
+             / 
+            100
+          </td>
+          <td>
+            100%
+          </td>
+          <td>
+            Second Update
+          </td>
+          <td>
+            2017-03-02
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            13
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            No data
+          </td>
+          <td>
+            No data
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #3
+          </td>
+          <td>
+            2017-02-18
+          </td>
+          <td>
+            2017-02-28
+          </td>
+          <td>
+            68
+             / 
+            70
+          </td>
+          <td>
+            97%
+          </td>
+          <td>
+            First Version
+          </td>
+          <td>
+            2017-02-07
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            21
+          </td>
+          <td>
+            99
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0.0%
+          </td>
+          <td>
+            2.50
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #2
+          </td>
+          <td>
+            2017-02-01
+          </td>
+          <td>
+            2017-02-14
+          </td>
+          <td>
+            55
+             / 
+            60
+          </td>
+          <td>
+            91%
+          </td>
+          <td>
+            First Version
+          </td>
+          <td>
+            2017-02-07
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            7
+          </td>
+          <td>
+            99
+          </td>
+          <td>
+            5.67
+          </td>
+          <td>
+            5.7%
+          </td>
+          <td>
+            3.00
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #1
+          </td>
+          <td>
+            2017-01-25
+          </td>
+          <td>
+            2017-01-30
+          </td>
+          <td>
+            0
+             / 
+            0
+          </td>
+          <td>
+            No Data
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            100
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            5.0%
+          </td>
+          <td>
+            3.00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <span
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`DashboardView shows notifications should render a successful notification 1`] = `
+<div
+  className="grommetux-box grommetux-box--direction-column grommetux-box--responsive grommetux-box--pad-none"
+  id={undefined}
+  onClick={undefined}
+  role={undefined}
+  style={Object {}}
+  tabIndex={undefined}
+>
+  <h1
+    className="grommetux-heading"
+  >
+    Dashboard: 
+    Exceptional Project
+  </h1>
+  <footer
+    className="grommetux-box grommetux-box--direction-row grommetux-box--align-center grommetux-box--pad-none grommetux-footer"
+    id={undefined}
+    onClick={undefined}
+    role={undefined}
+    style={Object {}}
+    tabIndex={undefined}
+  >
+    <button
+      aria-label={undefined}
+      className="grommetux-button grommetux-button--primary"
+      disabled={false}
+      href={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onSubmit={[Function]}
+      type="button"
+    >
+      <span
+        className="grommetux-button__label"
+      >
+        Add Cycle Snap
+      </span>
+    </button>
+  </footer>
+  <div
+    className="grommetux-table"
+  >
+    <table
+      className="grommetux-table__table"
+    >
+      <thead>
+        <tr>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Name
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Start Date
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                End Date
+              </span>
+              <svg
+                aria-label="link-up"
+                className="grommetux-control-icon grommetux-control-icon-link-up grommetux-control-icon--responsive"
+                height="24px"
+                role="img"
+                version="1.1"
+                viewBox="0 0 24 24"
+                width="24px"
+              >
+                <path
+                  d="M12,2 L12,22 M3,11 L12,2 L21,11"
+                  fill="none"
+                  stroke="#000"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Achieved / Targeted Points
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                TAC
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Current Release
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Release Date
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Related Incidents
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Days Without Release
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Team Capacity
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Total Team Member Days Wasted
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Waste Percentage
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Mood
+              </span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            5
+          </td>
+          <td>
+            2017-03-16
+          </td>
+          <td>
+            2017-03-17
+          </td>
+          <td>
+            2
+             / 
+            1
+          </td>
+          <td>
+            200%
+          </td>
+          <td>
+            Second Update
+          </td>
+          <td>
+            2017-03-02
+          </td>
+          <td>
+            7
+          </td>
+          <td>
+            15
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            No data
+          </td>
+          <td>
+            No data
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #4
+          </td>
+          <td>
+            2017-03-01
+          </td>
+          <td>
+            2017-03-15
+          </td>
+          <td>
+            100
+             / 
+            100
+          </td>
+          <td>
+            100%
+          </td>
+          <td>
+            Second Update
+          </td>
+          <td>
+            2017-03-02
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            13
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            No data
+          </td>
+          <td>
+            No data
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #3
+          </td>
+          <td>
+            2017-02-18
+          </td>
+          <td>
+            2017-02-28
+          </td>
+          <td>
+            68
+             / 
+            70
+          </td>
+          <td>
+            97%
+          </td>
+          <td>
+            First Version
+          </td>
+          <td>
+            2017-02-07
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            21
+          </td>
+          <td>
+            99
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0.0%
+          </td>
+          <td>
+            2.50
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #2
+          </td>
+          <td>
+            2017-02-01
+          </td>
+          <td>
+            2017-02-14
+          </td>
+          <td>
+            55
+             / 
+            60
+          </td>
+          <td>
+            91%
+          </td>
+          <td>
+            First Version
+          </td>
+          <td>
+            2017-02-07
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            7
+          </td>
+          <td>
+            99
+          </td>
+          <td>
+            5.67
+          </td>
+          <td>
+            5.7%
+          </td>
+          <td>
+            3.00
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #1
+          </td>
+          <td>
+            2017-01-25
+          </td>
+          <td>
+            2017-01-30
+          </td>
+          <td>
+            0
+             / 
+            0
+          </td>
+          <td>
+            No Data
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            100
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            5.0%
+          </td>
+          <td>
+            3.00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <span
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`DashboardView shows notifications should render the cycle snap add form 1`] = `
+<div
+  className="grommetux-box grommetux-box--direction-column grommetux-box--responsive grommetux-box--pad-none"
+  id={undefined}
+  onClick={undefined}
+  role={undefined}
+  style={Object {}}
+  tabIndex={undefined}
+>
+  <h1
+    className="grommetux-heading"
+  >
+    Dashboard: 
+    Exceptional Project
+  </h1>
+  <footer
+    className="grommetux-box grommetux-box--direction-row grommetux-box--align-center grommetux-box--pad-none grommetux-footer"
+    id={undefined}
+    onClick={undefined}
+    role={undefined}
+    style={Object {}}
+    tabIndex={undefined}
+  >
+    <button
+      aria-label={undefined}
+      className="grommetux-button grommetux-button--primary"
+      disabled={false}
+      href={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onSubmit={[Function]}
+      type="button"
+    >
+      <span
+        className="grommetux-button__label"
+      >
+        Add Cycle Snap
+      </span>
+    </button>
+  </footer>
+  <div
+    className="grommetux-table"
+  >
+    <table
+      className="grommetux-table__table"
+    >
+      <thead>
+        <tr>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Name
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Start Date
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                End Date
+              </span>
+              <svg
+                aria-label="link-up"
+                className="grommetux-control-icon grommetux-control-icon-link-up grommetux-control-icon--responsive"
+                height="24px"
+                role="img"
+                version="1.1"
+                viewBox="0 0 24 24"
+                width="24px"
+              >
+                <path
+                  d="M12,2 L12,22 M3,11 L12,2 L21,11"
+                  fill="none"
+                  stroke="#000"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Achieved / Targeted Points
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                TAC
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Current Release
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Release Date
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Related Incidents
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Days Without Release
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Team Capacity
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Total Team Member Days Wasted
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Waste Percentage
+              </span>
+            </div>
+          </th>
+          <th>
+            <div
+              className="grommetux-box grommetux-box--direction-row grommetux-box--justify-start grommetux-box--align-center grommetux-box--responsive grommetux-box--pad-between-small"
+              id={undefined}
+              onClick={undefined}
+              role={undefined}
+              style={Object {}}
+              tabIndex={undefined}
+            >
+              <span>
+                Mood
+              </span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            5
+          </td>
+          <td>
+            2017-03-16
+          </td>
+          <td>
+            2017-03-17
+          </td>
+          <td>
+            2
+             / 
+            1
+          </td>
+          <td>
+            200%
+          </td>
+          <td>
+            Second Update
+          </td>
+          <td>
+            2017-03-02
+          </td>
+          <td>
+            7
+          </td>
+          <td>
+            15
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            No data
+          </td>
+          <td>
+            No data
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #4
+          </td>
+          <td>
+            2017-03-01
+          </td>
+          <td>
+            2017-03-15
+          </td>
+          <td>
+            100
+             / 
+            100
+          </td>
+          <td>
+            100%
+          </td>
+          <td>
+            Second Update
+          </td>
+          <td>
+            2017-03-02
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            13
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            No data
+          </td>
+          <td>
+            No data
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #3
+          </td>
+          <td>
+            2017-02-18
+          </td>
+          <td>
+            2017-02-28
+          </td>
+          <td>
+            68
+             / 
+            70
+          </td>
+          <td>
+            97%
+          </td>
+          <td>
+            First Version
+          </td>
+          <td>
+            2017-02-07
+          </td>
+          <td>
+            6
+          </td>
+          <td>
+            21
+          </td>
+          <td>
+            99
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0.0%
+          </td>
+          <td>
+            2.50
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #2
+          </td>
+          <td>
+            2017-02-01
+          </td>
+          <td>
+            2017-02-14
+          </td>
+          <td>
+            55
+             / 
+            60
+          </td>
+          <td>
+            91%
+          </td>
+          <td>
+            First Version
+          </td>
+          <td>
+            2017-02-07
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            7
+          </td>
+          <td>
+            99
+          </td>
+          <td>
+            5.67
+          </td>
+          <td>
+            5.7%
+          </td>
+          <td>
+            3.00
+          </td>
+        </tr>
+        <tr
+          className="grommetux-table-row"
+          onClick={undefined}
+        >
+          <td>
+            Sprint #1
+          </td>
+          <td>
+            2017-01-25
+          </td>
+          <td>
+            2017-01-30
+          </td>
+          <td>
+            0
+             / 
+            0
+          </td>
+          <td>
+            No Data
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            No releases yet
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            100
+          </td>
+          <td>
+            5
+          </td>
+          <td>
+            5.0%
+          </td>
+          <td>
+            3.00
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <span
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
+</div>
+`;

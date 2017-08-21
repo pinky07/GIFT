@@ -64,7 +64,15 @@
   },
   "jest": {
     "testRegex": "\\.spec\\.js$",
-    "testResultsProcessor": "./node_modules/jest-junit"
+    "testResultsProcessor": "./node_modules/jest-junit",
+    "collectCoverageFrom" : ["src/**/*.{js,jsx}"],
+    "bail" : true,
+    "coverageDirectory" : ".coverage"
+  },
+  "test": {
+    "testRegex": "\\.spec\\.js$",
+    "testResultsProcessor": "./node_modules/jest-junit",
+    "collectCoverageFrom" : ["src/**/*.{js,jsx}"]    
   },
   "jest-junit": {
     "suiteName": "Front end unit tests",

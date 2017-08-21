@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardView shows the loading view should render the loading view 1`] = `
+<div
+  className="grommetux-box grommetux-box--direction-column grommetux-box--responsive grommetux-box--pad-none"
+  id={undefined}
+  onClick={undefined}
+  role={undefined}
+  style={Object {}}
+  tabIndex={undefined}
+>
+  <h1
+    className="grommetux-heading"
+  >
+    Dashboard
+  </h1>
+  <h3>
+    <svg
+      aria-label="Spinning"
+      className="grommetux-icon-spinning grommetux-icon-spinning--responsive"
+      role="img"
+      version="1.1"
+      viewBox="0 0 48 48"
+    >
+      <circle
+        cx="24"
+        cy="24"
+        fill="none"
+        r="21"
+        stroke="#979797"
+        strokeWidth="6"
+      />
+    </svg>
+     Loading... 
+  </h3>
+</div>
+`;

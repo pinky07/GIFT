@@ -5,10 +5,11 @@ import Status from 'grommet/components/icons/Status';
 import Footer from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
 
-const DashboardWithNoCycleSnaps = ({state, elements, dashboardCallbacks}) =>
-    (
-        <Box>
-            <Heading>Dashboard: {state.projectName}</Heading>
+const DashboardWithNoCycleSnaps = ({viewModel, elements}) => {
+    const {dashboardCallbacks} = viewModel;
+
+    return (<Box>
+            <Heading>Dashboard: {viewModel.project.name}</Heading>
             <h3>
                 <Status value='unknown' /> 
                 <span>This project has no cycle snaps.</span>
@@ -16,13 +17,14 @@ const DashboardWithNoCycleSnaps = ({state, elements, dashboardCallbacks}) =>
             <Footer>
                  <Button 
                     label='Add Cycle Snap'
-                    onClick={dashboardCallbacks._onRequestAddCycleSnap} 
-                    onSubmit={dashboardCallbacks._onAddCycleSnapSubmit} 
+                    onClick={dashboardCallbacks.onRequestAddCycleSnap} 
+                    onSubmit={dashboardCallbacks.onAddCycleSnapSubmit} 
                     primary={true}/> 
             </Footer>
             {elements.addCycleSnapLayer}
             {elements.successNotification}
             {elements.failureNotification}
         </Box>);
+}
 
 export default DashboardWithNoCycleSnaps;
