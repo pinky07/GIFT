@@ -8,7 +8,7 @@ const viewModels = {
             endDate: '',
             targetedPoints: '0',
             achievedPoints: '0',
-            isMoodAvailable: false,
+            isMoodAvailable: true,
             mood: '0',
             errors: {},
             formCallbacks: formCallbacks

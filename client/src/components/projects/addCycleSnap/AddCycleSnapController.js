@@ -117,7 +117,14 @@ export default class AddCycleSnapController extends React.Component {
   }
 
   changeIsMoodAvailable() {
+    return (event) => {
+      let newValue = event.target.value;
 
+      // Set new state
+      this.setState({
+        isMoodAvailable: newValue
+      });
+    };
   }
 
   changeMood() {

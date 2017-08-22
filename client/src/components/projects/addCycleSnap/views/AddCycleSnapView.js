@@ -58,7 +58,7 @@ const AddCycleSnapView = ({ viewModel }) => {
               <CheckBox label='Is Mood Available?'
                         reverse={true}
                         toggle={true}
-                        disabled={false}
+                        defaultChecked={true}
                         value={isMoodAvailable}
                         onChange={formCallbacks.onIsMoodAvailableChange}/>
             </FormField>
