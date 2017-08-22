@@ -27,7 +27,7 @@ const AddCycleSnapView = ({ viewModel }) => {
   let moodAverage;
 
   if(isMoodAvailable)
-        moodAverage = <FormField label='Mood' htmlFor='moodId' error={errors.mood}>
+        moodAverage = <FormField label='Mood Average' htmlFor='moodId' error={errors.mood}>
         <NumberInput id='mood' step={0.01} min={1} max={3} value={mood} onChange={formCallbacks.onMoodChange} />
       </FormField>;
 
@@ -61,7 +61,7 @@ const AddCycleSnapView = ({ viewModel }) => {
             </FormField>
 
             <FormField>
-              <CheckBox label='Is Mood Available?'
+              <CheckBox label='Is Mood Average Available?'
                         reverse={true}
                         toggle={true}
                         defaultChecked={true}
