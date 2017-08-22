@@ -9,7 +9,7 @@ const viewModels = {
             targetedPoints: '0',
             achievedPoints: '0',
             isMoodAvailable: false,
-            mood: '',
+            mood: '0',
             errors: {},
             formCallbacks: formCallbacks
         };
