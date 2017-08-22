@@ -25,7 +25,8 @@ const validation = {
     errors.achievedPoints = achievedPointsValidations.validate(achievedPoints);
 
     const { mood } = state;
-    errors.mood = moodValidations.validate(mood);
+    const { isMoodAvailable } = state;
+    errors.mood = moodValidations.validate(isMoodAvailable, mood);
 
     return errors;
   },

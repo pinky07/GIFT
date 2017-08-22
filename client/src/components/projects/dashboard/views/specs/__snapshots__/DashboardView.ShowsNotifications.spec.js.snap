@@ -218,7 +218,7 @@ exports[`DashboardView shows notifications should render a failure notification 
               tabIndex={undefined}
             >
               <span>
-                Total Team Member Days Wasted
+                Waste Days
               </span>
             </div>
           </th>
@@ -246,7 +246,7 @@ exports[`DashboardView shows notifications should render a failure notification 
               tabIndex={undefined}
             >
               <span>
-                Mood
+                Mood Average
               </span>
             </div>
           </th>
@@ -714,7 +714,7 @@ exports[`DashboardView shows notifications should render a successful notificati
               tabIndex={undefined}
             >
               <span>
-                Total Team Member Days Wasted
+                Waste Days
               </span>
             </div>
           </th>
@@ -742,7 +742,7 @@ exports[`DashboardView shows notifications should render a successful notificati
               tabIndex={undefined}
             >
               <span>
-                Mood
+                Mood Average
               </span>
             </div>
           </th>
@@ -1210,7 +1210,7 @@ exports[`DashboardView shows notifications should render the cycle snap add form
               tabIndex={undefined}
             >
               <span>
-                Total Team Member Days Wasted
+                Waste Days
               </span>
             </div>
           </th>
@@ -1238,7 +1238,7 @@ exports[`DashboardView shows notifications should render the cycle snap add form
               tabIndex={undefined}
             >
               <span>
-                Mood
+                Mood Average
               </span>
             </div>
           </th>

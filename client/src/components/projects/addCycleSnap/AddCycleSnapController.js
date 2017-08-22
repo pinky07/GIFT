@@ -118,12 +118,11 @@ export default class AddCycleSnapController extends React.Component {
 
   changeIsMoodAvailable() {
     return (event) => {
-      let newValue = event.target.value;
+      let newValue = event.target.checked;
+      let newViewModel = viewModels.getMoodAverage(newValue)
 
       // Set new state
-      this.setState({
-        isMoodAvailable: newValue
-      });
+      this.setState(newViewModel);
     };
   }
 
@@ -131,12 +130,13 @@ export default class AddCycleSnapController extends React.Component {
     return (event) => {
       let newValue = event.target.value;
       let { errors } = this.state;
+      const { isMoodAvailable } = this.state
 
       newValue = parseFloat(newValue);
       newValue = Math.floor(newValue*100)/100;
 
       //Validate
-      errors.mood = moodValidations.validate(newValue)
+      errors.mood = moodValidations.validate(isMoodAvailable, newValue)
 
       // Set new state
       this.setState({

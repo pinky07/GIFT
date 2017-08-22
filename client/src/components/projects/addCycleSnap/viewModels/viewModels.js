@@ -13,6 +13,19 @@ const viewModels = {
             errors: {},
             formCallbacks: formCallbacks
         };
+    },
+
+    getMoodAverage(isMoodAvailable, mood) {
+      let newMood
+      if(isMoodAvailable) {
+        newMood= mood
+      } else {
+        newMood= '0'
+      }
+      return {
+        isMoodAvailable: isMoodAvailable,
+        mood: newMood
+      };
     }
 }
 

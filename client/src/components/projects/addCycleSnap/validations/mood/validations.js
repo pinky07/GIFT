@@ -1,14 +1,18 @@
 const validations = {
-    validate(mood) {
+    validate(isMoodAvailable, mood) {
         let error = undefined;
 
-        if (isNaN(mood))
+        if (isMoodAvailable) {
+          if (isNaN(mood))
             error = 'Mood average is required';
-        else {
+          else {
             if (mood < 1)
-                error = 'Mood average min is 1';
+              error = 'Mood average min is 1';
             if (mood > 3)
-                error = 'Mood average max is 3';
+              error = 'Mood average max is 3';
+          }
+        } else {
+          error = undefined;
         }
 
         return error;

@@ -218,7 +218,7 @@ exports[`DashboardView when project has one or more cycle snaps should render da
               tabIndex={undefined}
             >
               <span>
-                Total Team Member Days Wasted
+                Waste Days
               </span>
             </div>
           </th>
@@ -246,7 +246,7 @@ exports[`DashboardView when project has one or more cycle snaps should render da
               tabIndex={undefined}
             >
               <span>
-                Mood
+                Mood Average
               </span>
             </div>
           </th>

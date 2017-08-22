@@ -63,6 +63,7 @@ describe('Validation for all fields should validate', () => {
 
   it('Mood Average is not valid', () => {
     state.mood = 3.01;
+    state.isMoodAvailable = true;
     let errors = validation.validate(state);
     let actual = errors.mood;
 

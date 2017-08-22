@@ -24,6 +24,12 @@ const AddCycleSnapView = ({ viewModel }) => {
   const { achievedPoints } = viewModel;
   const { isMoodAvailable} = viewModel;
   const { mood } = viewModel;
+  let moodAverage;
+
+  if(isMoodAvailable)
+        moodAverage = <FormField label='Mood' htmlFor='moodId' error={errors.mood}>
+        <NumberInput id='mood' step={0.01} min={1} max={3} value={mood} onChange={formCallbacks.onMoodChange} />
+      </FormField>;
 
   return <Layer align='center' closer={true} onClose={formCallbacks.onClose}>
     <Box pad={{ vertical: 'large', horizontal: 'small' }}>
@@ -63,9 +69,7 @@ const AddCycleSnapView = ({ viewModel }) => {
                         onChange={formCallbacks.onIsMoodAvailableChange}/>
             </FormField>
 
-            <FormField label='Mood' htmlFor='moodId' error={errors.mood}>
-              <NumberInput id='mood' step={0.01} min={1} max={3} value={mood} onChange={formCallbacks.onMoodChange} />
-            </FormField>
+            {moodAverage}
 
           </fieldset>
         </FormFields>
