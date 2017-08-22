@@ -102,6 +102,13 @@ heroku {
     )
 }
 
+// This fixes an issue when running Integration Tests that is caused by Jacoco dependency
+test {
+    systemProperties['user.dir'] = workingDir
+}
+
 jacocoTestReport {
     dependsOn 'test'
 }
+
+
