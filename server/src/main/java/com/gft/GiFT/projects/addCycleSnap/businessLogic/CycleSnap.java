@@ -34,6 +34,15 @@ public class CycleSnap {
     @Column(name = "mood_average", nullable = false)
     private double moodAverage;
 
+    @Column(name = "is_waste_available", nullable = false)
+    private Boolean isWasteAvailable;
+
+    @Column(name = "team_capacity", nullable = false)
+    private double teamCapacity;
+
+    @Column(name = "waste_days", nullable = false)
+    private double wasteDays;
+
     private int projectId;
 
 }

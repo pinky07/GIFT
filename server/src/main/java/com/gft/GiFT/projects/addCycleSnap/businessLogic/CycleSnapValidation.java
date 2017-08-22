@@ -61,6 +61,20 @@ public class CycleSnapValidation {
         {
             throw new IllegalArgumentException("Mood points max is 3");
         }
+
+        if( newCycleSnap.getIsWasteAvailable() && (newCycleSnap.getTeamCapacity()<1) )
+        {
+            throw new IllegalArgumentException("team capacity min is 1");
+        }
+        if( newCycleSnap.getIsWasteAvailable() && (newCycleSnap.getTeamCapacity()>10000))
+        {
+            throw new IllegalArgumentException("team capacity max is   10,000 ");
+        }
+                if( newCycleSnap.getIsWasteAvailable() && newCycleSnap.getWasteDays()<=0 )
+        {
+            throw new IllegalArgumentException("waste days min is 0");
+        }
+
         //Cycle dates shouldn't overlap
         Interval newInterval = new Interval(startDateTime, endDateTime);
 

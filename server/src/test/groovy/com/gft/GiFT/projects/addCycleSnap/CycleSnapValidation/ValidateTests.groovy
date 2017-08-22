@@ -22,6 +22,10 @@ class ValidateTests extends Specification {
         newCycle.achievedPoints = 8
         newCycle.moodAverage = 3
         newCycle.isMoodAvailable = true
+        newCycle.isWasteAvailable= true
+        newCycle.wasteDays=5.00
+        newCycle.teamCapacity=100.00
+
 
         return newCycle
     }
@@ -246,6 +250,77 @@ class ValidateTests extends Specification {
         given:
         newCycle.moodAverage = 3.01
         newCycle.isMoodAvailable = true
+
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        thrown IllegalArgumentException
+    }
+    def "Two Decimals for waste days are allowed"() {
+        given:
+        newCycle.isWasteAvailable= true
+        newCycle.wasteDays=2.59
+        newCycle.teamCapacity=100.00
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        notThrown IllegalArgumentException
+    }
+    def "Two Decimals for waste capacity are allowed"() {
+        given:
+        newCycle.isWasteAvailable= true
+        newCycle.wasteDays=5.00
+        newCycle.teamCapacity=95.89
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        notThrown IllegalArgumentException
+    }
+//
+    def "team capacity and waste days are not required if waste data is not available"() {
+        given:
+        newCycle.isWasteAvailable= false
+        newCycle.wasteDays
+        newCycle.teamCapacity
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        notThrown IllegalArgumentException
+    }
+
+
+
+    def "team capacity min is 1"() {
+        given:
+        newCycle.isWasteAvailable= true
+        newCycle.teamCapacity=0.99
+        newCycle.wasteDays=5.00
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        thrown IllegalArgumentException
+    }
+    def "team capacity max is   10,000 "() {
+        given:
+        newCycle.isWasteAvailable= true
+        newCycle.teamCapacity=10000.01
+        newCycle.wasteDays=5.00
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        thrown IllegalArgumentException
+    }
+    def "waste days min is 0 "() {
+        given:
+        newCycle.isWasteAvailable= true
+        newCycle.teamCapacity= 100.00
+        newCycle.wasteDays= -0.01
 
         when:
         CycleSnapValidation.validate(newCycle, existingCycleSnaps)
