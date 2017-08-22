@@ -23,7 +23,6 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'groovy'
-apply plugin: "jacoco"
 
 group = 'com.gft'
 version = '0.0.1-SNAPSHOT'
@@ -100,15 +99,6 @@ heroku {
     processTypes(
             web: 'java $JAVA_OPTS -Dserver.port=$PORT -Dspring.profiles.active=default,prod -jar server-0.0.1-SNAPSHOT.jar'
     )
-}
-
-// This fixes an issue when running Integration Tests that is caused by Jacoco dependency
-test {
-    systemProperties['user.dir'] = workingDir
-}
-
-jacocoTestReport {
-    dependsOn 'test'
 }
 
 
