@@ -22,16 +22,16 @@ const AddCycleSnapView = ({ viewModel }) => {
   const { endDate } = viewModel;
   const { targetedPoints } = viewModel;
   const { achievedPoints } = viewModel;
-  const { isMoodAvailable} = viewModel;
+  const { isMoodAvailable } = viewModel;
   const { mood } = viewModel;
   let moodAverage;
 
-  if(isMoodAvailable)
-        moodAverage = <FormField label='Mood Average' htmlFor='moodId' error={errors.mood}>
-        <NumberInput id='mood' step={0.01} min={1} max={3} value={mood} onChange={formCallbacks.onMoodChange} />
-      </FormField>;
+  if (isMoodAvailable)
+    moodAverage = <FormField label='Mood Average' htmlFor='moodId' error={errors.mood}>
+      <NumberInput id='mood' step={0.01} min={1} max={3} value={mood} onChange={formCallbacks.onMoodChange} />
+    </FormField>;
 
-  return <Layer align='center' closer={true} onClose={formCallbacks.onClose}>
+  return (<Layer align='center' closer={true} onClose={formCallbacks.onClose}>
     <Box pad={{ vertical: 'large', horizontal: 'small' }}>
 
       <Heading>Add cycle snap</Heading>
@@ -62,11 +62,11 @@ const AddCycleSnapView = ({ viewModel }) => {
 
             <FormField>
               <CheckBox label='Is Mood Average Available?'
-                        reverse={true}
-                        toggle={true}
-                        defaultChecked={true}
-                        value={isMoodAvailable}
-                        onChange={formCallbacks.onIsMoodAvailableChange}/>
+                reverse={true}
+                toggle={true}
+                defaultChecked={true}
+                value={isMoodAvailable}
+                onChange={formCallbacks.onIsMoodAvailableChange} />
             </FormField>
 
             {moodAverage}
@@ -84,7 +84,7 @@ const AddCycleSnapView = ({ viewModel }) => {
         </Footer>
       </Form>
     </Box>
-  </Layer>
+  </Layer>);
 }
 
 export default AddCycleSnapView;

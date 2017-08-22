@@ -118,8 +118,11 @@ export default class AddCycleSnapController extends React.Component {
 
   changeIsMoodAvailable() {
     return (event) => {
-      let newValue = event.target.checked;
-      let newViewModel = viewModels.getMoodAverage(newValue)
+      const newIsMoodAvailable = event.target.checked;
+      const { mood } = this.state
+      let { errors } = this.state;
+      
+      const newViewModel = viewModels.getNewMoodInfo(newIsMoodAvailable, mood, errors);
 
       // Set new state
       this.setState(newViewModel);
