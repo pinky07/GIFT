@@ -21,7 +21,10 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
                 targetedPoints: 8,
                 achievedPoints: 8,
                 moodAverage:3,
-                isMoodAvailable: true
+                isMoodAvailable: true,
+                isWasteAvailable: true,
+                wasteDays:5.00,
+                teamCapacity:100.00
         )
 
         when:
@@ -41,7 +44,10 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
                 targetedPoints: 8,
                 achievedPoints: 8,
                 moodAverage:3,
-                isMoodAvailable: true
+                isMoodAvailable: true,
+                isWasteAvailable: true,
+                wasteDays:5.00,
+                teamCapacity:100.00
         )
 
         when:
