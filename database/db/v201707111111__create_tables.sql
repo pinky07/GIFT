@@ -16,11 +16,11 @@ CREATE TABLE t_cycle_snap (
   targeted_points INT          NOT NULL,
   achieved_points INT          NOT NULL,
   project_id      INT          NOT NULL,
-  team_capacity   DOUBLE           NUll default 0,
-  waste_days      DOUBLE           NULL default 0,
-  is_waste_available BOOLEAN NOT NULL default 0,
-  is_mood_available BOOLEAN NOT NULL default 0,
-   mood_average      DOUBLE           NULL default 0,
+  team_capacity   DOUBLE       NOT NULL,
+  waste_days      DOUBLE       NOT NULL,
+  is_waste_available BOOLEAN   NOT NULL,
+  is_mood_available BOOLEAN    NOT NULL,
+   mood_average      DOUBLE    NOT NULL,
   CONSTRAINT pk_cycle_snap_id PRIMARY KEY (cycle_snap_id),
   CONSTRAINT fk_project_id_cycle FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );
