@@ -10,10 +10,20 @@ import org.springframework.test.context.jdbc.SqlGroup
         @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/projects/addCycleSnap/before.sql"),
         @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/projects/addCycleSnap/after.sql")
 ])
-class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
+class addCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
     def "Create Cycle Snap"() {
         given:
-        def cycleSnap = new CycleSnap(
+        def cycleSnap = getNewCycleSnap()
+
+        when:
+        def response = postForEntity("${baseUrl}/projects/cyclesnaps", cycleSnap, CycleSnap.class)
+
+        then:
+        response.statusCode == HttpStatus.CREATED
+    }
+
+    CycleSnap getNewCycleSnap() {
+        return new CycleSnap(
                 projectId: 99999,
                 cycleSnapName: "Drop 3",
                 startDate: "2017-07-31",
@@ -26,12 +36,6 @@ class createCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
                 wasteDays:5.00,
                 teamCapacity:100.00
         )
-
-        when:
-        def response = postForEntity("${baseUrl}/projects/cyclesnaps", cycleSnap, CycleSnap.class)
-
-        then:
-        response.statusCode == HttpStatus.CREATED
     }
 
     def "Should get a 400 when the startDate is empty" () {

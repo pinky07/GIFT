@@ -10,7 +10,11 @@ describe('Validation for all fields should validate', () => {
       endDate: '2016-11-21',
       targetedPoints: '8',
       achievedPoints: '8',
-      mood: 3
+      isMoodAvailable: true,
+      mood: 3,
+      isWasteAvailable: true,
+      teamCapacity: 100,
+      wasteDays: 5    
     };
   })
 
@@ -66,6 +70,26 @@ describe('Validation for all fields should validate', () => {
     state.isMoodAvailable = true;
     let errors = validation.validate(state);
     let actual = errors.mood;
+
+    expect(actual).toBeTruthy();
+  });
+
+  it('Team capacity is not valid', () => {
+    state.isMoodAvailable = false;
+    state.isWasteAvailable = true;
+    state.teamCapacity = 10000.01;
+    let errors = validation.validate(state);
+    let actual = errors.teamCapacity;
+
+    expect(actual).toBeTruthy();
+  });
+
+  it('Waste Days is not valid', () => {
+    state.isMoodAvailable = false;
+    state.isWasteAvailable = true;
+    state.wasteDays = -0.01;
+    let errors = validation.validate(state);
+    let actual = errors.wasteDays;
 
     expect(actual).toBeTruthy();
   });

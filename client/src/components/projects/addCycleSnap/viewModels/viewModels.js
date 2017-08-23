@@ -10,6 +10,9 @@ const viewModels = {
       achievedPoints: '0',
       isMoodAvailable: true,
       mood: '0',
+      isWasteAvailable: true,
+      teamCapacity: 0,
+      wasteDays: '0',
       errors: {},
       formCallbacks: formCallbacks
     };
@@ -19,7 +22,7 @@ const viewModels = {
     let newMood;
 
     errors.mood = undefined;
-    
+
     if (isMoodAvailable) {
       newMood = mood;
     } else {
@@ -29,6 +32,18 @@ const viewModels = {
     return {
       isMoodAvailable: isMoodAvailable,
       mood: newMood,
+      errors: errors
+    };
+  },
+
+  getNewWasteInfo(isWasteAvailable, errors) {
+    errors.teamCapacity = undefined;
+    errors.wasteDays = undefined;
+
+    return {
+      isWasteAvailable: isWasteAvailable,
+      teamCapacity: '0',
+      wasteDays: '0',
       errors: errors
     };
   }

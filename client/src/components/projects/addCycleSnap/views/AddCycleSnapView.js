@@ -24,12 +24,26 @@ const AddCycleSnapView = ({ viewModel }) => {
   const { achievedPoints } = viewModel;
   const { isMoodAvailable } = viewModel;
   const { mood } = viewModel;
-  let moodAverage;
+  const { isWasteAvailable } = viewModel;
+  const { teamCapacity } = viewModel;
+  const { wasteDays } = viewModel;
 
+  let moodAverageFormField;
   if (isMoodAvailable)
-    moodAverage = <FormField label='Mood Average' htmlFor='moodId' error={errors.mood}>
-      <NumberInput id='mood' step={0.01} min={1} max={3} value={mood} onChange={formCallbacks.onMoodChange} />
+    moodAverageFormField = <FormField label='Mood Average' htmlFor='moodId' error={errors.mood}>
+      <NumberInput id='moodId' step={0.01} min={1} max={3} value={mood} onChange={formCallbacks.onMoodChange} />
     </FormField>;
+
+  let teamCapacityFormField;
+  let wasteDaysFormField;
+  if (isWasteAvailable) {
+    teamCapacityFormField = <FormField label='Team capacity' htmlFor='teamCapacityId' error={errors.teamCapacity}>
+      <NumberInput id='teamCapacityId' step={0.01} min={1} max={10000} value={teamCapacity} onChange={formCallbacks.onTeamCapacityChange} />
+    </FormField>;
+    wasteDaysFormField = <FormField label='Waste days' htmlFor='wasteDaysId' error={errors.wasteDays}>
+      <NumberInput id='wasteDaysId' step={0.01} min={0} max={10000} value={wasteDays} onChange={formCallbacks.onWasteDaysChange} />
+    </FormField>;
+  }
 
   return (<Layer align='center' closer={true} onClose={formCallbacks.onClose}>
     <Box pad={{ vertical: 'large', horizontal: 'small' }}>
@@ -69,7 +83,19 @@ const AddCycleSnapView = ({ viewModel }) => {
                 onChange={formCallbacks.onIsMoodAvailableChange} />
             </FormField>
 
-            {moodAverage}
+            {moodAverageFormField}
+
+            <FormField>
+              <CheckBox label='Is Waste Info Available?'
+                reverse={true}
+                toggle={true}
+                defaultChecked={true}
+                value={isWasteAvailable}
+                onChange={formCallbacks.onIsWasteAvailableChange} />
+            </FormField>
+
+            {teamCapacityFormField}
+            {wasteDaysFormField}
 
           </fieldset>
         </FormFields>

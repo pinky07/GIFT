@@ -58,6 +58,27 @@ describe('Initial view model', () => {
     expect(actual).toEqual(expected);
   });
 
+  it('should contain zero mood average', () => {
+    const actual = viewModel.mood;
+    const expected = '0';
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should contain zero team capacity', () => {
+    const actual = viewModel.teamCapacity;
+    const expected = 0;
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should contain zero waste days', () => {
+    const actual = viewModel.wasteDays;
+    const expected = '0';
+
+    expect(actual).toEqual(expected);
+  });
+
   it('should contain no errors', () => {
     const actual = viewModel.errors;
     const expected = {};

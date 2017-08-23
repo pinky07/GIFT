@@ -8,7 +8,10 @@ const addCycleSnapRequest = {
       targetedPoints: viewModel.targetedPoints,
       achievedPoints: viewModel.achievedPoints,
       isMoodAvailable: viewModel.isMoodAvailable,
-      moodAverage: viewModel.mood
+      moodAverage: viewModel.mood,
+      isWasteAvailable: viewModel.isWasteAvailable,
+      teamCapacity: viewModel.teamCapacity,
+      wasteDays: viewModel.wasteDays
     }
   }
 }

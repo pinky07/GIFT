@@ -12,7 +12,10 @@ describe('Add cycle snap request', () => {
       targetedPoints: '18',
       achievedPoints: '19',
       isMoodAvailable: true,
-      mood: 3
+      mood: 3,
+      isWasteAvailable: true,
+      teamCapacity: 100.01,
+      wasteDays: 5.89,
     };
     request = addCycleSnapRequest.get(viewModel);
   })
@@ -59,7 +62,7 @@ describe('Add cycle snap request', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should contain the Mood data is available', () => {
+  it('should contain the Mood data is available indicator', () => {
     const actual = request.isMoodAvailable;
     const expected = true;
 
@@ -69,6 +72,27 @@ describe('Add cycle snap request', () => {
   it('should contain the Mood Average', () => {
     const actual = request.moodAverage;
     const expected = 3;
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should contain the Waste is available indicator', () => {
+    const actual = request.isWasteAvailable;
+    const expected = true;
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should contain the Team capacity', () => {
+    const actual = request.teamCapacity;
+    const expected = 100.01;
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should contain the Waste Days', () => {
+    const actual = request.wasteDays;
+    const expected = 5.89;
 
     expect(actual).toEqual(expected);
   });

@@ -12,7 +12,6 @@ import java.util.Set;
 public class CycleSnapValidation {
 
     public static void validate(CycleSnap newCycleSnap, Set<CycleSnap> existingCycleSnaps) throws ParseException {
-
         if (newCycleSnap.getStartDate().isEmpty()) {
             throw new IllegalArgumentException("Start Date is required");
         }
@@ -52,32 +51,28 @@ public class CycleSnapValidation {
         if (newCycleSnap.getAchievedPoints() > 10000) {
             throw new IllegalArgumentException("Max number for Achieved Points is 10,000");
         }
-        if( newCycleSnap.getIsMoodAvailable()&& (newCycleSnap.getMoodAverage()< 1))
-        {
+        if (newCycleSnap.getIsMoodAvailable() && (newCycleSnap.getMoodAverage() < 1)) {
             throw new IllegalArgumentException("Min number for Mood points is 1");
         }
 
-        if( newCycleSnap.getIsMoodAvailable()&& (newCycleSnap.getMoodAverage()> 3))
-        {
+        if (newCycleSnap.getIsMoodAvailable() && (newCycleSnap.getMoodAverage() > 3)) {
             throw new IllegalArgumentException("Mood points max is 3");
         }
-
-        if( newCycleSnap.getIsWasteAvailable() && (newCycleSnap.getTeamCapacity()<1) )
-        {
-            throw new IllegalArgumentException("team capacity min is 1");
+        if (newCycleSnap.getIsWasteAvailable() && (newCycleSnap.getTeamCapacity() < 1)) {
+            throw new IllegalArgumentException("Team capacity min is 1");
         }
-        if( newCycleSnap.getIsWasteAvailable() && (newCycleSnap.getTeamCapacity()>10000))
-        {
-            throw new IllegalArgumentException("team capacity max is   10,000 ");
+        if (newCycleSnap.getIsWasteAvailable() && (newCycleSnap.getTeamCapacity() > 10000)) {
+            throw new IllegalArgumentException("Team capacity max is 10,000 ");
         }
-                if( newCycleSnap.getIsWasteAvailable() && newCycleSnap.getWasteDays()<=0 )
-        {
-            throw new IllegalArgumentException("waste days min is 0");
+        if (newCycleSnap.getIsWasteAvailable() && newCycleSnap.getWasteDays() < 0) {
+            throw new IllegalArgumentException("Waste days min is 0");
+        }
+        if (newCycleSnap.getIsWasteAvailable() && newCycleSnap.getWasteDays() > newCycleSnap.getTeamCapacity()) {
+            throw new IllegalArgumentException("Waste days max is the team's capacity");
         }
 
         //Cycle dates shouldn't overlap
         Interval newInterval = new Interval(startDateTime, endDateTime);
-
         for (CycleSnap existingCycle : existingCycleSnaps) {
             DateTime cycleStartDate = new DateTime(DateFormatter.convertDateStringToDate(existingCycle.getStartDate()));
             DateTime cycleEndDate = new DateTime(DateFormatter.convertDateStringToDate(existingCycle.getEndDate()));

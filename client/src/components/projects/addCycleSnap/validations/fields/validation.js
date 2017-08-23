@@ -1,9 +1,11 @@
+import nameValidations from '../name/validations';
 import startDateValidations from '../startDate/validations';
 import endDateValidations from '../endDate/validations';
 import targetedPointsValidations from '../targetedPoints/validations';
 import achievedPointsValidations from '../achievedPoints/validations';
 import moodValidations from '../mood/validations';
-import nameValidations from '../name/validations';
+import teamCapacityValidations from '../teamCapacity/validations';
+import wasteDaysValidations from '../wasteDays/validations';
 
 const validation = {
   validate(state) {
@@ -28,6 +30,12 @@ const validation = {
     const { isMoodAvailable } = state;
     errors.mood = moodValidations.validate(isMoodAvailable, mood);
 
+    const { isWasteAvailable } = state;
+    const { teamCapacity } = state;
+    errors.teamCapacity = teamCapacityValidations.validate(isWasteAvailable, teamCapacity);
+    const { wasteDays } = state;
+    errors.wasteDays = wasteDaysValidations.validate(isWasteAvailable, teamCapacity, wasteDays);
+
     return errors;
   },
 
@@ -37,7 +45,9 @@ const validation = {
       errors.endDate ||
       errors.achievedPoints ||
       errors.targetedPoints ||
-      errors.mood) {
+      errors.mood ||
+      errors.teamCapacity ||
+      errors.wasteDays) {
       return true;
     }
     else

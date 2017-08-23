@@ -24,8 +24,8 @@ public class CycleSnapController {
     }
 
     @PostMapping("/cyclesnaps")
-    public ResponseEntity<Object> createCycleSnap(@RequestBody final CycleSnap newCycleSnap) throws ParseException {
-        logger.info("createCycleSnap received: " + newCycleSnap);
+    public ResponseEntity<Object> addCycleSnap(@RequestBody final CycleSnap newCycleSnap) throws ParseException {
+        logger.info("addCycleSnap received: " + newCycleSnap);
 
         ResponseEntity<Object> response;
         try {
@@ -35,7 +35,7 @@ public class CycleSnapController {
             response = new ResponseEntity<>(new ErrorMessage(HttpStatus.BAD_REQUEST, e.getMessage()), HttpStatus.BAD_REQUEST);
         }
 
-        logger.info("createCycleSnap returned: {}", response);
+        logger.info("addCycleSnap returned: {}", response);
         return response;
     }
 
