@@ -26,7 +26,7 @@ public class PortfoliosComparatorController {
         Logger logger = LoggerFactory.getLogger(this.getClass());
         logger.info("Portfolio comparator received: " + portfolioId);
         LastSnap lastsnap = new LastSnap();
-        lastsnap.getp
+
         ResponseEntity<Object> response= new ResponseEntity<> ("Hello comparator", HttpStatus.OK);
         logger.info("Portfolio comparator  returned {}", response);
 
