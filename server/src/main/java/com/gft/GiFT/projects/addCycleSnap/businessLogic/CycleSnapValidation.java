@@ -1,7 +1,7 @@
 package com.gft.GiFT.projects.addCycleSnap.businessLogic;
 
-import com.gft.GiFT.helpers.DateFormatter;
-import com.gft.GiFT.projects.addCycleSnap.businessLogic.CycleSnap;
+import com.gft.GiFT.common.businessLogic.DateFormatter;
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.inputs.CycleSnap;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 
@@ -28,7 +28,7 @@ public class CycleSnapValidation {
             throw new IllegalArgumentException("Cycle name is required");
         }
         if (newCycleSnap.getCycleSnapName().length() > 200) {
-            throw new IllegalArgumentException("Cycle Snap Name can not be greater than 200 characters");
+            throw new IllegalArgumentException("Cycle name can not be greater than 200 characters");
         }
         if (newCycleSnap.getStartDate().isEmpty()) {
             throw new IllegalArgumentException("Start Date is required");

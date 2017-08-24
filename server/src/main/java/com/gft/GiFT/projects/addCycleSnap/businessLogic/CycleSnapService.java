@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.addCycleSnap.businessLogic;
 
-import com.gft.GiFT.projects.addCycleSnap.businessLogic.CycleSnap;
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.inputs.CycleSnap;
 
 import java.text.ParseException;
 

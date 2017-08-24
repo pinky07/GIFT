@@ -1,6 +1,6 @@
 import React from 'react';
 
-import viewModels from "./viewModels/viewModels";
+import presenters from "./presenters/presenters";
 import DashboardView from './views/DashboardView';
 import dashboardService from './dashboardService';
 import cycleSnapService from '../addCycleSnap/cycleSnapService';
@@ -21,7 +21,7 @@ export default class Dashboard extends React.Component {
       onAddCycleSnapCancel: this.onAddCycleSnapCancel
     }
 
-    this.state = viewModels.getInitial(props, dashboardCallbacks);
+    this.state = presenters.getInitial(props, dashboardCallbacks);
   }
 
   componentDidMount() {
@@ -32,37 +32,38 @@ export default class Dashboard extends React.Component {
     const { projectId } = this.state
 
     if (isNaN(projectId)) {
-      const newState = viewModels.getInvalidProjectError();
-      this.setState(newState);
+      const newViewModel = presenters.getInvalidProjectError();
+      this.setState(newViewModel);
     }
     else {
-      const onSuccess = viewModels.getOnSuccessLoadingDashboard;
-      const onError = viewModels.getOnErrorLoadingDashboard;
+      const onSuccess = presenters.getOnSuccessLoadingDashboard;
+      const onError = presenters.getOnErrorLoadingDashboard;
 
-      dashboardService.load(projectId, onSuccess, onError).then(newState => this.setState(newState));
+      dashboardService.load(projectId, onSuccess, onError).then(newViewModel => this.setState(newViewModel));
     }
   }
 
   onRequestAddCycleSnap() {
-    const newState = viewModels.getShowAddCycleSnapForm();
-    this.setState(newState);
+    const newViewModel = presenters.getShowAddCycleSnapForm();
+    this.setState(newViewModel);
   }
 
   onAddCycleSnapCancel() {
-    const newState = viewModels.getForClosingTheAddCycleSnapForm();
-    this.setState(newState);
+    const newViewModel = presenters.getForClosingTheAddCycleSnapForm();
+    this.setState(newViewModel);
   }
 
   onAddCycleSnapSubmit(newCycleSnap) {
     const onSuccess = this.onSuccessAddingCycleSnap;
-    const onError = viewModels.getOnErrorAddingACycleSnap;
+    const onError = presenters.getOnErrorAddingACycleSnap;
 
-    cycleSnapService.add(newCycleSnap, onSuccess, onError).then(newState => this.setState(newState));
+    cycleSnapService.add(newCycleSnap, onSuccess, onError).then(newViewModel => this.setState(newViewModel));
   }
 
   onSuccessAddingCycleSnap(response) {
     this.loadDashboard();
-    return viewModels.getSuccessOnAddingACycleSnap();
+    
+    return presenters.getSuccessOnAddingACycleSnap();
   }
 
   render() {

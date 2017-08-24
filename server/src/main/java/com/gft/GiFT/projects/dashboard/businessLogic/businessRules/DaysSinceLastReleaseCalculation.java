@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
-import com.gft.GiFT.helpers.DateFormatter;
+import com.gft.GiFT.common.businessLogic.DateFormatter;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 

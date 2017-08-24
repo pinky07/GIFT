@@ -1,8 +1,8 @@
 package com.gft.GiFT.projects.dashboard.DashboardController
 
 import com.gft.GiFT.AbstractIntegrationSpecification
-import com.gft.GiFT.projects.dashboard.businessLogic.CycleSnapDTO
-import com.gft.GiFT.projects.dashboard.businessLogic.ProjectDTO
+import com.gft.GiFT.projects.dashboard.businessLogic.response.CycleSnapDTO
+import com.gft.GiFT.projects.dashboard.businessLogic.response.ProjectDTO
 import org.springframework.http.HttpStatus
 import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
@@ -47,15 +47,7 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             mood: 'No data'
     )
 
-    def "Should get a 404 when the projectId does not exist" () {
-        when:
-        def response = getForEntity("${baseUrl}/projects/999/dashboard", ProjectDTO.class)
-
-        then:
-        response.statusCode == HttpStatus.NOT_FOUND
-    }
-
-    def "Should get dashboard by project Id with Days since last release" () {
+    def "Should get dashboard by project Id" () {
         given:
         Set<CycleSnapDTO> newCycleSnapDTOSet = new HashSet<CycleSnapDTO>()
         newCycleSnapDTOSet.add(cycleSnapDTO3)

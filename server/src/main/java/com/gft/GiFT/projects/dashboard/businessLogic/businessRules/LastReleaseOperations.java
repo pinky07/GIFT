@@ -1,10 +1,10 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
-import com.gft.GiFT.helpers.DateFormatter;
+import com.gft.GiFT.common.businessLogic.DateFormatter;
 
 import java.text.ParseException;
 
-import com.gft.GiFT.projects.dashboard.businessLogic.ReleaseSnap;
+import com.gft.GiFT.projects.dashboard.businessLogic.inputs.ReleaseSnap;
 
 import java.util.Date;
 import java.util.List;

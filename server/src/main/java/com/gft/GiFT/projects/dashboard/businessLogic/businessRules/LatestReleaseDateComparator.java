@@ -1,5 +1,5 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
-import com.gft.GiFT.projects.dashboard.businessLogic.ReleaseSnap;
+import com.gft.GiFT.projects.dashboard.businessLogic.inputs.ReleaseSnap;
 import java.util.Comparator;
 import java.util.Date;
 import java.text.ParseException;

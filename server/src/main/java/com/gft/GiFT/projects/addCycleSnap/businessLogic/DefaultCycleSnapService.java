@@ -1,5 +1,7 @@
 package com.gft.GiFT.projects.addCycleSnap.businessLogic;
 
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.inputs.CycleSnap;
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.inputs.Project;
 import com.gft.GiFT.projects.addCycleSnap.dataAccess.CycleProjectRepository;
 import com.gft.GiFT.projects.addCycleSnap.dataAccess.CycleSnapRepository;
 import org.slf4j.Logger;

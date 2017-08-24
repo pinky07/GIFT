@@ -1,11 +1,11 @@
 package com.gft.GiFT.projects.dashboard;
 
-import com.gft.GiFT.helpers.ErrorMessage;
-import com.gft.GiFT.projects.dashboard.businessLogic.ProjectDTO;
-import com.gft.GiFT.projects.dashboard.businessLogic.ProjectService;
+import com.gft.GiFT.projects.dashboard.businessLogic.ResponseEntityCreation;
+import com.gft.GiFT.projects.dashboard.businessLogic.inputs.Project;
+import com.gft.GiFT.projects.dashboard.businessLogic.inputs.DashboardInputs;
+import com.gft.GiFT.projects.dashboard.dataAccess.DashboardProjectRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,31 +13,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
+import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/api/v1/projects")
 public class DashboardController {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final DashboardProjectRepository repository;
 
-    private final ProjectService projectService;
-
-    public DashboardController(ProjectService projectService) {
-        this.projectService = projectService;
+    public DashboardController(DashboardProjectRepository repository) {
+        this.repository = repository;
     }
 
     @GetMapping("/{projectId}/dashboard")
     public ResponseEntity<Object> findDashboardByProjectId(@PathVariable("projectId") final int projectId) throws ParseException {
+        Logger logger = LoggerFactory.getLogger(this.getClass());
+        logger.info("findDashboardByProjectId received: " + projectId);
 
-        logger.info("findDashboardByProjectId: " + projectId);
+        DashboardInputs inputs = getDashboardInputs(projectId);
+        ResponseEntity<Object> response = ResponseEntityCreation.getResponse(inputs);
 
-        ProjectDTO projectDTO = projectService.findDashboardByProjectId(projectId);
+        logger.info("findDashboardByProjectId returned {}", response);
 
-        if (projectDTO == null)
-            return new ResponseEntity<>(new ErrorMessage(HttpStatus.NOT_FOUND, "Project: " + projectId + " could not be found"), HttpStatus.NOT_FOUND);
+        return response;
+    }
 
-        logger.info("{}", projectDTO);
-
-        return new ResponseEntity<>(projectDTO, HttpStatus.OK);
+    private DashboardInputs getDashboardInputs(@PathVariable("projectId") int projectId) {
+        DashboardInputs data = new DashboardInputs();
+        data.setProjectId(projectId);
+        Project project = repository.findOne(projectId);
+        data.setProject(project);
+        data.setCurrentDate(new Date());
+        return data;
     }
 }
