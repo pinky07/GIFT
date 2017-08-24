@@ -1,27 +1,33 @@
+-- Test Data for t_portfolio
+INSERT INTO t_portfolio(portfolio_id, portfolio_name)
+VALUES (1,'BXII');
+
+INSERT INTO t_portfolio(portfolio_id, portfolio_name)
+VALUES (2,'BAAM');
+
+INSERT INTO t_portfolio(portfolio_id,portfolio_name)
+VALUES (3,'GIR');
+
+INSERT INTO t_portfolio(portfolio_id, portfolio_name)
+VALUES (4, 'Awesome Projects');
+
 -- Test Data for t_project
-INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES ('Phoenix', 1, 2, 1, 2);
+INSERT INTO t_project(project_id, project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
+VALUES (1,'Phoenix', 1, 2, 1, 2);
 
-INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES ('BAAM', 1, 1, 2, 1);
+INSERT INTO t_project(project_id, project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
+VALUES (3,'A-Team', 2, 1, 2, 1);
 
-INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES ('A-Team', 2, 1, 2, 1);
+INSERT INTO t_project(project_id,project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
+VALUES (6,'Operation metrics', 3, 1, 2, 1);
 
-INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES ('Bootcamp', 2, 1, 2, 1);
+INSERT INTO t_project(project_id, project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
+VALUES (7, 'Exceptional Project', 4, 1, 2, 1);
 
-INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES ('PW', 3, 1, 2, 1);
+INSERT INTO t_project(project_id,project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
+VALUES (8,'Appraissal tool', 4, 1, 2, 1);
 
-INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES ('Operation metrics', 3, 1, 2, 1);
-
-INSERT INTO t_project(project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES ('Exceptional Project', 4, 1, 2, 1);
-
-
--- Test Data for t_cycle_snap
+-- Test Data for t_cycle_snap,
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,is_mood_available,mood_average)
 VALUES ('50', '2016-04-18', '2016-05-06', 76, 58, 1,162,3,TRUE,TRUE,2.00);
 

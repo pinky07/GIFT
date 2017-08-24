@@ -1,3 +1,11 @@
+
+CREATE TABLE t_portfolio  (
+  portfolio_id       INT  NOT NULL AUTO_INCREMENT,
+  portfolio_name VARCHAR(200) NOT NULL,
+  CONSTRAINT pk_portfolio_id PRIMARY KEY (portfolio_id)
+
+);
+
 CREATE TABLE t_project (
   project_id         INT         NOT NULL AUTO_INCREMENT,
   project_name       VARCHAR(45) NOT NULL,
@@ -5,7 +13,8 @@ CREATE TABLE t_project (
   release_pattern_id INT         NOT NULL,
   cycle_type_id      INT         NULL,
   project_status     INT         NULL,
-  PRIMARY KEY (project_id)
+  PRIMARY KEY (project_id),
+  CONSTRAINT fk_portfolio_id FOREIGN KEY (portfolio_id) REFERENCES t_portfolio (portfolio_id)
 );
 
 CREATE TABLE t_cycle_snap (
@@ -42,3 +51,4 @@ CREATE TABLE t_incidents_report (
   CONSTRAINT pk_report_id PRIMARY KEY (report_id),
   CONSTRAINT fk_project_id_report FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );
+
