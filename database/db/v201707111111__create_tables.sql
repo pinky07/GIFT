@@ -1,9 +1,7 @@
-
 CREATE TABLE t_portfolio  (
   portfolio_id       INT  NOT NULL AUTO_INCREMENT,
   portfolio_name VARCHAR(200) NOT NULL,
-  CONSTRAINT pk_portfolio_id PRIMARY KEY (portfolio_id)
-
+  PRIMARY KEY (portfolio_id)
 );
 
 CREATE TABLE t_project (
@@ -27,7 +25,7 @@ CREATE TABLE t_cycle_snap (
   is_waste_available BOOLEAN   NOT NULL,
   is_mood_available BOOLEAN    NOT NULL,
    mood_average      DOUBLE    NOT NULL,
-  CONSTRAINT pk_cycle_snap_id PRIMARY KEY (cycle_snap_id),
+  PRIMARY KEY (cycle_snap_id),
   CONSTRAINT fk_project_id_cycle FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );
 
@@ -36,7 +34,7 @@ CREATE TABLE t_release_snap (
   release_date DATE NOT NULL,
   name VARCHAR(200) NOT NULL,
   project_id   INT  NOT NULL,
-  CONSTRAINT pk_release_id PRIMARY KEY (release_id),
+  PRIMARY KEY (release_id),
   CONSTRAINT fk_project_id_release FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );
 
@@ -45,7 +43,6 @@ CREATE TABLE t_incidents_report (
   report_date     DATE NOT NULL,
   total_incidents INT  NOT NULL,
   project_id      INT  NOT NULL,
-  CONSTRAINT pk_report_id PRIMARY KEY (report_id),
+  PRIMARY KEY (report_id),
   CONSTRAINT fk_project_id_report FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );
-

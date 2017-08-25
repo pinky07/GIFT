@@ -1,10 +1,11 @@
 package com.gft.GiFT.portfolios.comparator;
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.*;
+import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.ComparatorInputs;
+import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.Portfolio;
 import com.gft.GiFT.portfolios.comparator.dataAccess.*;
+import com.gft.GiFT.portfolios.comparator.businessLogic.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,32 +25,15 @@ public class PortfoliosComparatorController {
     @GetMapping("/{portfolioId}/comparator")
     public ResponseEntity<Object> getPortfolioComparator(@PathVariable("portfolioId") final int portfolioId) throws ParseException {
         Logger logger = LoggerFactory.getLogger(this.getClass());
-        logger.info("Portfolio comparator received: " + portfolioId);
+        logger.info("getPortfolioComparator received: " + portfolioId);
 
-        LastSnapDTO exceptionalProject = new LastSnapDTO();
-        exceptionalProject.setProjectName("Exceptional project");
-        exceptionalProject.setTac("100%");
-        exceptionalProject.setDaysWithoutRelease("13");
-        exceptionalProject.setRelatedIncidents("6");
-        exceptionalProject.setWaste("No data");
-        exceptionalProject.setMood("No data");
+        ComparatorInputs inputs = new ComparatorInputs();
+        Portfolio portfolio = repository.findOne(portfolioId);
+        inputs.setPortFolio(portfolio);
+        inputs.setPortfolioId(portfolioId);
+        ResponseEntity<Object> response= ResponseEntityCreation.getResponse(inputs);
 
-        LastSnapDTO appraisalTool = new LastSnapDTO();
-        appraisalTool.setProjectName("No data");
-        appraisalTool.setTac("No data");
-        appraisalTool.setDaysWithoutRelease("No data");
-        appraisalTool.setRelatedIncidents("No data");
-        appraisalTool.setWaste("No data");
-        appraisalTool.setMood("No data");
-
-        PortfolioComparatorDTO comparator = new PortfolioComparatorDTO();
-        comparator.setPortfolioName("Amazing projects");
-        comparator.addSnap(exceptionalProject);
-        comparator.addSnap(appraisalTool);
-
-        ResponseEntity<Object> response= new ResponseEntity<> (comparator, HttpStatus.OK);
-
-        logger.info("Portfolio comparator  returned {}", response);
+        logger.info("getPortfolioComparator returned {}", response);
 
         return response;
     }
