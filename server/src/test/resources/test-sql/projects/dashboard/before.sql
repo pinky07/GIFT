@@ -1,6 +1,8 @@
--- Test data for integration test "Should get dashboard by project Id"
-INSERT INTO t_project(project_id, project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES (12345, 'Exceptional Project', 4, 1, 2, 1);
+INSERT INTO t_portfolio(portfolio_id, portfolio_name)
+VALUES (12345, 'Amazing projects');
+
+INSERT INTO t_project(project_id, project_name, portfolio_id)
+VALUES (12345, 'Exceptional Project', 12345);
 
 -- Test Data for t_cycle_snap
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,is_mood_available,mood_average)

@@ -3,7 +3,7 @@ package com.gft.GiFT.portfolios.comparator.businessLogic.response;
 import lombok.Data;
 
 @Data
-public class LastSnap {
+public class LastSnapDTO {
     String projectName;
     String tac;
     String daysWithoutRelease;

@@ -24,7 +24,7 @@ class addCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
 
     CycleSnap getNewCycleSnap() {
         return new CycleSnap(
-                projectId: 99999,
+                projectId: 12345,
                 cycleSnapName: "Drop 3",
                 startDate: "2017-07-31",
                 endDate: "2017-08-04",
@@ -41,7 +41,7 @@ class addCycleSnapIntegrationTests extends AbstractIntegrationSpecification {
     def "Should get a 400 when the startDate is empty" () {
         given:
         def cycleSnap = new CycleSnap(
-                projectId: 99999,
+                projectId: 12345,
                 cycleSnapName: "Drop 3",
                 startDate: "",
                 endDate: "2017-08-04",

@@ -5,30 +5,32 @@ import spock.lang.Specification
 
 class CalculateTacTests extends Specification {
 
-    def "when targeted points is 0"(){
+    int targetedPoints
+    int achievedPoints
+    String tac
+
+    def "when targeted points is 0"() {
         given:
 
-        int  targetedPoints = 0
-        int archievedPoints = 0
+        targetedPoints = 0
+        achievedPoints = 0
 
         when:
-        String tac = TacCalculation.calculateTac(targetedPoints,archievedPoints)
+        tac = TacCalculation.calculateTac(targetedPoints, achievedPoints)
 
         then:
-        tac == "No Data";
+        tac == "No Data"
     }
 
-    def "when targeted points is not 0"(){
+    def "when targeted points is not 0"() {
         given:
-
-        int  targetedPoints = 60
-        int archievedPoints = 54
+        targetedPoints = 60
+        achievedPoints = 54
 
         when:
-        String tac = TacCalculation.calculateTac(targetedPoints,archievedPoints)
+        String tac = TacCalculation.calculateTac(targetedPoints, achievedPoints)
 
         then:
         tac == "90%"
     }
-
 }

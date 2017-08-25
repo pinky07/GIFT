@@ -12,20 +12,20 @@ INSERT INTO t_portfolio(portfolio_id, portfolio_name)
 VALUES (4, 'Awesome Projects');
 
 -- Test Data for t_project
-INSERT INTO t_project(project_id, project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES (1,'Phoenix', 1, 2, 1, 2);
+INSERT INTO t_project(project_id, project_name, portfolio_id)
+VALUES (1,'Phoenix', 1);
 
-INSERT INTO t_project(project_id, project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES (3,'A-Team', 2, 1, 2, 1);
+INSERT INTO t_project(project_id, project_name, portfolio_id)
+VALUES (3,'A-Team', 2);
 
-INSERT INTO t_project(project_id,project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES (6,'Operation metrics', 3, 1, 2, 1);
+INSERT INTO t_project(project_id,project_name, portfolio_id)
+VALUES (6,'Operation metrics', 3);
 
-INSERT INTO t_project(project_id, project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES (7, 'Exceptional Project', 4, 1, 2, 1);
+INSERT INTO t_project(project_id, project_name, portfolio_id)
+VALUES (7, 'Exceptional Project', 4);
 
-INSERT INTO t_project(project_id,project_name, portfolio_id, release_pattern_id, cycle_type_id, project_status)
-VALUES (8,'Appraissal tool', 4, 1, 2, 1);
+INSERT INTO t_project(project_id,project_name, portfolio_id)
+VALUES (8,'Appraisal tool', 4);
 
 -- Test Data for t_cycle_snap,
 INSERT INTO t_cycle_snap(cycle_snap_name, start_date, end_date, targeted_points, achieved_points, project_id,team_capacity,waste_days,is_waste_available,is_mood_available,mood_average)
@@ -128,12 +128,6 @@ VALUES ('2016-06-29','3', 6);
 
 INSERT INTO t_release_snap(release_date, name,project_id )
 VALUES ('2016-05-25','81', 3);
-
-INSERT INTO t_release_snap(release_date, name,project_id )
-VALUES ('2017-02-07','First Version', 7);
-
-INSERT INTO t_release_snap(release_date,name, project_id )
-VALUES ('2017-03-02','Second Update', 7);
 
 INSERT INTO t_release_snap(release_date, name,project_id )
 VALUES ('2017-02-07','First Version', 7);
