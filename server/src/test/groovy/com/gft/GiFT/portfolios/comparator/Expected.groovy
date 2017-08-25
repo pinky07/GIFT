@@ -29,8 +29,8 @@ class Expected {
         LastSnapDTO appraisalTool = getExpectedLastSnapWithoutSnaps()
 
         List<LastSnapDTO> snaps = new LinkedList<>()
-        snaps.add(appraisalTool)
         snaps.add(exceptionalProject)
+        snaps.add(appraisalTool)
 
         return snaps
     }

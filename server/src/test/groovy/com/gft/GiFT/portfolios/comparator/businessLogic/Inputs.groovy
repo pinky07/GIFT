@@ -27,11 +27,11 @@ class Inputs {
     static Set<Project> getProjects() {
         Set<Project> projects = new LinkedList<>()
 
-        Project projectWithNoLastSnap = getProjectWithoutSnaps()
-        projects.add(projectWithNoLastSnap)
-
         Project projectWithLastSnap = getProjectWithSnaps()
         projects.add(projectWithLastSnap)
+
+        Project projectWithNoLastSnap = getProjectWithoutSnaps()
+        projects.add(projectWithNoLastSnap)
 
         return projects
     }
