@@ -3,7 +3,7 @@ import Box from 'grommet/components/Box';
 import Spinning from 'grommet/components/icons/Spinning';
 import CompareHeading from './CompareHeading';
 
-const LoadingView = () =>
+const LoadingCompareView = () =>
   (
     <Box>
       <CompareHeading/>
@@ -11,5 +11,5 @@ const LoadingView = () =>
     </Box>
   );
 
-export default LoadingView;
+export default LoadingCompareView;
 
