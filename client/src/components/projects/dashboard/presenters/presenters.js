@@ -66,9 +66,9 @@ const viewModels = {
         else {
             // There was a critical error.
             return {
-                errorMessage: '',
+                errorMessage: `Oops! We got a bit of an issue: ${error.message}.`,
                 successNotificationOnAdd: undefined,
-                failureNotificationOnAdd: 'Oops! We got a bit of an issue: ' + error.message + '.',
+                failureNotificationOnAdd: undefined,
                 addCycleSnap: false
             }
         }
