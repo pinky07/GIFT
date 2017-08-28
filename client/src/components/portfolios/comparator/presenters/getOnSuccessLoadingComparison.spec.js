@@ -17,12 +17,13 @@ describe('presenters.getOnSuccessLoadingComparison', () => {
             mood: 'No data'
           }
         ]
-      }
+      },
+      errorMessage: ''
     };
     viewModel = presenters.getOnSuccessLoadingComparison(response);
   })
 
-  it('should contain the portfolio name', () => {
+  it('should contain all the fields for the comparator', () => {
     const actual = viewModel;
     const expected = {
       comparator: {
@@ -37,7 +38,8 @@ describe('presenters.getOnSuccessLoadingComparison', () => {
             mood: 'No data'
           }
         ]
-      }
+      },
+      errorMessage: ''
     };
 
     expect(actual).toEqual(expected);

@@ -2,8 +2,8 @@ import React from 'react';
 
 import presenters from './presenters/presenters';
 import axios from 'axios';
-import constants from '../../constants';
 import CompareView from "./views/CompareView";
+import compareService from "./compareService";
 
 export default class CompareController extends React.Component {
   constructor(props) {
@@ -19,16 +19,17 @@ export default class CompareController extends React.Component {
   loadCompare() {
     const {portfolioId} = this.state
 
-    const onSuccess = presenters.getOnSuccessLoadingComparison;
-    const onError = undefined;
+    if (isNaN(portfolioId)) {
+      const newViewModel = presenters.getInvalidPortfolioIdError();
+      this.setState(newViewModel);
+    } else {
+      const onSuccess = presenters.getOnSuccessLoadingComparison;
+      const onError = presenters.getOnErrorLoadingCompare;
+      const axiosGet = axios.get;
 
-    this.load(portfolioId, onSuccess, onError).then(newViewModel => this.setState(newViewModel));
-  }
-
-  load(id, onSuccess, onError) {
-    return axios.get(`${constants.API}/portfolios/${id}/comparator`)
-      .then((response) => onSuccess(response))
-      //.catch((error) => onError(error));
+      compareService.load(axiosGet, portfolioId, onSuccess, onError)
+        .then(newViewModel => this.setState(newViewModel));
+    }
   }
 
   render() {

@@ -1,9 +1,12 @@
 import React from 'react';
+import Anchor from 'grommet/components/Anchor';
 import TableRow from 'grommet/components/TableRow';
 
 const CompareRow = ({lastSnap, index}) =>
   <TableRow key={lastSnap.projectName}>
-    <td key='projectName'>{lastSnap.projectName}</td>
+    <td><Anchor id={`compare-link-${index}`} path={`/projects/${lastSnap.projectId}/dashboard`}>
+      {lastSnap.projectName}
+    </Anchor></td>
     <td key='tac'>{lastSnap.tac}</td>
     <td key='daysWithoutRelease'>{lastSnap.daysWithoutRelease}</td>
     <td key='incidents'>{lastSnap.relatedIncidents}</td>

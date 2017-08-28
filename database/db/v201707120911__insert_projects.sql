@@ -11,6 +11,9 @@ VALUES (3,'GIR');
 INSERT INTO t_portfolio(portfolio_id, portfolio_name)
 VALUES (4, 'Awesome Projects');
 
+INSERT INTO t_portfolio(portfolio_id, portfolio_name)
+VALUES (5, 'Portfolio With No Projects');
+
 -- Test Data for t_project
 INSERT INTO t_project(project_id, project_name, portfolio_id)
 VALUES (1,'Phoenix', 1);
