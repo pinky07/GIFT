@@ -8,9 +8,9 @@ describe('View model when there is a critical error adding a cycle snap', () => 
     viewModel = presenters.getOnErrorAddingACycleSnap(criticalError);
   })
 
-  it('should show no error message', () => {
+  it('should show critical error message', () => {
     const actual = viewModel.errorMessage;
-    const expected = '';
+    const expected = 'Oops! We got a bit of an issue: Network Error.';
 
     expect(actual).toEqual(expected);
   });
@@ -29,9 +29,9 @@ describe('View model when there is a critical error adding a cycle snap', () => 
     expect(actual).toEqual(expected);
   });
 
-  it('should show a failure notification', () => {
+  it('should show no failure notification', () => {
     const actual = viewModel.failureNotificationOnAdd;
-    const expected = 'Oops! We got a bit of an issue: Network Error.';
+    const expected = undefined;
 
     expect(actual).toEqual(expected);
   });

@@ -30,30 +30,23 @@ const presenters = {
     };
   },
 
-  getNewMoodInfo(event, currentViewModel) {
+  getOnMoodIsAvailableChange(event, currentViewModel) {
     const isMoodAvailable = event.target.checked;
-    const { mood } = currentViewModel;
-    let { errors } = currentViewModel;
+    let {errors} = currentViewModel;
 
     errors.mood = undefined;
 
-    let newMood;
-    if (isMoodAvailable)
-      newMood = mood;
-    else
-      newMood = '0';
-
     return {
       isMoodAvailable: isMoodAvailable,
-      mood: newMood,
+      mood: '0',
       errors: errors
     };
   },
 
-  getNewWasteInfo(event, currentViewModel) {
+  getOnWasteIsAvailableChange(event, currentViewModel) {
     // Get state
     const isWasteAvailable = event.target.checked;
-    let { errors } = currentViewModel;
+    let {errors} = currentViewModel;
 
     errors.teamCapacity = undefined;
     errors.wasteDays = undefined;
@@ -68,102 +61,104 @@ const presenters = {
 
   getOnNameChange(event, currentViewModel) {
     // Get state
-    let newValue = event.target.value;
-    let { errors } = currentViewModel;
+    const newValue = event.target.value;
+    let {errors} = currentViewModel;
 
-    if (newValue)
-      newValue = newValue.trim();
+    const isNotEmpty = newValue.trim();
 
-    // Validate
-    errors.name = nameValidations.validate(newValue);
+    if (isNotEmpty)
+      errors.name = nameValidations.validate(newValue);
+    else
+      errors.name = nameValidations.validate('');
 
-    return { errors: errors, cycleSnapName: newValue };
+    return {
+      errors: errors,
+      cycleSnapName: newValue
+    };
   },
 
   getOnStartDateChange(newValue, currentViewModel) {
     // Get state
-    let { errors } = currentViewModel;
+    let {errors} = currentViewModel;
 
     // Validate
     errors.startDate = startDateValidations.validate(newValue);
 
-    return { errors: errors, startDate: newValue };
+    return {errors: errors, startDate: newValue};
   },
 
   getOnEndDateChange(newValue, currentViewModel) {
     // Get state
-    let { errors } = currentViewModel;
-    let { startDate } = currentViewModel;
+    let {errors} = currentViewModel;
+    let {startDate} = currentViewModel;
 
     // Validate
     errors.endDate = endDateValidations.validate(startDate, newValue);
 
-    return { errors: errors, endDate: newValue };
+    return {errors: errors, endDate: newValue};
   },
 
   getOnTargetedPointsChange(event, currentViewModel) {
     // Get state
-    let newValue = event.target.value;
-    let { errors } = currentViewModel;
+    let newValue = event.target.valueAsNumber;
+    let {errors} = currentViewModel;
 
     // Validate
-    newValue = parseInt(newValue);
     errors.targetedPoints = targetedPointsValidations.validate(newValue);
 
-    return { errors: errors, targetedPoints: newValue };
+    return {errors: errors, targetedPoints: newValue};
 
   },
 
   getOnAchievedPointsChange(event, currentViewModel) {
     // Get state
     let newValue = event.target.valueAsNumber;
-    let { errors } = currentViewModel;
+    let {errors} = currentViewModel;
 
     // Validate
-    newValue = parseInt(newValue);
     errors.achievedPoints = achievedPointsValidations.validate(newValue);
 
-    return { errors: errors, achievedPoints: newValue };
+    return {errors: errors, achievedPoints: newValue};
   },
 
   getOnMoodChange(event, currentViewModel) {
     // Get state
     let newValue = event.target.valueAsNumber;
-    let { errors } = currentViewModel;
-    const { isMoodAvailable } = currentViewModel
+    let {errors} = currentViewModel;
+    const {isMoodAvailable} = currentViewModel
 
     //Validate
     let withTwoDecimals = Math.round(newValue * 100) / 100;
     errors.mood = moodValidations.validate(isMoodAvailable, withTwoDecimals)
 
-    return { errors: errors, mood: withTwoDecimals };
+    return {errors: errors, mood: withTwoDecimals};
   },
 
   getOnTeamCapacityChange(event, currentViewModel) {
     // Get state
     let newTeamCapacity = event.target.valueAsNumber;
-    let { errors } = currentViewModel;
-    const { isWasteAvailable } = currentViewModel
+    let {errors} = currentViewModel;
+    const {isWasteAvailable} = currentViewModel;
 
     //Validate
     const withTwoDecimals = Math.round(newTeamCapacity * 100) / 100;
     errors.teamCapacity = teamCapacityValidations.validate(isWasteAvailable, withTwoDecimals)
-    
-    return { errors: errors, teamCapacity: withTwoDecimals };
+
+    return {errors: errors, teamCapacity: withTwoDecimals};
   },
 
   getOnWasteDaysChange(event, currentViewModel) {
     // Get state
     const newWasteDays = event.target.valueAsNumber;
-    let { errors } = currentViewModel;
-    const { isWasteAvailable } = currentViewModel;
-    const { teamCapacity } = currentViewModel;
+    let {errors} = currentViewModel;
+    const {isWasteAvailable} = currentViewModel;
+    const {teamCapacity} = currentViewModel;
 
     //Validate
     const withTwoDecimals = Math.round(newWasteDays * 100) / 100;
-    errors.wasteDays = wasteDaysValidations.validate(isWasteAvailable, teamCapacity, withTwoDecimals)
+    errors.wasteDays = wasteDaysValidations.validate(isWasteAvailable, teamCapacity, withTwoDecimals);
 
-    return { errors: errors, wasteDays: withTwoDecimals };
+    return {errors: errors, wasteDays: withTwoDecimals};
 
   },
 
@@ -176,7 +171,7 @@ const presenters = {
       submitRequest(request);
     }
     else {
-      const newViewModel = { errors: errors }
+      const newViewModel = {errors: errors}
       updateViewModel(newViewModel);
     }
   }

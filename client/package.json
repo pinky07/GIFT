@@ -25,8 +25,13 @@
     "lint:watch": "npm run lint -- --watch",
     "build": "webpack --config webpack.config.dist.babel.js",
     "test": "jest",
-    "testcoverage": "jest --coverage",
-    "jestUpdateSnapshots": "jest --updateSnapshot"
+    "testcoverage": "jest --coverage --no-cache",
+    "jestUpdateSnapshots": "jest --updateSnapshot",
+    "e2e": "testcafe chrome src/components/**/*.e2e.js --speed 1",
+    "e2ed": "testcafe chrome src/components/**/*.e2e.js --speed 1 -d",
+    "e2eh": "testcafe chrome:headless src/components/**/*.e2e.js --speed 1 -r xunit -S -s build/screenshots > e2e-results.xml",
+    "e2es": "testcafe chrome src/components/**/*.e2e.js --speed 0.5",
+    "e2ei": "testcafe chrome:emulation:device=iphone 6 src/components/**/*.e2e.js --speed 0.5"
   },
   "keywords": [],
   "author": "GFT",
@@ -59,6 +64,8 @@
     "react-test-renderer": "^15.6.1",
     "sass-loader": "^6.0.6",
     "style-loader": "0.18.1",
+    "testcafe": "^0.17.1",
+    "testcafe-react-selectors": "0.0.7",
     "url-loader": "^0.5.9",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.1"
@@ -66,18 +73,15 @@
   "jest": {
     "testRegex": "\\.spec\\.js$",
     "testResultsProcessor": "./node_modules/jest-junit",
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
     "bail": true,
-    "coverageDirectory": ".coverage"
-  },
-  "test": {
-    "testRegex": "\\.spec\\.js$",
-    "testResultsProcessor": "./node_modules/jest-junit",
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
+      "src/components/**/*.{js,jsx}",
+      "!**/*.spec.*",
+      "!**/e2e/*",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageDirectory": "build/coverage"
   },
   "jest-junit": {
     "suiteName": "Front end unit tests",

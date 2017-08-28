@@ -25,7 +25,7 @@ export default {
       compress: {
         warnings: false
       },
-      mangle: false
+      mangle: { keep_fnames: true }
     })
   ],
   module: {

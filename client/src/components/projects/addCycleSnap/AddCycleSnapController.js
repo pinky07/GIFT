@@ -5,7 +5,7 @@ import presenters from './presenters/presenters';
 import AddCycleSnapView from './views/AddCycleSnapView';
 
 export default class AddCycleSnapController extends React.Component {
-  constructor(props) {
+    constructor(props) {
     super(props);
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -65,7 +65,7 @@ export default class AddCycleSnapController extends React.Component {
 
   changeIsMoodAvailable() {
     return (event) => {
-      const newViewModel = presenters.getNewMoodInfo(event, this.state);
+      const newViewModel = presenters.getOnMoodIsAvailableChange(event, this.state);
       this.setState(newViewModel);
     };
   }
@@ -79,7 +79,7 @@ export default class AddCycleSnapController extends React.Component {
 
   changeIsWasteAvailable() {
     return (event) => {
-      const newViewModel = presenters.getNewWasteInfo(event, this.state);
+      const newViewModel = presenters.getOnWasteIsAvailableChange(event, this.state);
       this.setState(newViewModel);
     };
   }

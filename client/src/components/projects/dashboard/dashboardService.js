@@ -1,11 +1,10 @@
-import axios from 'axios';
 import constants from '../../constants';
 
 const dashboardService = {
-  load(projectId, onSuccess, onError) {
-    return axios.get(`${constants.API}/projects/${projectId}/dashboard`)
-      .then((response) => onSuccess(response))
-      .catch((error) => onError(error));
+  load(getProjectDashboardCallback, projectId, onSuccessCallback, onErrorCallback) {
+    return getProjectDashboardCallback(`${constants.API}/projects/${projectId}/dashboard`)
+      .then((response) => onSuccessCallback(response))
+      .catch((error) => onErrorCallback(error));
   }
 }
 export default dashboardService;

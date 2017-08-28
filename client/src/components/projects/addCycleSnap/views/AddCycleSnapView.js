@@ -75,22 +75,20 @@ const AddCycleSnapView = ({ viewModel }) => {
             </FormField>
 
             <FormField>
-              <CheckBox label='Is Mood Average Available?'
+              <CheckBox label='Is mood Available?'
                 reverse={true}
                 toggle={true}
                 defaultChecked={true}
-                value={isMoodAvailable}
                 onChange={formCallbacks.onIsMoodAvailableChange} />
             </FormField>
 
             {moodAverageFormField}
 
             <FormField>
-              <CheckBox label='Is Waste Info Available?'
+              <CheckBox label='Is waste available?'
                 reverse={true}
                 toggle={true}
                 defaultChecked={true}
-                value={isWasteAvailable}
                 onChange={formCallbacks.onIsWasteAvailableChange} />
             </FormField>
 

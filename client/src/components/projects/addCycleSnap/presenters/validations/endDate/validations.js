@@ -1,6 +1,6 @@
 import dateValidations from '../date/validations';
 
-const endDateValidations = {
+const endDatevalidations = {
     validate(startDate, endDate) {
         let error = undefined;
 
@@ -22,4 +22,4 @@ const endDateValidations = {
     }
 }
 
-export default endDateValidations;
+export default endDatevalidations;
