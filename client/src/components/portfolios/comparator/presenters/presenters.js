@@ -9,7 +9,7 @@ const presenters = {
     };
   },
 
-  getOnSuccessLoadingComparator(response) {
+  getOnSuccessLoadingComparison(response) {
     return {
       comparator: response.data
     };

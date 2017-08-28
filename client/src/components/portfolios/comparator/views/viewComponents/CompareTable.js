@@ -2,13 +2,13 @@ import React from 'react';
 import Table from 'grommet/components/Table';
 import TableHeader from 'grommet/components/TableHeader';
 
-import ComparatorRow from './ComparatorRow';
+import CompareRow from './CompareRow';
 
-const ComparatorTable = ({viewModel}) => {
+const CompareTable = ({viewModel}) => {
   const { lastSnaps } = viewModel.comparator;
 
-  const formattedComparator = lastSnaps.map (
-    (lastSnap, index) => <ComparatorRow key={index} lastSnap={lastSnap} index={index}/>
+  const formattedComparison = lastSnaps.map (
+    (lastSnap, index) => <CompareRow key={index} lastSnap={lastSnap} index={index}/>
   );
 
   const labels = ['Project', 'TAC', 'Days without release', 'Incidents', 'Waste', 'Mood'];
@@ -16,10 +16,10 @@ const ComparatorTable = ({viewModel}) => {
   return (<Table>
       <TableHeader labels={labels}/>
       <tbody>
-      {formattedComparator}
+      {formattedComparison}
       </tbody>
     </Table>
   );
 }
 
-export default ComparatorTable;
+export default CompareTable;

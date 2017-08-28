@@ -3,9 +3,9 @@ import React from 'react';
 import presenters from './presenters/presenters';
 import axios from 'axios';
 import constants from '../../constants';
-import ComparatorView from "./views/ComparatorView";
+import CompareView from "./views/CompareView";
 
-export default class ComparatorController extends React.Component {
+export default class CompareController extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,13 +13,13 @@ export default class ComparatorController extends React.Component {
   }
 
   componentDidMount() {
-    this.loadComparator();
+    this.loadCompare();
   }
 
-  loadComparator() {
+  loadCompare() {
     const {portfolioId} = this.state
 
-    const onSuccess = presenters.getOnSuccessLoadingComparator;
+    const onSuccess = presenters.getOnSuccessLoadingComparison;
     const onError = undefined;
 
     this.load(portfolioId, onSuccess, onError).then(newViewModel => this.setState(newViewModel));
@@ -32,6 +32,6 @@ export default class ComparatorController extends React.Component {
   }
 
   render() {
-    return (<ComparatorView viewModel={this.state}/>)
+    return (<CompareView viewModel={this.state}/>)
   }
 }

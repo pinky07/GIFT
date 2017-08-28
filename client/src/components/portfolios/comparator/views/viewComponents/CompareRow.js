@@ -1,7 +1,7 @@
 import React from 'react';
 import TableRow from 'grommet/components/TableRow';
 
-const ComparatorRow = ({lastSnap, index}) =>
+const CompareRow = ({lastSnap, index}) =>
   <TableRow key={lastSnap.projectName}>
     <td key='projectName'>{lastSnap.projectName}</td>
     <td key='tac'>{lastSnap.tac}</td>
@@ -11,4 +11,4 @@ const ComparatorRow = ({lastSnap, index}) =>
     <td key='mood'>{lastSnap.mood}</td>
   </TableRow>
 
-export default ComparatorRow;
+export default CompareRow;

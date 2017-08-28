@@ -1,6 +1,6 @@
 import presenters from './presenters';
 
-describe('presenters.getOnSuccessLoadingComparator', () => {
+describe('presenters.getOnSuccessLoadingComparison', () => {
 
   let viewModel
   beforeEach(() => {
@@ -19,7 +19,7 @@ describe('presenters.getOnSuccessLoadingComparator', () => {
         ]
       }
     };
-    viewModel = presenters.getOnSuccessLoadingComparator(response);
+    viewModel = presenters.getOnSuccessLoadingComparison(response);
   })
 
   it('should contain the portfolio name', () => {

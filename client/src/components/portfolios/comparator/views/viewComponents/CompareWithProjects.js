@@ -1,15 +1,15 @@
 import React from 'react';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
-import ComparatorTable from './ComparatorTable'
+import CompareTable from './CompareTable'
 
-const ComparatorWithProjects = ({ viewModel }) => {
+const CompareWithProjects = ({ viewModel }) => {
   const { portfolioName } = viewModel.comparator;
 
   return (<Box>
       <Heading>Compare Project for Portfolio: {portfolioName}</Heading>
-      <ComparatorTable viewModel={viewModel} />
+      <CompareTable viewModel={viewModel} />
     </Box>
   );
 }
-export default ComparatorWithProjects;
+export default CompareWithProjects;
