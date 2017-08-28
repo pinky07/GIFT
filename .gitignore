@@ -8,6 +8,7 @@ server/src/main/resources/static
 ### Client ###
 client/node_modules
 client/.coverage
+e2e.results.xml
 
 ### STS ###
 .apt_generated
