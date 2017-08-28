@@ -16,7 +16,7 @@ class GetLastSnapTests extends Specification {
         def lastCycle = Inputs.getLatestCycleSnap()
 
         when:
-        LastSnapDTO actual = LastSnapCreation.getLastSnap(project.name, lastCycle)
+        LastSnapDTO actual = LastSnapCreation.getLastSnap(project.id, project.name, lastCycle)
 
         then:
         actual == expected
@@ -27,7 +27,7 @@ class GetLastSnapTests extends Specification {
         LastSnapDTO expected = Expected.getExpectedLastSnapWithoutSnaps()
         def project = Inputs.projectWithoutSnaps
         when:
-        LastSnapDTO actual = LastSnapCreation.getLastSnap(project.name, null)
+        LastSnapDTO actual = LastSnapCreation.getLastSnap(project.id, project.name, null)
 
         then:
         actual == expected
