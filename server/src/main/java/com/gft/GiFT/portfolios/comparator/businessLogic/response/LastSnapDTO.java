@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class LastSnapDTO {
+    int projectId;
     String projectName;
     String tac;
     String daysWithoutRelease;

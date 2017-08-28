@@ -37,6 +37,7 @@ class Expected {
 
     static  LastSnapDTO getExpectedLastSnapWithoutSnaps() {
         LastSnapDTO appraisalTool = new LastSnapDTO()
+        appraisalTool.setProjectId(12346)
         appraisalTool.setProjectName("Appraisal tool")
         appraisalTool.setTac("No data")
 //        appraisalTool.setDaysWithoutRelease("No data")
@@ -48,6 +49,7 @@ class Expected {
 
     static LastSnapDTO getExpectedLastSnapWithSnaps() {
         LastSnapDTO exceptionalProject = new LastSnapDTO()
+        exceptionalProject.setProjectId(12345)
         exceptionalProject.setProjectName("Exceptional project")
         exceptionalProject.setTac("100%")
 //        exceptionalProject.setDaysWithoutRelease("13")

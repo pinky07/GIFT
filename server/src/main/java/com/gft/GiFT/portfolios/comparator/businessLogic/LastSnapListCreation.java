@@ -14,8 +14,9 @@ public class LastSnapListCreation {
         for(Project project : projects){
             CycleSnap last = project.getLastSnap();
             String name = project.getName();
+            int id = project.getId();
 
-            LastSnapDTO lastSnapDTO = LastSnapCreation.getLastSnap(name, last);
+            LastSnapDTO lastSnapDTO = LastSnapCreation.getLastSnap(id, name, last);
 
             snaps.add(lastSnapDTO);
         }
