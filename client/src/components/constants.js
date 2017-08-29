@@ -3,7 +3,7 @@ export const constants = {
     API: 'http://criprj:11010/api/v1',
   // API: 'http://gift-demo.herokuapp.com/api/v1'
 
-  Website: 'http://criprj:11010/#'
+  Website: 'http://localhost:11010/#'
 }
 
 export default constants;
