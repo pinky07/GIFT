@@ -1,6 +1,7 @@
 package com.gft.GiFT.portfolios.comparator.businessLogic.inputs.project
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.*
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.CycleSnap
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.Project
 import spock.lang.Specification
 
 class GetLastSnapTests extends Specification {

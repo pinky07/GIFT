@@ -2,7 +2,7 @@ const presenters = {
   getInitial(props) {
     return {
       portfolioId: props.params.id,
-      comparator: {
+      comparison: {
         portfolioName: undefined,
         lastSnaps: []
       },
@@ -13,19 +13,19 @@ const presenters = {
   getOnSuccessLoadingComparison(response) {
     if (response.data)
       return {
-        comparator: response.data,
+        comparison: response.data,
         errorMessage: ''
       };
     else
       return {
-        comparator: undefined,
+        comparison: undefined,
         errorMessage: 'No information was found'
       };
   },
 
   getInvalidPortfolioIdError() {
     return {
-      comparator: undefined,
+      comparison: undefined,
       errorMessage: "We are sorry, but your asked with an invalid portfolio id."
     };
   },
@@ -34,14 +34,14 @@ const presenters = {
     if (error.response) {
       // There was a validation error.
       return {
-        comparator: undefined,
+        comparison: undefined,
         errorMessage: 'Please check: ' + error.response.data.message + '.'
       };
     }
     else {
       // There was a critical error.
       return {
-        comparator: undefined,
+        comparison: undefined,
         errorMessage: 'Oops! We got a bit of an issue: ' + error.message + '.',
       };
     }

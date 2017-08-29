@@ -7,8 +7,8 @@ describe('View model when the given portfolio id is invalid', () => {
     viewModel = presenters.getInvalidPortfolioIdError();
   });
 
-  it('should show no comparator object', () => {
-    const actual = viewModel.comparator;
+  it('should show no comparison object', () => {
+    const actual = viewModel.comparison;
     const expected = undefined;
 
     expect(actual).toEqual(expected);

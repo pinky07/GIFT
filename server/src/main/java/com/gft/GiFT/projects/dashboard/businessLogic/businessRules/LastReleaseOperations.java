@@ -16,7 +16,7 @@ public class LastReleaseOperations {
                                                  List<ReleaseSnap> releases) throws ParseException {
         LastReleaseInfo lastRelease = new LastReleaseInfo();
         Date cycleEndDate = DateFormatter.convertDateStringToDate(cycleSnapEndDate);
-        TreeSet<ReleaseSnap> releaseDateComparison = new TreeSet<ReleaseSnap>(new LatestReleaseDateComparator());
+        TreeSet<ReleaseSnap> releaseDateComparison = new TreeSet<ReleaseSnap>(new LatestReleaseDateComparison());
 
 
         if(releases.isEmpty()) {

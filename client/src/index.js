@@ -11,7 +11,7 @@ import './css/main.scss';
 
 import ProjectList from './components/portfolios/projects/ProjectList';
 import Portfolios from './components/portfolios/Portfolios';
-import CompareController from './components/portfolios/comparator/CompareController';
+import ComparisonController from './components/portfolios/comparator/ComparisonController';
 import DashboardController from './components/projects/dashboard/DashboardController';
 
 const store = configStore();
@@ -24,7 +24,7 @@ render((
         <Route path={"portfolios"} component={Portfolios}></Route>
         <Route path={"projects/:id"} component={ProjectList}></Route>
         <Route path={"projects/:id/dashboard"} component={DashboardController}></Route>
-        <Route path={"portfolios/:id/comparator"} component={CompareController}></Route>
+        <Route path={"portfolios/:id/comparison"} component={ComparisonController}></Route>
         <Route path="*" component={NotFound} />
       </Route>
 

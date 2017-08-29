@@ -1,0 +1,27 @@
+package com.gft.GiFT.portfolios.comparison.integrationTests
+
+import com.gft.GiFT.AbstractIntegrationSpecification
+import com.gft.GiFT.portfolios.comparison.Expected
+import com.gft.GiFT.portfolios.compare.businessLogic.response.PortfolioCompareDTO
+import org.springframework.http.ResponseEntity
+import org.springframework.test.context.jdbc.Sql
+import org.springframework.test.context.jdbc.SqlGroup
+
+@SqlGroup([
+        @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/portfolios/comparison/before.sql"),
+        @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/portfolios/comparison/after.sql")
+])
+class GetComparisonIntegrationTests extends AbstractIntegrationSpecification {
+
+    def "Should get comparison by portfolio Id" () {
+        given:
+        ResponseEntity<Object> expected = Expected.getExpectedResponseEntity()
+
+        when:
+        ResponseEntity<Object> response = getForEntity("${baseUrl}/portfolios/12345/comparison", PortfolioCompareDTO.class)
+
+        then:
+        response.statusCode == expected.statusCode
+        response.body == expected.body
+    }
+}

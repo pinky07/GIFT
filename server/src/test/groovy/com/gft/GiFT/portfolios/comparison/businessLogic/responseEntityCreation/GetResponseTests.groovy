@@ -2,7 +2,7 @@ package com.gft.GiFT.portfolios.comparator.businessLogic.responseEntityCreation
 
 import com.gft.GiFT.portfolios.comparator.Expected
 import com.gft.GiFT.portfolios.comparator.businessLogic.Inputs
-import com.gft.GiFT.portfolios.comparator.businessLogic.ResponseEntityCreation
+import com.gft.GiFT.portfolios.compare.businessLogic.ResponseEntityCreation
 import org.springframework.http.ResponseEntity
 import spock.lang.Specification
 

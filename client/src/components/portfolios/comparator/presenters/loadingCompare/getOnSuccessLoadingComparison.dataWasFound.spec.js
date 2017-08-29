@@ -22,10 +22,10 @@ describe('View model when loading the Compare and data was found', () => {
     viewModel = presenters.getOnSuccessLoadingComparison(response);
   })
 
-  it('should return the data for the comparator', () => {
+  it('should return the data for the comparison', () => {
     const actual = viewModel;
     const expected = {
-      comparator: {
+      comparison: {
         portfolioName: 'Amazing projects',
         lastSnaps: [
           {

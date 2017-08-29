@@ -4,7 +4,7 @@ import Heading from 'grommet/components/Heading';
 import CompareTable from './CompareTable'
 
 const CompareWithProjects = ({ viewModel }) => {
-  const { portfolioName } = viewModel.comparator;
+  const { portfolioName } = viewModel.comparison;
 
   return (<Box>
       <Heading>Compare Project for Portfolio: {portfolioName}</Heading>

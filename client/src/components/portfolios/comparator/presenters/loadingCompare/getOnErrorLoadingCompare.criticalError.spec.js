@@ -9,7 +9,7 @@ describe('View model when loading the Compare and there was a critical error', (
   });
 
   it('should return no data', () => {
-    const actual = viewModel.comparator;
+    const actual = viewModel.comparison;
     const expected = undefined;
 
     expect(actual).toEqual(expected);

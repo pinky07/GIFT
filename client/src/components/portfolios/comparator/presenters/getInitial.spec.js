@@ -18,8 +18,8 @@ describe('presenters.getInitial', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should contain an empty comparator', () => {
-    const actual = viewModel.comparator;
+  it('should contain an empty comparison', () => {
+    const actual = viewModel.comparison;
     const expected = {
       portfolioName: undefined,
       lastSnaps: []

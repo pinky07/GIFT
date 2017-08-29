@@ -5,7 +5,7 @@ import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class LatestReleaseDateComparator implements Comparator <ReleaseSnap> {
+public class LatestReleaseDateComparison implements Comparator <ReleaseSnap> {
     @Override
     public int compare(ReleaseSnap e1, ReleaseSnap e2) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");

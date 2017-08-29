@@ -1,6 +1,6 @@
-package com.gft.GiFT.portfolios.comparator.dataAccess;
+package com.gft.GiFT.portfolios.compare.dataAccess;
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.Portfolio;
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.Portfolio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -13,7 +13,7 @@ describe('View model when loading the Compare and data was not found', () => {
   it('No Success Loading when response data is empty', () => {
     const actual = viewModel;
     const expected = {
-      comparator: undefined,
+      comparison: undefined,
       errorMessage: 'No information was found'
     };
 

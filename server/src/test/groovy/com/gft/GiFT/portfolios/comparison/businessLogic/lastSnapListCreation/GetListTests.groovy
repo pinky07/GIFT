@@ -2,8 +2,8 @@ package com.gft.GiFT.portfolios.comparator.businessLogic.lastSnapListCreation
 
 import com.gft.GiFT.portfolios.comparator.Expected
 import com.gft.GiFT.portfolios.comparator.businessLogic.Inputs
-import com.gft.GiFT.portfolios.comparator.businessLogic.LastSnapListCreation
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.LastSnapDTO
+import com.gft.GiFT.portfolios.compare.businessLogic.LastSnapListCreation
+import com.gft.GiFT.portfolios.compare.businessLogic.response.LastSnapDTO
 import spock.lang.Specification
 
 class GetListTests extends Specification {

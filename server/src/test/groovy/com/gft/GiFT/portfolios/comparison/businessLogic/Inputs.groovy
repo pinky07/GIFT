@@ -1,11 +1,14 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic;
+package com.gft.GiFT.portfolios.comparator.businessLogic
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.*
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.CompareInputs
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.CycleSnap
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.Portfolio
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.Project
 
 class Inputs {
 
-    static ComparatorInputs getComparatorInputs(){
-        ComparatorInputs inputs = new ComparatorInputs()
+    static CompareInputs getComparatorInputs(){
+        CompareInputs inputs = new CompareInputs()
 
         inputs.setPortfolioId(12345)
 

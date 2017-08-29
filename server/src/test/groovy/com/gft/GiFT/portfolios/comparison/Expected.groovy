@@ -1,27 +1,27 @@
-package com.gft.GiFT.portfolios.comparator
+package com.gft.GiFT.portfolios.comparison
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.LastSnapDTO
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.PortfolioComparatorDTO
+import com.gft.GiFT.portfolios.compare.businessLogic.response.LastSnapDTO
+import com.gft.GiFT.portfolios.compare.businessLogic.response.PortfolioCompareDTO
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
 class Expected {
     static ResponseEntity<Object> getExpectedResponseEntity() {
         ResponseEntity<Object> expected
-        PortfolioComparatorDTO comparator = getExpectedPortfolioComparator()
+        PortfolioCompareDTO comparison = getExpectedPortfolioComparison()
 
-        expected = new ResponseEntity<>(comparator, HttpStatus.OK)
+        expected = new ResponseEntity<>(comparison, HttpStatus.OK)
         return expected
     }
 
-    static  PortfolioComparatorDTO getExpectedPortfolioComparator() {
+    static  PortfolioCompareDTO getExpectedPortfolioComparison() {
         LinkedList<LastSnapDTO> snaps = getExpectedLastSnapList()
 
-        PortfolioComparatorDTO comparator = new PortfolioComparatorDTO()
-        comparator.setPortfolioName("Amazing projects")
-        comparator.setLastSnaps(snaps)
+        PortfolioCompareDTO comparison = new PortfolioCompareDTO()
+        comparison.setPortfolioName("Amazing projects")
+        comparison.setLastSnaps(snaps)
 
-        return comparator
+        return comparison
     }
 
     static  List<LastSnapDTO> getExpectedLastSnapList() {

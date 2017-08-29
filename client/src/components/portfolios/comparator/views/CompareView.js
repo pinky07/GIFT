@@ -11,9 +11,9 @@ const CompareView = ({viewModel}) => {
   if (errorMessage)
     return (<CompareWithCriticalError errorMessage={errorMessage}/>);
   else {
-    const {portfolioName} = viewModel.comparator;
+    const {portfolioName} = viewModel.comparison;
     if (portfolioName) {
-      const {lastSnaps} = viewModel.comparator;
+      const {lastSnaps} = viewModel.comparison;
       if (lastSnaps.length > 0) {
         return (<CompareWithProjects viewModel={viewModel}/>);
       }

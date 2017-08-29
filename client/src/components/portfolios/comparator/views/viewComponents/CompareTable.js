@@ -5,7 +5,7 @@ import TableHeader from 'grommet/components/TableHeader';
 import CompareRow from './CompareRow';
 
 const CompareTable = ({viewModel}) => {
-  const { lastSnaps } = viewModel.comparator;
+  const { lastSnaps } = viewModel.comparison;
 
   const formattedComparison = lastSnaps.map (
     (lastSnap, index) => <CompareRow key={index} lastSnap={lastSnap} index={index}/>
