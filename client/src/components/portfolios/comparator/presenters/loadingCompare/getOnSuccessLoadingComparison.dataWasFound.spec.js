@@ -1,4 +1,4 @@
-import presenters from './presenters';
+import presenters from '../presenters';
 
 describe('View model when loading the Compare and data was found', () => {
 

@@ -1,4 +1,4 @@
-import presenters from './presenters';
+import presenters from '../presenters';
 
 describe('View model when the given portfolio id is invalid', () => {
 

@@ -1,12 +1,12 @@
-import presenters from './presenters';
+import presenters from '../presenters';
 
-describe('View model when loading the compare and there was a validation error', () => {
+describe('View model when loading the Compare and there was a critical error', () => {
 
-  let viewModel
+  let viewModel;
   beforeEach(() => {
-    let error = { response: { data: { message: 'A validation error' } } };
+    let error = { message: 'A critical error' };
     viewModel = presenters.getOnErrorLoadingCompare(error);
-  })
+  });
 
   it('should return no data', () => {
     const actual = viewModel.comparator;
@@ -17,7 +17,7 @@ describe('View model when loading the compare and there was a validation error',
 
   it('should show the validation error message', () => {
     const actual = viewModel.errorMessage;
-    const expected = 'Please check: A validation error.';
+    const expected = 'Oops! We got a bit of an issue: A critical error.';
 
     expect(actual).toEqual(expected);
   });
