@@ -11,7 +11,7 @@ const CompareTable = ({viewModel}) => {
     (lastSnap, index) => <CompareRow key={index} lastSnap={lastSnap} index={index}/>
   );
 
-  const labels = ['Project', 'TAC', 'Days without release', 'Incidents', 'Waste', 'Mood'];
+  const labels = ['Project', 'TAC', 'Days Without Release', 'Incidents', 'Waste', 'Mood'];
 
   return (<Table>
       <TableHeader labels={labels}/>

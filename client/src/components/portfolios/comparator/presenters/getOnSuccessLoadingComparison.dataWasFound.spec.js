@@ -1,6 +1,6 @@
 import presenters from './presenters';
 
-describe('presenters.getOnSuccessLoadingComparison', () => {
+describe('View model when loading the Compare and data was found', () => {
 
   let viewModel
   beforeEach(() => {
@@ -17,13 +17,12 @@ describe('presenters.getOnSuccessLoadingComparison', () => {
             mood: 'No data'
           }
         ]
-      },
-      errorMessage: ''
+      }
     };
     viewModel = presenters.getOnSuccessLoadingComparison(response);
   })
 
-  it('should contain all the fields for the comparator', () => {
+  it('should return the data for the comparator', () => {
     const actual = viewModel;
     const expected = {
       comparator: {
@@ -43,5 +42,5 @@ describe('presenters.getOnSuccessLoadingComparison', () => {
     };
 
     expect(actual).toEqual(expected);
-  });
+  }) ;
 });
