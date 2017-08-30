@@ -29,7 +29,8 @@
     "jestUpdateSnapshots": "jest --updateSnapshot",
     "e2e": "testcafe chrome src/components/**/*.e2e.js --speed 1",
     "e2ed": "testcafe chrome src/components/**/*.e2e.js --speed 1 -d",
-    "e2eh": "testcafe chrome:headless src/components/**/*.e2e.js --speed 1 -r xunit -S -s build/screenshots > e2e-results.xml",
+    "e2eh": "testcafe chrome:headless src/components/**/*.e2e.js --speed 1 -S -s build/screenshots",
+    "e2ehx": "testcafe chrome:headless src/components/**/*.e2e.js --speed 1 -r xunit -S -s build/screenshots > e2e-results.xml",
     "e2es": "testcafe chrome src/components/**/*.e2e.js --speed 0.5",
     "e2ei": "testcafe chrome:emulation:device=iphone 6 src/components/**/*.e2e.js --speed 0.5"
   },
