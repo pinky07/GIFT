@@ -21,7 +21,7 @@ export const constants = {
   },
 
   // Where will e2e tests run?
-   Website: 'http://localhost:4090/#' // inside the ci server
+   Website: 'http://172.17.0.9:8080/#' // inside the ci server
   // Website: 'http://criprj:11010/#' // from my PC using the testing site
   // Website: 'http://localhost:4090/#' // from my PC using my dev website
 }
