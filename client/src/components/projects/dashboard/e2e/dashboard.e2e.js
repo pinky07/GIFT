@@ -6,8 +6,8 @@ fixture`Using the project dashboard`
 
 
 test('The project dashboard is available. It also means the API is available.', async t => {
-  const page = new Page();
+  let page = new Page();
 
   await t
-    .expect(page.addCycleSnapButtonExists).ok();
+    .click(page.showFormButton);
 });
