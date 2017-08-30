@@ -5,8 +5,8 @@ export const constants = {
     let api = undefined;
 
     switch (host + ":" + port) {
-      case "localhost:8080":
-        api = "http://localhost:8080/api/v1"; // testing container
+      case "172.17.0.9:8080":
+        api = "http://172.17.0.9:8080/api/v1"; // testing container
         break;
       case "localhost:4090":
         api = "http://localhost:8080/api/v1"; // local dev
@@ -21,7 +21,7 @@ export const constants = {
   },
 
   // Where will e2e tests run?
-   Website: 'http://localhost:11010/#' // inside the ci server
+   Website: 'http://localhost:4090/#' // inside the ci server
   // Website: 'http://criprj:11010/#' // from my PC using the testing site
   // Website: 'http://localhost:4090/#' // from my PC using my dev website
 }
