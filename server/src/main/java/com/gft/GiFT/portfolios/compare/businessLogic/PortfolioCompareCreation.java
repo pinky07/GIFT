@@ -1,19 +1,19 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic;
+package com.gft.GiFT.portfolios.compare.businessLogic;
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.*;
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.*;
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.*;
+import com.gft.GiFT.portfolios.compare.businessLogic.response.*;
 
 import java.util.List;
 import java.util.Set;
 
-public class PortfolioComparatorCreation {
-    public static PortfolioComparatorDTO getComparator(ComparatorInputs inputs) {
+public class PortfolioCompareCreation {
+    public static PortfolioCompareDTO getComparison(CompareInputs inputs) {
         Portfolio portfolio = inputs.getPortFolio();
 
         Set<Project> projects = portfolio.getProjects();
         List<LastSnapDTO> snaps = LastSnapListCreation.getList(projects);
 
-        PortfolioComparatorDTO comparator = new PortfolioComparatorDTO();
+        PortfolioCompareDTO comparator = new PortfolioCompareDTO();
         String name = portfolio.getPortfolioName();
         comparator.setPortfolioName(name);
         comparator.setLastSnaps(snaps);

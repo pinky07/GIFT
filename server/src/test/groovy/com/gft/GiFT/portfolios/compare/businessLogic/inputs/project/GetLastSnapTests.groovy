@@ -1,4 +1,4 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic.inputs.project
+package com.gft.GiFT.portfolios.compare.businessLogic.inputs.project
 
 import com.gft.GiFT.portfolios.compare.businessLogic.inputs.CycleSnap
 import com.gft.GiFT.portfolios.compare.businessLogic.inputs.Project

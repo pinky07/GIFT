@@ -7,7 +7,7 @@ describe('View model when the given portfolio id is invalid', () => {
     viewModel = presenters.getInvalidPortfolioIdError();
   });
 
-  it('should show no comparison object', () => {
+  it('should show no compare object', () => {
     const actual = viewModel.comparison;
     const expected = undefined;
 

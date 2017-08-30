@@ -1,16 +1,16 @@
-package com.gft.GiFT.portfolios.comparison.businessLogic.portfolioComparisonCreation
+package com.gft.GiFT.portfolios.compare.businessLogic.portfolioComparisonCreation
 
-import com.gft.GiFT.portfolios.comparison.Expected
-import com.gft.GiFT.portfolios.comparison.businessLogic.Inputs
+import com.gft.GiFT.portfolios.compare.Expected
+import com.gft.GiFT.portfolios.compare.businessLogic.Inputs
 import com.gft.GiFT.portfolios.compare.businessLogic.PortfolioCompareCreation
 import com.gft.GiFT.portfolios.compare.businessLogic.response.PortfolioCompareDTO
 import spock.lang.Specification
 
-class GetComparatorTests extends Specification {
+class GetComparisonTests extends Specification {
 
     def "Should get a comparator given a portfolio" () {
         given:
-        PortfolioCompareDTO expected = Expected.getExpectedPortfolioComparator()
+        PortfolioCompareDTO expected = Expected.getExpectedPortfolioComparison()
         def inputs = Inputs.comparisonInputs
 
         when:

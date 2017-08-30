@@ -4,9 +4,10 @@ import constants from '../../../constants'
 fixture`Using the Add cycle snap form through the project dashboard`
   .page`${constants.Website}/projects/1/dashboard`;
 
-const page = new Page();
 
 test('The Add Cycle Snap form is shown', async t => {
+  const page = new Page();
+
   await t
     .click(page.showFormButton);
 
@@ -16,6 +17,8 @@ test('The Add Cycle Snap form is shown', async t => {
 });
 
 test('Every field accepts valid values. Mood and waste are not available.', async t => {
+  const page = new Page();
+
   await t
     .click(page.showFormButton);
   await t
@@ -47,6 +50,8 @@ test('Every field accepts valid values. Mood and waste are not available.', asyn
 });
 
 test('Each button works as intended (cancel, close, submit)', async t => {
+  const page = new Page();
+
   await t
     .click(page.showFormButton)
     .click(page.cancelButton)
@@ -63,6 +68,8 @@ test('Each button works as intended (cancel, close, submit)', async t => {
 });
 
 test('Every field accepts valid values. Mood and waste info are available', async t => {
+  const page = new Page();
+
   await t
     .click(page.showFormButton);
   await t

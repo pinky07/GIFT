@@ -1,7 +1,7 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic.responseEntityCreation
+package com.gft.GiFT.portfolios.compare.businessLogic.responseEntityCreation
 
-import com.gft.GiFT.portfolios.comparator.Expected
-import com.gft.GiFT.portfolios.comparator.businessLogic.Inputs
+import com.gft.GiFT.portfolios.compare.Expected
+import com.gft.GiFT.portfolios.compare.businessLogic.Inputs
 import com.gft.GiFT.portfolios.compare.businessLogic.ResponseEntityCreation
 import org.springframework.http.ResponseEntity
 import spock.lang.Specification
@@ -12,7 +12,7 @@ class GetResponseTests extends Specification {
         given:
         ResponseEntity<Object> expected = Expected.getExpectedResponseEntity()
 
-        def inputs = Inputs.comparatorInputs
+        def inputs = Inputs.comparisonInputs
         when:
 
         ResponseEntity<Object> actual = ResponseEntityCreation.getResponse(inputs)

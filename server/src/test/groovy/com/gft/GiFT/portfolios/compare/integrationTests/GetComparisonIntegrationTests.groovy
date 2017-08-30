@@ -1,15 +1,15 @@
-package com.gft.GiFT.portfolios.comparison.integrationTests
+package com.gft.GiFT.portfolios.compare.integrationTests
 
 import com.gft.GiFT.AbstractIntegrationSpecification
-import com.gft.GiFT.portfolios.comparison.Expected
+import com.gft.GiFT.portfolios.compare.Expected
 import com.gft.GiFT.portfolios.compare.businessLogic.response.PortfolioCompareDTO
 import org.springframework.http.ResponseEntity
 import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.context.jdbc.SqlGroup
 
 @SqlGroup([
-        @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/portfolios/comparison/before.sql"),
-        @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/portfolios/comparison/after.sql")
+        @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:/test-sql/portfolios/compare/before.sql"),
+        @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:/test-sql/portfolios/compare/after.sql")
 ])
 class GetComparisonIntegrationTests extends AbstractIntegrationSpecification {
 

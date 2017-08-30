@@ -1,10 +1,8 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic.lastSnapCreation
+package com.gft.GiFT.portfolios.compare.businessLogic.lastSnapCreation
 
-import com.gft.GiFT.portfolios.comparator.Expected
-import com.gft.GiFT.portfolios.comparator.businessLogic.*
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.*
-import com.gft.GiFT.portfolios.compare.businessLogic.LastSnapCreation
-import com.gft.GiFT.portfolios.compare.businessLogic.response.LastSnapDTO
+import com.gft.GiFT.portfolios.compare.Expected
+import com.gft.GiFT.portfolios.compare.businessLogic.response.*
+import com.gft.GiFT.portfolios.compare.businessLogic.*
 import spock.lang.Specification
 
 class GetLastSnapTests extends Specification {

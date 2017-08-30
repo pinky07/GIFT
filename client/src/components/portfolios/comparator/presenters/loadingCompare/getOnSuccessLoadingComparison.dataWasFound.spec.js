@@ -22,7 +22,7 @@ describe('View model when loading the Compare and data was found', () => {
     viewModel = presenters.getOnSuccessLoadingComparison(response);
   })
 
-  it('should return the data for the comparison', () => {
+  it('should return the data for the compare', () => {
     const actual = viewModel;
     const expected = {
       comparison: {

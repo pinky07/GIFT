@@ -1,4 +1,4 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic
+package com.gft.GiFT.portfolios.compare.businessLogic
 
 import com.gft.GiFT.portfolios.compare.businessLogic.inputs.CompareInputs
 import com.gft.GiFT.portfolios.compare.businessLogic.inputs.CycleSnap
@@ -7,7 +7,7 @@ import com.gft.GiFT.portfolios.compare.businessLogic.inputs.Project
 
 class Inputs {
 
-    static CompareInputs getComparatorInputs(){
+    static CompareInputs getComparisonInputs(){
         CompareInputs inputs = new CompareInputs()
 
         inputs.setPortfolioId(12345)

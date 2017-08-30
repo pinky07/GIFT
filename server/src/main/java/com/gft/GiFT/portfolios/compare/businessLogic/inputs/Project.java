@@ -1,4 +1,4 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic.inputs;
+package com.gft.GiFT.portfolios.compare.businessLogic.inputs;
 
 import lombok.Data;
 import javax.persistence.*;

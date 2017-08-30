@@ -18,7 +18,7 @@ describe('presenters.getInitial', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should contain an empty comparison', () => {
+  it('should contain an empty compare', () => {
     const actual = viewModel.comparison;
     const expected = {
       portfolioName: undefined,

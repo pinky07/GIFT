@@ -1,4 +1,4 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic.response;
+package com.gft.GiFT.portfolios.compare.businessLogic.response;
 
 import lombok.Data;
 

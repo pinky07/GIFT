@@ -1,8 +1,8 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic;
+package com.gft.GiFT.portfolios.compare.businessLogic;
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.LastSnapDTO;
-import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.CycleSnap;
-import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.TacCalculation;
+import com.gft.GiFT.portfolios.compare.businessLogic.response.*;
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.*;
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.*;
 
 public class LastSnapCreation {
     public static LastSnapDTO getLastSnap(int projectId, String projectName, CycleSnap snap) {

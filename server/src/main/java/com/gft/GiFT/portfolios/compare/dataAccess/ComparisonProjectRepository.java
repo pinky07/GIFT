@@ -8,5 +8,5 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface  ComparatorProjectRepository extends JpaRepository<Portfolio, Integer> {
+public interface  ComparisonProjectRepository extends JpaRepository<Portfolio, Integer> {
 }

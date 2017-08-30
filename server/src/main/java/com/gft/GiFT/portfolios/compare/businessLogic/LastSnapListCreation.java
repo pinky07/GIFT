@@ -1,7 +1,7 @@
-package com.gft.GiFT.portfolios.comparator.businessLogic;
+package com.gft.GiFT.portfolios.compare.businessLogic;
 
-import com.gft.GiFT.portfolios.comparator.businessLogic.inputs.*;
-import com.gft.GiFT.portfolios.comparator.businessLogic.response.LastSnapDTO;
+import com.gft.GiFT.portfolios.compare.businessLogic.inputs.*;
+import com.gft.GiFT.portfolios.compare.businessLogic.response.LastSnapDTO;
 
 import java.util.LinkedList;
 import java.util.List;

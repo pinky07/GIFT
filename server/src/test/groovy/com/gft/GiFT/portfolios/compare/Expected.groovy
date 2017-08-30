@@ -1,4 +1,4 @@
-package com.gft.GiFT.portfolios.comparison
+package com.gft.GiFT.portfolios.compare
 
 import com.gft.GiFT.portfolios.compare.businessLogic.response.LastSnapDTO
 import com.gft.GiFT.portfolios.compare.businessLogic.response.PortfolioCompareDTO
