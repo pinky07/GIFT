@@ -15,7 +15,7 @@ import java.util.List;
 public class CycleSnapDTOCreation {
     public static CycleSnapDTO get(Date firstCycleSnapStartDate,
                                    CycleSnap cycleSnap,
-                                   List<IncidentsReport> reports,
+                                   List<IncidentReportBO> reports,
                                    List<ReleaseSnap> releaseSnaps) throws ParseException {
         CycleSnapDTO cycleSnapDTO = new CycleSnapDTO();
 
@@ -65,7 +65,7 @@ public class CycleSnapDTOCreation {
         cycleSnapDTO.setLastReleaseDate(lastReleaseDate);
     }
 
-    private static void setIncidentsInfo(CycleSnap cycleSnap, List<IncidentsReport> reports, CycleSnapDTO cycleSnapDTO, List<String> releaseDates) throws ParseException {
+    private static void setIncidentsInfo(CycleSnap cycleSnap, List<IncidentReportBO> reports, CycleSnapDTO cycleSnapDTO, List<String> releaseDates) throws ParseException {
         String relatedIncidents = RelatedIncidentsCalculation.determineRelatedIncidents(reports, cycleSnap.getEndDate(), releaseDates);
         cycleSnapDTO.setRelatedIncidents(relatedIncidents);
     }

@@ -3,8 +3,8 @@ package com.gft.GiFT.portfolios.compare.businessLogic.inputs;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,7 +20,7 @@ public class Portfolio {
     private String portfolioName;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "portfolioId")
-    private Set<Project> projects = new LinkedHashSet<>();
+    private List<Project> projects = new LinkedList<>();
 
 }
 

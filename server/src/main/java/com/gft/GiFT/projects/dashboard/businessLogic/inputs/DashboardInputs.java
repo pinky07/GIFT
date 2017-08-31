@@ -9,7 +9,7 @@ public class DashboardInputs {
     private int projectId;
     private Date currentDate;
 
-    public boolean projectIsNull() {
+    public boolean projectDoesNotExist() {
         return project == null;
     }
 }

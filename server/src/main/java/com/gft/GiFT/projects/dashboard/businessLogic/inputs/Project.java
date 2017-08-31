@@ -1,5 +1,6 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.inputs;
 
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.IncidentReportBO;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -34,4 +35,23 @@ public class Project {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
     private List<IncidentsReport> incidentsReports = new LinkedList<>();
 
+    public List<String> getCyclesStartDates() {
+        Set<CycleSnap> cycles = getCycleSnapSet();
+        List<String> datesAsString = new LinkedList<>();
+        for (CycleSnap cycle : cycles) {
+            String dateAsString = cycle.getStartDate();
+            datesAsString.add(dateAsString);
+        }
+
+        return datesAsString;
+    }
+
+    public List<IncidentReportBO> getIncidentsAsBusinessObjects() {
+        List<IncidentReportBO> incidents = new LinkedList<>();
+        for (IncidentsReport report : incidentsReports) {
+            incidents.add(report.getAsBusinessObject());
+        }
+
+        return incidents;
+    }
 }

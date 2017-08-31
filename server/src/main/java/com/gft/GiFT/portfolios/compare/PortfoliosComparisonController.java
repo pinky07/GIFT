@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
+import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/api/v1/portfolios")
@@ -28,14 +29,21 @@ public class PortfoliosComparisonController {
         Logger logger = LoggerFactory.getLogger(this.getClass());
         logger.info("getPortfolioComparison received: " + portfolioId);
 
-        CompareInputs inputs = new CompareInputs();
-        Portfolio portfolio = repository.findOne(portfolioId);
-        inputs.setPortFolio(portfolio);
-        inputs.setPortfolioId(portfolioId);
+        CompareInputs inputs = getCompareInputs(portfolioId);
         ResponseEntity<Object> response = ResponseEntityCreation.getResponse(inputs);
 
         logger.info("getPortfolioComparison returned {}", response);
 
         return response;
+    }
+
+    private CompareInputs getCompareInputs(@PathVariable("portfolioId") int portfolioId) {
+        CompareInputs inputs = new CompareInputs();
+        Portfolio portfolio = repository.findOne(portfolioId);
+        inputs.setPortFolio(portfolio);
+        inputs.setPortfolioId(portfolioId);
+        Date currentDate = new Date();
+        inputs.setCurrentDate(currentDate);
+        return inputs;
     }
 }

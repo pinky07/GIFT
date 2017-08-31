@@ -1,37 +1,27 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules;
 
 import com.gft.GiFT.common.businessLogic.DateFormatter;
-import com.gft.GiFT.projects.dashboard.businessLogic.inputs.IncidentsReport;
 
 import java.text.ParseException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeSet;
 
 public class RelatedIncidentsCalculation {
 
-    public static String determineRelatedIncidents(List<IncidentsReport> incidentReports,
+    public static String determineRelatedIncidents(List<IncidentReportBO> incidentReports,
                                                    String cycleSnapEndDateAsText,
                                                    List<String> releaseDates) throws ParseException {
-//        1. Get the release date that is more recent in the past
-
         Date cycleSnapDate = DateFormatter.convertDateStringToDate(cycleSnapEndDateAsText);
-        TreeSet<Date> treeAdd = new TreeSet<>();
-
-        for (String releaseDate : releaseDates) {
-            Date newReleaseDate = DateFormatter.convertDateStringToDate(releaseDate);
-            treeAdd.add(newReleaseDate);
-        }
-        Date releaseToCompare = treeAdd.floor(cycleSnapDate);
+        Date releaseToCompare = DaysSinceLastReleaseCalculation.getLastReleaseDate(releaseDates, cycleSnapDate);
 
         if (releaseToCompare == null)
             return "No releases yet";
         else {
 
-            List<IncidentsReport> foundReports = new LinkedList();
+            List<IncidentReportBO> foundReports = new LinkedList();
 //              2. Get the incident reports between release date and cycleSnap End date
-            for (IncidentsReport report: incidentReports) {
+            for (IncidentReportBO report : incidentReports) {
                 String dateAsText = report.getIncidentsDate();
                 Date reportDate = DateFormatter.convertDateStringToDate(dateAsText);
 
@@ -41,15 +31,13 @@ public class RelatedIncidentsCalculation {
 
             if (foundReports.isEmpty())
                 return "No reports available";
-            else
-            {
+            else {
                 int total = 0;
-                for (IncidentsReport report: foundReports) {
-                    total+=report.getTotalIncidents();
+                for (IncidentReportBO report : foundReports) {
+                    total += report.getTotalIncidents();
                 }
-//
                 return String.valueOf(total);
-        }
+            }
         }
     }
 }

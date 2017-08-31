@@ -13,6 +13,26 @@ import org.springframework.test.context.jdbc.SqlGroup
 ])
 class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecification {
 
+    def "Should get dashboard by project Id" () {
+        given:
+        Set<CycleSnapDTO> newCycleSnapDTOSet = new HashSet<CycleSnapDTO>()
+        newCycleSnapDTOSet.add(cycleSnapDTO3)
+        newCycleSnapDTOSet.add(cycleSnapDTO2)
+
+        def expectedProject = new ProjectDTO (
+                name: 'Exceptional Project',
+                cycleSnaps: newCycleSnapDTOSet,
+        )
+
+        when:
+        def response = getForEntity("${baseUrl}/projects/12345/dashboard", ProjectDTO.class)
+
+        then:
+        response.statusCode == HttpStatus.OK
+        def project = response.body
+        expectedProject == project
+    }
+
     def cycleSnapDTO2 = new CycleSnapDTO(
             cycleSnapName: "Sprint #3",
             startDate: '2017-02-18',
@@ -46,24 +66,4 @@ class FindDashboardByProjectIdIntegrationTests extends AbstractIntegrationSpecif
             wastePercentage: 'No data',
             mood: 'No data'
     )
-
-    def "Should get dashboard by project Id" () {
-        given:
-        Set<CycleSnapDTO> newCycleSnapDTOSet = new HashSet<CycleSnapDTO>()
-        newCycleSnapDTOSet.add(cycleSnapDTO3)
-        newCycleSnapDTOSet.add(cycleSnapDTO2)
-
-        def expectedProject = new ProjectDTO (
-                name: 'Exceptional Project',
-                cycleSnaps: newCycleSnapDTOSet,
-        )
-
-        when:
-        def response = getForEntity("${baseUrl}/projects/12345/dashboard", ProjectDTO.class)
-
-        then:
-        response.statusCode == HttpStatus.OK
-        def project = response.body
-        expectedProject == project
-    }
 }
