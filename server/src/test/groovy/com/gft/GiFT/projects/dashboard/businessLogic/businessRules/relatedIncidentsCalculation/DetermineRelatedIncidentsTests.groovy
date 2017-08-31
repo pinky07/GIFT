@@ -1,36 +1,27 @@
 package com.gft.GiFT.projects.dashboard.businessLogic.businessRules.relatedIncidentsCalculation
 
-import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.RelatedIncidentsCalculation
-import com.gft.GiFT.projects.dashboard.businessLogic.inputs.IncidentsReport
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.*
 import spock.lang.Specification
 
 class DetermineRelatedIncidentsTests extends Specification {
 
-    def incidentReports
-    def releaseDates
-    def cycleEndDate
+    List<IncidentReportBO> incidentReports
+    List<String> releaseDates
+    String cycleEndDate
 
     def setup(){
         incidentReports = new LinkedList()
-        addReport("2017-02-07", 2)
-        addReport("2017-02-09", 3)
-        addReport("2017-02-21", 1)
-        addReport("2017-03-02", 4)
-        addReport("2017-03-02", 1)
-        addReport("2017-03-14", 1)
-        addReport("2017-03-16", 1)
+        incidentReports.add(new IncidentReportBO("2017-02-07", 2))
+        incidentReports.add(new IncidentReportBO("2017-02-09", 3))
+        incidentReports.add(new IncidentReportBO("2017-02-21", 1))
+        incidentReports.add(new IncidentReportBO("2017-03-02", 4))
+        incidentReports.add(new IncidentReportBO("2017-03-02", 1))
+        incidentReports.add(new IncidentReportBO("2017-03-14", 1))
+        incidentReports.add(new IncidentReportBO("2017-03-16", 1))
 
         releaseDates = new LinkedList()
         releaseDates.add("2017-02-07")
         releaseDates.add("2017-03-02")
-    }
-
-    def addReport(incidentsDate, totalIncidents) {
-        def report = new IncidentsReport(
-                incidentsDate: incidentsDate,
-                totalIncidents: totalIncidents
-        )
-        incidentReports.add(report)
     }
 
     def "There are no releases yet before the current cycle end date"() {

@@ -1,5 +1,6 @@
 package com.gft.GiFT.portfolios.compare.businessLogic.inputs;
 
+import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.IncidentReportBO;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.*;
@@ -22,13 +23,13 @@ public class Project {
 
     @OrderBy("endDate DESC")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
-    private Set<CycleSnap> cycleSnapSet = new LinkedHashSet<>();
+    private List<CycleSnap> cycleSnapSet = new LinkedList<>();
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
-//    private List<ReleaseSnap> releaseSnaps = new LinkedList<>();
-//
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
-//    private List<IncidentsReport> incidentsReports = new LinkedList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
+    private List<ReleaseSnap> releaseSnaps = new LinkedList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projectId")
+    private List<IncidentsReport> incidentsReports = new LinkedList<>();
 
     public CycleSnap getLastSnap(){
         Comparator<CycleSnap> dateComparator = new Comparator<CycleSnap>() {
@@ -43,5 +44,36 @@ public class Project {
             return (CycleSnap) latest.get();
         else
             return null;
+    }
+
+    public List<String> getCyclesStartDates() {
+        List<CycleSnap> cycles = getCycleSnapSet();
+        List<String> datesAsString = new LinkedList<>();
+        for (CycleSnap cycle : cycles) {
+            String dateAsString = cycle.getStartDate();
+            datesAsString.add(dateAsString);
+        }
+
+        return datesAsString;
+    }
+
+    public List<String> getReleasesDates() {
+        List<ReleaseSnap> releaseSnaps = getReleaseSnaps();
+        List<String> datesAsString = new LinkedList<>();
+        for (ReleaseSnap snap : releaseSnaps) {
+            String dateAsString = snap.getReleaseDate();
+            datesAsString.add(dateAsString);
+        }
+
+        return datesAsString;
+    }
+
+    public List<IncidentReportBO> getIncidentsAsBusinessObjects() {
+        List<IncidentReportBO> incidents = new LinkedList<>();
+        for (IncidentsReport report : incidentsReports) {
+            incidents.add(report.getAsBusinessObject());
+        }
+
+        return incidents;
     }
 }

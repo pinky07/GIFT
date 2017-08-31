@@ -141,9 +141,6 @@ VALUES ('2017-03-02','Second Update', 7);
 INSERT INTO t_release_snap(release_date,name, project_id )
 VALUES ('2017-04-02','Third Update', 7);
 
-INSERT INTO t_release_snap(release_date,name, project_id )
-VALUES ('2017-04-02','Third Update', 7);
-
 --Test Data for t_incidents_report
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
 VALUES ('2017-06-13', 1, 6);

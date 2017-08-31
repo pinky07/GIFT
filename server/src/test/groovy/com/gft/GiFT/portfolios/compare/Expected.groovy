@@ -40,10 +40,10 @@ class Expected {
         appraisalTool.setProjectId(12346)
         appraisalTool.setProjectName("Appraisal tool")
         appraisalTool.setTac("No data")
-//        appraisalTool.setDaysWithoutRelease("No data")
-//        appraisalTool.setRelatedIncidents("No data")
-//        appraisalTool.setWaste("No data")
-//        appraisalTool.setMood("No data")
+        appraisalTool.setDaysWithoutRelease("No data")
+        appraisalTool.setRelatedIncidents("No data")
+        appraisalTool.setWaste("No data")
+        appraisalTool.setMood("No data")
         appraisalTool
     }
 
@@ -52,10 +52,10 @@ class Expected {
         exceptionalProject.setProjectId(12345)
         exceptionalProject.setProjectName("Exceptional project")
         exceptionalProject.setTac("100%")
-//        exceptionalProject.setDaysWithoutRelease("13")
-//        exceptionalProject.setRelatedIncidents("6")
-//        exceptionalProject.setWaste("No data")
-//        exceptionalProject.setMood("No data")
+        exceptionalProject.setDaysWithoutRelease("13")
+        exceptionalProject.setRelatedIncidents("6")
+        exceptionalProject.setWaste("No data")
+        exceptionalProject.setMood("No data")
         exceptionalProject
     }
 }

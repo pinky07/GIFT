@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.dashboard.businessLogic.inputs;
+package com.gft.GiFT.portfolios.compare.businessLogic.inputs;
 
 import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.IncidentReportBO;
 import lombok.Data;
@@ -21,6 +21,13 @@ public class IncidentsReport {
     private int totalIncidents;
 
     private int projectId;
+
+    public IncidentsReport(){}
+
+    public IncidentsReport (String incidentsDate, int totalIncidents){
+        this.incidentsDate = incidentsDate;
+        this.totalIncidents = totalIncidents;
+    }
 
     IncidentReportBO getAsBusinessObject(){
         return new IncidentReportBO(incidentsDate, totalIncidents);

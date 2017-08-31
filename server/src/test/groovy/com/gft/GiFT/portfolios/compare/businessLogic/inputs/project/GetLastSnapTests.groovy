@@ -11,7 +11,7 @@ class GetLastSnapTests extends Specification {
     CycleSnap actual
 
     def setup() {
-        Set<CycleSnap> cycleSnaps = createExistingCycles()
+        List<CycleSnap> cycleSnaps = createExistingCycles()
         project = new Project()
         project.cycleSnapSet = cycleSnaps
     }
@@ -25,7 +25,7 @@ class GetLastSnapTests extends Specification {
         expected.cycleSnapName = "2"
         expected.endDate = "2016-11-14"
 
-        Set<CycleSnap> existingCycleSnaps = new HashSet<CycleSnap>()
+        List<CycleSnap> existingCycleSnaps = new LinkedList<>()
         existingCycleSnaps.add(cycle1)
         existingCycleSnaps.add(expected)
 
