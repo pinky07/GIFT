@@ -11,7 +11,7 @@ import java.util.*;
 public class ResponseEntityCreation {
 
     public static ResponseEntity<Object> getResponse(DashboardInputs data) throws ParseException {
-        if (data.projectIsNull())
+        if (data.projectDoesNotExist())
             return getNotFoundResponseEntity(data);
         else
             return getDashboardResponseEntity(data);
@@ -39,6 +39,7 @@ public class ResponseEntityCreation {
 
     private static String getErrorMessage(DashboardInputs data) {
         int projectId = data.getProjectId();
+
         return "Project " + projectId + " could not be found";
     }
 }

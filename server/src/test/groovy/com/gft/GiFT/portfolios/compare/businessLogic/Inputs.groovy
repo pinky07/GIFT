@@ -9,6 +9,16 @@ import com.gft.GiFT.portfolios.compare.businessLogic.inputs.IncidentsReport
 
 class Inputs {
 
+    static CompareInputs getComparisonInputsWhenPortfolioDoesNotExist(Date currentDate){
+        CompareInputs inputs = new CompareInputs()
+
+        inputs.setPortfolioId(999)
+        inputs.setPortFolio(null)
+        inputs.setCurrentDate(currentDate)
+
+        return inputs
+    }
+
     static CompareInputs getComparisonInputs(){
         CompareInputs inputs = new CompareInputs()
 

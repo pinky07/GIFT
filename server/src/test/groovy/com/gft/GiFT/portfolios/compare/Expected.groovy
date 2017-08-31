@@ -1,11 +1,23 @@
 package com.gft.GiFT.portfolios.compare
 
+import com.gft.GiFT.common.businessLogic.ErrorMessage
 import com.gft.GiFT.portfolios.compare.businessLogic.response.LastSnapDTO
 import com.gft.GiFT.portfolios.compare.businessLogic.response.PortfolioCompareDTO
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
 class Expected {
+
+    static  ResponseEntity<Object> getExpectedResponseEntityWhenPortfolioDoesNotExist(Date currentDate){
+        ResponseEntity<Object> expected
+        ErrorMessage error = new ErrorMessage(HttpStatus.NOT_FOUND,
+                "Portfolio 999 could not be found",
+                currentDate)
+        expected = new ResponseEntity<>(error, HttpStatus.NOT_FOUND)
+
+        return expected
+    }
+
     static ResponseEntity<Object> getExpectedResponseEntity() {
         ResponseEntity<Object> expected
         PortfolioCompareDTO comparison = getExpectedPortfolioComparison()

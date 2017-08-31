@@ -16,8 +16,8 @@ class getResponseTests extends Specification {
     def "Should get a 404 when the projectId does not exist" () {
         given:
         Date currentDate = new Date(117, 07, 31)
-        DashboardInputs inputs = initilizeInvalidInputs(currentDate)
-        ResponseEntity<ErrorMessage> expected = initilizeExpectedErrorResponse(currentDate)
+        DashboardInputs inputs = initializeInvalidInputs(currentDate)
+        ResponseEntity<ErrorMessage> expected = initializeExpectedErrorResponse(currentDate)
 
         when:
         def response = ResponseEntityCreation.getResponse(inputs)
@@ -26,16 +26,17 @@ class getResponseTests extends Specification {
         response == expected
     }
 
-    private ResponseEntity<ErrorMessage> initilizeExpectedErrorResponse(Date currentDate) {
+    private ResponseEntity<ErrorMessage> initializeExpectedErrorResponse(Date currentDate) {
         ErrorMessage error = new ErrorMessage(
                 HttpStatus.NOT_FOUND,
                 "Project 12345 could not be found",
                 currentDate)
+
         ResponseEntity<ErrorMessage> expected = new ResponseEntity<>(error, HttpStatus.NOT_FOUND)
         expected
     }
 
-    private DashboardInputs initilizeInvalidInputs(Date currentDate) {
+    private DashboardInputs initializeInvalidInputs(Date currentDate) {
         DashboardInputs inputs = new DashboardInputs()
         inputs.projectId = 12345
         inputs.project = null
