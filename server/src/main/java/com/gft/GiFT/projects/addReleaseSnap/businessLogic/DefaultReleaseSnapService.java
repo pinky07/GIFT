@@ -1,6 +1,7 @@
 package com.gft.GiFT.projects.addReleaseSnap.businessLogic;
 
 import com.gft.GiFT.projects.addReleaseSnap.businessLogic.inputs.ReleaseSnap;
+import com.gft.GiFT.projects.addReleaseSnap.businessLogic.inputs.ReleaseSnapValidation;
 import com.gft.GiFT.projects.addReleaseSnap.dataAccess.ReleaseSnapRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class DefaultReleaseSnapService implements ReleaseSnapService {
     @Override
     public ReleaseSnap createReleaseSnap(ReleaseSnap releaseSnap) throws ParseException {
 
+        ReleaseSnapValidation.validate(releaseSnap);
         releaseSnapRepository.save(releaseSnap);
 
         return releaseSnap;
