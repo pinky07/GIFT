@@ -12,7 +12,7 @@ exports[`CompareView when portfolio does not have projects should render compare
   <h1
     className="grommetux-heading"
   >
-    Compare Project for Portfolio: 
+    Compare Projects for Portfolio: 
     Portfolio With No Projects
   </h1>
   <h3>

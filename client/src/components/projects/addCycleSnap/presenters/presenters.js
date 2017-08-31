@@ -8,7 +8,7 @@ import wasteDaysValidations from './validations/wasteDays/validations';
 import teamCapacityValidations from './validations/teamCapacity/validations';
 import fieldsValidation from './validations/fields/validation';
 
-import addCycleSnapRequest from './addCycleSnapRequest';
+import addCycleSnapRequest from './requests/addCycleSnapRequest';
 
 const presenters = {
   getInitial(props, formCallbacks) {

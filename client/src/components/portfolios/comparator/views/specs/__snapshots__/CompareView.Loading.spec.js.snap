@@ -12,7 +12,7 @@ exports[`CompareView shows the loading view should render the loading view 1`] =
   <h1
     className="grommetux-heading"
   >
-    Compare Project for Portfolio
+    Compare Projects for Portfolio
   </h1>
   <h3>
     <svg

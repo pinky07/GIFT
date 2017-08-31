@@ -7,7 +7,7 @@ const CompareWithProjects = ({ viewModel }) => {
   const { portfolioName } = viewModel.comparison;
 
   return (<Box>
-      <Heading>Compare Project for Portfolio: {portfolioName}</Heading>
+      <Heading>Compare Projects for Portfolio: {portfolioName}</Heading>
       <CompareTable viewModel={viewModel} />
     </Box>
   );

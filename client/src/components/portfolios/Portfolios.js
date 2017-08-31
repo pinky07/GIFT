@@ -24,7 +24,7 @@ const Portfolios = () =>
                 Portfolio #11
             </td>
               <td>
-                <Anchor id="view-projects-link-1" className="no-link-color" path={"/projects/1"}>View projects</Anchor>
+                <Anchor id="view-projects-link-1" className="no-link-color" path={"/portfolios/1/comparison"}>Compare projects</Anchor>
               </td>
             </TableRow>
             <TableRow>
@@ -32,7 +32,7 @@ const Portfolios = () =>
                 Portfolio #2
             </td>
               <td>
-                <Anchor id="view-projects-link-2" className="no-link-color" path={"/projects/2"}>View projects</Anchor>
+                <Anchor id="view-projects-link-2" className="no-link-color" path={"/portfolios/2/comparison"}>Compare projects</Anchor>
               </td>
             </TableRow>
             <TableRow>
@@ -40,7 +40,7 @@ const Portfolios = () =>
                 Portfolio #3
             </td>
               <td>
-                <Anchor id="view-projects-link-3" className="no-link-color" path={"/projects/3"}>View projects</Anchor>
+                <Anchor id="view-projects-link-3" className="no-link-color" path={"/portfolios/3/comparison"}>Compare projects</Anchor>
               </td>
             </TableRow>
             <TableRow>
@@ -48,7 +48,7 @@ const Portfolios = () =>
                 Portfolio #4
             </td>
               <td>
-                <Anchor id="view-projects-link-4" className="no-link-color" path={"/projects/4"}>View projects</Anchor>
+                <Anchor id="view-projects-link-4" className="no-link-color" path={"/portfolios/4/comparison"}>Compare projects</Anchor>
               </td>
             </TableRow>
           </tbody>

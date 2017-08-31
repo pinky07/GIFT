@@ -7,7 +7,7 @@ const CompareWithNoProjects = ({viewModel}) => {
   const { portfolioName } = viewModel.comparison;
 
   return (<Box>
-    <Heading>Compare Project for Portfolio: {portfolioName}</Heading>
+    <Heading>Compare Projects for Portfolio: {portfolioName}</Heading>
     <h3>
       <Status value='unknown' />
       <span>This Portfolio has no projects.</span>
