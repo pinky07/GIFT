@@ -13,7 +13,6 @@ import java.util.Set;
 @Service
 public class DefaultCycleSnapService implements CycleSnapService {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final CycleProjectRepository projectRepository;
     private final CycleSnapRepository cycleSnapRepository;
@@ -35,11 +34,11 @@ public class DefaultCycleSnapService implements CycleSnapService {
     }
 
     @Override
-    public CycleSnap createCycleSnap(CycleSnap cycleSnap) throws ParseException {
-        Set<CycleSnap> cycleSnapSet = cycleSnapRepository.findByProjectId(cycleSnap.getProjectId());
-        CycleSnapValidation.validate(cycleSnap, cycleSnapSet);
-        cycleSnapRepository.save(cycleSnap);
+    public CycleSnap createCycleSnap(CycleSnap newCycleSnap) throws ParseException {
+        Set<CycleSnap> cycleSnapSet = cycleSnapRepository.findByProjectId(newCycleSnap.getProjectId());
+        CycleSnapValidation.validate(newCycleSnap, cycleSnapSet);
+        cycleSnapRepository.save(newCycleSnap);
 
-        return cycleSnap;
+        return newCycleSnap;
     }
 }
