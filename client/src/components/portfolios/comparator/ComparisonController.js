@@ -19,7 +19,7 @@ export default class CompareController extends React.Component {
   loadCompare() {
     const {portfolioId} = this.state
 
-    if (isNaN(portfolioId)) {
+    if (isNaN(portfolioId) || this.isInteger(portfolioId)) {
       const newViewModel = presenters.getInvalidPortfolioIdError();
       this.setState(newViewModel);
     } else {
@@ -30,6 +30,10 @@ export default class CompareController extends React.Component {
       compareService.load(axiosGet, portfolioId, onSuccess, onError)
         .then(newViewModel => this.setState(newViewModel));
     }
+  }
+
+  isInteger(portfolioId) {
+    return portfolioId % 1 != 0;
   }
 
   render() {

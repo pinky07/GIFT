@@ -6,7 +6,7 @@ import DashboardView from './views/DashboardView';
 import dashboardService from './dashboardService';
 import cycleSnapService from '../addCycleSnap/cycleSnapService';
 
-export default class Dashboard extends React.Component {
+export default class DashboardController extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,7 +32,7 @@ export default class Dashboard extends React.Component {
   loadDashboard() {
     const {projectId} = this.state
 
-    if (isNaN(projectId)) {
+    if (isNaN(projectId) || this.isInteger(projectId)) {
       const newViewModel = presenters.getInvalidProjectError();
       this.setState(newViewModel);
     }
@@ -45,6 +45,10 @@ export default class Dashboard extends React.Component {
         .load(axiosGet, projectId, onSuccess, onError)
         .then(newViewModel => this.setState(newViewModel));
     }
+  }
+
+  isInteger(projectId) {
+    return projectId % 1 != 0;
   }
 
   onRequestAddCycleSnap() {

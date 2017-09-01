@@ -23,7 +23,7 @@ export class ProjectList extends React.Component {
         <Heading>Portfolio #{this.props.params.id}: Projects list</Heading>
 
         <Table>
-          <TableHeader labels={['Name', 'Dashboard']} />
+          <TableHeader labels={['Name', 'DashboardController']} />
           <tbody>
             {this.props.projects.map((project, i) =>
               <TableRow key={project.id}>
