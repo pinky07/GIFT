@@ -13,7 +13,7 @@ const CompareTable = ({viewModel}) => {
 
   const labels = ['Project', 'TAC', 'Days Without Release', 'Incidents', 'Waste', 'Mood'];
 
-  return (<Table>
+  return (<Table responsive={false}>
       <TableHeader labels={labels}/>
       <tbody>
       {formattedComparison}

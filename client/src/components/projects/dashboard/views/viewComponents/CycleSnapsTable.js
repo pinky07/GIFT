@@ -13,7 +13,7 @@ const CycleSnapsTable = ({viewModel}) => {
 
     const labels = ['Name', 'Start Date', 'End Date', 'Achieved / Targeted Points', 'TAC', 'Current Release', 'Release Date', 'Related Incidents', 'Days Without Release', 'Team Capacity', 'Waste Days', 'Waste Percentage', 'Mood Average'];
 
-    return (<Table>
+    return (<Table responsive={false}>
               <TableHeader labels={labels} sortIndex={2} sortAscending={true} />
               <tbody>
                 {formattedCycleSnaps}
