@@ -21,7 +21,7 @@ const Portfolios = () =>
           <tbody>
             <TableRow>
               <td>
-                Portfolio #11
+                Portfolio #1 (Actual data from Phoenix)
             </td>
               <td>
                 <Anchor id="view-projects-link-1" className="no-link-color" path={"/portfolios/1/comparison"}>Compare projects</Anchor>
@@ -29,7 +29,7 @@ const Portfolios = () =>
             </TableRow>
             <TableRow>
               <td>
-                Portfolio #2
+                Portfolio #2 (Actual data from A-Team)
             </td>
               <td>
                 <Anchor id="view-projects-link-2" className="no-link-color" path={"/portfolios/2/comparison"}>Compare projects</Anchor>
@@ -37,7 +37,7 @@ const Portfolios = () =>
             </TableRow>
             <TableRow>
               <td>
-                Portfolio #3
+                Portfolio #3 (Actual data from Operating Metrics)
             </td>
               <td>
                 <Anchor id="view-projects-link-3" className="no-link-color" path={"/portfolios/3/comparison"}>Compare projects</Anchor>
@@ -45,10 +45,19 @@ const Portfolios = () =>
             </TableRow>
             <TableRow>
               <td>
-                Portfolio #4
+                Portfolio #4 (Test data for Project comparison and Dashboard)
             </td>
               <td>
                 <Anchor id="view-projects-link-4" className="no-link-color" path={"/portfolios/4/comparison"}>Compare projects</Anchor>
+              </td>
+            </TableRow>
+
+            <TableRow>
+              <td>
+                Portfolio #5 (Portfolio with no projects)
+              </td>
+              <td>
+                <Anchor id="view-projects-link-5" className="no-link-color" path={"/portfolios/5/comparison"}>Compare projects</Anchor>
               </td>
             </TableRow>
           </tbody>
