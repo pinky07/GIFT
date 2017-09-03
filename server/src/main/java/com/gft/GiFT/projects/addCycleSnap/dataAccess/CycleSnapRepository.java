@@ -5,11 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.Set;
+import java.util.List;
 
 @Repository
 @Transactional
 public interface CycleSnapRepository extends JpaRepository<CycleSnap, Integer>  {
-
-    Set<CycleSnap> findByProjectId(int projectId);
+    List<CycleSnap> findByProjectId(int projectId);
 }

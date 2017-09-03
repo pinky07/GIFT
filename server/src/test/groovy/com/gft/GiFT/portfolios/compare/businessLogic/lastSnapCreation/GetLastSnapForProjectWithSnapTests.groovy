@@ -11,10 +11,10 @@ class GetLastSnapForProjectWithSnapTests extends Specification {
         given:
         LastSnapDTO expected = Expected.getExpectedLastSnapWithSnaps()
 
-        def project  = Inputs.projectWithSnaps
-        def lastCycle = Inputs.getLatestCycleSnap()
-        def releaseDates = Inputs.getReleaseDates()
-        def firstCycleStartDate = Inputs.getFirstCycleStartDate()
+        def project  = TestInputs.projectWithSnaps
+        def lastCycle = TestInputs.getLatestCycleSnap()
+        def releaseDates = TestInputs.getReleaseDates()
+        def firstCycleStartDate = TestInputs.getFirstCycleStartDate()
         def reports = project.getIncidentsAsBusinessObjects()
 
         when:

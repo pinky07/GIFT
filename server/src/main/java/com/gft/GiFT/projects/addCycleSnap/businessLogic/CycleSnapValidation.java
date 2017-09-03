@@ -7,14 +7,20 @@ import org.joda.time.Interval;
 
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class CycleSnapValidation {
 
-    public static void validate(CycleSnap newCycleSnap, Set<CycleSnap> existingCycleSnaps) throws ParseException {
+    public static void validate(CycleSnap newCycleSnap, List<CycleSnap> existingCycleSnaps) throws ParseException {
+        if (newCycleSnap.getProjectId() <= 0) {
+            throw new IllegalArgumentException("Project Id is required");
+        }
+
         if (newCycleSnap.getStartDate().isEmpty()) {
             throw new IllegalArgumentException("Start Date is required");
         }
+
         if (newCycleSnap.getEndDate().isEmpty()) {
             throw new IllegalArgumentException("End Date is required");
         }

@@ -1,9 +1,7 @@
 import React from 'react';
-import CompareWithProjects from "./viewComponents/CompareWithProjects";
+import CompareViewSuccess from "./viewComponents/CompareViewSuccess";
 import CompareWithCriticalError from "./viewComponents/CompareWithCriticalError";
-import CompareWithNoProjects from "./viewComponents/CompareWithNoProjects";
 import LoadingCompareView from "./viewComponents/LoadingCompareView";
-
 
 const CompareView = ({viewModel}) => {
   const {errorMessage} = viewModel;
@@ -13,13 +11,7 @@ const CompareView = ({viewModel}) => {
   else {
     const {portfolioName} = viewModel.comparison;
     if (portfolioName) {
-      const {lastSnaps} = viewModel.comparison;
-      if (lastSnaps.length > 0) {
-        return (<CompareWithProjects viewModel={viewModel}/>);
-      }
-      else {
-        return (<CompareWithNoProjects viewModel={viewModel}/>);
-      }
+      return (<CompareViewSuccess viewModel={viewModel}/>);
     }
     else {
       return (<LoadingCompareView/>);

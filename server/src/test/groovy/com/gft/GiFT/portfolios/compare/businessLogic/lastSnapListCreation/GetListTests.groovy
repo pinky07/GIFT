@@ -12,7 +12,7 @@ class GetListTests extends Specification {
         List<LastSnapDTO> expected = Expected.getExpectedLastSnapList()
 
         when:
-        List<LastSnapDTO> actual = LastSnapListCreation.getList(Inputs.projects)
+        List<LastSnapDTO> actual = LastSnapListCreation.getList(TestInputs.projects)
 
         then:
         actual == expected

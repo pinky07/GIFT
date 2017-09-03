@@ -1,45 +1,52 @@
 package com.gft.GiFT.projects.addCycleSnap;
 
-import com.gft.GiFT.common.businessLogic.ErrorMessage;
-import com.gft.GiFT.projects.addCycleSnap.businessLogic.inputs.CycleSnap;
-import com.gft.GiFT.projects.addCycleSnap.businessLogic.CycleSnapService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.ResponseCreation;
+import com.gft.GiFT.projects.addCycleSnap.businessLogic.inputs.*;
+import com.gft.GiFT.projects.addCycleSnap.dataAccess.*;
+import org.slf4j.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
-import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/api/v1/projects")
 public class CycleSnapController {
+    private final CycleSnapRepository repository;
+    private final Logger logger;
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    private final CycleSnapService cycleSnapService;
-
-    public CycleSnapController(CycleSnapService cycleSnapService) {
-        this.cycleSnapService = cycleSnapService;
+    public CycleSnapController(CycleSnapRepository repository) {
+        this.repository = repository;
+        logger = LoggerFactory.getLogger(this.getClass());
     }
 
     @PostMapping("/cyclesnaps")
     public ResponseEntity<Object> addCycleSnap(@RequestBody final CycleSnap newCycleSnap) throws ParseException {
-        logger.info("addCycleSnap received: " + newCycleSnap);
+        logReceivedData(newCycleSnap);
+        ResponseEntity<Object> response = processAddCycleSnap(newCycleSnap);
+        logReturnedData(response);
 
-        ResponseEntity<Object> response;
-        try {
-            CycleSnap cycleSnapCreated = cycleSnapService.createCycleSnap(newCycleSnap);
-            response = new ResponseEntity<>(cycleSnapCreated, HttpStatus.CREATED);
-        } catch (IllegalArgumentException exception) {
-            Date currentDate = new Date();
-            String errorMessage = exception.getMessage();
-            response = new ResponseEntity<>(new ErrorMessage(HttpStatus.BAD_REQUEST, errorMessage, currentDate), HttpStatus.BAD_REQUEST);
-        }
-
-        logger.info("addCycleSnap returned: {}", response);
         return response;
     }
 
+    private ResponseEntity<Object> processAddCycleSnap(CycleSnap newCycleSnap) throws ParseException {
+        AbstractInputs inputs = initializeInputs(newCycleSnap);
+        return ResponseCreation.getResponse(inputs);
+    }
+
+    private AbstractInputs initializeInputs(CycleSnap newCycleSnap) {
+        // Initialize external dependencies of the algorithm
+        AbstractInputs inputs = new PersistentInputs(repository);
+        // Initialize user inputs for the algorithm
+        inputs.newCycleSnap = newCycleSnap;
+
+        return inputs;
+    }
+
+    private void logReceivedData(CycleSnap newCycleSnap) {
+        logger.info("addCycleSnap received: " + newCycleSnap);
+    }
+    private void logReturnedData(ResponseEntity<Object> response) {
+        logger.info("addCycleSnap returned: {}", response);
+    }
 }

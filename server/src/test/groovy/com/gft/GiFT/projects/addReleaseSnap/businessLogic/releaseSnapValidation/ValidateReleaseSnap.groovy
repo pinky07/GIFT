@@ -1,4 +1,4 @@
-package com.gft.GiFT.projects.addReleaseSnap.releaseSnapController.releaseSnapValidation
+package com.gft.GiFT.projects.addReleaseSnap.businessLogic.releaseSnapValidation
 
 import com.gft.GiFT.projects.addReleaseSnap.businessLogic.inputs.ReleaseSnap
 import com.gft.GiFT.projects.addReleaseSnap.businessLogic.inputs.ReleaseSnapValidation

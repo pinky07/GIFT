@@ -5,7 +5,7 @@ export const constants = {
 
   // Where will e2e tests run?
   Website: 'http://criprj:11010/#', // targeting the testing environment
-  // Website: 'http://localhost:4090/#'; // from my PC using my dev website
+  // Website: 'http://localhost:4090/#', // from my PC using my dev website
 
   determineApiURL(window) {
     const location = window.location;

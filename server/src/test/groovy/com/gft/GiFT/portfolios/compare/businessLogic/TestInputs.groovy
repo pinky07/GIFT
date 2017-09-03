@@ -7,7 +7,7 @@ import com.gft.GiFT.portfolios.compare.businessLogic.inputs.Project
 import com.gft.GiFT.portfolios.compare.businessLogic.inputs.ReleaseSnap
 import com.gft.GiFT.portfolios.compare.businessLogic.inputs.IncidentsReport
 
-class Inputs {
+class TestInputs {
 
     static CompareInputs getComparisonInputsWhenPortfolioDoesNotExist(Date currentDate){
         CompareInputs inputs = new CompareInputs()

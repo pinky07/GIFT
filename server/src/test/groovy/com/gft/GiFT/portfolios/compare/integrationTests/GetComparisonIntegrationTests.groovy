@@ -18,10 +18,10 @@ class GetComparisonIntegrationTests extends AbstractIntegrationSpecification {
         ResponseEntity<Object> expected = Expected.getExpectedResponseEntity()
 
         when:
-        ResponseEntity<Object> response = getForEntity("${baseUrl}/portfolios/12345/comparison", PortfolioCompareDTO.class)
+        ResponseEntity<Object> actual = getForEntity("${baseUrl}/portfolios/12345/comparison", PortfolioCompareDTO.class)
 
         then:
-        response.statusCode == expected.statusCode
-        response.body == expected.body
+        actual.statusCode == expected.statusCode
+        actual.body == expected.body
     }
 }

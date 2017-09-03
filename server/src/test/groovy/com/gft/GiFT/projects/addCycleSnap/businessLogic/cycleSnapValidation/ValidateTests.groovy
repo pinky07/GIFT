@@ -1,52 +1,17 @@
-package com.gft.GiFT.projects.addCycleSnap.cycleSnapValidation
+package com.gft.GiFT.projects.addCycleSnap.businessLogic.cycleSnapValidation
 
+import com.gft.GiFT.projects.addCycleSnap.TestInputs
 import com.gft.GiFT.projects.addCycleSnap.businessLogic.inputs.CycleSnap
 import com.gft.GiFT.projects.addCycleSnap.businessLogic.CycleSnapValidation
 import spock.lang.Specification
 
 class ValidateTests extends Specification {
-
     CycleSnap newCycle
-    Set<CycleSnap> existingCycleSnaps
+    List<CycleSnap> existingCycleSnaps
 
     def setup() {
-        newCycle = createValidCycle()
-        existingCycleSnaps = createExistingCycles()
-    }
-
-    def createValidCycle() {
-        CycleSnap newCycle = new CycleSnap()
-        newCycle.cycleSnapName = "1"
-        newCycle.startDate = "2016-11-15"
-        newCycle.endDate = "2016-11-21"
-        newCycle.targetedPoints = 8
-        newCycle.achievedPoints = 8
-        newCycle.moodAverage = 3
-        newCycle.isMoodAvailable = true
-        newCycle.isWasteAvailable = true
-        newCycle.wasteDays = 5.00
-        newCycle.teamCapacity = 100.00
-
-
-        return newCycle
-    }
-
-    def createExistingCycles() {
-        CycleSnap cycle1 = new CycleSnap()
-        cycle1.cycleSnapName = "1"
-        cycle1.startDate = "2016-10-03"
-        cycle1.endDate = "2016-10-24"
-
-        CycleSnap cycle2 = new CycleSnap()
-        cycle2.cycleSnapName = "2"
-        cycle2.startDate = "2016-10-26"
-        cycle2.endDate = "2016-11-14"
-
-        Set<CycleSnap> existingCycleSnaps = new HashSet<CycleSnap>()
-        existingCycleSnaps.add(cycle1)
-        existingCycleSnaps.add(cycle2)
-
-        return existingCycleSnaps
+        newCycle = TestInputs.getValidCycleSnap()
+        existingCycleSnaps = TestInputs.getExistingCycles()
     }
 
     def "All fields are valid"() {
@@ -57,8 +22,30 @@ class ValidateTests extends Specification {
         notThrown IllegalArgumentException
     }
 
+    def "ProjectId is required"() {
+        given:
+        newCycle.projectId = 0
+
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        thrown IllegalArgumentException
+    }
+
+    def "ProjectId should be greater than zero"() {
+        given:
+        newCycle.projectId = -1
+
+        when:
+        CycleSnapValidation.validate(newCycle, existingCycleSnaps)
+
+        then:
+        thrown IllegalArgumentException
+    }
+
     def "Cycle name is required"() {
-        setup:
+        given:
         newCycle.cycleSnapName = ""
 
         when:
@@ -69,7 +56,7 @@ class ValidateTests extends Specification {
     }
 
     def "Cycle name can be any text"() {
-        setup:
+        given:
         newCycle.cycleSnapName = "Drop 1"
 
         when:
@@ -80,7 +67,7 @@ class ValidateTests extends Specification {
     }
 
     def "Cycle name has a max of 200 characters"() {
-        setup:
+        given:
         newCycle.cycleSnapName = "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901"
 
         when:
@@ -91,7 +78,7 @@ class ValidateTests extends Specification {
     }
 
     def "Start Date is required"() {
-        setup:
+        given:
         newCycle.startDate = ""
 
         when:
@@ -102,7 +89,7 @@ class ValidateTests extends Specification {
     }
 
     def "End Date is required"() {
-        setup:
+        given:
         newCycle.endDate = ""
 
         when:
@@ -224,7 +211,6 @@ class ValidateTests extends Specification {
         then:
         thrown IllegalArgumentException
     }
-
 
     def "Two Decimals for Mood points are valid for Mood column"() {
         given:
