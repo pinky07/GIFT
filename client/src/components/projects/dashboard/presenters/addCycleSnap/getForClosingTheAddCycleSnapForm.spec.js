@@ -4,7 +4,7 @@ describe('View model when closing the Add Cycle Snap Form', () => {
 
   let viewModel
   beforeEach(() => {
-    viewModel = presenters.getForClosingTheAddCycleSnapForm();
+    viewModel = presenters.getForClosingForms();
   })
 
   it('should show no error message', () => {

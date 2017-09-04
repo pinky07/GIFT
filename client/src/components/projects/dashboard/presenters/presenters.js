@@ -9,9 +9,9 @@ const viewModels = {
                 cycleSnaps: []
             },
             dashboardCallbacks: dashboardCallbacks,
-
             errorMessage: '',
             addCycleSnap: false,
+            addReleaseSnap: false,
             successNotificationOnAdd: undefined,
             failureNotificationOnAdd: undefined
         }
@@ -21,6 +21,7 @@ const viewModels = {
         return {
             errorMessage: "We are sorry, but your asked with an invalid project id.",
             addCycleSnap: false,
+            addReleaseSnap: false,
             successNotificationOnAdd: undefined,
             failureNotificationOnAdd: undefined
         };
@@ -30,27 +31,50 @@ const viewModels = {
         return {
             errorMessage: '',
             addCycleSnap: true,
+            addReleaseSnap: false,
             successNotificationOnAdd: undefined,
             failureNotificationOnAdd: undefined
         }
     },
 
-    getForClosingTheAddCycleSnapForm() {
-        return {
-            errorMessage: '',
-            addCycleSnap: false,
-            successNotificationOnAdd: undefined,
-            failureNotificationOnAdd: undefined
-        }
+    getShowAddReleaseSnapForm() {
+      return {
+        errorMessage: '',
+        addCycleSnap: false,
+        addReleaseSnap: true,
+        successNotificationOnAdd: undefined,
+        failureNotificationOnAdd: undefined
+      }
+    },
+
+    getForClosingForms() {
+      return {
+        errorMessage: '',
+        addReleaseSnap: false,
+        addCycleSnap: false,
+        successNotificationOnAdd: undefined,
+        failureNotificationOnAdd: undefined
+      }
     },
 
     getSuccessOnAddingACycleSnap() {
         return {
             errorMessage: '',
+            addReleaseSnap: false,
             addCycleSnap: false,
             successNotificationOnAdd: 'Success! You just added a new cycle snap.',
             failureNotificationOnAdd: undefined
         }
+    },
+
+    getSuccessOnAddingAReleaseSnap() {
+      return {
+        errorMessage: '',
+        addReleaseSnap: false,
+        addCycleSnap: false,
+        successNotificationOnAdd: 'Success! You just added a new release snap.',
+        failureNotificationOnAdd: undefined
+      }
     },
 
     getOnErrorAddingACycleSnap(error) {
@@ -60,6 +84,7 @@ const viewModels = {
                 errorMessage: '',
                 successNotificationOnAdd: undefined,
                 failureNotificationOnAdd: 'Sorry, there was a validation error: ' + error.response.data.message + '.',
+                addReleaseSnap: false,
                 addCycleSnap: false
             }
         }
@@ -69,9 +94,33 @@ const viewModels = {
                 errorMessage: `Oops! We got a bit of an issue: ${error.message}.`,
                 successNotificationOnAdd: undefined,
                 failureNotificationOnAdd: undefined,
+                addReleaseSnap: false,
                 addCycleSnap: false
             }
         }
+    },
+
+    getOnErrorAddingAReleaseSnap(error) {
+      if (error.response) {
+        // There was a validation error.
+        return {
+          errorMessage: '',
+          successNotificationOnAdd: undefined,
+          failureNotificationOnAdd: 'Sorry, there was a validation error: ' + error.response.data.message + '.',
+          addReleaseSnap: false,
+          addCycleSnap: false
+        }
+      }
+      else {
+        // There was a critical error.
+        return {
+          errorMessage: `Oops! We got a bit of an issue: ${error.message}.`,
+          successNotificationOnAdd: undefined,
+          failureNotificationOnAdd: undefined,
+          addReleaseSnap: false,
+          addCycleSnap: false
+        }
+      }
     },
 
     getOnSuccessLoadingDashboard(response) {
@@ -95,6 +144,7 @@ const viewModels = {
                 errorMessage: 'Please check: ' + error.response.data.message + '.',
                 successNotificationOnAdd: undefined,
                 failureNotificationOnAdd: undefined,
+                addReleaseSnap: false,
                 addCycleSnap: false
             };
         }
@@ -105,6 +155,7 @@ const viewModels = {
                 errorMessage: 'Oops! We got a bit of an issue: ' + error.message + '.',
                 successNotificationOnAdd: undefined,
                 failureNotificationOnAdd: undefined,
+                addReleaseSnap: false,
                 addCycleSnap: false
             };
         }

@@ -19,7 +19,7 @@ describe('DashboardView when project does not have cycle snaps', () => {
             dashboardCallbacks: {
                 onRequestAddCycleSnap: onRequestAddCycleSnap,
                 onAddCycleSnapSubmit: onAddCycleSnapSubmit,
-                onAddCycleSnapCancel: onAddCycleSnapCancel
+                onClose: onAddCycleSnapCancel
             },
 
             errorMessage: '',

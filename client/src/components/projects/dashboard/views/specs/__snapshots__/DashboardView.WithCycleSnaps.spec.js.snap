@@ -23,25 +23,53 @@ exports[`DashboardView when project has one or more cycle snaps should render da
     style={Object {}}
     tabIndex={undefined}
   >
-    <button
-      aria-label={undefined}
-      className="grommetux-button grommetux-button--primary"
-      disabled={false}
-      href={undefined}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onSubmit={[Function]}
-      type="button"
+    <div
+      className="grommetux-box grommetux-box--direction-row grommetux-box--responsive grommetux-box--pad-between-medium"
+      id={undefined}
+      onClick={undefined}
+      role={undefined}
+      style={Object {}}
+      tabIndex={undefined}
     >
-      <span
-        className="grommetux-button__label"
+      <button
+        aria-label={undefined}
+        className="grommetux-button grommetux-button--primary"
+        disabled={false}
+        href={undefined}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onSubmit={[Function]}
+        type="button"
       >
-        Add Cycle Snap
-      </span>
-    </button>
+        <span
+          className="grommetux-button__label"
+        >
+          Add Cycle Snap
+        </span>
+      </button>
+      <button
+        aria-label={undefined}
+        className="grommetux-button grommetux-button--primary grommetux-button--disabled"
+        disabled={true}
+        href={undefined}
+        onBlur={[Function]}
+        onClick={undefined}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onSubmit={undefined}
+        type="button"
+      >
+        <span
+          className="grommetux-button__label"
+        >
+          Add Release Snap
+        </span>
+      </button>
+    </div>
   </footer>
   <div
     className="grommetux-table"

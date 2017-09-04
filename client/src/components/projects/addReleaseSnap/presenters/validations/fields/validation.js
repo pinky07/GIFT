@@ -6,16 +6,16 @@ const validation = {
     let errors = {};
 
     const {releaseName} = state;
-    errors.name = nameValidations.validate(releaseName);
+    errors.releaseName = nameValidations.validate(releaseName);
 
-    const {date} = state;
-    errors.date = newDate.validate(date);
+    const {releaseDate} = state;
+    errors.releaseDate = newDate.validate(releaseDate);
 
     return errors;
   },
 
   hasErrors(errors) {
-    if (errors.name || errors.date) {
+    if (errors.releaseName || errors.releaseDate) {
       return true;
     }
     else

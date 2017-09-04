@@ -5,21 +5,28 @@ import presenters from "./presenters/presenters";
 import DashboardView from './views/DashboardView';
 import dashboardService from './dashboardService';
 import cycleSnapService from '../addCycleSnap/cycleSnapService';
+import releaseSnapService from '../addReleaseSnap/releaseSnapService';
 
 export default class DashboardController extends React.Component {
   constructor(props) {
     super(props);
 
     this.onRequestAddCycleSnap = this.onRequestAddCycleSnap.bind(this);
-    this.onAddCycleSnapCancel = this.onAddCycleSnapCancel.bind(this);
     this.onAddCycleSnapSubmit = this.onAddCycleSnapSubmit.bind(this);
     this.loadDashboard = this.loadDashboard.bind(this);
     this.onSuccessAddingCycleSnap = this.onSuccessAddingCycleSnap.bind(this);
+    this.onRequestAddReleaseSnap = this.onRequestAddReleaseSnap.bind(this);
+    this.onSuccessAddingReleaseSnap = this.onSuccessAddingReleaseSnap.bind(this);
+    this.onFormCancel = this.onFormCancel.bind(this);
+    this.onAddReleaseSnapSubmit = this.onAddReleaseSnapSubmit.bind(this);
 
     const dashboardCallbacks = {
       onRequestAddCycleSnap: this.onRequestAddCycleSnap,
       onAddCycleSnapSubmit: this.onAddCycleSnapSubmit,
-      onAddCycleSnapCancel: this.onAddCycleSnapCancel
+      onRequestAddReleaseSnap: this.onRequestAddReleaseSnap,
+      onSuccessAddingReleaseSnap: this.onSuccessAddingReleaseSnap,
+      onAddReleaseSnapSubmit: this.onAddReleaseSnapSubmit,
+      onClose: this.onFormCancel
     }
 
     this.state = presenters.getInitial(props, dashboardCallbacks);
@@ -56,8 +63,13 @@ export default class DashboardController extends React.Component {
     this.setState(newViewModel);
   }
 
-  onAddCycleSnapCancel() {
-    const newViewModel = presenters.getForClosingTheAddCycleSnapForm();
+  onRequestAddReleaseSnap() {
+    const newViewModel = presenters.getShowAddReleaseSnapForm();
+    this.setState(newViewModel);
+  }
+
+  onFormCancel() {
+    const newViewModel = presenters.getForClosingForms();
     this.setState(newViewModel);
   }
 
@@ -69,10 +81,25 @@ export default class DashboardController extends React.Component {
     cycleSnapService.add(newCycleSnap, post, onSuccess, onError).then(newViewModel => this.setState(newViewModel));
   }
 
+  onAddReleaseSnapSubmit(newReleaseSnap) {
+    const onSuccess = this.onSuccessAddingReleaseSnap;
+    const onError = presenters.getOnErrorAddingAReleaseSnap;
+    const post = axios.post;
+
+    releaseSnapService.add(newReleaseSnap, post, onSuccess, onError).then(newViewModel => this.setState(newViewModel));
+  }
+
+
   onSuccessAddingCycleSnap(response) {
     this.loadDashboard();
 
     return presenters.getSuccessOnAddingACycleSnap();
+  }
+
+  onSuccessAddingReleaseSnap(response) {
+    this.loadDashboard();
+
+    return presenters.getSuccessOnAddingAReleaseSnap();
   }
 
   render() {

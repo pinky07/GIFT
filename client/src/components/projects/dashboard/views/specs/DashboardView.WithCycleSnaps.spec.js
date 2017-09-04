@@ -36,7 +36,7 @@ describe('DashboardView when project has one or more cycle snaps', () => {
     return {
       onRequestAddCycleSnap: onRequestAddCycleSnap,
       onAddCycleSnapSubmit: onAddCycleSnapSubmit,
-      onAddCycleSnapCancel: onAddCycleSnapCancel
+      onClose: onAddCycleSnapCancel
     }
   }
 

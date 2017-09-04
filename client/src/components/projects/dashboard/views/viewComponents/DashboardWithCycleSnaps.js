@@ -5,26 +5,36 @@ import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
 import CycleSnapsTable from './CycleSnapsTable'
 
-const DashboardWithCycleSnaps = ({ viewModel, elements }) => {
-  const { dashboardCallbacks } = viewModel;
-  const { name } = viewModel.project;
+const DashboardWithCycleSnaps = ({viewModel, elements}) => {
+  const {dashboardCallbacks} = viewModel;
+  const {name} = viewModel.project;
 
   return (<Box>
-    <Heading>Dashboard: {name}</Heading>
-    <Footer>
-      <Button
-        label='Add Cycle Snap'
-        onClick={dashboardCallbacks.onRequestAddCycleSnap}
-        onSubmit={dashboardCallbacks.onAddCycleSnapSubmit}
-        primary={true} />
-    </Footer>
+      <Heading>Dashboard: {name}</Heading>
+      <Footer>
+        <Box direction='row'
+             pad={{"between": "medium"}}>
+          <Button
+            label='Add Cycle Snap'
+            onClick={dashboardCallbacks.onRequestAddCycleSnap}
+            onSubmit={dashboardCallbacks.onAddCycleSnapSubmit}
+            primary={true}/>
 
-    <CycleSnapsTable viewModel={viewModel} />
+          <Button
+            label='Add Release Snap'
+            onClick={dashboardCallbacks.onRequestAddReleaseSnap}
+            onSubmit={dashboardCallbacks.onAddReleaseSnapSubmit}
+            primary={true}/>
+        </Box>
+      </Footer>
 
-    {elements.addCycleSnapLayer}
-    {elements.successNotification}
-    {elements.failureNotification}
-  </Box>
+      <CycleSnapsTable viewModel={viewModel}/>
+
+      {elements.addCycleSnapLayer}
+      {elements.addReleaseSnapLayer}
+      {elements.successNotification}
+      {elements.failureNotification}
+    </Box>
   );
 }
 export default DashboardWithCycleSnaps;
