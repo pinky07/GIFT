@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('se.transmode.gradle:gradle-docker:1.2')
+        classpath('com.palantir:jacoco-coverage:0.4.0')
     }
 }
 
@@ -23,6 +24,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'groovy'
+apply plugin: 'com.palantir.jacoco-full-report'  // Automatically applies the 'jacoco' plugin to this project.
 
 group = 'com.gft'
 version = '0.0.1-SNAPSHOT'
