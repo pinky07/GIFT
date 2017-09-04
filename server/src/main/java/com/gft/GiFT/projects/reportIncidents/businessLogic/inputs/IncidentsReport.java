@@ -1,6 +1,6 @@
 package com.gft.GiFT.projects.reportIncidents.businessLogic.inputs;
 
-import com.gft.GiFT.projects.dashboard.businessLogic.businessRules.IncidentReportBO;
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,7 +22,5 @@ public class IncidentsReport {
 
     private int projectId;
 
-    IncidentReportBO getAsBusinessObject(){
-        return new IncidentReportBO(incidentsDate, totalIncidents);
-    }
+
 }
