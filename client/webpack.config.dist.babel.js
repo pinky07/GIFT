@@ -3,7 +3,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
-  devtool: "#cheap-module-source-map",
+  devtool: "#source-map",
   entry: [
     path.resolve(__dirname, 'src/index')
   ],
