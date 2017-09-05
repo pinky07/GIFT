@@ -1,6 +1,9 @@
 package com.gft.GiFT.projects.addReleaseSnap.businessLogic.inputs;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ReleaseSnapValidation {
     public static void validate(ReleaseSnap releaseSnap) {
@@ -24,4 +27,10 @@ public class ReleaseSnapValidation {
         }
 
     }
+    public  static boolean isValidDate(ReleaseSnap releaseSnap)  {
+        DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd");
+        df2.format(releaseSnap.getReleaseDate());
+        return true;
+    }
+
 }

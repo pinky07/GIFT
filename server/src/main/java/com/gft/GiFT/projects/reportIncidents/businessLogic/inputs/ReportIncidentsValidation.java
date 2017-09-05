@@ -25,6 +25,17 @@ public class ReportIncidentsValidation {
         if (String.valueOf(incidentsReport.getTotalIncidents()).isEmpty()) {
             throw new IllegalArgumentException(" Total incidents is required ");
         }
+
+        String rationale = incidentsReport.getRationale();
+        if (rationale == null ||rationale.isEmpty()) {
+            throw new IllegalArgumentException("Rationale is required");
+        }
+        if (rationale.trim().isEmpty()) {
+            throw new IllegalArgumentException("A rationale with whitespaces is not valid");
+        }
+        if (rationale.length() > 1000) {
+            throw new IllegalArgumentException("Rationale has a max length of 1000 characters");
+        }
     }
 
     public static boolean isValidDate(IncidentsReport incidentsReport) {

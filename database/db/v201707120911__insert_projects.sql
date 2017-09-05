@@ -142,26 +142,26 @@ INSERT INTO t_release_snap(release_date,name, project_id )
 VALUES ('2017-04-02','Third Update', 7);
 
 --Test Data for t_incidents_report
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-06-13', 1, 6);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-06-13', 1, 6,"The release caused issues");
 
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-02-07', 2, 7);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-02-07', 2, 7,"The release caused issues");
 
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-02-09', 3, 7);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-02-09', 3, 7,"The release caused issues");
 
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-02-21', 1, 7);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-02-21', 1, 7,"The release caused issues");
 
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-03-02', 4, 7);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-03-02', 4, 7,"The release caused issues");
 
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-03-02', 1, 7);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-03-02', 1, 7,"The release caused issues");
 
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-03-14', 1, 7);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-03-14', 1, 7,"The release caused issues");
 
-INSERT INTO t_incidents_report(report_date, total_incidents, project_id)
-VALUES ('2017-03-16', 1, 7);
+INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
+VALUES ('2017-03-16', 1, 7,"The release caused issues");

@@ -20,6 +20,9 @@ public class IncidentsReport {
     @Column(name = "total_incidents", columnDefinition = "INT", nullable = false)
     private int totalIncidents;
 
+    @Column(name = "rationale_issues",  nullable = false,length = 60)
+    private String rationale;
+
     private int projectId;
 
 

@@ -9,12 +9,9 @@ import java.text.ParseException;
 
 @Service
 public class DefaultReleaseSnapService implements ReleaseSnapService {
-
-
     private final ReleaseSnapRepository releaseSnapRepository;
 
     public DefaultReleaseSnapService(ReleaseSnapRepository releaseSnapRepository) {
-
         this.releaseSnapRepository = releaseSnapRepository;
     }
 
