@@ -27,7 +27,7 @@ class reportIncidentsIntegrationTests extends AbstractIntegrationSpecification{
                 projectId: 1,
                 incidentsDate: "2017-08-31",
                 totalIncidents: 3,
-                rationale  :"The release caused issues"
+                rationale  :'The release caused issues'
 
         )
     }

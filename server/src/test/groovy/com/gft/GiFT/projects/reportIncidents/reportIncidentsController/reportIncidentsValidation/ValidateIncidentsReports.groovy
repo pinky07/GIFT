@@ -15,7 +15,7 @@ class ValidateIncidentsReports  extends Specification {
         newIncidentsReport.projectId = 1
         newIncidentsReport.incidentsDate= "2017-08-31"
         newIncidentsReport.totalIncidents= 3
-        newIncidentsReport.rationale= "The release caused issues"
+        newIncidentsReport.rationale= 'The release caused issues'
 
         return newIncidentsReport
     }

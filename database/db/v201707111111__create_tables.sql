@@ -43,7 +43,7 @@ CREATE TABLE t_incidents_report (
   report_date     DATE NOT NULL,
   total_incidents INT  NOT NULL,
   project_id      INT  NOT NULL,
-  rationale_issues varchar(60) NOT NULL,
+  rationale_issues varchar(2000) NOT NULL,
   PRIMARY KEY (report_id),
   CONSTRAINT fk_project_id_report FOREIGN KEY (project_id) REFERENCES t_project (project_id)
 );

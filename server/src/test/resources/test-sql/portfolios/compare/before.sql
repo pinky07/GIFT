@@ -35,24 +35,24 @@ VALUES ('2017-04-02','Fourth Update', 12345);
 
 --Test Data for t_incidents_report
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
-VALUES ('2017-02-07', 2, 12345,"The release caused issues");
+VALUES ('2017-02-07', 2, 12345,'The release caused issues');
 
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
-VALUES ('2017-02-09', 3, 12345,"The release caused issues");
+VALUES ('2017-02-09', 3, 12345,'The release caused issues');
 
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
-VALUES ('2017-02-21', 1, 12345,"The release caused issues");
+VALUES ('2017-02-21', 1, 12345,'The release caused issues');
 
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
-VALUES ('2017-03-02', 4, 12345,"The release caused issues");
+VALUES ('2017-03-02', 4, 12345,'The release caused issues');
 
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
-VALUES ('2017-03-02', 1, 12345,"The release caused issues");
+VALUES ('2017-03-02', 1, 12345,'The release caused issues');
 
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
-VALUES ('2017-03-14', 1, 12345,"The release caused issues");
+VALUES ('2017-03-14', 1, 12345,'The release caused issues');
 
 INSERT INTO t_incidents_report(report_date, total_incidents, project_id,rationale_issues)
-VALUES ('2017-03-16', 1, 12345,"The release caused issues");
+VALUES ('2017-03-16', 1, 12345,'The release caused issues');
 
 COMMIT;
